@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
+import { ChannelsShowcase } from '@/components/channels/ChannelsShowcase';
 
 export default function HomePage({ params: { locale } }: { params: { locale: string } }) {
   setRequestLocale(locale);
@@ -137,6 +138,11 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
             Ask Questions →
           </span>
         </Link>
+      </section>
+
+      {/* Bharat-First Channels Section (PWA Share Target + Telegram + WhatsApp Roadmap) */}
+      <section className="pt-4">
+        <ChannelsShowcase locale={locale as any} />
       </section>
     </div>
   );

@@ -1,32 +1,32 @@
 {
-  "timestamp": "2026-10-02T18:58:30.565Z",
-  "datasetSource": "data/adversarial_cases.json",
-  "totalCases": 12,
+  "timestamp": "2026-10-02T19:37:28.628Z",
+  "datasetSource": "data/eval_cases.json",
+  "totalCases": 30,
   "overallArchAcc": "100.0%",
   "overallRecall": "100.0%",
   "overallFalseAlarm": "0.0%",
   "perLangStats": {
     "en": {
-      "total": 4,
-      "archetypeCorrect": 4,
-      "scamCases": 3,
-      "scamDetected": 3,
+      "total": 10,
+      "archetypeCorrect": 10,
+      "scamCases": 9,
+      "scamDetected": 9,
       "benignCases": 1,
       "benignFalseAlarms": 0
     },
     "hi": {
-      "total": 4,
-      "archetypeCorrect": 4,
-      "scamCases": 3,
-      "scamDetected": 3,
+      "total": 10,
+      "archetypeCorrect": 10,
+      "scamCases": 9,
+      "scamDetected": 9,
       "benignCases": 1,
       "benignFalseAlarms": 0
     },
     "ta": {
-      "total": 4,
-      "archetypeCorrect": 4,
-      "scamCases": 3,
-      "scamDetected": 3,
+      "total": 10,
+      "archetypeCorrect": 10,
+      "scamCases": 9,
+      "scamDetected": 9,
       "benignCases": 1,
       "benignFalseAlarms": 0
     }
@@ -37,36 +37,36 @@
       "correct": 3
     },
     "COPY_TRADING": {
-      "total": 2,
-      "correct": 2
+      "total": 3,
+      "correct": 3
     },
     "COURSE_FINFLUENCER": {
-      "total": 0,
-      "correct": 0
+      "total": 3,
+      "correct": 3
     },
     "CRYPTO_STAKING_MINING": {
-      "total": 0,
-      "correct": 0
+      "total": 3,
+      "correct": 3
     },
     "FAKE_TRADING_APP_OR_PORTAL": {
-      "total": 0,
-      "correct": 0
+      "total": 3,
+      "correct": 3
     },
     "FAKE_ADVISORY_OR_REG_CLAIM": {
-      "total": 0,
-      "correct": 0
+      "total": 3,
+      "correct": 3
     },
     "PUMP_AND_DUMP_GROUP": {
-      "total": 0,
-      "correct": 0
+      "total": 3,
+      "correct": 3
     },
     "REMOTE_ACCESS_SCAM": {
       "total": 3,
       "correct": 3
     },
     "FAKE_IPO_OR_ALLOTMENT": {
-      "total": 1,
-      "correct": 1
+      "total": 3,
+      "correct": 3
     },
     "OTHER_OR_NONE": {
       "total": 3,
@@ -75,7 +75,7 @@
   },
   "results": [
     {
-      "id": "adv-en-001",
+      "id": "case-en-001",
       "language": "en",
       "expectedArchetype": "DOUBLING_SCHEME",
       "actualArchetype": "DOUBLING_SCHEME",
@@ -83,7 +83,63 @@
       "expectedBand": "HIGH",
       "actualBand": "HIGH",
       "riskMatch": true,
+      "extractedClaimsCount": 3,
+      "triggeredRules": [
+        "GUARANTEED_RETURN",
+        "RETURN_TOO_HIGH",
+        "URGENCY_LIMITED_SLOTS",
+        "VIP_GROUP_OR_PRIVATE_CHANNEL"
+      ],
+      "triggeredSignals": [],
+      "decisionEngine": "rules-only"
+    },
+    {
+      "id": "case-en-002",
+      "language": "en",
+      "expectedArchetype": "COPY_TRADING",
+      "actualArchetype": "COPY_TRADING",
+      "archetypeMatch": true,
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "riskMatch": true,
+      "extractedClaimsCount": 3,
+      "triggeredRules": [
+        "ASKS_OTP_OR_APP_INSTALL",
+        "PAY_TO_PERSONAL_ACCOUNT_OR_UPI"
+      ],
+      "triggeredSignals": [
+        "sig-alert-alert-sebi-2024-01"
+      ],
+      "decisionEngine": "rules-only"
+    },
+    {
+      "id": "case-en-003",
+      "language": "en",
+      "expectedArchetype": "COURSE_FINFLUENCER",
+      "actualArchetype": "COURSE_FINFLUENCER",
+      "archetypeMatch": true,
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "riskMatch": true,
       "extractedClaimsCount": 2,
+      "triggeredRules": [
+        "RETURN_TOO_HIGH",
+        "VIP_GROUP_OR_PRIVATE_CHANNEL",
+        "COURSE_OR_MENTORSHIP_UPSELL"
+      ],
+      "triggeredSignals": [],
+      "decisionEngine": "rules-only"
+    },
+    {
+      "id": "case-en-004",
+      "language": "en",
+      "expectedArchetype": "CRYPTO_STAKING_MINING",
+      "actualArchetype": "CRYPTO_STAKING_MINING",
+      "archetypeMatch": true,
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "riskMatch": true,
+      "extractedClaimsCount": 1,
       "triggeredRules": [
         "GUARANTEED_RETURN",
         "RETURN_TOO_HIGH"
@@ -92,7 +148,57 @@
       "decisionEngine": "rules-only"
     },
     {
-      "id": "adv-en-002",
+      "id": "case-en-005",
+      "language": "en",
+      "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+      "actualArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+      "archetypeMatch": true,
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "riskMatch": true,
+      "extractedClaimsCount": 1,
+      "triggeredRules": [
+        "ASKS_OTP_OR_APP_INSTALL"
+      ],
+      "triggeredSignals": [],
+      "decisionEngine": "rules-only"
+    },
+    {
+      "id": "case-en-006",
+      "language": "en",
+      "expectedArchetype": "FAKE_ADVISORY_OR_REG_CLAIM",
+      "actualArchetype": "FAKE_ADVISORY_OR_REG_CLAIM",
+      "archetypeMatch": true,
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "riskMatch": true,
+      "extractedClaimsCount": 1,
+      "triggeredRules": [
+        "GUARANTEED_RETURN",
+        "RETURN_TOO_HIGH",
+        "UNVERIFIABLE_REGISTRATION_CLAIM"
+      ],
+      "triggeredSignals": [],
+      "decisionEngine": "rules-only"
+    },
+    {
+      "id": "case-en-007",
+      "language": "en",
+      "expectedArchetype": "PUMP_AND_DUMP_GROUP",
+      "actualArchetype": "PUMP_AND_DUMP_GROUP",
+      "archetypeMatch": true,
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "riskMatch": true,
+      "extractedClaimsCount": 1,
+      "triggeredRules": [
+        "RETURN_TOO_HIGH"
+      ],
+      "triggeredSignals": [],
+      "decisionEngine": "rules-only"
+    },
+    {
+      "id": "case-en-008",
       "language": "en",
       "expectedArchetype": "REMOTE_ACCESS_SCAM",
       "actualArchetype": "REMOTE_ACCESS_SCAM",
@@ -110,7 +216,7 @@
       "decisionEngine": "rules-only"
     },
     {
-      "id": "adv-en-003",
+      "id": "case-en-009",
       "language": "en",
       "expectedArchetype": "FAKE_IPO_OR_ALLOTMENT",
       "actualArchetype": "FAKE_IPO_OR_ALLOTMENT",
@@ -118,15 +224,17 @@
       "expectedBand": "HIGH",
       "actualBand": "HIGH",
       "riskMatch": true,
-      "extractedClaimsCount": 2,
+      "extractedClaimsCount": 1,
       "triggeredRules": [
         "GUARANTEED_RETURN"
       ],
-      "triggeredSignals": [],
+      "triggeredSignals": [
+        "sig-alert-alert-sebi-2024-02"
+      ],
       "decisionEngine": "rules-only"
     },
     {
-      "id": "adv-en-004",
+      "id": "case-en-010",
       "language": "en",
       "expectedArchetype": "OTHER_OR_NONE",
       "actualArchetype": "OTHER_OR_NONE",
@@ -140,7 +248,7 @@
       "decisionEngine": "rules-only"
     },
     {
-      "id": "adv-hi-001",
+      "id": "case-hi-001",
       "language": "hi",
       "expectedArchetype": "DOUBLING_SCHEME",
       "actualArchetype": "DOUBLING_SCHEME",
@@ -148,16 +256,18 @@
       "expectedBand": "HIGH",
       "actualBand": "HIGH",
       "riskMatch": true,
-      "extractedClaimsCount": 2,
+      "extractedClaimsCount": 3,
       "triggeredRules": [
         "GUARANTEED_RETURN",
+        "RETURN_TOO_HIGH",
+        "URGENCY_LIMITED_SLOTS",
         "VIP_GROUP_OR_PRIVATE_CHANNEL"
       ],
       "triggeredSignals": [],
       "decisionEngine": "rules-only"
     },
     {
-      "id": "adv-hi-002",
+      "id": "case-hi-002",
       "language": "hi",
       "expectedArchetype": "COPY_TRADING",
       "actualArchetype": "COPY_TRADING",
@@ -165,15 +275,104 @@
       "expectedBand": "HIGH",
       "actualBand": "HIGH",
       "riskMatch": true,
+      "extractedClaimsCount": 3,
+      "triggeredRules": [
+        "RETURN_TOO_HIGH",
+        "ASKS_OTP_OR_APP_INSTALL",
+        "PAY_TO_PERSONAL_ACCOUNT_OR_UPI"
+      ],
+      "triggeredSignals": [
+        "sig-app-apk-download"
+      ],
+      "decisionEngine": "rules-only"
+    },
+    {
+      "id": "case-hi-003",
+      "language": "hi",
+      "expectedArchetype": "COURSE_FINFLUENCER",
+      "actualArchetype": "COURSE_FINFLUENCER",
+      "archetypeMatch": true,
+      "expectedBand": "HIGH",
+      "actualBand": "MEDIUM",
+      "riskMatch": true,
       "extractedClaimsCount": 1,
       "triggeredRules": [
+        "VIP_GROUP_OR_PRIVATE_CHANNEL",
+        "COURSE_OR_MENTORSHIP_UPSELL"
+      ],
+      "triggeredSignals": [],
+      "decisionEngine": "rules-only"
+    },
+    {
+      "id": "case-hi-004",
+      "language": "hi",
+      "expectedArchetype": "CRYPTO_STAKING_MINING",
+      "actualArchetype": "CRYPTO_STAKING_MINING",
+      "archetypeMatch": true,
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "riskMatch": true,
+      "extractedClaimsCount": 1,
+      "triggeredRules": [
+        "GUARANTEED_RETURN",
         "RETURN_TOO_HIGH"
       ],
       "triggeredSignals": [],
       "decisionEngine": "rules-only"
     },
     {
-      "id": "adv-hi-003",
+      "id": "case-hi-005",
+      "language": "hi",
+      "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+      "actualArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+      "archetypeMatch": true,
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "riskMatch": true,
+      "extractedClaimsCount": 1,
+      "triggeredRules": [
+        "ASKS_OTP_OR_APP_INSTALL"
+      ],
+      "triggeredSignals": [
+        "sig-app-apk-download"
+      ],
+      "decisionEngine": "rules-only"
+    },
+    {
+      "id": "case-hi-006",
+      "language": "hi",
+      "expectedArchetype": "FAKE_ADVISORY_OR_REG_CLAIM",
+      "actualArchetype": "FAKE_ADVISORY_OR_REG_CLAIM",
+      "archetypeMatch": true,
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "riskMatch": true,
+      "extractedClaimsCount": 1,
+      "triggeredRules": [
+        "GUARANTEED_RETURN",
+        "UNVERIFIABLE_REGISTRATION_CLAIM"
+      ],
+      "triggeredSignals": [],
+      "decisionEngine": "rules-only"
+    },
+    {
+      "id": "case-hi-007",
+      "language": "hi",
+      "expectedArchetype": "PUMP_AND_DUMP_GROUP",
+      "actualArchetype": "PUMP_AND_DUMP_GROUP",
+      "archetypeMatch": true,
+      "expectedBand": "HIGH",
+      "actualBand": "MEDIUM",
+      "riskMatch": true,
+      "extractedClaimsCount": 1,
+      "triggeredRules": [
+        "URGENCY_LIMITED_SLOTS"
+      ],
+      "triggeredSignals": [],
+      "decisionEngine": "rules-only"
+    },
+    {
+      "id": "case-hi-008",
       "language": "hi",
       "expectedArchetype": "REMOTE_ACCESS_SCAM",
       "actualArchetype": "REMOTE_ACCESS_SCAM",
@@ -185,14 +384,28 @@
       "triggeredRules": [
         "ASKS_OTP_OR_APP_INSTALL"
       ],
-      "triggeredSignals": [
-        "sig-app-remote-anydesk",
-        "sig-app-apk-download"
-      ],
+      "triggeredSignals": [],
       "decisionEngine": "rules-only"
     },
     {
-      "id": "adv-hi-004",
+      "id": "case-hi-009",
+      "language": "hi",
+      "expectedArchetype": "FAKE_IPO_OR_ALLOTMENT",
+      "actualArchetype": "FAKE_IPO_OR_ALLOTMENT",
+      "archetypeMatch": true,
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "riskMatch": true,
+      "extractedClaimsCount": 1,
+      "triggeredRules": [
+        "GUARANTEED_RETURN",
+        "RETURN_TOO_HIGH"
+      ],
+      "triggeredSignals": [],
+      "decisionEngine": "rules-only"
+    },
+    {
+      "id": "case-hi-010",
       "language": "hi",
       "expectedArchetype": "OTHER_OR_NONE",
       "actualArchetype": "OTHER_OR_NONE",
@@ -206,7 +419,7 @@
       "decisionEngine": "rules-only"
     },
     {
-      "id": "adv-ta-001",
+      "id": "case-ta-001",
       "language": "ta",
       "expectedArchetype": "DOUBLING_SCHEME",
       "actualArchetype": "DOUBLING_SCHEME",
@@ -214,19 +427,142 @@
       "expectedBand": "HIGH",
       "actualBand": "HIGH",
       "riskMatch": true,
-      "extractedClaimsCount": 2,
+      "extractedClaimsCount": 3,
       "triggeredRules": [
+        "GUARANTEED_RETURN",
         "RETURN_TOO_HIGH",
+        "URGENCY_LIMITED_SLOTS",
         "VIP_GROUP_OR_PRIVATE_CHANNEL"
       ],
       "triggeredSignals": [],
       "decisionEngine": "rules-only"
     },
     {
-      "id": "adv-ta-002",
+      "id": "case-ta-002",
       "language": "ta",
       "expectedArchetype": "COPY_TRADING",
       "actualArchetype": "COPY_TRADING",
+      "archetypeMatch": true,
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "riskMatch": true,
+      "extractedClaimsCount": 2,
+      "triggeredRules": [
+        "ASKS_OTP_OR_APP_INSTALL",
+        "PAY_TO_PERSONAL_ACCOUNT_OR_UPI"
+      ],
+      "triggeredSignals": [
+        "sig-app-apk-download"
+      ],
+      "decisionEngine": "rules-only"
+    },
+    {
+      "id": "case-ta-003",
+      "language": "ta",
+      "expectedArchetype": "COURSE_FINFLUENCER",
+      "actualArchetype": "COURSE_FINFLUENCER",
+      "archetypeMatch": true,
+      "expectedBand": "HIGH",
+      "actualBand": "MEDIUM",
+      "riskMatch": true,
+      "extractedClaimsCount": 1,
+      "triggeredRules": [
+        "VIP_GROUP_OR_PRIVATE_CHANNEL",
+        "COURSE_OR_MENTORSHIP_UPSELL"
+      ],
+      "triggeredSignals": [],
+      "decisionEngine": "rules-only"
+    },
+    {
+      "id": "case-ta-004",
+      "language": "ta",
+      "expectedArchetype": "CRYPTO_STAKING_MINING",
+      "actualArchetype": "CRYPTO_STAKING_MINING",
+      "archetypeMatch": true,
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "riskMatch": true,
+      "extractedClaimsCount": 1,
+      "triggeredRules": [
+        "GUARANTEED_RETURN",
+        "RETURN_TOO_HIGH"
+      ],
+      "triggeredSignals": [],
+      "decisionEngine": "rules-only"
+    },
+    {
+      "id": "case-ta-005",
+      "language": "ta",
+      "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+      "actualArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+      "archetypeMatch": true,
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "riskMatch": true,
+      "extractedClaimsCount": 1,
+      "triggeredRules": [
+        "ASKS_OTP_OR_APP_INSTALL"
+      ],
+      "triggeredSignals": [
+        "sig-app-apk-download"
+      ],
+      "decisionEngine": "rules-only"
+    },
+    {
+      "id": "case-ta-006",
+      "language": "ta",
+      "expectedArchetype": "FAKE_ADVISORY_OR_REG_CLAIM",
+      "actualArchetype": "FAKE_ADVISORY_OR_REG_CLAIM",
+      "archetypeMatch": true,
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "riskMatch": true,
+      "extractedClaimsCount": 1,
+      "triggeredRules": [
+        "GUARANTEED_RETURN"
+      ],
+      "triggeredSignals": [],
+      "decisionEngine": "rules-only"
+    },
+    {
+      "id": "case-ta-007",
+      "language": "ta",
+      "expectedArchetype": "PUMP_AND_DUMP_GROUP",
+      "actualArchetype": "PUMP_AND_DUMP_GROUP",
+      "archetypeMatch": true,
+      "expectedBand": "HIGH",
+      "actualBand": "MEDIUM",
+      "riskMatch": true,
+      "extractedClaimsCount": 1,
+      "triggeredRules": [
+        "VIP_GROUP_OR_PRIVATE_CHANNEL"
+      ],
+      "triggeredSignals": [],
+      "decisionEngine": "rules-only"
+    },
+    {
+      "id": "case-ta-008",
+      "language": "ta",
+      "expectedArchetype": "REMOTE_ACCESS_SCAM",
+      "actualArchetype": "REMOTE_ACCESS_SCAM",
+      "archetypeMatch": true,
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "riskMatch": true,
+      "extractedClaimsCount": 1,
+      "triggeredRules": [
+        "ASKS_OTP_OR_APP_INSTALL"
+      ],
+      "triggeredSignals": [
+        "sig-app-remote-anydesk"
+      ],
+      "decisionEngine": "rules-only"
+    },
+    {
+      "id": "case-ta-009",
+      "language": "ta",
+      "expectedArchetype": "FAKE_IPO_OR_ALLOTMENT",
+      "actualArchetype": "FAKE_IPO_OR_ALLOTMENT",
       "archetypeMatch": true,
       "expectedBand": "HIGH",
       "actualBand": "HIGH",
@@ -239,27 +575,7 @@
       "decisionEngine": "rules-only"
     },
     {
-      "id": "adv-ta-003",
-      "language": "ta",
-      "expectedArchetype": "REMOTE_ACCESS_SCAM",
-      "actualArchetype": "REMOTE_ACCESS_SCAM",
-      "archetypeMatch": true,
-      "expectedBand": "HIGH",
-      "actualBand": "HIGH",
-      "riskMatch": true,
-      "extractedClaimsCount": 2,
-      "triggeredRules": [
-        "ASKS_OTP_OR_APP_INSTALL"
-      ],
-      "triggeredSignals": [
-        "sig-app-remote-anydesk",
-        "sig-app-remote-teamviewer",
-        "sig-app-apk-download"
-      ],
-      "decisionEngine": "rules-only"
-    },
-    {
-      "id": "adv-ta-004",
+      "id": "case-ta-010",
       "language": "ta",
       "expectedArchetype": "OTHER_OR_NONE",
       "actualArchetype": "OTHER_OR_NONE",
@@ -267,7 +583,7 @@
       "expectedBand": "LOW_SIGNALS",
       "actualBand": "CANNOT_VERIFY",
       "riskMatch": true,
-      "extractedClaimsCount": 0,
+      "extractedClaimsCount": 1,
       "triggeredRules": [],
       "triggeredSignals": [],
       "decisionEngine": "rules-only"
