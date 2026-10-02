@@ -6,7 +6,12 @@ import { RetrievedChunk } from './types';
 // Cross-lingual concept mappings (e.g. 1930 / cybercrime / sebi / copy trading)
 const CONCEPT_MAPPINGS: Record<string, string[]> = {
   '1930': ['helpline', 'cybercrime', 'golden', 'hour', 'fraud', 'कॉल', 'हेल्पलाइन', 'உதவி', 'எண்'],
-  'cybercrime': ['cybercrime', '1930', 'freeze', 'report', 'शिकायत', 'புகார்'],
+  'cybercrime': ['cybercrime', '1930', 'freeze', 'report', 'शिकायत', 'புகார்', 'साइबर', 'சைபர்'],
+  'cyber': ['cybercrime', '1930', 'साइबर', 'சைபர்', 'freeze'],
+  'साइबर': ['cybercrime', '1930', 'cyber', 'धोखाधड़ी', 'शिकायत', 'fraud'],
+  'फ्रॉड': ['fraud', 'scam', 'धोखाधड़ी', 'cybercrime', '1930'],
+  'சைபர்': ['cybercrime', '1930', 'fraud', 'புகார்', 'cyber'],
+  'மோசடி': ['fraud', 'scam', 'cybercrime', '1930', 'புகார்'],
   'sebi': ['sebi', 'advisory', 'registered', 'scores', 'पंजीकृत', 'செபி', 'பதிவு'],
   'copy': ['copy', 'algo', 'automated', 'bot', 'mirror', 'कॉपी', 'காப்பி'],
   'ipo': ['ipo', 'fii', 'allotment', 'quota', 'अलॉटमेंट', 'ஒதுக்கீடு', 'asba'],

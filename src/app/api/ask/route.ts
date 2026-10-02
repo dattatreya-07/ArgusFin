@@ -6,10 +6,14 @@ import { Lang } from '@/lib/types';
 
 const askRequestSchema = z
   .object({
-    query: z.string().min(1, 'Query is required').max(1000, 'Max 1000 characters'),
-    lang: z.enum(['en', 'hi', 'ta']).default('en'),
+    query: z.string().min(1, 'Query is required').max(1000, 'Max 1000 characters').optional(),
+    question: z.string().min(1, 'Question is required').max(1000, 'Max 1000 characters').optional(),
+    lang: z.enum(['en', 'hi', 'ta']).optional(),
+    language: z.enum(['en', 'hi', 'ta']).optional(),
   })
-  .strict();
+  .refine((data) => !!(data.query || data.question), {
+    message: 'Either query or question must be provided',
+  });
 
 // In-memory rate limiting: 30 req / minute per IP
 const ipRateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -39,7 +43,10 @@ export async function POST(req: NextRequest) {
 
   if (!checkRateLimit(clientIp)) {
     return NextResponse.json(
-      { error: { code: 'RATE_LIMIT_EXCEEDED', message: 'Too many requests. Please slow down.' } },
+      {
+        status: 'UNAVAILABLE',
+        error: { code: 'RATE_LIMIT_EXCEEDED', message: 'Too many requests. Please slow down.' },
+      },
       { status: 429 }
     );
   }
@@ -51,6 +58,7 @@ export async function POST(req: NextRequest) {
     if (!parseResult.success) {
       return NextResponse.json(
         {
+          status: 'INVALID_REQUEST',
           error: {
             code: 'VALIDATION_ERROR',
             message: 'Invalid ask request format',
@@ -61,24 +69,30 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { query, lang } = parseResult.data;
+    const rawQuery = parseResult.data.query || parseResult.data.question || '';
+    const lang = (parseResult.data.lang || parseResult.data.language || 'en') as Lang;
 
     // Redact PII locally before any RAG or retrieval processing
-    const masked = maskPII(query);
+    const masked = maskPII(rawQuery);
     const sanitizedQuery = masked.masked;
 
-    const ragResult = await askRag(sanitizedQuery, lang as Lang);
+    const ragResult = await askRag(sanitizedQuery, lang);
 
     const durationMs = Date.now() - startTime;
-    console.log(`[API /api/ask] status=200 verified=${ragResult.verified} lang=${lang} duration=${durationMs}ms`);
+    // Safe telemetry logging without raw user questions or PII
+    console.log(
+      `[API /api/ask] status=200 rag_status=${ragResult.status} verified=${ragResult.verified} lang=${lang} duration=${durationMs}ms`
+    );
 
     return NextResponse.json(
       {
+        status: ragResult.status,
         answer: ragResult.answer,
         verified: ragResult.verified,
         citations: ragResult.citations,
         confidence: ragResult.confidence,
         language: ragResult.language,
+        uncertainty: ragResult.uncertainty,
       },
       { status: 200 }
     );
@@ -86,7 +100,10 @@ export async function POST(req: NextRequest) {
     const durationMs = Date.now() - startTime;
     console.error(`[API /api/ask] status=500 duration=${durationMs}ms`);
     return NextResponse.json(
-      { error: { code: 'INTERNAL_ERROR', message: 'Failed to process RAG query' } },
+      {
+        status: 'UNAVAILABLE',
+        error: { code: 'INTERNAL_ERROR', message: 'Failed to process RAG query' },
+      },
       { status: 500 }
     );
   }

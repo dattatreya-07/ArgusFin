@@ -1,5 +1,5 @@
 import { Lang } from '../types';
-import { Citation, RetrievedChunk } from './types';
+import { CitationReference, RetrievedChunk } from './types';
 
 export const UNVERIFIED_FALLBACK_MESSAGES: Record<Lang, string> = {
   en: "I can't verify this. No official regulatory records or verified advisories support this claim.",
@@ -9,12 +9,38 @@ export const UNVERIFIED_FALLBACK_MESSAGES: Record<Lang, string> = {
 
 export interface CitationValidationResult {
   valid: boolean;
-  citations: Citation[];
+  citations: CitationReference[];
   sanitizedAnswer: string;
+  numericGrounded: boolean;
 }
 
 /**
- * Validates that all citations in the generated answer originate from the retrieved evidence chunks.
+ * Checks that all substantive numeric claims in the answer exist in the retrieved evidence chunks.
+ */
+export function verifyNumericGrounding(answer: string, retrievedChunks: RetrievedChunk[]): boolean {
+  if (!answer || retrievedChunks.length === 0) return false;
+
+  // Extract numeric tokens: e.g. "1930", "100%", "10%", "2", "4"
+  const numbersInAnswer = answer.match(/\b\d+(?:\.\d+)?%?\b/g) || [];
+  if (numbersInAnswer.length === 0) return true;
+
+  const combinedEvidenceText = retrievedChunks.map((c) => `${c.title} ${c.text} ${c.sourceUrl}`).join(' ');
+
+  for (const num of numbersInAnswer) {
+    // Ignore markdown numbering like 1., 2., 3. or single-digit list indexes
+    if (/^[1-9]$/.test(num)) continue;
+
+    if (!combinedEvidenceText.includes(num)) {
+      // Substantive number is not grounded in retrieved evidence
+      return false;
+    }
+  }
+
+  return true;
+}
+
+/**
+ * Validates that all citations and numeric facts in the generated answer originate strictly from retrieved chunks.
  */
 export function validateAndExtractCitations(
   rawAnswer: string,
@@ -26,19 +52,25 @@ export function validateAndExtractCitations(
       valid: false,
       citations: [],
       sanitizedAnswer: UNVERIFIED_FALLBACK_MESSAGES[lang] || UNVERIFIED_FALLBACK_MESSAGES.en,
+      numericGrounded: false,
     };
   }
 
-  // Map of valid chunk IDs
-  const validChunkMap = new Map<string, RetrievedChunk>();
-  for (const chunk of retrievedChunks) {
-    validChunkMap.set(chunk.id, chunk);
+  // Verify numeric grounding
+  const numericGrounded = verifyNumericGrounding(rawAnswer, retrievedChunks);
+  if (!numericGrounded) {
+    return {
+      valid: false,
+      citations: [],
+      sanitizedAnswer: UNVERIFIED_FALLBACK_MESSAGES[lang] || UNVERIFIED_FALLBACK_MESSAGES.en,
+      numericGrounded: false,
+    };
   }
 
-  const matchedCitations: Citation[] = [];
+  const matchedCitations: CitationReference[] = [];
   const seenUrls = new Set<string>();
 
-  // Extract citation markers like [doc-sebi-copy-trading-chk-1] or [1] or direct URLs
+  // Extract citation markers matching retrieved chunks
   for (const chunk of retrievedChunks) {
     if (
       rawAnswer.includes(`[${chunk.id}]`) ||
@@ -50,6 +82,7 @@ export function validateAndExtractCitations(
         seenUrls.add(chunk.sourceUrl);
         matchedCitations.push({
           chunkId: chunk.id,
+          docId: chunk.docId,
           title: chunk.title,
           publisher: chunk.publisher,
           sourceUrl: chunk.sourceUrl,
@@ -59,11 +92,12 @@ export function validateAndExtractCitations(
     }
   }
 
-  // If no explicit citations were matched in the text, but chunks were retrieved with high similarity, include top chunk
+  // If no explicit citations were matched, but top chunk has strong relevance (similarity >= 0.25)
   if (matchedCitations.length === 0 && retrievedChunks.length > 0 && retrievedChunks[0].similarityScore >= 0.25) {
     const topChunk = retrievedChunks[0];
     matchedCitations.push({
       chunkId: topChunk.id,
+      docId: topChunk.docId,
       title: topChunk.title,
       publisher: topChunk.publisher,
       sourceUrl: topChunk.sourceUrl,
@@ -76,6 +110,7 @@ export function validateAndExtractCitations(
       valid: false,
       citations: [],
       sanitizedAnswer: UNVERIFIED_FALLBACK_MESSAGES[lang] || UNVERIFIED_FALLBACK_MESSAGES.en,
+      numericGrounded: false,
     };
   }
 
@@ -83,5 +118,6 @@ export function validateAndExtractCitations(
     valid: true,
     citations: matchedCitations,
     sanitizedAnswer: rawAnswer.trim(),
+    numericGrounded: true,
   };
 }
