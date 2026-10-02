@@ -1,4 +1,4 @@
-# SANGYAN: Investor Resilience
+# ArgusFin: Investor Resilience
 
 Educational investor-protection infrastructure for Bharat (Hindi, Tamil, English).
 
