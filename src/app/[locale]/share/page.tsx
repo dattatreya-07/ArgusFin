@@ -1,6 +1,7 @@
 'use client';
 
 import React, { Suspense, useEffect, useState } from 'react';
+import Image from 'next/image';
 import { useSearchParams, useParams } from 'next/navigation';
 import Link from 'next/link';
 import { normalizeChannelInput } from '@/lib/channels/normalize';
@@ -206,15 +207,24 @@ export default function PwaShareTargetPage() {
         {/* Header */}
         <div className="flex items-center justify-between border-b border-slate-800 pb-4">
           <div className="flex items-center space-x-3">
-            <span className="text-3xl">📲</span>
+            <Image
+              src="/argus-fin-logo.png"
+              alt="Argus Fin"
+              width={140}
+              height={36}
+              priority
+              className="h-9 w-auto object-contain brightness-110"
+            />
             <div>
-              <h1 className="text-xl font-bold text-white">SANGYAN Share Target</h1>
+              <h1 className="text-xl font-bold text-white">
+                Argus Fin <span className="text-slate-400 font-normal text-sm">/ SANGYAN Share Target</span>
+              </h1>
               <p className="text-xs text-slate-400">
-                Shared Content Analysis • Privacy Shield Active
+                Shared Content Analysis • Zero-PII Privacy Shield Active
               </p>
             </div>
           </div>
-          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-blue-900/50 text-blue-300 border border-blue-700">
+          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-950 text-emerald-300 border border-emerald-800">
             Android PWA Access
           </span>
         </div>

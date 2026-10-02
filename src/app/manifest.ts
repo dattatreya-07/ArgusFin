@@ -2,10 +2,10 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'SANGYAN: Investor Resilience',
-    short_name: 'SANGYAN',
+    name: 'Argus Fin — SANGYAN Investor Resilience',
+    short_name: 'Argus Fin',
     description:
-      'Bharat-first educational investor protection and financial claim verification system',
+      'Bharat-first educational investor protection, claim verification, and yield reality checks grounded in official benchmarks',
     start_url: '/en',
     display: 'standalone',
     background_color: '#020617',

@@ -31,34 +31,34 @@ const LOCALIZED_RISK_TITLES: Record<Lang, Record<RiskBand, string>> = {
 
 const LOCALIZED_LABELS = {
   en: {
-    title: 'SANGYAN Financial Claim Check',
+    title: 'Argus Fin / SANGYAN Financial Claim Check',
     risk: 'Risk Assessment',
     signals: 'Detected Signals',
     unverified: 'Could Not Verify',
     nextStep: 'Recommended Next Step',
     calcAction: 'Check the Math (Reality Ladder)',
     reportAction: 'Prepare First-Victim Report',
-    disclaimer: 'Educational investor protection tool. SANGYAN does not provide investment advice or name specific entities as scams.',
+    disclaimer: 'Educational investor protection tool. Argus Fin / SANGYAN does not provide investment advice or name specific entities as scams.',
   },
   hi: {
-    title: 'संज्ञान वित्तीय दावा जांच',
+    title: 'Argus Fin / संज्ञान वित्तीय दावा जांच',
     risk: 'जोखिम मूल्यांकन',
     signals: 'पाए गए संकेत',
     unverified: 'सत्यापित नहीं किया जा सका',
     nextStep: 'अनुशंसित अगला कदम',
     calcAction: 'वास्तविकता कैलकुलेटर पर जांचें',
     reportAction: 'पूर्व-शिकायत विवरण तैयार करें',
-    disclaimer: 'शैक्षिक निवेशक सुरक्षा उपकरण। संज्ञान निवेश सलाह नहीं देता है।',
+    disclaimer: 'शैक्षिक निवेशक सुरक्षा उपकरण। Argus Fin / संज्ञान निवेश सलाह नहीं देता है।',
   },
   ta: {
-    title: 'சங்க்யான் நிதி உரிமை கோரல் சரிபார்ப்பு',
+    title: 'Argus Fin / சங்க்யான் நிதி உரிமை கோரல் சரிபார்ப்பு',
     risk: 'ஆபத்து மதிப்பீடு',
     signals: 'கண்டறியப்பட்ட அறிகுறிகள்',
     unverified: 'சரிபார்க்க முடியவில்லை',
     nextStep: 'பரிந்துரைக்கப்படும் அடுத்த படி',
     calcAction: 'கணக்கீட்டை சரிபார்க்கவும்',
     reportAction: 'சம்பவ அறிக்கையை தயார் செய்யவும்',
-    disclaimer: 'கல்விசார் முதலீட்டாளர் பாதுகாப்பு தளம். சங்க்யான் முதலீட்டு ஆலோசனைகளை வழங்காது.',
+    disclaimer: 'கல்விசார் முதலீட்டாளர் பாதுகாப்பு தளம். Argus Fin / சங்க்யான் முதலீட்டு ஆலோசனைகளை வழங்காது.',
   },
 };
 

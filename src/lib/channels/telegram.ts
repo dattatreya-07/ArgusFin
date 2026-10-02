@@ -123,11 +123,13 @@ export async function handleTelegramUpdate(
 
   // Handle /start or help command
   if (rawText.trim() === '/start' || rawText.trim() === '/help') {
-    const welcomeText = `🛡️ *Welcome to SANGYAN: Investor Protection Assistant*
+    const welcomeText = `🛡️ *Argus Fin / SANGYAN: Investor Protection Assistant*
 
-Send or forward any suspicious investment promise, high-return scheme, WhatsApp screenshot note, or trading group pitch here.
+Send or forward any suspicious investment promise, high-return scheme, WhatsApp message, or trading group pitch here.
 
-SANGYAN will analyze the claim, detect red flags, calculate annualised return multiples, and provide verified guidance.
+Argus Fin will analyze the claim, detect red flags, calculate annualised return multiples vs RBI/SEBI benchmarks, and provide verified guidance.
+
+*Privacy Note:* Your message is processed on-device / statelessly for this check. No phone numbers or chat contents are stored.
 
 _Try forwarding a message like:_ "Invest ₹10,000 get ₹20,000 in 30 days guaranteed."`;
 
@@ -174,7 +176,7 @@ _Try forwarding a message like:_ "Invest ₹10,000 get ₹20,000 in 30 days guar
       errorCode: 'INTERNAL_ERROR',
     });
 
-    const errorReply = `⚠️ *SANGYAN Check Unavailable*
+    const errorReply = `⚠️ *Argus Fin / SANGYAN Check Unavailable*
 
 We could not process this message right now. You can verify it directly on our web app:
 🔗 ${config.baseUrl}/en/check`;

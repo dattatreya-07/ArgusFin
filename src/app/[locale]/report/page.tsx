@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
 import { Lang } from '@/lib/types';
@@ -490,20 +491,34 @@ export default function ReportPage() {
           {/* Printable Document Card */}
           <div className="bg-white text-zinc-900 rounded-2xl p-8 shadow-2xl space-y-6 border border-zinc-300 print:border-none print:shadow-none print:p-0">
             {/* Doc Header */}
-            <div className="border-b border-zinc-300 pb-4 space-y-1">
+            <div className="border-b border-zinc-300 pb-4 space-y-2">
               <div className="flex justify-between items-start">
-                <span className="text-xs font-bold tracking-widest text-rose-700 uppercase">
-                  CONFIDENTIAL PRE-FILING CITIZEN INCIDENT RECORD
-                </span>
-                <span className="text-[11px] text-zinc-500">
+                <div className="flex items-center space-x-3">
+                  <Image
+                    src="/argus-fin-logo.png"
+                    alt="Argus Fin"
+                    width={110}
+                    height={32}
+                    className="h-8 w-auto object-contain"
+                  />
+                  <div>
+                    <span className="text-[11px] font-extrabold tracking-wider text-slate-900 block">
+                      Argus Fin / SANGYAN
+                    </span>
+                    <span className="text-[9px] font-bold text-rose-700 tracking-widest uppercase block">
+                      CONFIDENTIAL PRE-FILING CITIZEN INCIDENT RECORD
+                    </span>
+                  </div>
+                </div>
+                <span className="text-[11px] text-zinc-500 font-mono">
                   Generated: {new Date().toLocaleDateString('en-IN')}
                 </span>
               </div>
-              <h2 className="text-xl font-extrabold text-zinc-900">
+              <h2 className="text-lg font-extrabold text-zinc-900 pt-1">
                 CITIZEN FINANCIAL FRAUD INCIDENT SUMMARY
               </h2>
               <p className="text-xs text-zinc-600">
-                Prepared on-device for formal filing on National Cyber Crime Portal (cybercrime.gov.in) & 1930 Helpline
+                Prepared on-device for formal filing on National Cyber Crime Portal (cybercrime.gov.in) &amp; 1930 Helpline
               </p>
             </div>
 

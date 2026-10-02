@@ -147,7 +147,7 @@ describe('Phase 4: Bharat-First Channels (PWA Share Target & Telegram Adapter)',
       const checkRes = await checkChannelContent(normalized);
       const formatted = formatChannelResponse(checkRes, 'https://sangyan.in');
 
-      expect(formatted.formattedMarkdown).toContain('*🚨 SANGYAN Financial Claim Check*');
+      expect(formatted.formattedMarkdown).toContain('*🚨 Argus Fin / SANGYAN Financial Claim Check*');
       expect(formatted.formattedMarkdown).toContain('*Risk Assessment:* HIGH RISK');
       expect(formatted.formattedMarkdown).toContain('Reality Ladder');
       expect(formatted.formattedMarkdown).toContain('Educational investor protection tool');
