@@ -7,6 +7,7 @@ import { Archetype, Lang, RiskBand } from '@/lib/types';
 import { RuleResult } from '@/lib/rules';
 import { Link } from '@/i18n/routing';
 import { VoiceInput } from '@/components/VoiceInput';
+import { SpeakButton } from '@/components/SpeakButton';
 import { validateEvidenceFile } from '@/lib/evidence/validate';
 import { defaultOcrProvider } from '@/lib/evidence/ocr';
 import { ClaimSource } from '@/lib/evidence/types';
@@ -304,9 +305,15 @@ export default function CheckPage() {
                 <span>{getBandBadge(result.band).icon}</span>
                 <span>{getBandBadge(result.band).label}</span>
               </span>
-              <span className="text-xs text-slate-500">
-                Engine: <code className="font-mono bg-white/70 px-1 py-0.5 rounded">{result.engine}</code>
-              </span>
+              <div className="flex items-center gap-2">
+                <SpeakButton
+                  text={`${result.explanation} ${result.flags.map(f => f.ruleId).join('. ')}`}
+                  lang={locale as Lang}
+                />
+                <span className="text-xs text-slate-500">
+                  Engine: <code className="font-mono bg-white/70 px-1 py-0.5 rounded">{result.engine}</code>
+                </span>
+              </div>
             </div>
 
             <div className="space-y-1">

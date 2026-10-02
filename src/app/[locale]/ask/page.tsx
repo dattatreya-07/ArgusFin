@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
 import { Lang } from '@/lib/types';
 import { VoiceInput } from '@/components/VoiceInput';
+import { SpeakButton } from '@/components/SpeakButton';
 import { Citation } from '@/lib/rag/types';
 
 export default function AskPage() {
@@ -19,7 +20,6 @@ export default function AskPage() {
   const [citations, setCitations] = useState<Citation[]>([]);
   const [confidence, setConfidence] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [isSpeaking, setIsSpeaking] = useState(false);
 
   const handleSubmit = async (textToQuery?: string) => {
     const q = textToQuery || query;
@@ -29,7 +29,9 @@ export default function AskPage() {
     setError(null);
     setAnswer(null);
     setCitations([]);
-    stopAudio();
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
 
     try {
       const res = await fetch('/api/ask', {
@@ -57,64 +59,6 @@ export default function AskPage() {
   const handleVoiceTranscript = (transcript: string) => {
     setQuery(transcript);
     handleSubmit(transcript);
-  };
-
-  const speakText = (text: string) => {
-    if (typeof window === 'undefined' || !window.speechSynthesis) return;
-
-    if (isSpeaking) {
-      stopAudio();
-      return;
-    }
-
-    // Clean tokens and markdown for smooth audio articulation
-    const cleanText = text
-      .replace(/\[(PHONE|EMAIL|UPI|PAN|ACCOUNT_OR_ID)\]/g, '')
-      .replace(/[*#_`>]/g, '')
-      .trim();
-
-    const utterance = new SpeechSynthesisUtterance(cleanText);
-    const targetLangCode = currentLang === 'hi' ? 'hi-IN' : currentLang === 'ta' ? 'ta-IN' : 'en-IN';
-    utterance.lang = targetLangCode;
-    utterance.rate = 0.95; // Slightly measured rate for clear Indic pronunciation
-
-    const voices = window.speechSynthesis.getVoices();
-    if (voices && voices.length > 0) {
-      if (currentLang === 'ta') {
-        const tamilVoice = voices.find(
-          (v) =>
-            v.lang === 'ta-IN' ||
-            v.lang.toLowerCase().startsWith('ta') ||
-            v.name.toLowerCase().includes('tamil') ||
-            v.name.toLowerCase().includes('valluvar') ||
-            v.name.toLowerCase().includes('pallavi')
-        );
-        if (tamilVoice) utterance.voice = tamilVoice;
-      } else if (currentLang === 'hi') {
-        const hindiVoice = voices.find(
-          (v) =>
-            v.lang === 'hi-IN' ||
-            v.lang.toLowerCase().startsWith('hi') ||
-            v.name.toLowerCase().includes('hindi') ||
-            v.name.toLowerCase().includes('kalpana') ||
-            v.name.toLowerCase().includes('hemant')
-        );
-        if (hindiVoice) utterance.voice = hindiVoice;
-      }
-    }
-
-    utterance.onend = () => setIsSpeaking(false);
-    utterance.onerror = () => setIsSpeaking(false);
-
-    setIsSpeaking(true);
-    window.speechSynthesis.speak(utterance);
-  };
-
-  const stopAudio = () => {
-    if (typeof window !== 'undefined' && window.speechSynthesis) {
-      window.speechSynthesis.cancel();
-      setIsSpeaking(false);
-    }
   };
 
   return (
@@ -203,15 +147,13 @@ export default function AskPage() {
               )}
             </div>
 
-            {/* Read Aloud Button */}
-            <button
-              type="button"
-              onClick={() => speakText(answer)}
-              className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium bg-zinc-800 border border-zinc-700 text-zinc-200 hover:bg-zinc-700 rounded-lg transition-all cursor-pointer"
-            >
-              <span>{isSpeaking ? '⏹' : '🔊'}</span>
-              <span>{isSpeaking ? t('stopReading') : t('readAloud')}</span>
-            </button>
+            {/* Robust Read Aloud Button */}
+            <SpeakButton
+              text={answer}
+              lang={currentLang}
+              speakLabel={t('readAloud')}
+              stopLabel={t('stopReading')}
+            />
           </div>
 
           {/* Answer Body */}
