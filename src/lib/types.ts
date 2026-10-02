@@ -49,3 +49,29 @@ export interface Decision {
 export interface DecisionEngine {
   decide(input: DecisionInput): Promise<Decision>;
 }
+
+export type ApiErrorCode =
+  | 'INVALID_INPUT'
+  | 'RATE_LIMITED'
+  | 'UNAVAILABLE'
+  | 'PRIVACY_BLOCKED'
+  | 'NOT_FOUND'
+  | 'INTERNAL_ERROR';
+
+export interface ApiError {
+  code: ApiErrorCode;
+  message: string;
+  details?: any;
+}
+
+export interface InvestorProtectionSession {
+  language: Lang;
+  rawMaskedText?: string;
+  claims?: ExtractedClaims;
+  signals?: Signal[];
+  decision?: Decision;
+  incidentRecord?: any;
+  consistencyResult?: any;
+  routedAuthorities?: any;
+  citations?: Array<{ title: string; sourceUrl: string; publisher?: string }>;
+}

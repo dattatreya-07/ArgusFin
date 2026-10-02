@@ -60,15 +60,49 @@ export default function AskPage() {
   };
 
   const speakText = (text: string) => {
-    if (!window.speechSynthesis) return;
+    if (typeof window === 'undefined' || !window.speechSynthesis) return;
 
     if (isSpeaking) {
       stopAudio();
       return;
     }
 
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = currentLang === 'hi' ? 'hi-IN' : currentLang === 'ta' ? 'ta-IN' : 'en-IN';
+    // Clean tokens and markdown for smooth audio articulation
+    const cleanText = text
+      .replace(/\[(PHONE|EMAIL|UPI|PAN|ACCOUNT_OR_ID)\]/g, '')
+      .replace(/[*#_`>]/g, '')
+      .trim();
+
+    const utterance = new SpeechSynthesisUtterance(cleanText);
+    const targetLangCode = currentLang === 'hi' ? 'hi-IN' : currentLang === 'ta' ? 'ta-IN' : 'en-IN';
+    utterance.lang = targetLangCode;
+    utterance.rate = 0.95; // Slightly measured rate for clear Indic pronunciation
+
+    const voices = window.speechSynthesis.getVoices();
+    if (voices && voices.length > 0) {
+      if (currentLang === 'ta') {
+        const tamilVoice = voices.find(
+          (v) =>
+            v.lang === 'ta-IN' ||
+            v.lang.toLowerCase().startsWith('ta') ||
+            v.name.toLowerCase().includes('tamil') ||
+            v.name.toLowerCase().includes('valluvar') ||
+            v.name.toLowerCase().includes('pallavi')
+        );
+        if (tamilVoice) utterance.voice = tamilVoice;
+      } else if (currentLang === 'hi') {
+        const hindiVoice = voices.find(
+          (v) =>
+            v.lang === 'hi-IN' ||
+            v.lang.toLowerCase().startsWith('hi') ||
+            v.name.toLowerCase().includes('hindi') ||
+            v.name.toLowerCase().includes('kalpana') ||
+            v.name.toLowerCase().includes('hemant')
+        );
+        if (hindiVoice) utterance.voice = hindiVoice;
+      }
+    }
+
     utterance.onend = () => setIsSpeaking(false);
     utterance.onerror = () => setIsSpeaking(false);
 
@@ -77,7 +111,7 @@ export default function AskPage() {
   };
 
   const stopAudio = () => {
-    if (window.speechSynthesis) {
+    if (typeof window !== 'undefined' && window.speechSynthesis) {
       window.speechSynthesis.cancel();
       setIsSpeaking(false);
     }
