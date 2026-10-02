@@ -7,7 +7,7 @@ export const HI_GUARANTEED = [
   'गारंटी', // TODO(review)
   'गारंटीड', // TODO(review)
   'पक्का रिटर्न', // TODO(review)
-  'निश्चित रिटर्न', // TODO(review)
+  '100% निश्चित रिटर्न', // TODO(review)
   'बिना किसी जोखिम', // TODO(review)
   'शून्य जोखिम', // TODO(review)
   '100% सुरक्षित', // TODO(review)

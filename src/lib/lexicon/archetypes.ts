@@ -101,9 +101,19 @@ export const ARCHETYPE_KEYWORDS: Record<Archetype, string[]> = {
     'guaranteed ipo',
     'special quota ipo',
     'hni quota allotment',
+    'ipo',
+    'mainboard ipo',
+    'allotment quota',
+    'allocation quota',
+    'fii quota',
+    'fii institutional allocation',
+    'institutional quota',
     'आईपीओ अलॉटमेंट', // TODO(review)
+    'आईपीओ', // TODO(review)
+    'अलॉटमेंट', // TODO(review)
     'एचएनआई कोटा', // TODO(review)
     'ஐபிஓ ஒதுக்கீடு', // TODO(review)
+    'ஐபிஓ', // TODO(review)
     'பிரீ-ஐபிஓ', // TODO(review)
   ],
   OTHER_OR_NONE: [],

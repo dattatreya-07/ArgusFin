@@ -33,7 +33,22 @@ interface EvalResultItem {
   notes?: string;
 }
 
+// Tolerances for regression failure gate
+const MIN_ARCHETYPE_ACCURACY_PCT = 90.0;
+const MIN_HIGH_RISK_RECALL_PCT = 95.0;
+const MAX_BENIGN_FALSE_ALARM_PCT = 5.0;
+
 function loadDataset(): { dataset: EvalCase[]; source: string } {
+  // Check CLI arguments for custom dataset
+  const args = process.argv.slice(2);
+  const datasetArgIdx = args.indexOf('--dataset');
+  if (datasetArgIdx !== -1 && args[datasetArgIdx + 1]) {
+    const customPath = path.resolve(process.cwd(), args[datasetArgIdx + 1]);
+    if (fs.existsSync(customPath)) {
+      return { dataset: JSON.parse(fs.readFileSync(customPath, 'utf-8')), source: args[datasetArgIdx + 1] };
+    }
+  }
+
   const evalPath = path.join(process.cwd(), 'data', 'eval_cases.json');
   const devPath = path.join(process.cwd(), 'data', 'dev_cases.json');
 
@@ -233,9 +248,13 @@ async function runEvaluation() {
   }
 
   console.log('-----------------------------------------------------------------------------------------');
-  const overallArchAcc = ((totalArchCorrect / totalCases) * 100).toFixed(1) + '%';
-  const overallRecall = totalScams > 0 ? ((totalScamsDetected / totalScams) * 100).toFixed(1) + '%' : 'N/A';
-  const overallFalseAlarm = totalBenign > 0 ? ((totalFalseAlarms / totalBenign) * 100).toFixed(1) + '%' : 'N/A';
+  const numArchAcc = (totalArchCorrect / totalCases) * 100;
+  const numRecall = totalScams > 0 ? (totalScamsDetected / totalScams) * 100 : 100;
+  const numFalseAlarm = totalBenign > 0 ? (totalFalseAlarms / totalBenign) * 100 : 0;
+
+  const overallArchAcc = numArchAcc.toFixed(1) + '%';
+  const overallRecall = totalScams > 0 ? numRecall.toFixed(1) + '%' : 'N/A';
+  const overallFalseAlarm = totalBenign > 0 ? numFalseAlarm.toFixed(1) + '%' : 'N/A';
 
   console.log(
     `| OVERALL  | ${String(totalCases).padEnd(5)} | ${overallArchAcc.padEnd(18)} | ${overallRecall.padEnd(16)} | ${overallFalseAlarm.padEnd(23)} |`
@@ -293,6 +312,20 @@ async function runEvaluation() {
     )
   );
   console.log(`\nMachine-readable evaluation report saved to: ${reportPath}`);
+
+  // Automated Regression Failure Gate
+  if (numArchAcc < MIN_ARCHETYPE_ACCURACY_PCT) {
+    console.error(`\n❌ REGRESSION GATE FAILED: Archetype Accuracy (${overallArchAcc}) below threshold (${MIN_ARCHETYPE_ACCURACY_PCT}%).`);
+    process.exit(1);
+  }
+  if (numRecall < MIN_HIGH_RISK_RECALL_PCT) {
+    console.error(`\n❌ REGRESSION GATE FAILED: High-Risk Recall (${overallRecall}) below threshold (${MIN_HIGH_RISK_RECALL_PCT}%).`);
+    process.exit(1);
+  }
+  if (numFalseAlarm > MAX_BENIGN_FALSE_ALARM_PCT) {
+    console.error(`\n❌ REGRESSION GATE FAILED: False Alarm Rate (${overallFalseAlarm}) exceeds tolerance (${MAX_BENIGN_FALSE_ALARM_PCT}%).`);
+    process.exit(1);
+  }
 }
 
 runEvaluation().catch((err) => {

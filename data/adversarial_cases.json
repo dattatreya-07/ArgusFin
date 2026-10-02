@@ -1,0 +1,86 @@
+[
+  {
+    "id": "adv-en-001",
+    "language": "en",
+    "input_text": "Invest 10000 get 30000 in 15 days guaranteed 3x return. Pay via UPI to VIP account.",
+    "expected_archetype": "DOUBLING_SCHEME",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "adv-en-002",
+    "language": "en",
+    "input_text": "Install AnyDesk remote desktop software so our customer support can verify your trading account and process instant payout.",
+    "expected_archetype": "REMOTE_ACCESS_SCAM",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "adv-en-003",
+    "language": "en",
+    "input_text": "Guaranteed 100% allotment in upcoming mainboard IPO under special FII institutional allocation quota. Pay application processing fee.",
+    "expected_archetype": "FAKE_IPO_OR_ALLOTMENT",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "adv-en-004",
+    "language": "en",
+    "input_text": "Stock markets are subject to risks. Read all scheme related documents carefully before investing in mutual funds or index ETFs.",
+    "expected_archetype": "OTHER_OR_NONE",
+    "expected_band": "LOW_SIGNALS"
+  },
+  {
+    "id": "adv-hi-001",
+    "language": "hi",
+    "input_text": "हमारे वीआईपी ग्रुप में शामिल हों। 24 घंटे में पैसा 3 गुना गारंटीड रिटर्न। तुरंत यूपीआई करें।",
+    "expected_archetype": "DOUBLING_SCHEME",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "adv-hi-002",
+    "language": "hi",
+    "input_text": "टेलीग्राम पर बेस्ट कॉपी ट्रेडिंग रोबोट। ऑटोमैटिक ट्रेडिंग से रोजाना 20% लाभ। ओटीपी साझा करें।",
+    "expected_archetype": "COPY_TRADING",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "adv-hi-003",
+    "language": "hi",
+    "input_text": "सहायता के लिए एनीडेस्क (AnyDesk) ऐप डाउनलोड करें और सत्यापन कोड बताएं।",
+    "expected_archetype": "REMOTE_ACCESS_SCAM",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "adv-hi-004",
+    "language": "hi",
+    "input_text": "भारतीय रिजर्व बैंक (RBI) द्वारा अधिकृत सरकारी प्रतिभूतियों में निश्चित रिटर्न मिलता है।",
+    "expected_archetype": "OTHER_OR_NONE",
+    "expected_band": "LOW_SIGNALS"
+  },
+  {
+    "id": "adv-ta-001",
+    "language": "ta",
+    "input_text": "7 நாட்களில் உங்கள் பணம் மூன்று மடங்கு! 100% உத்தரவாத லாபம். விஐபி குழுவில் இணையுங்கள்.",
+    "expected_archetype": "DOUBLING_SCHEME",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "adv-ta-002",
+    "language": "ta",
+    "input_text": "எங்கள் சிறப்பு ஆலோசகரின் காப்பி டிரேடிங் முறையை பயன்படுத்தி தினசரி 15% லாபம் பெறுங்கள்.",
+    "expected_archetype": "COPY_TRADING",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "adv-ta-003",
+    "language": "ta",
+    "input_text": "சரிபார்ப்பிற்காக AnyDesk அல்லது TeamViewer செயலியை பதிவிறக்கம் செய்து OTP பகிரவும்.",
+    "expected_archetype": "REMOTE_ACCESS_SCAM",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "adv-ta-004",
+    "language": "ta",
+    "input_text": "பங்குச்சந்தை முதலீடுகள் சந்தை அபாயங்களுக்கு உட்பட்டவை. முதலீடு செய்வதற்கு முன் கவனமாக படிக்கவும்.",
+    "expected_archetype": "OTHER_OR_NONE",
+    "expected_band": "LOW_SIGNALS"
+  }
+]

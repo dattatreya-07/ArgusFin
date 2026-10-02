@@ -76,6 +76,11 @@ export class RulesOnlyDecisionEngine implements DecisionEngine {
       }
     }
 
+    // If no red flag rules fired, prioritize OTHER_OR_NONE
+    if (firedRules.length === 0) {
+      rawScores.OTHER_OR_NONE += 1.5;
+    }
+
     // Normalise archetype probabilities
     const totalScore = Object.values(rawScores).reduce((a, b) => a + b, 0);
     const archetypeProbabilities: Record<Archetype, number> = {} as Record<Archetype, number>;

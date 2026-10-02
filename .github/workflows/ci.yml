@@ -1,0 +1,49 @@
+name: SANGYAN Investor Resilience CI & Quality Gates
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality-gates:
+    name: Test, Evaluation, Security & Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: TypeScript Typecheck
+        run: npm run typecheck
+
+      - name: ESLint Check
+        run: npm run lint
+
+      - name: Unit & Integration Tests (Vitest)
+        run: npm test
+
+      - name: Decision Benchmark & Evaluation Failure Gate
+        run: npm run eval
+
+      - name: Hard Rule Guardrail Checks
+        run: npm run guardrails
+
+      - name: Production Smoke Tests
+        run: npm run smoke
+
+      - name: Production Next.js Build
+        run: npm run build
