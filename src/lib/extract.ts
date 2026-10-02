@@ -105,16 +105,16 @@ export function extractClaims(maskedText: string, _lang: Lang = 'en'): Extracted
 
   // C. Percentage returns (e.g. 20% daily, 50% per week, 100% per month)
   const is100Certainty = /100\s*%\s*(?:guaranteed|sure|safe|allotment|accuracy|सुरक्षित|निश्चित|गारंटी|पक्का|உத்தரவாதம்|நிச்சய|ஒதுக்கீடு|லாபம்)/i.test(lower);
-  const percentMatch = text.match(/(\d+(?:\.\d+)?)\s*%\s*(?:daily|per day|प्रतिदिन|தினமும்|weekly|per week|monthly|per month|returns?|profit|मुनाफा|வருமானம்)?/i);
+  const percentMatch = text.match(/(\d+(?:\.\d+)?)\s*%\s*(?:daily|per day|प्रतिदिन|रोजाना|दैनिक|தினமும்|தினசரி|weekly|per week|monthly|per month|returns?|profit|मुनाफा|लाभ|வருமானம்)?/i);
   
   if (percentMatch && !is100Certainty && (!multiple || multiple === 1)) {
     const pct = parseFloat(percentMatch[1]);
     if (pct > 0) {
       multiple = 1 + pct / 100;
       if (!foundDuration) {
-        if (/daily|per day|प्रतिदिन|தினமும்/i.test(lower)) detectedDays = 1;
-        else if (/weekly|per week|प्रति सप्ताह|வாரந்தோறும்/i.test(lower)) detectedDays = 7;
-        else if (/monthly|per month|प्रति माह|மாதம்/i.test(lower)) detectedDays = 30;
+        if (/daily|per day|प्रतिदिन|रोजाना|दैनिक|हर दिन|தினமும்|தினசரி|நாளுக்கு/i.test(lower)) detectedDays = 1;
+        else if (/weekly|per week|प्रति सप्ताह|साप्ताहिक|வாரந்தோறும்|வாரம்/i.test(lower)) detectedDays = 7;
+        else if (/monthly|per month|प्रति माह|मासिक|महीने|மாதம்|மாதந்தோறும்/i.test(lower)) detectedDays = 30;
       }
     }
   }

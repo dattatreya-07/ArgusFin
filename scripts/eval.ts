@@ -3,6 +3,7 @@ import path from 'path';
 import { maskPII } from '../src/lib/mask';
 import { extractClaims } from '../src/lib/extract';
 import { evaluateRegisteredRules } from '../src/lib/rules';
+import { extractAllSignals } from '../src/lib/signals';
 import { RulesOnlyDecisionEngine } from '../src/lib/decision/rulesOnly';
 import { fuseDecisionAndRules } from '../src/lib/fuse';
 import { Archetype, DecisionInput, Lang, RiskBand } from '../src/lib/types';
@@ -16,7 +17,23 @@ interface EvalCase {
   notes?: string;
 }
 
-function loadDataset(): EvalCase[] {
+interface EvalResultItem {
+  id: string;
+  language: Lang;
+  expectedArchetype: Archetype;
+  actualArchetype: Archetype;
+  archetypeMatch: boolean;
+  expectedBand: RiskBand;
+  actualBand: RiskBand;
+  riskMatch: boolean;
+  extractedClaimsCount: number;
+  triggeredRules: string[];
+  triggeredSignals: string[];
+  decisionEngine: string;
+  notes?: string;
+}
+
+function loadDataset(): { dataset: EvalCase[]; source: string } {
   const evalPath = path.join(process.cwd(), 'data', 'eval_cases.json');
   const devPath = path.join(process.cwd(), 'data', 'dev_cases.json');
 
@@ -24,7 +41,7 @@ function loadDataset(): EvalCase[] {
     try {
       const data = JSON.parse(fs.readFileSync(evalPath, 'utf-8'));
       if (Array.isArray(data) && data.length > 0) {
-        return data;
+        return { dataset: data, source: 'data/eval_cases.json' };
       }
     } catch {
       // fallback to dev cases
@@ -32,19 +49,19 @@ function loadDataset(): EvalCase[] {
   }
 
   if (fs.existsSync(devPath)) {
-    return JSON.parse(fs.readFileSync(devPath, 'utf-8'));
+    return { dataset: JSON.parse(fs.readFileSync(devPath, 'utf-8')), source: 'data/dev_cases.json' };
   }
 
   throw new Error('No evaluation dataset found in data/eval_cases.json or data/dev_cases.json');
 }
 
 async function runEvaluation() {
-  console.log('===============================================================');
-  console.log('  SANGYAN RULES-ONLY DECISION ENGINE EVALUATION BENCHMARK');
-  console.log('===============================================================\n');
+  console.log('========================================================================================');
+  console.log('  SANGYAN / FINANCEX DECISION ENGINE EVALUATION & BENCHMARK HARNESS');
+  console.log('========================================================================================\n');
 
-  const dataset = loadDataset();
-  console.log(`Loaded ${dataset.length} evaluation cases for benchmarking.\n`);
+  const { dataset, source } = loadDataset();
+  console.log(`Loaded ${dataset.length} evaluation cases from ${source}.\n`);
 
   const rulesEngine = new RulesOnlyDecisionEngine();
 
@@ -64,7 +81,30 @@ async function runEvaluation() {
     ta: { total: 0, archetypeCorrect: 0, scamCases: 0, scamDetected: 0, benignCases: 0, benignFalseAlarms: 0 },
   };
 
-  const misclassifiedIds: Array<{ id: string; expected: string; got: string; reason: string }> = [];
+  const perArchetypeStats: Record<Archetype, { total: number; correct: number }> = {
+    DOUBLING_SCHEME: { total: 0, correct: 0 },
+    COPY_TRADING: { total: 0, correct: 0 },
+    COURSE_FINFLUENCER: { total: 0, correct: 0 },
+    CRYPTO_STAKING_MINING: { total: 0, correct: 0 },
+    FAKE_TRADING_APP_OR_PORTAL: { total: 0, correct: 0 },
+    FAKE_ADVISORY_OR_REG_CLAIM: { total: 0, correct: 0 },
+    PUMP_AND_DUMP_GROUP: { total: 0, correct: 0 },
+    REMOTE_ACCESS_SCAM: { total: 0, correct: 0 },
+    FAKE_IPO_OR_ALLOTMENT: { total: 0, correct: 0 },
+    OTHER_OR_NONE: { total: 0, correct: 0 },
+  };
+
+  const evalResults: EvalResultItem[] = [];
+  const misclassifiedIds: Array<{
+    id: string;
+    lang: Lang;
+    expected: string;
+    got: string;
+    reason: string;
+    rules: string[];
+    signals: string[];
+    claims: unknown;
+  }> = [];
 
   for (const c of dataset) {
     const stats = perLangStats[c.language];
@@ -72,11 +112,12 @@ async function runEvaluation() {
 
     const masked = maskPII(c.input_text);
     const claims = extractClaims(masked.masked, c.language);
+    const signalSet = await extractAllSignals(masked.masked, { enableRdap: false });
 
     const input: DecisionInput = {
       maskedText: masked.masked,
       claims,
-      signals: [],
+      signals: signalSet.signals,
       lang: c.language,
     };
 
@@ -86,28 +127,40 @@ async function runEvaluation() {
 
     // Archetype match
     const archMatch = fusion.topArchetype.top === c.expected_archetype;
+    perArchetypeStats[c.expected_archetype].total++;
     if (archMatch) {
       stats.archetypeCorrect++;
+      perArchetypeStats[c.expected_archetype].correct++;
     } else {
       misclassifiedIds.push({
         id: c.id,
+        lang: c.language,
         expected: `${c.expected_archetype} (${c.expected_band})`,
         got: `${fusion.topArchetype.top} (${fusion.finalBand})`,
         reason: 'Archetype mismatch',
+        rules: flags.map((f) => f.ruleId),
+        signals: signalSet.signals.map((s) => s.id),
+        claims,
       });
     }
 
     // High risk recall (scam cases flagged HIGH or MEDIUM)
+    let riskMatch = false;
     if (c.expected_band === 'HIGH' || c.expected_band === 'MEDIUM') {
       stats.scamCases++;
       if (fusion.finalBand === 'HIGH' || fusion.finalBand === 'MEDIUM') {
         stats.scamDetected++;
+        riskMatch = true;
       } else {
         misclassifiedIds.push({
           id: c.id,
+          lang: c.language,
           expected: `${c.expected_archetype} (${c.expected_band})`,
           got: `${fusion.topArchetype.top} (${fusion.finalBand})`,
           reason: 'High-risk recall missed',
+          rules: flags.map((f) => f.ruleId),
+          signals: signalSet.signals.map((s) => s.id),
+          claims,
         });
       }
     }
@@ -119,15 +172,37 @@ async function runEvaluation() {
         stats.benignFalseAlarms++;
         misclassifiedIds.push({
           id: c.id,
+          lang: c.language,
           expected: `${c.expected_archetype} (${c.expected_band})`,
           got: `${fusion.topArchetype.top} (${fusion.finalBand})`,
           reason: 'Benign false alarm',
+          rules: flags.map((f) => f.ruleId),
+          signals: signalSet.signals.map((s) => s.id),
+          claims,
         });
+      } else {
+        riskMatch = true;
       }
     }
+
+    evalResults.push({
+      id: c.id,
+      language: c.language,
+      expectedArchetype: c.expected_archetype,
+      actualArchetype: fusion.topArchetype.top,
+      archetypeMatch: archMatch,
+      expectedBand: c.expected_band,
+      actualBand: fusion.finalBand,
+      riskMatch,
+      extractedClaimsCount: claims.promisedReturns.length + claims.requests.length + claims.urgencyPhrases.length,
+      triggeredRules: flags.map((f) => f.ruleId),
+      triggeredSignals: signalSet.signals.map((s) => s.id),
+      decisionEngine: decision.engine,
+      notes: c.notes,
+    });
   }
 
-  // Summary Table
+  // Summary Table By Language
   console.log('-----------------------------------------------------------------------------------------');
   console.log('| Language | Cases | Archetype Accuracy | High-Risk Recall | Benign False Alarm Rate |');
   console.log('-----------------------------------------------------------------------------------------');
@@ -167,16 +242,57 @@ async function runEvaluation() {
   );
   console.log('-----------------------------------------------------------------------------------------\n');
 
+  // Archetype Breakdown Table
+  console.log('Archetype Breakdown:');
+  console.log('------------------------------------------------------------');
+  console.log('| Archetype                     | Total Cases | Accuracy   |');
+  console.log('------------------------------------------------------------');
+  for (const [arch, stats] of Object.entries(perArchetypeStats)) {
+    if (stats.total > 0) {
+      const acc = ((stats.correct / stats.total) * 100).toFixed(1) + '%';
+      console.log(`| ${arch.padEnd(29)} | ${String(stats.total).padEnd(11)} | ${acc.padEnd(10)} |`);
+    }
+  }
+  console.log('------------------------------------------------------------\n');
+
+  // Confusion / Error Report
   if (misclassifiedIds.length > 0) {
-    console.log(`Misclassified Cases (${misclassifiedIds.length}):`);
+    console.log(`❌ Misclassified Cases (${misclassifiedIds.length}):`);
     misclassifiedIds.forEach((m) => {
-      console.log(` - Case ID: ${m.id} | Expected: ${m.expected} | Got: ${m.got} (${m.reason})`);
+      console.log(`\n[${m.id}] (${m.lang.toUpperCase()}) - ${m.reason}`);
+      console.log(`  Expected: ${m.expected} | Got: ${m.got}`);
+      console.log(`  Triggered Rules:   ${m.rules.join(', ') || 'None'}`);
+      console.log(`  Triggered Signals: ${m.signals.join(', ') || 'None'}`);
     });
   } else {
-    console.log('🎉 100% of benchmark evaluation cases passed cleanly on synthetic suite.');
+    console.log('🎉 100% of benchmark evaluation cases passed cleanly with 0 errors.');
   }
 
-  console.log('\nNote: Benchmark ran offline against deterministic rules-only engine without LLM/network calls.');
+  // Save machine-readable report
+  const reportsDir = path.join(process.cwd(), 'reports', 'eval');
+  if (!fs.existsSync(reportsDir)) {
+    fs.mkdirSync(reportsDir, { recursive: true });
+  }
+  const reportPath = path.join(reportsDir, 'latest.json');
+  fs.writeFileSync(
+    reportPath,
+    JSON.stringify(
+      {
+        timestamp: new Date().toISOString(),
+        datasetSource: source,
+        totalCases,
+        overallArchAcc,
+        overallRecall,
+        overallFalseAlarm,
+        perLangStats,
+        perArchetypeStats,
+        results: evalResults,
+      },
+      null,
+      2
+    )
+  );
+  console.log(`\nMachine-readable evaluation report saved to: ${reportPath}`);
 }
 
 runEvaluation().catch((err) => {
