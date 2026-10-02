@@ -6,28 +6,35 @@ export type SpeechState = 'IDLE' | 'SPEAKING' | 'PAUSED' | 'UNAVAILABLE';
 /**
  * Prepares clean plain text for TTS while preserving Tamil Unicode characters,
  * currency figures, percentages, and punctuation.
+ * Expands currency symbol ₹ to natural native words (ரூபாய் / रुपये) to prevent engine stumbling.
  */
-export function prepareTextForTTS(rawText: string): string {
+export function prepareTextForTTS(rawText: string, lang: Lang = 'en'): string {
   if (!rawText) return '';
 
-  return rawText
+  let cleaned = rawText
     // Remove masked token brackets like [PHONE], [EMAIL], etc.
     .replace(/\[(PHONE|EMAIL|UPI|PAN|ACCOUNT_OR_ID)\]/g, '')
     // Remove Markdown formatting like asterisks, hashes, backticks, blockquotes
     .replace(/[*#_`>]/g, '')
     // Replace markdown links [label](url) with just label
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-    // Normalize repeated whitespace
-    .replace(/\s+/g, ' ')
-    .trim();
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+
+  // Language-specific natural currency articulation
+  if (lang === 'ta') {
+    cleaned = cleaned.replace(/₹\s*([0-9,]+)/g, 'ரூபாய் $1');
+  } else if (lang === 'hi') {
+    cleaned = cleaned.replace(/₹\s*([0-9,]+)/g, 'रुपये $1');
+  }
+
+  return cleaned.replace(/\s+/g, ' ').trim();
 }
 
 /**
  * Splits text into natural sentence boundaries for smooth TTS playback.
  * Does not split in the middle of currency numbers (₹10,000), percentages (10%), or decimals.
  */
-export function segmentSentences(text: string): string[] {
-  const prepared = prepareTextForTTS(text);
+export function segmentSentences(text: string, lang: Lang = 'en'): string[] {
+  const prepared = prepareTextForTTS(text, lang);
   if (!prepared) return [];
 
   // Match sentences ending in punctuation or line breaks

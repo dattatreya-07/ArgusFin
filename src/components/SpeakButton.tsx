@@ -13,6 +13,8 @@ interface SpeakButtonProps {
   unavailableLabel?: string;
 }
 
+import { prepareTextForTTS, segmentSentences } from '@/lib/voice/tts';
+
 export function SpeakButton({
   text,
   lang,
@@ -71,30 +73,41 @@ export function SpeakButton({
       return;
     }
 
-    // Clean text of markdown and masked tokens
-    const cleanText = text
-      .replace(/\[(PHONE|EMAIL|UPI|PAN|ACCOUNT_OR_ID)\]/g, '')
-      .replace(/[*#_`>]/g, '')
-      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-      .trim();
-
-    if (!cleanText) return;
+    const chunks = segmentSentences(text, lang);
+    if (chunks.length === 0) return;
 
     window.speechSynthesis.cancel(); // Cancel any existing audio
-
-    const utterance = new SpeechSynthesisUtterance(cleanText);
-    utterance.lang = LOCALE_MAP[lang] || 'en-IN';
-    if (voice) {
-      utterance.voice = voice;
-    }
-    utterance.rate = lang === 'ta' || lang === 'hi' ? 0.92 : 1.0;
-    utterance.pitch = 1.0;
-
-    utterance.onend = () => setIsSpeaking(false);
-    utterance.onerror = () => setIsSpeaking(false);
-
     setIsSpeaking(true);
-    window.speechSynthesis.speak(utterance);
+
+    let currentIdx = 0;
+
+    const playNext = () => {
+      if (currentIdx >= chunks.length) {
+        setIsSpeaking(false);
+        return;
+      }
+
+      const utterance = new SpeechSynthesisUtterance(chunks[currentIdx]);
+      utterance.lang = LOCALE_MAP[lang] || 'en-IN';
+      if (voice) {
+        utterance.voice = voice;
+      }
+      utterance.rate = lang === 'ta' || lang === 'hi' ? 0.92 : 1.0;
+      utterance.pitch = 1.0;
+
+      utterance.onend = () => {
+        currentIdx++;
+        playNext();
+      };
+
+      utterance.onerror = () => {
+        setIsSpeaking(false);
+      };
+
+      window.speechSynthesis.speak(utterance);
+    };
+
+    playNext();
   };
 
   const defaultSpeakLabel =

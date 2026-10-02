@@ -137,6 +137,8 @@ function Footer() {
   );
 }
 
+import { VoiceDiagnostics } from '@/components/VoiceDiagnostics';
+
 export default async function LocaleLayout({
   children,
   params: { locale },
@@ -160,6 +162,7 @@ export default async function LocaleLayout({
             {children}
           </main>
           <Footer />
+          <VoiceDiagnostics lang={locale as Lang} />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -99,24 +99,34 @@ export function selectVoice<T extends VoiceLike>(options: {
   const targetLang: string = language || 'en';
 
   if (targetLang === 'ta' || targetLang === 'ta-IN' || targetLang.startsWith('ta')) {
-    // 1. Exact ta-IN match
-    const exactTaIn = voices.find((v) => normalizeLangTag(v.lang) === 'ta-in');
+    const tamilCandidates = voices.filter((v) => isTamilCompatible(v));
+    if (tamilCandidates.length === 0) return null;
+
+    // 1. Prefer Google Neural / Network high-fidelity Tamil voices on Android
+    const neuralNetworkTa = tamilCandidates.find(
+      (v) =>
+        (normalizeLangTag(v.lang) === 'ta-in' || normalizeLangTag(v.lang) === 'ta') &&
+        (v.name.toLowerCase().includes('network') ||
+          v.name.toLowerCase().includes('natural') ||
+          v.name.includes('தமிழ்') ||
+          v.name.toLowerCase().includes('google'))
+    );
+    if (neuralNetworkTa) return neuralNetworkTa;
+
+    // 2. Exact ta-IN match
+    const exactTaIn = tamilCandidates.find((v) => normalizeLangTag(v.lang) === 'ta-in');
     if (exactTaIn) return exactTaIn;
 
-    // 2. Regional ta-* match (e.g. ta-LK, ta-SG)
-    const regionalTa = voices.find((v) => normalizeLangTag(v.lang).startsWith('ta-'));
+    // 3. Regional ta-* match (e.g. ta-LK, ta-SG)
+    const regionalTa = tamilCandidates.find((v) => normalizeLangTag(v.lang).startsWith('ta-'));
     if (regionalTa) return regionalTa;
 
-    // 3. Generic ta match
-    const genericTa = voices.find((v) => normalizeLangTag(v.lang) === 'ta');
+    // 4. Generic ta match
+    const genericTa = tamilCandidates.find((v) => normalizeLangTag(v.lang) === 'ta');
     if (genericTa) return genericTa;
 
-    // 4. Tamil name match with compatible tag
-    const nameTa = voices.find((v) => isTamilCompatible(v));
-    if (nameTa) return nameTa;
-
-    // Reject non-Tamil voices completely!
-    return null;
+    // 5. Any compatible Tamil candidate
+    return tamilCandidates[0];
   }
 
   if (targetLang === 'hi' || targetLang === 'hi-IN' || targetLang.startsWith('hi')) {
