@@ -33,11 +33,22 @@ function parseAmount(numStr: string): number {
   return parseFloat(clean);
 }
 
+export type ClaimSource = 'USER_TEXT' | 'OCR' | 'STT';
+
+export interface ClaimExtractionInput {
+  text: string;
+  source?: ClaimSource;
+  evidenceId?: string;
+}
+
 /**
- * Extracts structured claims deterministically from masked text.
+ * Extracts structured claims deterministically from masked text or evidence input with provenance.
  */
-export function extractClaims(maskedText: string, _lang: Lang = 'en'): ExtractedClaims {
-  const text = maskedText || '';
+export function extractClaims(
+  maskedInput: string | ClaimExtractionInput,
+  _lang: Lang = 'en'
+): ExtractedClaims {
+  const text = typeof maskedInput === 'string' ? maskedInput : (maskedInput?.text || '');
   const lower = text.toLowerCase();
 
   // 1. Guaranteed check
