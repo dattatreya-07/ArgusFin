@@ -1,9 +1,21 @@
-import { DomainSignals, SignalStatus } from './types';
+import { SignalStatus } from './types';
 import { globalDomainCache } from './cache';
 
+// SSRF blocklist patterns for private/internal hostnames and IP ranges
+const SSRF_BLOCKED_HOSTNAMES = new Set([
+  'localhost',
+  '127.0.0.1',
+  '0.0.0.0',
+  '::1',
+  '169.254.169.254', // AWS/GCP metadata endpoint
+  'metadata.google.internal',
+]);
+
+const PRIVATE_IP_REGEX = /^(?:10\.\d{1,3}\.\d{1,3}\.\d{1,3}|172\.(?:1[6-9]|2\d|3[01])\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3}|169\.254\.\d{1,3}\.\d{1,3}|127\.\d{1,3}\.\d{1,3}\.\d{1,3})$/;
+
 /**
- * Normalizes a raw input string or URL into a clean hostname.
- * Returns null if the input is not a valid domain.
+ * Normalizes a raw input string or URL into a clean, public domain hostname.
+ * Returns null if the input is not a valid domain or targets a private/internal IP/host (SSRF protection).
  */
 export function extractAndNormalizeDomain(input: string): string | null {
   if (!input || typeof input !== 'string') return null;
@@ -26,7 +38,16 @@ export function extractAndNormalizeDomain(input: string): string | null {
       hostname = hostname.slice(4);
     }
 
-    // Must contain at least one dot and valid characters
+    // SSRF Check: block private IPs, localhost, and metadata hosts
+    if (SSRF_BLOCKED_HOSTNAMES.has(hostname) || PRIVATE_IP_REGEX.test(hostname)) {
+      return null;
+    }
+
+    if (hostname.endsWith('.local') || hostname.endsWith('.internal') || hostname.endsWith('.lan')) {
+      return null;
+    }
+
+    // Must contain at least one dot and valid characters with a valid public TLD (at least 2 letters)
     if (!hostname.includes('.') || !/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(hostname)) {
       return null;
     }
