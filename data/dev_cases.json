@@ -1,0 +1,86 @@
+[
+  {
+    "id": "case-en-001",
+    "language": "en",
+    "input_text": "Double your money in 30 days! Guaranteed 2x returns, limited slots. Join our VIP group now at https://t.me/example.",
+    "expected_archetype": "DOUBLING_SCHEME",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-en-002",
+    "language": "en",
+    "input_text": "Connect with our automated copy trading bot. Send fee to [UPI] and share OTP for registration.",
+    "expected_archetype": "COPY_TRADING",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-en-003",
+    "language": "en",
+    "input_text": "Join our VIP mentorship masterclass and secret trading course. 99% accuracy tips on Telegram.",
+    "expected_archetype": "COURSE_FINFLUENCER",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-en-004",
+    "language": "en",
+    "input_text": "Diversification across index funds and fixed deposits helps manage portfolio volatility over long horizons.",
+    "expected_archetype": "OTHER_OR_NONE",
+    "expected_band": "LOW_SIGNALS"
+  },
+  {
+    "id": "case-hi-001",
+    "language": "hi",
+    "input_text": "30 दिन में पैसा दोगुना करें! 100% गारंटीड रिटर्न। सीमित स्लॉट, तुरंत वीआईपी ग्रुप ज्वाइन करें।",
+    "expected_archetype": "DOUBLING_SCHEME",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-hi-002",
+    "language": "hi",
+    "input_text": "कॉपी ट्रेडिंग से रोजाना 10% मुनाफा कमाएं। फीस [UPI] पर भेजें और ऐप डाउनलोड करें।",
+    "expected_archetype": "COPY_TRADING",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-hi-003",
+    "language": "hi",
+    "input_text": "ट्रेडिंग कोर्स और सीक्रेट फॉर्मूला मास्टरक्लास। हमारे वीआईपी टेलीग्राम ग्रुप से जुड़ें।",
+    "expected_archetype": "COURSE_FINFLUENCER",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-hi-004",
+    "language": "hi",
+    "input_text": "म्यूचुअल फंड में निवेश बाजार जोखिमों के अधीन है, कृपया सभी योजना संबंधी दस्तावेजों को ध्यान से पढ़ें।",
+    "expected_archetype": "OTHER_OR_NONE",
+    "expected_band": "LOW_SIGNALS"
+  },
+  {
+    "id": "case-ta-001",
+    "language": "ta",
+    "input_text": "30 நாட்களில் உங்கள் பணம் இரட்டிப்பு! 100% உத்தரவாதம். வரையறுக்கப்பட்ட இடங்கள். VIP குழுவில் இணையுங்கள்.",
+    "expected_archetype": "DOUBLING_SCHEME",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-ta-002",
+    "language": "ta",
+    "input_text": "காப்பி டிரேடிங் மூலம் லாபம் ஈட்டுங்கள். கட்டணத்தை [UPI] மூலம் செலுத்தி செயலியை பதிவிறக்குங்கள்.",
+    "expected_archetype": "COPY_TRADING",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-ta-003",
+    "language": "ta",
+    "input_text": "ரகசிய பங்குச்சந்தை பயிற்சி வகுப்பு மற்றும் மாஸ்டர்கிளாஸ். டெலிகிராம் குழுவில் இணையுங்கள்.",
+    "expected_archetype": "COURSE_FINFLUENCER",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-ta-004",
+    "language": "ta",
+    "input_text": "பங்குச்சந்தை முதலீடுகள் சந்தை அபாயங்களுக்கு உட்பட்டவை. நீண்ட கால கூட்டு வட்டி பலனை புரிந்து முதலீடு செய்யுங்கள்.",
+    "expected_archetype": "OTHER_OR_NONE",
+    "expected_band": "LOW_SIGNALS"
+  }
+]
