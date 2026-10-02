@@ -1,0 +1,62 @@
+{
+  "common": {
+    "title": "SANGYAN Investor Resilience",
+    "tagline": "We don't predict markets. We show, with simple maths and cited sources, why unrealistic returns cannot be real.",
+    "disclaimer": "Educational tool. Not investment advice. Not a legal document.",
+    "privacyNotice": "Privacy by design: No personal identifiers, phone numbers, or account details are ever stored or logged. Data is masked directly on your device before any external processing.",
+    "language": "Language",
+    "english": "English",
+    "hindi": "हिन्दी",
+    "tamil": "தமிழ்"
+  },
+  "nav": {
+    "home": "Home",
+    "check": "Scam Check",
+    "calculator": "Promise Calculator",
+    "learn": "Learn",
+    "report": "Victim Record",
+    "ask": "Ask Assistant"
+  },
+  "home": {
+    "heroTitle": "Verify Promises. Protect Your Savings.",
+    "heroSubtitle": "Received a high-return offer on WhatsApp or Telegram? Check the math, find red flags, and know the official channels to report.",
+    "checkCardTitle": "Check an Offer",
+    "checkCardDesc": "Paste a message, link, or upload a screenshot to detect scam patterns and calculate annualised return.",
+    "calcCardTitle": "Promise-to-Reality Calculator",
+    "calcCardDesc": "Convert promised returns to real annualised percentages and compare with official savings and market benchmarks.",
+    "learnCardTitle": "Learn Financial Realities",
+    "learnCardDesc": "Understand compounding, volatility, and regulatory protections in Hindi, Tamil, and English.",
+    "reportCardTitle": "Emergency Action & Report",
+    "reportCardDesc": "Step-by-step guidance for the first 60 minutes after a suspected fraud. Draft an official incident record.",
+    "askCardTitle": "Cited Q&A Assistant",
+    "askCardDesc": "Ask questions about investment schemes and get answers strictly grounded in official sources."
+  },
+  "calculator": {
+    "title": "Promise-to-Reality Calculator",
+    "investedLabel": "Invested Amount (₹)",
+    "payoutLabel": "Promised Payout (₹)",
+    "durationLabel": "Duration (Days)",
+    "calculateBtn": "Calculate Reality Check",
+    "resultsTitle": "Reality Check Result",
+    "multiple": "Total Multiplier",
+    "totalGain": "Total Gain",
+    "annualisedMultiple": "Annualised Multiplier",
+    "annualisedReturn": "Annualised Return",
+    "tier1": "Within typical savings/FD range",
+    "tier2": "Above savings/FD, within long-term equity index range",
+    "tier3": "Above any sustainable long-term market benchmark",
+    "tier4": "Mathematically unsustainable as a repeating rate (>100x annualised)",
+    "tierWarning": "Returns this high cannot be guaranteed. Check who is registered and who regulates this.",
+    "overflowWarning": "Extremely high exponential return detected. Rate cannot be sustained in real economies."
+  },
+  "placeholders": {
+    "checkTitle": "Scam Check (Phase 1)",
+    "checkDesc": "The scam analysis engine with typed probabilities and verified signals will be available in Phase 1.",
+    "learnTitle": "Investor Education (Phase 1)",
+    "learnDesc": "Bite-sized interactive lessons and market simulators will be available in Phase 1.",
+    "reportTitle": "First-Victim Record Builder (Phase 1)",
+    "reportDesc": "The guided official incident report generator will be available in Phase 1.",
+    "askTitle": "Grounded Q&A Bot (Phase 1)",
+    "askDesc": "The cited multilingual Q&A assistant will be available in Phase 1."
+  }
+}

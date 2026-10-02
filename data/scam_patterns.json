@@ -1,0 +1,102 @@
+[
+  {
+    "id": "DOUBLING_SCHEME",
+    "archetype": "DOUBLING_SCHEME",
+    "red_flags": [],
+    "summary_i18n": {
+      "en": "",
+      "hi": "",
+      "ta": ""
+    }
+  },
+  {
+    "id": "COPY_TRADING",
+    "archetype": "COPY_TRADING",
+    "red_flags": [],
+    "summary_i18n": {
+      "en": "",
+      "hi": "",
+      "ta": ""
+    }
+  },
+  {
+    "id": "COURSE_FINFLUENCER",
+    "archetype": "COURSE_FINFLUENCER",
+    "red_flags": [],
+    "summary_i18n": {
+      "en": "",
+      "hi": "",
+      "ta": ""
+    }
+  },
+  {
+    "id": "CRYPTO_STAKING_MINING",
+    "archetype": "CRYPTO_STAKING_MINING",
+    "red_flags": [],
+    "summary_i18n": {
+      "en": "",
+      "hi": "",
+      "ta": ""
+    }
+  },
+  {
+    "id": "FAKE_TRADING_APP_OR_PORTAL",
+    "archetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "red_flags": [],
+    "summary_i18n": {
+      "en": "",
+      "hi": "",
+      "ta": ""
+    }
+  },
+  {
+    "id": "FAKE_ADVISORY_OR_REG_CLAIM",
+    "archetype": "FAKE_ADVISORY_OR_REG_CLAIM",
+    "red_flags": [],
+    "summary_i18n": {
+      "en": "",
+      "hi": "",
+      "ta": ""
+    }
+  },
+  {
+    "id": "PUMP_AND_DUMP_GROUP",
+    "archetype": "PUMP_AND_DUMP_GROUP",
+    "red_flags": [],
+    "summary_i18n": {
+      "en": "",
+      "hi": "",
+      "ta": ""
+    }
+  },
+  {
+    "id": "REMOTE_ACCESS_SCAM",
+    "archetype": "REMOTE_ACCESS_SCAM",
+    "red_flags": [],
+    "summary_i18n": {
+      "en": "",
+      "hi": "",
+      "ta": ""
+    }
+  },
+  {
+    "id": "FAKE_IPO_OR_ALLOTMENT",
+    "archetype": "FAKE_IPO_OR_ALLOTMENT",
+    "red_flags": [],
+    "summary_i18n": {
+      "en": "",
+      "hi": "",
+      "ta": ""
+    }
+  },
+  {
+    "id": "OTHER_OR_NONE",
+    "archetype": "OTHER_OR_NONE",
+    "red_flags": [],
+    "summary_i18n": {
+      "en": "",
+      "hi": "",
+      "ta": ""
+    }
+  }
+]

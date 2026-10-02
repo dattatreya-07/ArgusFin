@@ -1,0 +1,62 @@
+{
+  "common": {
+    "title": "சங்க்யான்: முதலீட்டாளர் பாதுகாப்பு (TODO(review))",
+    "tagline": "நாங்கள் சந்தைகளை கணிக்கவில்லை. எளிய கணிதம் மற்றும் ஆதாரங்கள் மூலம் சாத்தியமற்ற வருமானங்களை விளக்குகிறோம். (TODO(review))",
+    "disclaimer": "கல்வி நோக்கத்திற்கான கருவி. முதலீட்டு ஆலோசனை அல்ல. சட்ட ஆவணம் அல்ல. (TODO(review))",
+    "privacyNotice": "தனியுரிமை கொள்கை: எந்தவொரு தனிப்பட்ட விவரங்களும், தொலைபேசி எண்களும் சேமிக்கப்படுவதில்லை. (TODO(review))",
+    "language": "மொழி",
+    "english": "English",
+    "hindi": "हिन्दी",
+    "tamil": "தமிழ்"
+  },
+  "nav": {
+    "home": "முகப்பு (TODO(review))",
+    "check": "மோசடி சரிபார்ப்பு (TODO(review))",
+    "calculator": "வருமான கணிப்பான் (TODO(review))",
+    "learn": "கற்க (TODO(review))",
+    "report": "புகார் பதிவு (TODO(review))",
+    "ask": "கேள்விகள் (TODO(review))"
+  },
+  "home": {
+    "heroTitle": "உறுதிமொழிகளை சரிபாருங்கள். சேமிப்பைப் பாதுகாக்கவும். (TODO(review))",
+    "heroSubtitle": "அதிக வருமானம் தரும் சலுகை வந்ததா? கணிதத்தை சரிபார்த்து அதிகாரப்பூர்வ வழிகளை அறியுங்கள். (TODO(review))",
+    "checkCardTitle": "சலுகையை சரிபார்க்கவும் (TODO(review))",
+    "checkCardDesc": "செய்தி அல்லது இணைப்பை உள்ளிட்டு அபாயங்களை சரிபாருங்கள். (TODO(review))",
+    "calcCardTitle": "வருமான கணிப்பான் (TODO(review))",
+    "calcCardDesc": "கூறப்படும் வருமானத்தை ஆண்டு சதவீதமாக மாற்றி ஒப்பிடுங்கள். (TODO(review))",
+    "learnCardTitle": "நிதி உண்மைகளை அறியுங்கள் (TODO(review))",
+    "learnCardDesc": "கூட்டு வட்டி, அபாயங்கள் மற்றும் ஒழுங்குமுறை விதிகளை எளிதாக புரிந்து கொள்ளுங்கள். (TODO(review))",
+    "reportCardTitle": "அவசர உதவி மற்றும் புகார் (TODO(review))",
+    "reportCardDesc": "மோசடி நடந்த முதல் 60 நிமிடங்களில் செய்ய வேண்டியவை. (TODO(review))",
+    "askCardTitle": "ஆதார உதவி மையம் (TODO(review))",
+    "askCardDesc": "முதலீட்டு திட்டங்கள் குறித்த கேள்விகளுக்கு அதிகாரப்பூர்வ பதில்கள். (TODO(review))"
+  },
+  "calculator": {
+    "title": "வருமான உண்மை கணிப்பான் (TODO(review))",
+    "investedLabel": "முதலீட்டு தொகை (₹) (TODO(review))",
+    "payoutLabel": "வாக்களிக்கப்பட்ட வருமானம் (₹) (TODO(review))",
+    "durationLabel": "கால அளவு (நாட்கள்) (TODO(review))",
+    "calculateBtn": "கணக்கிடுங்கள் (TODO(review))",
+    "resultsTitle": "கணக்கீட்டு முடிவு (TODO(review))",
+    "multiple": "மொத்த பெருக்கம் (TODO(review))",
+    "totalGain": "மொத்த லாபம் (TODO(review))",
+    "annualisedMultiple": "ஆண்டு பெருக்கம் (TODO(review))",
+    "annualisedReturn": "ஆண்டு வருமானம் (TODO(review))",
+    "tier1": "வழக்கமான சேமிப்பு / நிலையான வைப்பு வரம்பிற்குள் (TODO(review))",
+    "tier2": "நிலையான வைப்பை விட அதிகம், நீண்ட கால குறியீட்டு வரம்பிற்குள் (TODO(review))",
+    "tier3": "நீண்ட கால நிலையான சந்தை அளவை விட அதிகம் (TODO(review))",
+    "tier4": "கணித ரீதியாக சாத்தியமற்ற அதிகப்படியான விகிதம் (>100x ஆண்டு வருமானம்) (TODO(review))",
+    "tierWarning": "இவ்வளவு அதிக வருமானத்திற்கு உத்தரவாதம் அளிக்க முடியாது. (TODO(review))",
+    "overflowWarning": "மிக அதிக வருமான விகிதம். உண்மையான பொருளாதாரத்தில் இது சாத்தியமில்லை. (TODO(review))"
+  },
+  "placeholders": {
+    "checkTitle": "மோசடி சரிபார்ப்பு (கட்டம் 1) (TODO(review))",
+    "checkDesc": "சரிபார்க்கப்பட்ட சிக்னல்களுடன் கூடிய பகுப்பாய்வு கட்டம் 1-ல் கிடைக்கும். (TODO(review))",
+    "learnTitle": "முதலீட்டாளர் கல்வி (கட்டம் 1) (TODO(review))",
+    "learnDesc": "ஊடாடும் பாடங்கள் கட்டம் 1-ல் கிடைக்கும். (TODO(review))",
+    "reportTitle": "புகார் வரைவு (கட்டம் 1) (TODO(review))",
+    "reportDesc": "அதிகாரப்பூர்வ புகார் உருவாக்கம் கட்டம் 1-ல் கிடைக்கும். (TODO(review))",
+    "askTitle": "ஆதார கேள்வி-பதில் பாட் (கட்டம் 1) (TODO(review))",
+    "askDesc": "பல்மொழி கேள்வி-பதில் உதவி கட்டம் 1-ல் கிடைக்கும். (TODO(review))"
+  }
+}

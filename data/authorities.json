@@ -1,0 +1,92 @@
+[
+  {
+    "id": "national_cyber_helpline",
+    "name": "National Cyber Crime Helpline",
+    "scope": "Financial fraud and cyber crime first response",
+    "channels": [
+      {
+        "type": "phone",
+        "value": "1930",
+        "verified_at": null,
+        "notes": "TODO(verify)"
+      }
+    ],
+    "verified_at": null,
+    "source_url": null
+  },
+  {
+    "id": "cybercrime_portal",
+    "name": "National Cyber Crime Reporting Portal",
+    "scope": "Filing formal cyber fraud complaints online",
+    "channels": [
+      {
+        "type": "url",
+        "value": "https://cybercrime.gov.in",
+        "verified_at": null,
+        "notes": "TODO(verify)"
+      }
+    ],
+    "verified_at": null,
+    "source_url": null
+  },
+  {
+    "id": "sebi_complaints",
+    "name": "SEBI Complaints Redress System (SCORES)",
+    "scope": "Securities market, unregistered advisor, and intermediary complaints",
+    "channels": [
+      {
+        "type": "url",
+        "value": "",
+        "verified_at": null,
+        "notes": "TODO(verify)"
+      }
+    ],
+    "verified_at": null,
+    "source_url": null
+  },
+  {
+    "id": "user_bank",
+    "name": "Victim's Bank Fraud / Dispute Cell",
+    "scope": "Immediate transaction freeze and chargeback dispute",
+    "channels": [
+      {
+        "type": "phone",
+        "value": "",
+        "verified_at": null,
+        "notes": "TODO(verify)"
+      }
+    ],
+    "verified_at": null,
+    "source_url": null
+  },
+  {
+    "id": "platform_report",
+    "name": "Social / Messaging Platform Abuse Reporting",
+    "scope": "Reporting scam accounts, groups, channels, or fake apps",
+    "channels": [
+      {
+        "type": "url",
+        "value": "",
+        "verified_at": null,
+        "notes": "TODO(verify)"
+      }
+    ],
+    "verified_at": null,
+    "source_url": null
+  },
+  {
+    "id": "telecom_fraud_reporting",
+    "name": "Telecom Fraud Reporting (Chakshu / DoT)",
+    "scope": "Suspected fraudulent communication via SMS, call, or WhatsApp",
+    "channels": [
+      {
+        "type": "url",
+        "value": "",
+        "verified_at": null,
+        "notes": "TODO(verify)"
+      }
+    ],
+    "verified_at": null,
+    "source_url": null
+  }
+]

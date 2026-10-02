@@ -1,0 +1,62 @@
+{
+  "common": {
+    "title": "संज्ञान: निवेशक सुरक्षा (TODO(review))",
+    "tagline": "हम बाज़ार का अनुमान नहीं लगाते। हम सरल गणित और आधिकारिक स्रोतों से दिखाते हैं कि अवास्तविक रिटर्न संभव क्यों नहीं हैं। (TODO(review))",
+    "disclaimer": "शैक्षणिक उपकरण। निवेश सलाह नहीं। कानूनी दस्तावेज नहीं। (TODO(review))",
+    "privacyNotice": "गोपनीयता नीति: कोई भी व्यक्तिगत पहचानकर्ता, फोन नंबर या बैंक खाता विवरण कभी भी संग्रहीत या लॉग नहीं किया जाता है। (TODO(review))",
+    "language": "भाषा",
+    "english": "English",
+    "hindi": "हिन्दी",
+    "tamil": "தமிழ்"
+  },
+  "nav": {
+    "home": "होम (TODO(review))",
+    "check": "स्कैम जांच (TODO(review))",
+    "calculator": "रिटर्न कैलकुलेटर (TODO(review))",
+    "learn": "सीखें (TODO(review))",
+    "report": "रिपोर्ट बनाएं (TODO(review))",
+    "ask": "सवाल पूछें (TODO(review))"
+  },
+  "home": {
+    "heroTitle": "दावों की जांच करें। अपनी बचत सुरक्षित रखें। (TODO(review))",
+    "heroSubtitle": "व्हाट्सएप या टेलीग्राम पर भारी रिटर्न का प्रस्ताव मिला? गणित जांचें, लाल झंडे पहचानें और रिपोर्ट करने के आधिकारिक तरीके जानें। (TODO(review))",
+    "checkCardTitle": "प्रस्ताव की जांच करें (TODO(review))",
+    "checkCardDesc": "संदेश, लिंक या स्क्रीनशॉट डालकर जोखिम और वार्षिक रिटर्न की जांच करें। (TODO(review))",
+    "calcCardTitle": "रिटर्न कैलकुलेटर (TODO(review))",
+    "calcCardDesc": "वादे किए गए रिटर्न को वार्षिक प्रतिशत में बदलें और वास्तविक बेंचमार्क से तुलना करें। (TODO(review))",
+    "learnCardTitle": "वित्तीय वास्तविकताएं समझें (TODO(review))",
+    "learnCardDesc": "कंपाउंडिंग, जोखिम और नियामकों के बारे में आसान भाषा में समझें। (TODO(review))",
+    "reportCardTitle": "आपातकालीन कदम और रिपोर्ट (TODO(review))",
+    "reportCardDesc": "धोखाधड़ी के पहले 60 मिनट में क्या करें। आधिकारिक शिकायत का मसौदा तैयार करें। (TODO(review))",
+    "askCardTitle": "सत्यापित सहायक (TODO(review))",
+    "askCardDesc": "निवेश योजनाओं पर आधिकारिक स्रोतों पर आधारित उत्तर पाएं। (TODO(review))"
+  },
+  "calculator": {
+    "title": "रिटर्न वास्तविकता कैलकुलेटर (TODO(review))",
+    "investedLabel": "निवेश की गई राशि (₹) (TODO(review))",
+    "payoutLabel": "वादा किया गया भुगतान (₹) (TODO(review))",
+    "durationLabel": "अवधि (दिन) (TODO(review))",
+    "calculateBtn": "गणना करें (TODO(review))",
+    "resultsTitle": "गणना परिणाम (TODO(review))",
+    "multiple": "कुल गुना (TODO(review))",
+    "totalGain": "कुल लाभ (TODO(review))",
+    "annualisedMultiple": "वार्षिक गुणक (TODO(review))",
+    "annualisedReturn": "वार्षिक रिटर्न (TODO(review))",
+    "tier1": "सामान्य बचत / एफडी दायरे में (TODO(review))",
+    "tier2": "एफडी से अधिक, दीर्घकालिक इंडेक्स दायरे में (TODO(review))",
+    "tier3": "दीर्घकालिक सुरक्षित बेंचमार्क से अधिक (TODO(review))",
+    "tier4": "अत्यधिक अवास्तविक एवं गणितीय रूप से असंभव (>100x वार्षिक) (TODO(review))",
+    "tierWarning": "इतने उच्च रिटर्न की गारंटी नहीं दी जा सकती। जांचें कि नियामक कौन है। (TODO(review))",
+    "overflowWarning": "अत्यधिक रिटर्न दर दर्ज की गई। यह वास्तविक अर्थव्यवस्था में संभव नहीं है। (TODO(review))"
+  },
+  "placeholders": {
+    "checkTitle": "स्कैम जांच (चरण 1) (TODO(review))",
+    "checkDesc": "सत्यापित संकेतों के साथ स्कैम विश्लेषण इंजन चरण 1 में उपलब्ध होगा। (TODO(review))",
+    "learnTitle": "निवेशक शिक्षा (चरण 1) (TODO(review))",
+    "learnDesc": "इंटरैक्टिव पाठ और सिमुलेटर चरण 1 में उपलब्ध होंगे। (TODO(review))",
+    "reportTitle": "शिकायत मसौदा निर्माता (चरण 1) (TODO(review))",
+    "reportDesc": "आधिकारिक शिकायत जनरेटर चरण 1 में उपलब्ध होगा। (TODO(review))",
+    "askTitle": "सत्यापित प्रश्नोत्तर बॉट (चरण 1) (TODO(review))",
+    "askDesc": "बहुभाषी प्रश्नोत्तर सहायक चरण 1 में उपलब्ध होगा। (TODO(review))"
+  }
+}

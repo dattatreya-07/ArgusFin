@@ -1,0 +1,47 @@
+{
+  "status": "TODO(verify)",
+  "rungs": [
+    {
+      "id": "savings",
+      "name": "Savings Account Interest",
+      "value_low": null,
+      "value_high": null,
+      "unit": "percent_annual",
+      "as_of": null,
+      "source_url": null,
+      "notes": "TODO(verify) with official RBI or major bank schedule"
+    },
+    {
+      "id": "fd",
+      "name": "Bank Fixed Deposit (1-3 yr)",
+      "value_low": null,
+      "value_high": null,
+      "unit": "percent_annual",
+      "as_of": null,
+      "source_url": null,
+      "notes": "TODO(verify) with official retail scheduled commercial banks range"
+    },
+    {
+      "id": "gsec_small_savings",
+      "name": "Small Savings / Govt Securities",
+      "value_low": null,
+      "value_high": null,
+      "unit": "percent_annual",
+      "as_of": null,
+      "source_url": null,
+      "notes": "TODO(verify) with Ministry of Finance notified rates"
+    },
+    {
+      "id": "index_cagr_5y_10y",
+      "name": "Broad Equity Index Rolling CAGR (5Y & 10Y)",
+      "value_low": null,
+      "value_high": null,
+      "median": null,
+      "share_below_fd": null,
+      "unit": "percent_annual_range",
+      "as_of": null,
+      "source_url": null,
+      "notes": "TODO(verify) calculated from official historical index rolling data including down periods"
+    }
+  ]
+}
