@@ -43,6 +43,6 @@ describe('/api/authorities Route Handler', () => {
     const res = await POST(req);
     expect(res.status).toBe(400);
     const data = await res.json();
-    expect(data.error.code).toBe('INVALID_JSON');
+    expect(data.error.code).toBe('VALIDATION_ERROR');
   });
 });

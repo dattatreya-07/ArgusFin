@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { maskPii, detectPiiLeak } from '@/lib/privacy';
+import { maskPii } from '@/lib/privacy';
 import { validateIncidentConsistency } from '@/lib/incident/consistency';
 import { routeAuthorities } from '@/lib/authorities/router';
 import { IncidentReportDraft } from '@/lib/incident/types';
+import { generateRequestId, logAppEvent } from '@/lib/observability';
 
 const incidentDraftSchema = z.object({
   language: z.enum(['en', 'hi', 'ta']).default('en'),
@@ -53,21 +54,52 @@ const LOCALIZED_DISCLAIMER = {
 };
 
 export async function POST(req: NextRequest) {
+  const startTime = Date.now();
+  const requestId = req.headers.get('x-request-id') || generateRequestId();
+
   try {
     let raw: any;
     try {
       raw = await req.json();
     } catch {
+      logAppEvent({
+        name: 'validation_failure',
+        requestId,
+        route: '/api/report/draft',
+        subsystem: 'report',
+        status: 'failure',
+        errorCode: 'VALIDATION_ERROR',
+        durationMs: Date.now() - startTime,
+      });
+
       return NextResponse.json(
-        { status: 'INVALID_INPUT', error: { code: 'INVALID_JSON', message: 'Malformed JSON payload.' } },
+        {
+          requestId,
+          status: 'INVALID_INPUT',
+          error: { code: 'VALIDATION_ERROR', message: 'Malformed JSON payload.' },
+        },
         { status: 400 }
       );
     }
 
     const parseRes = incidentDraftSchema.safeParse(raw);
     if (!parseRes.success) {
+      logAppEvent({
+        name: 'validation_failure',
+        requestId,
+        route: '/api/report/draft',
+        subsystem: 'report',
+        status: 'failure',
+        errorCode: 'VALIDATION_ERROR',
+        durationMs: Date.now() - startTime,
+      });
+
       return NextResponse.json(
-        { status: 'INVALID_INPUT', error: { code: 'VALIDATION_ERROR', details: parseRes.error.flatten() } },
+        {
+          requestId,
+          status: 'INVALID_INPUT',
+          error: { code: 'VALIDATION_ERROR', details: parseRes.error.flatten() },
+        },
         { status: 400 }
       );
     }
@@ -156,16 +188,39 @@ export async function POST(req: NextRequest) {
       ],
     };
 
+    const durationMs = Date.now() - startTime;
+    logAppEvent({
+      name: 'report_generation',
+      requestId,
+      route: '/api/report/draft',
+      subsystem: 'report',
+      status: 'success',
+      language: lang,
+      durationMs,
+    });
+
     return NextResponse.json(
       {
+        requestId,
         status: 'READY',
         draft: formattedDraft,
       },
       { status: 200 }
     );
   } catch (err: any) {
+    logAppEvent({
+      name: 'request_failed',
+      requestId,
+      route: '/api/report/draft',
+      subsystem: 'report',
+      status: 'failure',
+      errorCode: 'INTERNAL_ERROR',
+      durationMs: Date.now() - startTime,
+    });
+
     return NextResponse.json(
       {
+        requestId,
         status: 'UNAVAILABLE',
         error: { code: 'INTERNAL_ERROR', message: 'Failed to generate incident draft.' },
       },

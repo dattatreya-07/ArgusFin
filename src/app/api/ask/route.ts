@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { maskPII } from '@/lib/mask';
 import { askRag } from '@/lib/rag';
 import { Lang } from '@/lib/types';
+import { generateRequestId, logAppEvent } from '@/lib/observability';
 
 const askRequestSchema = z
   .object({
@@ -39,13 +40,33 @@ function checkRateLimit(ip: string): boolean {
 
 export async function POST(req: NextRequest) {
   const startTime = Date.now();
+  const requestId = req.headers.get('x-request-id') || generateRequestId();
   const clientIp = req.headers.get('x-forwarded-for')?.split(',')[0] || '127.0.0.1';
 
+  logAppEvent({
+    name: 'request_received',
+    requestId,
+    route: '/api/ask',
+    subsystem: 'ask',
+    status: 'success',
+  });
+
   if (!checkRateLimit(clientIp)) {
+    logAppEvent({
+      name: 'rate_limit_rejection',
+      requestId,
+      route: '/api/ask',
+      subsystem: 'ask',
+      status: 'failure',
+      errorCode: 'RATE_LIMITED',
+      durationMs: Date.now() - startTime,
+    });
+
     return NextResponse.json(
       {
+        requestId,
         status: 'UNAVAILABLE',
-        error: { code: 'RATE_LIMIT_EXCEEDED', message: 'Too many requests. Please slow down.' },
+        error: { code: 'RATE_LIMITED', message: 'Too many requests. Please slow down.' },
       },
       { status: 429 }
     );
@@ -56,8 +77,19 @@ export async function POST(req: NextRequest) {
     const parseResult = askRequestSchema.safeParse(rawBody);
 
     if (!parseResult.success) {
+      logAppEvent({
+        name: 'validation_failure',
+        requestId,
+        route: '/api/ask',
+        subsystem: 'ask',
+        status: 'failure',
+        errorCode: 'VALIDATION_ERROR',
+        durationMs: Date.now() - startTime,
+      });
+
       return NextResponse.json(
         {
+          requestId,
           status: 'INVALID_REQUEST',
           error: {
             code: 'VALIDATION_ERROR',
@@ -79,13 +111,33 @@ export async function POST(req: NextRequest) {
     const ragResult = await askRag(sanitizedQuery, lang);
 
     const durationMs = Date.now() - startTime;
-    // Safe telemetry logging without raw user questions or PII
-    console.log(
-      `[API /api/ask] status=200 rag_status=${ragResult.status} verified=${ragResult.verified} lang=${lang} duration=${durationMs}ms`
-    );
+    logAppEvent({
+      name: ragResult.status === 'ANSWERED' ? 'rag_retrieval' : 'rag_no_source',
+      requestId,
+      route: '/api/ask',
+      subsystem: 'ask',
+      status: 'success',
+      language: lang,
+      durationMs,
+      metadata: {
+        verified: ragResult.verified,
+        citationsCount: ragResult.citations.length,
+      },
+    });
+
+    logAppEvent({
+      name: 'request_completed',
+      requestId,
+      route: '/api/ask',
+      subsystem: 'ask',
+      status: 'success',
+      language: lang,
+      durationMs,
+    });
 
     return NextResponse.json(
       {
+        requestId,
         status: ragResult.status,
         answer: ragResult.answer,
         verified: ragResult.verified,
@@ -98,9 +150,19 @@ export async function POST(req: NextRequest) {
     );
   } catch (error) {
     const durationMs = Date.now() - startTime;
-    console.error(`[API /api/ask] status=500 duration=${durationMs}ms`);
+    logAppEvent({
+      name: 'request_failed',
+      requestId,
+      route: '/api/ask',
+      subsystem: 'ask',
+      status: 'failure',
+      errorCode: 'INTERNAL_ERROR',
+      durationMs,
+    });
+
     return NextResponse.json(
       {
+        requestId,
         status: 'UNAVAILABLE',
         error: { code: 'INTERNAL_ERROR', message: 'Failed to process RAG query' },
       },

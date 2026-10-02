@@ -40,11 +40,39 @@ export function getSystemReadiness(): SystemReadinessReport {
       privacyBoundary: 'Static verified data',
     },
     scamCheck: {
-      name: 'Scam / Claim Detection Engine',
-      status: isGroqConfigured ? 'AVAILABLE' : 'DEGRADED',
-      provider: isGroqConfigured ? 'Fusion (Rules + Groq LLM)' : 'Deterministic Rules-Only Engine',
-      fallback: 'Deterministic multilingual rules engine',
+      name: 'Scam / Claim Detection Pipeline',
+      status: 'AVAILABLE',
+      provider: 'Deterministic-First Multi-Stage Pipeline',
+      fallback: 'Deterministic rules-only engine',
       privacyBoundary: 'Client-side PII masking before API dispatch',
+    },
+    deterministicRules: {
+      name: 'Deterministic Rules Engine',
+      status: 'AVAILABLE',
+      provider: 'Multilingual Pattern & Threshold Rules',
+      fallback: 'Direct static rule execution',
+      privacyBoundary: 'Zero external network calls',
+    },
+    llmFusion: {
+      name: 'Probabilistic LLM Decision Fusion',
+      status: isGroqConfigured ? 'AVAILABLE' : 'NOT_CONFIGURED',
+      provider: isGroqConfigured ? 'Groq Llama-3 API' : 'Not Configured (Rules Fallback)',
+      fallback: 'Deterministic Rules-Only Engine',
+      privacyBoundary: 'Masked text only; zero raw PII sent',
+    },
+    rdap: {
+      name: 'RDAP Domain Age Signal',
+      status: 'AVAILABLE',
+      provider: 'Public RDAP Protocol (rdap.org)',
+      fallback: 'Graceful unavailable domain signal',
+      privacyBoundary: 'Domain hostname only; SSRF protected',
+    },
+    lookalikeDetection: {
+      name: 'Lookalike & Homoglyph Detection',
+      status: 'AVAILABLE',
+      provider: 'Deterministic Levenshtein & Regulated Domain Set',
+      fallback: 'Static verified domain dictionary',
+      privacyBoundary: 'Local string distance computation',
     },
     rag: {
       name: 'Grounded Regulatory Q&A',
@@ -75,11 +103,18 @@ export function getSystemReadiness(): SystemReadinessReport {
       privacyBoundary: 'Local entity normalizers',
     },
     reportExport: {
-      name: 'Bilingual Report & Print/PDF Export',
+      name: 'Bilingual Report Generation',
       status: 'AVAILABLE',
-      provider: 'Browser-native Print / Save-as-PDF Layout',
+      provider: 'Structured Markdown & HTML Template Engine',
       fallback: 'Plaintext document summary',
       privacyBoundary: 'Zero server storage; generated on-device',
+    },
+    pdf: {
+      name: 'Save-as-PDF & Print Export',
+      status: 'AVAILABLE',
+      provider: 'Browser-native CSS Paged Media Print Engine',
+      fallback: 'Plaintext document download',
+      privacyBoundary: '100% on-device rendering',
     },
     evidenceIntake: {
       name: 'Evidence Intake & File Validation',
@@ -121,6 +156,8 @@ export function getSystemReadiness(): SystemReadinessReport {
   const configAudit: Record<string, 'CONFIGURED' | 'NOT_CONFIGURED' | 'DEFAULT'> = {
     GROQ_API_KEY: process.env.GROQ_API_KEY ? 'CONFIGURED' : 'NOT_CONFIGURED',
     GROQ_MODEL: process.env.GROQ_MODEL ? 'CONFIGURED' : 'DEFAULT',
+    GEMINI_API_KEY: process.env.GEMINI_API_KEY ? 'CONFIGURED' : 'NOT_CONFIGURED',
+    SUPABASE_URL: process.env.SUPABASE_URL ? 'CONFIGURED' : 'NOT_CONFIGURED',
     NODE_ENV: process.env.NODE_ENV ? 'CONFIGURED' : 'DEFAULT',
     RATE_LIMIT_ENABLED: 'CONFIGURED',
   };

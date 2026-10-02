@@ -3,9 +3,12 @@ import { maskPII } from './mask';
 import { validateEvidenceFile } from './evidence';
 import { buildIncidentOrganizationPrompt } from './incident';
 import { getSystemReadiness } from './readiness';
-import { withTimeout } from './observability';
+import { withTimeout, sanitizeEventMetadata } from './observability';
+import { extractAndNormalizeDomain } from './signals/rdap';
+import { validateAndExtractCitations } from './rag/citations';
+import { ALL_CORPUS_CHUNKS } from './rag/corpus';
 
-describe('P3 Security & Privacy Regression Suite', () => {
+describe('P3 Security, Privacy & SSRF Regression Suite', () => {
   describe('PII Masking & Privacy Boundary', () => {
     it('masks multiple Indian phone formats and UPI IDs simultaneously', () => {
       const text = 'Call +91 98765 43210 or 9876543210. Pay to payment@okaxis or user.test@hdfcbank.';
@@ -31,6 +34,34 @@ describe('P3 Security & Privacy Regression Suite', () => {
       const res = maskPII(text);
       expect(res.masked).toContain('https://cybercrime.gov.in');
       expect(res.masked).not.toContain('user@cybercrime.gov.in');
+    });
+  });
+
+  describe('SSRF Protection & Hostname Normalization', () => {
+    it('rejects loopback, internal IP ranges, and cloud metadata hostnames', () => {
+      const maliciousTargets = [
+        'http://localhost/admin',
+        'https://127.0.0.1:8080',
+        'http://0.0.0.0',
+        'http://169.254.169.254/latest/meta-data/',
+        'http://metadata.google.internal',
+        'http://10.0.0.1/secret',
+        'http://192.168.1.1/router',
+        'http://172.16.0.5/api',
+        'internal-corp.local',
+        'database.internal',
+      ];
+
+      for (const target of maliciousTargets) {
+        const normalized = extractAndNormalizeDomain(target);
+        expect(normalized).toBeNull();
+      }
+    });
+
+    it('accepts legitimate public domains and strips protocol and www prefixes safely', () => {
+      expect(extractAndNormalizeDomain('https://www.sebi.gov.in/enforcement')).toBe('sebi.gov.in');
+      expect(extractAndNormalizeDomain('http://scores.gov.in')).toBe('scores.gov.in');
+      expect(extractAndNormalizeDomain('rbi.org.in')).toBe('rbi.org.in');
     });
   });
 
@@ -85,11 +116,42 @@ describe('P3 Security & Privacy Regression Suite', () => {
       expect(readiness.configAudit.GROQ_API_KEY).toBe('CONFIGURED');
     });
 
+    it('sanitizeEventMetadata drops sensitive keys and masks PII in meta attributes', () => {
+      const meta = {
+        apiKey: 'gsk_1234567890',
+        userPassword: 'SecretPassword123',
+        userPhone: '9876543210',
+        userEmail: 'victim@example.com',
+        category: 'PAYMENT_FRAUD',
+      };
+
+      const sanitized = sanitizeEventMetadata(meta);
+      expect(sanitized).toBeDefined();
+      expect(sanitized?.apiKey).toBeUndefined();
+      expect(sanitized?.userPassword).toBeUndefined();
+      expect(sanitized?.userPhone).toBe('[PHONE]');
+      expect(sanitized?.userEmail).toBe('[EMAIL]');
+      expect(sanitized?.category).toBe('PAYMENT_FRAUD');
+    });
+
     it('withTimeout intercepts hanging asynchronous tasks within configured deadline and returns fallback', async () => {
       const slowTask = new Promise<string>((resolve) => setTimeout(() => resolve('Finished'), 500));
       const res = await withTimeout(slowTask, 50, 'Timeout fallback', 'SlowOperation');
       expect(res.timedOut).toBe(true);
       expect(res.result).toBe('Timeout fallback');
+    });
+  });
+
+  describe('Citation Grounding & Numeric Verification', () => {
+    it('validates citations when answer references retrieved regulatory publishers', () => {
+      const retrieved = ALL_CORPUS_CHUNKS.slice(0, 2).map((c) => ({
+        ...c,
+        similarityScore: 0.85,
+      }));
+      const answer = `According to Securities and Exchange Board of India (SEBI), copy trading by unregistered entities is strictly prohibited [SEBI].`;
+      const val = validateAndExtractCitations(answer, retrieved, 'en');
+      expect(val.valid).toBe(true);
+      expect(val.citations.length).toBeGreaterThanOrEqual(1);
     });
   });
 });

@@ -7,6 +7,7 @@ import { evaluateRegisteredRules } from '@/lib/rules';
 import { defaultDecisionEngine } from '@/lib/decision';
 import { fuseDecisionAndRules } from '@/lib/fuse';
 import { DecisionInput, Lang } from '@/lib/types';
+import { generateRequestId, logAppEvent } from '@/lib/observability';
 import enMessages from '../../../../locales/en.json';
 import hiMessages from '../../../../locales/hi.json';
 import taMessages from '../../../../locales/ta.json';
@@ -48,11 +49,33 @@ function checkRateLimit(ip: string): boolean {
 
 export async function POST(req: NextRequest) {
   const startTime = Date.now();
+  const requestId = req.headers.get('x-request-id') || generateRequestId();
   const clientIp = req.headers.get('x-forwarded-for')?.split(',')[0] || '127.0.0.1';
 
+  logAppEvent({
+    name: 'request_received',
+    requestId,
+    route: '/api/check',
+    subsystem: 'check',
+    status: 'success',
+  });
+
   if (!checkRateLimit(clientIp)) {
+    logAppEvent({
+      name: 'rate_limit_rejection',
+      requestId,
+      route: '/api/check',
+      subsystem: 'check',
+      status: 'failure',
+      errorCode: 'RATE_LIMITED',
+      durationMs: Date.now() - startTime,
+    });
+
     return NextResponse.json(
-      { error: { code: 'RATE_LIMIT_EXCEEDED', message: 'Too many requests. Please slow down.' } },
+      {
+        requestId,
+        error: { code: 'RATE_LIMITED', message: 'Too many requests. Please slow down.' },
+      },
       { status: 429 }
     );
   }
@@ -62,8 +85,19 @@ export async function POST(req: NextRequest) {
     const parseResult = checkRequestSchema.safeParse(rawBody);
 
     if (!parseResult.success) {
+      logAppEvent({
+        name: 'validation_failure',
+        requestId,
+        route: '/api/check',
+        subsystem: 'check',
+        status: 'failure',
+        errorCode: 'VALIDATION_ERROR',
+        durationMs: Date.now() - startTime,
+      });
+
       return NextResponse.json(
         {
+          requestId,
           error: {
             code: 'VALIDATION_ERROR',
             message: 'Invalid check request format',
@@ -98,11 +132,27 @@ export async function POST(req: NextRequest) {
     let decision;
     try {
       decision = await defaultDecisionEngine.decide(decisionInput);
+      logAppEvent({
+        name: decision.engine === 'rules-only' ? 'deterministic_decision' : 'llm_invocation',
+        requestId,
+        route: '/api/check',
+        subsystem: 'check',
+        status: 'success',
+        language: lang,
+      });
     } catch {
       // Graceful fallback to rules-only
       const { RulesOnlyDecisionEngine } = await import('@/lib/decision/rulesOnly');
       const rulesOnlyEngine = new RulesOnlyDecisionEngine();
       decision = await rulesOnlyEngine.decide(decisionInput);
+      logAppEvent({
+        name: 'fallback_decision',
+        requestId,
+        route: '/api/check',
+        subsystem: 'check',
+        status: 'success',
+        language: lang,
+      });
     }
 
     // 4. Fusion Resolution
@@ -155,11 +205,19 @@ export async function POST(req: NextRequest) {
     ];
 
     const durationMs = Date.now() - startTime;
-    // Log safe telemetry only (status, engine used, latency)
-    console.log(`[API /api/check] status=200 engine=${decision.engine} duration=${durationMs}ms`);
+    logAppEvent({
+      name: 'request_completed',
+      requestId,
+      route: '/api/check',
+      subsystem: 'check',
+      status: 'success',
+      language: lang,
+      durationMs,
+    });
 
     return NextResponse.json(
       {
+        requestId,
         band: fusion.finalBand,
         archetype: fusion.topArchetype,
         confidence: fusion.confidence,
@@ -177,9 +235,18 @@ export async function POST(req: NextRequest) {
     );
   } catch (error) {
     const durationMs = Date.now() - startTime;
-    console.error(`[API /api/check] status=500 duration=${durationMs}ms`);
+    logAppEvent({
+      name: 'request_failed',
+      requestId,
+      route: '/api/check',
+      subsystem: 'check',
+      status: 'failure',
+      errorCode: 'INTERNAL_ERROR',
+      durationMs,
+    });
+
     return NextResponse.json(
-      { error: { code: 'INTERNAL_ERROR', message: 'Failed to evaluate check request' } },
+      { requestId, error: { code: 'INTERNAL_ERROR', message: 'Failed to evaluate check request' } },
       { status: 500 }
     );
   }

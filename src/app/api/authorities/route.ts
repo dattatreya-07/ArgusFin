@@ -2,8 +2,12 @@ import { NextRequest, NextResponse } from 'next/server';
 import { routeAuthorities, getVerifiedAuthorities } from '@/lib/authorities';
 import { RoutingInput } from '@/lib/authorities/types';
 import { maskPii } from '@/lib/privacy';
+import { generateRequestId, logAppEvent } from '@/lib/observability';
 
 export async function GET(req: NextRequest) {
+  const startTime = Date.now();
+  const requestId = req.headers.get('x-request-id') || generateRequestId();
+
   try {
     const { searchParams } = new URL(req.url);
     const situation = searchParams.get('situation') || undefined;
@@ -23,8 +27,19 @@ export async function GET(req: NextRequest) {
     const routeResult = routeAuthorities(input);
     const allAuthorities = getVerifiedAuthorities();
 
+    logAppEvent({
+      name: 'authority_routing',
+      requestId,
+      route: '/api/authorities',
+      subsystem: 'authorities',
+      status: 'success',
+      language: lang,
+      durationMs: Date.now() - startTime,
+    });
+
     return NextResponse.json(
       {
+        requestId,
         ...routeResult,
         authorities: routeResult.routes,
         allAuthorities,
@@ -32,8 +47,19 @@ export async function GET(req: NextRequest) {
       { status: 200 }
     );
   } catch (err: any) {
+    logAppEvent({
+      name: 'request_failed',
+      requestId,
+      route: '/api/authorities',
+      subsystem: 'authorities',
+      status: 'failure',
+      errorCode: 'INTERNAL_ERROR',
+      durationMs: Date.now() - startTime,
+    });
+
     return NextResponse.json(
       {
+        requestId,
         status: 'UNAVAILABLE',
         error: {
           code: 'INTERNAL_ERROR',
@@ -46,15 +72,29 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
+  const startTime = Date.now();
+  const requestId = req.headers.get('x-request-id') || generateRequestId();
+
   try {
     let body: any;
     try {
       body = await req.json();
     } catch {
+      logAppEvent({
+        name: 'validation_failure',
+        requestId,
+        route: '/api/authorities',
+        subsystem: 'authorities',
+        status: 'failure',
+        errorCode: 'VALIDATION_ERROR',
+        durationMs: Date.now() - startTime,
+      });
+
       return NextResponse.json(
         {
+          requestId,
           status: 'NO_MATCH',
-          error: { code: 'INVALID_JSON', message: 'Malformed JSON payload.' },
+          error: { code: 'VALIDATION_ERROR', message: 'Malformed JSON payload.' },
         },
         { status: 400 }
       );
@@ -79,8 +119,19 @@ export async function POST(req: NextRequest) {
     const routeResult = routeAuthorities(input);
     const allAuthorities = getVerifiedAuthorities();
 
+    logAppEvent({
+      name: 'authority_routing',
+      requestId,
+      route: '/api/authorities',
+      subsystem: 'authorities',
+      status: 'success',
+      language: input.lang,
+      durationMs: Date.now() - startTime,
+    });
+
     return NextResponse.json(
       {
+        requestId,
         ...routeResult,
         authorities: routeResult.routes,
         allAuthorities,
@@ -88,8 +139,19 @@ export async function POST(req: NextRequest) {
       { status: 200 }
     );
   } catch (err: any) {
+    logAppEvent({
+      name: 'request_failed',
+      requestId,
+      route: '/api/authorities',
+      subsystem: 'authorities',
+      status: 'failure',
+      errorCode: 'INTERNAL_ERROR',
+      durationMs: Date.now() - startTime,
+    });
+
     return NextResponse.json(
       {
+        requestId,
         status: 'UNAVAILABLE',
         error: {
           code: 'INTERNAL_ERROR',
