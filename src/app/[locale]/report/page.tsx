@@ -1,11 +1,14 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
 import { Lang } from '@/lib/types';
 import { VoiceInput } from '@/components/VoiceInput';
-import { validateIncidentConsistency } from '@/lib/report/consistency';
+import { validateIncidentConsistency } from '@/lib/incident/consistency';
+import { routeAuthorities } from '@/lib/authorities/router';
+import { ConsistencyIssue } from '@/lib/incident/types';
+import { maskPii } from '@/lib/privacy';
 
 export default function ReportPage() {
   const t = useTranslations('report');
@@ -17,26 +20,84 @@ export default function ReportPage() {
     new Date().toISOString().slice(0, 16)
   );
   const [platform, setPlatform] = useState<string>('WhatsApp / Telegram');
+  const [category, setCategory] = useState<string>('PROMISED_RETURN');
   const [entityName, setEntityName] = useState<string>('');
+  const [domain, setDomain] = useState<string>('');
   const [amount, setAmount] = useState<number>(25000);
+  const [paymentMethod, setPaymentMethod] = useState<string>('UPI');
   const [utrNumber, setUtrNumber] = useState<string>('');
   const [beneficiaryInfo, setBeneficiaryInfo] = useState<string>('');
   const [narrative, setNarrative] = useState<string>('');
-  const [warnings, setWarnings] = useState<string[]>([]);
-  const [isDrafting, setIsDrafting] = useState<boolean>(false);
 
-  const handleNextStep = () => {
-    const consistency = validateIncidentConsistency({
-      incidentDate,
+  // Security / Exposure flags
+  const [credentialsShared, setCredentialsShared] = useState<boolean>(false);
+  const [otpShared, setOtpShared] = useState<boolean>(false);
+  const [remoteAccessGranted, setRemoteAccessGranted] = useState<boolean>(false);
+
+  const [userConfirmed, setUserConfirmed] = useState<boolean>(false);
+  const [issues, setIssues] = useState<ConsistencyIssue[]>([]);
+  const [routedAuthorities, setRoutedAuthorities] = useState<any>(null);
+
+  // Evaluate consistency & routing whenever moving to review
+  useEffect(() => {
+    const consistencyRes = validateIncidentConsistency({
+      language: currentLang,
+      when: incidentDate,
       platform,
+      category,
       entityName,
-      totalAmount: amount,
-      transactions: utrNumber ? [{ utrNumber, amount, beneficiaryAccountOrUpi: beneficiaryInfo }] : [],
-      narrative: narrative || 'Initial consultation with suspect entity.',
+      domain,
+      amount,
+      paymentMethod,
+      transactions: utrNumber
+        ? [
+            {
+              utrNumber,
+              amount,
+              beneficiaryAccountOrUpi: beneficiaryInfo,
+              paymentMethod,
+              date: incidentDate,
+            },
+          ]
+        : [],
+      whatHappened: narrative,
+      credentialsShared,
+      otpShared,
+      remoteAccessGranted,
     });
 
-    setWarnings(consistency.warnings);
-    if (step < 4) {
+    setIssues(consistencyRes.issues);
+
+    const routes = routeAuthorities({
+      category,
+      platform,
+      moneySent: amount > 0,
+      credentialsShared,
+      otpShared,
+      remoteAccessGranted,
+      lang: currentLang,
+    });
+
+    setRoutedAuthorities(routes);
+  }, [
+    incidentDate,
+    platform,
+    category,
+    entityName,
+    domain,
+    amount,
+    paymentMethod,
+    utrNumber,
+    beneficiaryInfo,
+    narrative,
+    credentialsShared,
+    otpShared,
+    remoteAccessGranted,
+    currentLang,
+  ]);
+
+  const handleNextStep = () => {
+    if (step < 5) {
       setStep(step + 1);
     }
   };
@@ -44,6 +105,11 @@ export default function ReportPage() {
   const handlePrint = () => {
     window.print();
   };
+
+  const maskedNarrative = maskPii(narrative || 'No additional narrative text provided.');
+  const maskedEntity = entityName ? maskPii(entityName) : 'Unspecified / Individual';
+  const maskedUtr = utrNumber ? maskPii(utrNumber) : '';
+  const maskedBeneficiary = beneficiaryInfo ? maskPii(beneficiaryInfo) : '';
 
   return (
     <div className="max-w-4xl mx-auto space-y-8 py-4">
@@ -59,21 +125,27 @@ export default function ReportPage() {
       </div>
 
       {/* Progress Steps (hidden in print) */}
-      <div className="flex items-center justify-between gap-2 border-b border-zinc-800 pb-4 print:hidden">
-        {[1, 2, 3, 4].map((s) => (
+      <div className="flex items-center justify-between gap-1 md:gap-2 border-b border-zinc-800 pb-4 print:hidden overflow-x-auto">
+        {[
+          { num: 1, label: '1. Incident' },
+          { num: 2, label: '2. Entity' },
+          { num: 3, label: '3. Financial' },
+          { num: 4, label: '4. Security' },
+          { num: 5, label: '5. Review' },
+        ].map((s) => (
           <button
-            key={s}
+            key={s.num}
             type="button"
-            onClick={() => setStep(s)}
-            className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all text-center ${
-              step === s
-                ? 'bg-rose-950 border border-rose-700 text-rose-300'
-                : step > s
+            onClick={() => setStep(s.num)}
+            className={`flex-1 py-2 px-2 text-xs font-bold rounded-lg transition-all text-center whitespace-nowrap ${
+              step === s.num
+                ? 'bg-rose-950 border border-rose-700 text-rose-300 ring-1 ring-rose-500'
+                : step > s.num
                 ? 'bg-zinc-900 border border-zinc-800 text-emerald-400'
                 : 'bg-zinc-950 text-zinc-600'
             }`}
           >
-            Step {s}
+            {s.label}
           </button>
         ))}
       </div>
@@ -105,7 +177,25 @@ export default function ReportPage() {
               <option value="Instagram / Facebook">Instagram / Facebook</option>
               <option value="Phone Call / SMS">Phone Call / SMS</option>
               <option value="Fake Trading Website / Portal">Fake Trading Website / Portal</option>
+              <option value="Dating App / Matrimonial">Dating App / Matrimonial</option>
               <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-xs font-semibold text-zinc-300">Incident Category</label>
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:ring-2 focus:ring-rose-500 focus:outline-none"
+            >
+              <option value="PROMISED_RETURN">Promised High Return / Investment Scheme</option>
+              <option value="TRADING_PLATFORM">Fake Trading App / Blocked Withdrawal</option>
+              <option value="IPO_ALLOTMENT">FII / Institutional IPO Allotment Claim</option>
+              <option value="IMPERSONATION">Impersonation of Regulated Broker / Official</option>
+              <option value="TASK_SCAM">Prepaid Task / YouTube Like / Part-Time Job</option>
+              <option value="CRYPTO_STAKING">Crypto Staking / Forex Doubling</option>
+              <option value="OTHER">Other Financial Fraud</option>
             </select>
           </div>
 
@@ -114,25 +204,38 @@ export default function ReportPage() {
             onClick={handleNextStep}
             className="w-full py-3 rounded-xl font-bold text-sm bg-rose-600 text-white hover:bg-rose-500 transition-all cursor-pointer shadow-lg"
           >
-            Next: Platform & Entity →
+            Next: Entity & Platform Details →
           </button>
         </div>
       )}
 
-      {/* Step 2: Entity Name */}
+      {/* Step 2: Entity & Domain */}
       {step === 2 && (
         <div className="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-6 shadow-xl space-y-4 print:hidden">
           <h2 className="text-lg font-bold text-white">{t('step2Title')}</h2>
 
           <div className="space-y-2">
             <label className="text-xs font-semibold text-zinc-300">
-              Claimed Advisor Name, Group Name, or Website URL
+              Claimed Advisor Name, Group Title, or Organisation
             </label>
             <input
               type="text"
               value={entityName}
               onChange={(e) => setEntityName(e.target.value)}
-              placeholder="e.g. VIP Institutional Stock Club, fake-groww-app.xyz"
+              placeholder="e.g. VIP Institutional Wealth Club, Prof. Sharma Trading Academy"
+              className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:ring-2 focus:ring-rose-500 focus:outline-none"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-xs font-semibold text-zinc-300">
+              Website Domain or Portal Link (if any)
+            </label>
+            <input
+              type="text"
+              value={domain}
+              onChange={(e) => setDomain(e.target.value)}
+              placeholder="e.g. groww-institutional-vip.top, secure-trade-login.xyz"
               className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:ring-2 focus:ring-rose-500 focus:outline-none"
             />
           </div>
@@ -156,24 +259,41 @@ export default function ReportPage() {
         </div>
       )}
 
-      {/* Step 3: Payment & Transaction */}
+      {/* Step 3: Financial & Transactions */}
       {step === 3 && (
         <div className="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-6 shadow-xl space-y-4 print:hidden">
           <h2 className="text-lg font-bold text-white">{t('step3Title')}</h2>
 
-          <div className="space-y-2">
-            <label className="text-xs font-semibold text-zinc-300">{t('amountLabel')}</label>
-            <input
-              type="number"
-              value={amount}
-              onChange={(e) => setAmount(Number(e.target.value))}
-              className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:ring-2 focus:ring-rose-500 focus:outline-none"
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <label className="text-xs font-semibold text-zinc-300">{t('amountLabel')}</label>
+              <input
+                type="number"
+                value={amount}
+                onChange={(e) => setAmount(Number(e.target.value))}
+                className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:ring-2 focus:ring-rose-500 focus:outline-none"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-xs font-semibold text-zinc-300">Payment Method Used</label>
+              <select
+                value={paymentMethod}
+                onChange={(e) => setPaymentMethod(e.target.value)}
+                className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:ring-2 focus:ring-rose-500 focus:outline-none"
+              >
+                <option value="UPI">UPI (GPay / PhonePe / Paytm / BHIM)</option>
+                <option value="IMPS / NEFT">IMPS / NEFT / RTGS Bank Transfer</option>
+                <option value="Card">Debit / Credit Card</option>
+                <option value="Crypto">Cryptocurrency / USDT</option>
+                <option value="Cash / Other">Cash / Other</option>
+              </select>
+            </div>
           </div>
 
           <div className="space-y-2">
             <label className="text-xs font-semibold text-zinc-300">
-              UPI Reference / UTR Number (12 Digits)
+              UPI Reference / Transaction UTR Number (12 Digits)
             </label>
             <input
               type="text"
@@ -186,13 +306,13 @@ export default function ReportPage() {
 
           <div className="space-y-2">
             <label className="text-xs font-semibold text-zinc-300">
-              Beneficiary Phone / Account / UPI ID
+              Beneficiary UPI VPA or Account Number
             </label>
             <input
               type="text"
               value={beneficiaryInfo}
               onChange={(e) => setBeneficiaryInfo(e.target.value)}
-              placeholder="e.g. receiver@okaxis or 98765XXXXX"
+              placeholder="e.g. merchant@icici or 9876543210@paytm"
               className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:ring-2 focus:ring-rose-500 focus:outline-none"
             />
           </div>
@@ -206,7 +326,7 @@ export default function ReportPage() {
               rows={4}
               value={narrative}
               onChange={(e) => setNarrative(e.target.value)}
-              placeholder="Describe how the contact initiated, promises made, and when withdrawals were denied..."
+              placeholder="Describe how contact occurred, promises made, instructions given, and when withdrawal was blocked..."
               className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:ring-2 focus:ring-rose-500 focus:outline-none leading-relaxed"
             />
           </div>
@@ -224,39 +344,144 @@ export default function ReportPage() {
               onClick={handleNextStep}
               className="w-2/3 py-3 rounded-xl font-bold text-sm bg-rose-600 text-white hover:bg-rose-500 transition-all shadow-lg"
             >
+              Next: Security & Credentials →
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Step 4: Security & Credentials */}
+      {step === 4 && (
+        <div className="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-6 shadow-xl space-y-5 print:hidden">
+          <h2 className="text-lg font-bold text-white">4. Security & Account Protection</h2>
+          <p className="text-xs text-zinc-400">
+            Did the counterparty ask you to perform any sensitive device or banking actions?
+          </p>
+
+          <div className="space-y-3">
+            <label className="flex items-start gap-3 p-4 rounded-xl bg-zinc-950 border border-zinc-800 cursor-pointer hover:border-zinc-700">
+              <input
+                type="checkbox"
+                checked={otpShared}
+                onChange={(e) => setOtpShared(e.target.checked)}
+                className="mt-1 h-4 w-4 rounded bg-zinc-900 border-zinc-700 text-rose-600 focus:ring-rose-500"
+              />
+              <div className="space-y-1">
+                <span className="text-sm font-semibold text-white block">
+                  I shared an SMS / Banking OTP with the counterparty
+                </span>
+                <span className="text-xs text-zinc-400 block">
+                  Alert: Bank accounts may be subject to ongoing unauthorized debits.
+                </span>
+              </div>
+            </label>
+
+            <label className="flex items-start gap-3 p-4 rounded-xl bg-zinc-950 border border-zinc-800 cursor-pointer hover:border-zinc-700">
+              <input
+                type="checkbox"
+                checked={credentialsShared}
+                onChange={(e) => setCredentialsShared(e.target.checked)}
+                className="mt-1 h-4 w-4 rounded bg-zinc-900 border-zinc-700 text-rose-600 focus:ring-rose-500"
+              />
+              <div className="space-y-1">
+                <span className="text-sm font-semibold text-white block">
+                  I shared my net banking password, PIN, or PAN card photo
+                </span>
+                <span className="text-xs text-zinc-400 block">
+                  Alert: Immediate password reset and card hotlisting required.
+                </span>
+              </div>
+            </label>
+
+            <label className="flex items-start gap-3 p-4 rounded-xl bg-zinc-950 border border-zinc-800 cursor-pointer hover:border-zinc-700">
+              <input
+                type="checkbox"
+                checked={remoteAccessGranted}
+                onChange={(e) => setRemoteAccessGranted(e.target.checked)}
+                className="mt-1 h-4 w-4 rounded bg-zinc-900 border-zinc-700 text-rose-600 focus:ring-rose-500"
+              />
+              <div className="space-y-1">
+                <span className="text-sm font-semibold text-white block">
+                  I installed AnyDesk, TeamViewer, RustDesk, or a downloaded APK file
+                </span>
+                <span className="text-xs text-zinc-400 block">
+                  Alert: Remote software allows scammers to control your device silently. Turn off Wi-Fi and uninstall the application immediately.
+                </span>
+              </div>
+            </label>
+          </div>
+
+          <div className="flex gap-3">
+            <button
+              type="button"
+              onClick={() => setStep(3)}
+              className="w-1/3 py-3 rounded-xl font-semibold text-sm bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition-all"
+            >
+              ← Back
+            </button>
+            <button
+              type="button"
+              onClick={handleNextStep}
+              className="w-2/3 py-3 rounded-xl font-bold text-sm bg-rose-600 text-white hover:bg-rose-500 transition-all shadow-lg"
+            >
               Review & Prepare Document →
             </button>
           </div>
         </div>
       )}
 
-      {/* Step 4: Final Review & Printable Incident Record */}
-      {step === 4 && (
+      {/* Step 5: Final Review & Printable Incident Record */}
+      {step === 5 && (
         <div className="space-y-6">
-          {warnings.length > 0 && (
-            <div className="p-4 rounded-xl bg-amber-950/60 border border-amber-800 text-amber-200 text-xs space-y-1 print:hidden">
-              <span className="font-bold">⚠️ Data Consistency Notices:</span>
-              <ul className="list-disc list-inside">
-                {warnings.map((w, idx) => (
-                  <li key={idx}>{w}</li>
+          {/* Consistency Issues Banner */}
+          {issues.length > 0 && (
+            <div className="p-4 rounded-xl bg-amber-950/60 border border-amber-800 text-amber-200 text-xs space-y-2 print:hidden">
+              <span className="font-bold flex items-center gap-1.5">
+                <span>⚠️</span> Entity Consistency & Fact Verification Notices:
+              </span>
+              <ul className="list-disc list-inside space-y-1">
+                {issues.map((iss, idx) => (
+                  <li key={idx}>
+                    <strong className="text-amber-100">[{iss.severity}]</strong> {iss.description}
+                  </li>
                 ))}
               </ul>
             </div>
           )}
 
+          {/* User Confirmation Checkbox */}
+          <div className="p-4 rounded-xl bg-zinc-900 border border-zinc-800 space-y-3 print:hidden">
+            <label className="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={userConfirmed}
+                onChange={(e) => setUserConfirmed(e.target.checked)}
+                className="mt-1 h-4 w-4 rounded bg-zinc-950 border-zinc-700 text-emerald-500 focus:ring-emerald-500"
+              />
+              <span className="text-xs text-zinc-200 leading-relaxed font-medium">
+                I have reviewed the facts above and confirm that this summary accurately reflects the statements provided on my device. I understand that this summary is not an automatic police complaint and must be filed on official portals.
+              </span>
+            </label>
+          </div>
+
           {/* Action buttons (hidden when printing) */}
           <div className="flex justify-between items-center print:hidden">
             <button
               type="button"
-              onClick={() => setStep(3)}
+              onClick={() => setStep(4)}
               className="px-4 py-2 rounded-xl text-xs font-semibold bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition-all"
             >
               ← Edit Details
             </button>
             <button
               type="button"
+              disabled={!userConfirmed}
               onClick={handlePrint}
-              className="px-6 py-3 rounded-xl text-sm font-bold bg-emerald-600 text-white hover:bg-emerald-500 transition-all shadow-lg cursor-pointer flex items-center gap-2"
+              className={`px-6 py-3 rounded-xl text-sm font-bold transition-all shadow-lg flex items-center gap-2 ${
+                userConfirmed
+                  ? 'bg-emerald-600 text-white hover:bg-emerald-500 cursor-pointer'
+                  : 'bg-zinc-800 text-zinc-500 cursor-not-allowed'
+              }`}
             >
               🖨️ {t('exportPdfBtn')}
             </button>
@@ -268,18 +493,24 @@ export default function ReportPage() {
             <div className="border-b border-zinc-300 pb-4 space-y-1">
               <div className="flex justify-between items-start">
                 <span className="text-xs font-bold tracking-widest text-rose-700 uppercase">
-                  CONFIDENTIAL PRE-FILING INCIDENT RECORD
+                  CONFIDENTIAL PRE-FILING CITIZEN INCIDENT RECORD
                 </span>
                 <span className="text-[11px] text-zinc-500">
-                  Date: {new Date().toLocaleDateString('en-IN')}
+                  Generated: {new Date().toLocaleDateString('en-IN')}
                 </span>
               </div>
               <h2 className="text-xl font-extrabold text-zinc-900">
                 CITIZEN FINANCIAL FRAUD INCIDENT SUMMARY
               </h2>
               <p className="text-xs text-zinc-600">
-                For filing formal complaint on National Cyber Crime Portal (cybercrime.gov.in) & 1930 Helpline
+                Prepared on-device for formal filing on National Cyber Crime Portal (cybercrime.gov.in) & 1930 Helpline
               </p>
+            </div>
+
+            {/* Provenance Banner */}
+            <div className="p-3 bg-zinc-50 rounded-lg border border-zinc-200 text-[11px] text-zinc-600 flex justify-between">
+              <span><strong>Data Provenance:</strong> Citizen User-Entered Facts</span>
+              <span><strong>Language:</strong> {currentLang.toUpperCase()}</span>
             </div>
 
             {/* Structured Table */}
@@ -293,11 +524,11 @@ export default function ReportPage() {
                 <span className="font-bold text-zinc-900">{platform}</span>
               </div>
               <div className="p-3 bg-zinc-50 rounded-lg border border-zinc-200">
-                <span className="font-semibold text-zinc-500 block">Claimed Entity / Account:</span>
-                <span className="font-bold text-zinc-900">{entityName || 'Unspecified'}</span>
+                <span className="font-semibold text-zinc-500 block">Claimed Entity / Advisor:</span>
+                <span className="font-bold text-zinc-900">{maskedEntity}</span>
               </div>
               <div className="p-3 bg-zinc-50 rounded-lg border border-zinc-200">
-                <span className="font-semibold text-zinc-500 block">Total Claimed Amount:</span>
+                <span className="font-semibold text-zinc-500 block">Total Claimed Loss:</span>
                 <span className="font-bold text-rose-700 text-sm">
                   ₹{amount.toLocaleString('en-IN')}
                 </span>
@@ -305,15 +536,26 @@ export default function ReportPage() {
             </div>
 
             {/* Transaction Data */}
-            {utrNumber && (
+            {maskedUtr && (
               <div className="space-y-2">
                 <h3 className="text-xs font-bold text-zinc-700 uppercase tracking-wider">
                   Transaction Identifiers (Masked for Safety)
                 </h3>
                 <div className="p-3 bg-zinc-50 rounded-lg border border-zinc-200 text-xs space-y-1 font-mono">
-                  <div>UTR / Reference: {utrNumber}</div>
-                  <div>Beneficiary / Account: {beneficiaryInfo || 'Provided to bank'}</div>
+                  <div>UTR / Reference: {maskedUtr}</div>
+                  <div>Payment Method: {paymentMethod}</div>
+                  <div>Beneficiary / Account: {maskedBeneficiary || 'Provided to bank'}</div>
                 </div>
+              </div>
+            )}
+
+            {/* Security Compromise Notices */}
+            {(otpShared || credentialsShared || remoteAccessGranted) && (
+              <div className="p-3 bg-rose-50 border border-rose-200 rounded-lg text-xs text-rose-900 space-y-1">
+                <span className="font-bold">⚠️ Reported Compromises:</span>
+                {otpShared && <div>• SMS / Banking OTP was shared</div>}
+                {credentialsShared && <div>• Banking passwords or credentials were shared</div>}
+                {remoteAccessGranted && <div>• Remote desktop software (AnyDesk / APK) was installed</div>}
               </div>
             )}
 
@@ -323,9 +565,38 @@ export default function ReportPage() {
                 Summary of Incident (Citizen Statement)
               </h3>
               <div className="p-4 bg-zinc-50 rounded-xl border border-zinc-200 text-xs text-zinc-800 leading-relaxed whitespace-pre-line">
-                {narrative || 'No additional narrative text provided.'}
+                {maskedNarrative}
               </div>
             </div>
+
+            {/* Routed Authorities */}
+            {routedAuthorities && routedAuthorities.routes.length > 0 && (
+              <div className="border-t border-zinc-300 pt-4 space-y-2">
+                <h3 className="text-xs font-bold text-zinc-700 uppercase tracking-wider">
+                  Recommended Official Reporting Authorities
+                </h3>
+                <div className="space-y-2">
+                  {routedAuthorities.routes.map((auth: any) => (
+                    <div
+                      key={auth.id}
+                      className="p-3 bg-zinc-50 rounded-lg border border-zinc-200 text-xs flex justify-between items-center"
+                    >
+                      <div>
+                        <span className="font-bold text-zinc-900">{auth.name}</span>
+                        <p className="text-[11px] text-zinc-600">{auth.scope}</p>
+                      </div>
+                      <div className="text-right">
+                        {auth.channels.map((ch: any, idx: number) => (
+                          <span key={idx} className="font-mono text-xs font-bold text-rose-700 block">
+                            {ch.type === 'phone' ? `📞 ${ch.value}` : `🌐 ${ch.value}`}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Golden Hour Directives */}
             <div className="border-t border-zinc-300 pt-4 text-xs text-zinc-700 space-y-1">

@@ -19,6 +19,9 @@ interface AuthorityItem {
   channels: AuthorityChannel[];
   verified_at: string | null;
   source_url: string | null;
+  reason?: string;
+  actionGuidance?: string;
+  isEmergency?: boolean;
 }
 
 export default function AuthoritiesPage() {
@@ -28,6 +31,7 @@ export default function AuthoritiesPage() {
 
   const [selectedSituation, setSelectedSituation] = useState('money_lost_recent');
   const [authorities, setAuthorities] = useState<AuthorityItem[]>([]);
+  const [reasons, setReasons] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -38,6 +42,7 @@ export default function AuthoritiesPage() {
         if (res.ok) {
           const data = await res.json();
           setAuthorities(data.authorities || []);
+          setReasons(data.reasons || []);
         }
       } catch (err) {
         console.error('Failed to load authorities', err);
@@ -100,6 +105,20 @@ export default function AuthoritiesPage() {
         </div>
       </div>
 
+      {/* Rationale explanation banner */}
+      {reasons.length > 0 && (
+        <div className="p-4 rounded-xl bg-blue-950/40 border border-blue-800/80 text-blue-200 text-xs space-y-1">
+          <span className="font-bold flex items-center gap-1.5">
+            <span>ℹ️</span> Routing Rationale:
+          </span>
+          <ul className="list-disc list-inside space-y-0.5 text-blue-300">
+            {reasons.map((r, idx) => (
+              <li key={idx}>{r}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       {/* Authorities List */}
       <div className="space-y-4">
         <h2 className="text-sm font-bold text-zinc-400 uppercase tracking-wider">
@@ -115,9 +134,26 @@ export default function AuthoritiesPage() {
                 key={auth.id}
                 className="bg-zinc-900/80 border border-zinc-800 rounded-2xl p-5 shadow-lg flex flex-col justify-between gap-4"
               >
-                <div className="space-y-1.5">
-                  <h3 className="text-base font-bold text-white">{auth.name}</h3>
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-base font-bold text-white">{auth.name}</h3>
+                    {auth.isEmergency && (
+                      <span className="text-[10px] uppercase font-bold px-2 py-0.5 bg-rose-950 text-rose-300 border border-rose-800 rounded-md">
+                        Priority First Response
+                      </span>
+                    )}
+                  </div>
                   <p className="text-xs text-zinc-400 leading-relaxed">{auth.scope}</p>
+
+                  {auth.reason && (
+                    <div className="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800 text-[11px] text-zinc-300 space-y-1">
+                      <span className="font-semibold text-zinc-400 block">Why this resource:</span>
+                      <p className="text-zinc-300">{auth.reason}</p>
+                      {auth.actionGuidance && (
+                        <p className="text-emerald-400 pt-1 font-medium">{auth.actionGuidance}</p>
+                      )}
+                    </div>
+                  )}
                 </div>
 
                 {/* Channels */}
