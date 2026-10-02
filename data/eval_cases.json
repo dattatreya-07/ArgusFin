@@ -1,1 +1,212 @@
-[]
+[
+  {
+    "id": "case-en-001",
+    "language": "en",
+    "input_text": "Double your money in 30 days! Guaranteed 2x returns, limited slots. Join our VIP group now at https://t.me/example.",
+    "expected_archetype": "DOUBLING_SCHEME",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-en-002",
+    "language": "en",
+    "input_text": "Connect with our automated copy trading bot. Send fee to [UPI] and share OTP for registration.",
+    "expected_archetype": "COPY_TRADING",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-en-003",
+    "language": "en",
+    "input_text": "Join our VIP mentorship masterclass and secret trading course. 99% accuracy tips on Telegram.",
+    "expected_archetype": "COURSE_FINFLUENCER",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-en-004",
+    "language": "en",
+    "input_text": "Earn 5% daily USDT returns with our cloud mining and crypto staking pool. Zero risk guaranteed profits.",
+    "expected_archetype": "CRYPTO_STAKING_MINING",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-en-005",
+    "language": "en",
+    "input_text": "Download our institutional trading apk from custom link and login to access institutional terminal discounts.",
+    "expected_archetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-en-006",
+    "language": "en",
+    "input_text": "Get sure shot 99% accuracy jackpot call daily. We are a SEBI registered advisory guaranteeing massive gains.",
+    "expected_archetype": "FAKE_ADVISORY_OR_REG_CLAIM",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-en-007",
+    "language": "en",
+    "input_text": "Exclusive operator call: Buy this penny stock at circuit limit for 500% pump! Join private channel today.",
+    "expected_archetype": "PUMP_AND_DUMP_GROUP",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-en-008",
+    "language": "en",
+    "input_text": "Install AnyDesk and screen share with our executive immediately to resolve your blocked demat account KYC.",
+    "expected_archetype": "REMOTE_ACCESS_SCAM",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-en-009",
+    "language": "en",
+    "input_text": "Guaranteed 100% allotment in upcoming pre-IPO through our exclusive institutional HNI quota allotment.",
+    "expected_archetype": "FAKE_IPO_OR_ALLOTMENT",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-en-010",
+    "language": "en",
+    "input_text": "Diversification across index funds and fixed deposits helps manage portfolio volatility over long horizons.",
+    "expected_archetype": "OTHER_OR_NONE",
+    "expected_band": "LOW_SIGNALS"
+  },
+  {
+    "id": "case-hi-001",
+    "language": "hi",
+    "input_text": "30 दिन में पैसा दोगुना करें! 100% गारंटीड रिटर्न। सीमित स्लॉट, तुरंत वीआईपी ग्रुप ज्वाइन करें।",
+    "expected_archetype": "DOUBLING_SCHEME",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-hi-002",
+    "language": "hi",
+    "input_text": "कॉपी ट्रेडिंग से रोजाना 10% मुनाफा कमाएं। फीस [UPI] पर भेजें और ऐप डाउनलोड करें।",
+    "expected_archetype": "COPY_TRADING",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-hi-003",
+    "language": "hi",
+    "input_text": "ट्रेडिंग कोर्स और सीक्रेट फॉर्मूला मास्टरक्लास। हमारे वीआईपी टेलीग्राम ग्रुप से जुड़ें।",
+    "expected_archetype": "COURSE_FINFLUENCER",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-hi-004",
+    "language": "hi",
+    "input_text": "क्रिप्टो स्टेकिंग और क्लाउड माइनिंग से दैनिक 5% पक्का रिटर्न कमाएं। शून्य जोखिम।",
+    "expected_archetype": "CRYPTO_STAKING_MINING",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-hi-005",
+    "language": "hi",
+    "input_text": "विशेष ट्रेडिंग ऐप डाउनलोड करें और संस्थागत पोर्टल लॉगिन करके भारी छूट पाएं।",
+    "expected_archetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-hi-006",
+    "language": "hi",
+    "input_text": "सेबी पंजीकृत सलाहकार से सटीक टिप्स और जैकपॉट कॉल पाएं। 100% निश्चित लाभ।",
+    "expected_archetype": "FAKE_ADVISORY_OR_REG_CLAIM",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-hi-007",
+    "language": "hi",
+    "input_text": "पेनी स्टॉक ऑपरेटर कॉल! सर्किट स्टॉक में आज ही निवेश करें और बड़ा ब्रेकआउट पाएं।",
+    "expected_archetype": "PUMP_AND_DUMP_GROUP",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-hi-008",
+    "language": "hi",
+    "input_text": "अपने खाते के सत्यापन के लिए एनीडेस्क इंस्टॉल करें और स्क्रीन शेयर करें।",
+    "expected_archetype": "REMOTE_ACCESS_SCAM",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-hi-009",
+    "language": "hi",
+    "input_text": "प्री-आईपीओ में गारंटीड 100% आईपीओ अलॉटमेंट और एचएनआई कोटा अलॉटमेंट तुरंत पाएं।",
+    "expected_archetype": "FAKE_IPO_OR_ALLOTMENT",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-hi-010",
+    "language": "hi",
+    "input_text": "म्यूचुअल फंड में निवेश बाजार जोखिमों के अधीन है, कृपया सभी योजना संबंधी दस्तावेजों को ध्यान से पढ़ें।",
+    "expected_archetype": "OTHER_OR_NONE",
+    "expected_band": "LOW_SIGNALS"
+  },
+  {
+    "id": "case-ta-001",
+    "language": "ta",
+    "input_text": "30 நாட்களில் உங்கள் பணம் இரட்டிப்பு! 100% உத்தரவாதம். வரையறுக்கப்பட்ட இடங்கள். VIP குழுவில் இணையுங்கள்.",
+    "expected_archetype": "DOUBLING_SCHEME",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-ta-002",
+    "language": "ta",
+    "input_text": "காப்பி டிரேடிங் மூலம் லாபம் ஈட்டுங்கள். கட்டணத்தை [UPI] மூலம் செலுத்தி செயலியை பதிவிறக்குங்கள்.",
+    "expected_archetype": "COPY_TRADING",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-ta-003",
+    "language": "ta",
+    "input_text": "ரகசிய பங்குச்சந்தை பயிற்சி வகுப்பு மற்றும் மாஸ்டர்கிளாஸ். டெலிகிராம் குழுவில் இணையுங்கள்.",
+    "expected_archetype": "COURSE_FINFLUENCER",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-ta-004",
+    "language": "ta",
+    "input_text": "கிரிப்டோ ஸ்டேக்கிங் மற்றும் கிளவுட் மைனிங் மூலம் தினமும் 5% வருமானம் ஈட்டுங்கள். ரிஸ்க் இல்லாத முதலீடு.",
+    "expected_archetype": "CRYPTO_STAKING_MINING",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-ta-005",
+    "language": "ta",
+    "input_text": "எங்கள் வர்த்தக செயலியை பதிவிறக்கம் செய்து APK பதிவிறக்கம் மூலம் போர்டலில் நுழையுங்கள்.",
+    "expected_archetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-ta-006",
+    "language": "ta",
+    "input_text": "செபி பதிவு செய்யப்பட்ட துல்லியமான டிப்ஸ் மற்றும் ஜாக்பாட் கால்ஸ். 100% நிச்சய லாபம்.",
+    "expected_archetype": "FAKE_ADVISORY_OR_REG_CLAIM",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-ta-007",
+    "language": "ta",
+    "input_text": "பங்கு உயர்வு மற்றும் பென்னி ஸ்டாக் ஆபரேட்டர் கால்! பிரீமியம் குழுவில் இன்றே சேருங்கள்.",
+    "expected_archetype": "PUMP_AND_DUMP_GROUP",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-ta-008",
+    "language": "ta",
+    "input_text": "உங்கள் கணக்கு சரிபார்ப்பிற்கு டீம்வியூவர் அல்லது AnyDesk இன்ஸ்டால் செய்து திரையை பகிரவும்.",
+    "expected_archetype": "REMOTE_ACCESS_SCAM",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-ta-009",
+    "language": "ta",
+    "input_text": "பிரீ-ஐபிஓவில் 100% உத்தரவாதமான ஐபிஓ ஒதுக்கீடு பெற எங்களை தொடர்பு கொள்ளுங்கள்.",
+    "expected_archetype": "FAKE_IPO_OR_ALLOTMENT",
+    "expected_band": "HIGH"
+  },
+  {
+    "id": "case-ta-010",
+    "language": "ta",
+    "input_text": "பங்குச்சந்தை முதலீடுகள் சந்தை அபாயங்களுக்கு உட்பட்டவை. நீண்ட கால கூட்டு வட்டி பலனை புரிந்து முதலீடு செய்யுங்கள்.",
+    "expected_archetype": "OTHER_OR_NONE",
+    "expected_band": "LOW_SIGNALS"
+  }
+]

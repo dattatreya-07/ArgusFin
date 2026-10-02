@@ -1,0 +1,32 @@
+[
+  {
+    "id": "alert-sebi-2024-01",
+    "title": "Caution against Unregistered Entities offering Virtual / Algo / Copy Trading",
+    "publisher": "Securities and Exchange Board of India (SEBI)",
+    "source_url": "https://www.sebi.gov.in/enforcement/clarifications-on-sebi/may-2022/caution-against-unregistered-entities-offering-algorithmic-trading-to-retail-investors_59092.html",
+    "published_at": "2022-05-19",
+    "verified_at": "2026-10-01",
+    "aliases": ["copy trading", "algo trading", "automated bot", "mirror trading"],
+    "summary": "SEBI cautioned retail investors against unregistered platforms and entities offering automated algorithmic or copy-trading strategies promising high or guaranteed returns."
+  },
+  {
+    "id": "alert-sebi-2024-02",
+    "title": "Advisory on Fraudulent Schemes claiming Institutional / FII / Foreign Quota Allotment",
+    "publisher": "Securities and Exchange Board of India (SEBI)",
+    "source_url": "https://www.sebi.gov.in/media-and-notifications/press-releases/feb-2024/sebi-cautions-investors-against-fraudulent-trading-platforms-luring-investors-with-fake-fii-sub-accounts_81776.html",
+    "published_at": "2024-02-26",
+    "verified_at": "2026-10-01",
+    "aliases": ["fake institutional account", "fii sub-account", "pre-ipo allotment", "hni quota"],
+    "summary": "SEBI issued public warning regarding fraudsters luring individuals through social media channels into fake trading portals falsely claiming institutional / FII sub-account access."
+  },
+  {
+    "id": "alert-dot-2024-01",
+    "title": "Chakshu Portal Advisory on WhatsApp and Telegram Investment Fraud Groups",
+    "publisher": "Department of Telecommunications (DoT) & MHA",
+    "source_url": "https://sancharsaathi.gov.in/sfc/",
+    "published_at": "2024-03-04",
+    "verified_at": "2026-10-01",
+    "aliases": ["vip telegram group", "vip whatsapp channel", "stock tips group", "admin payment"],
+    "summary": "DoT alerted citizens against unsolicited messages on messaging apps inviting users to private VIP channels for stock advice and task-based financial doubling schemes."
+  }
+]

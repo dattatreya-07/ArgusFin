@@ -11,6 +11,8 @@ export const HI_GUARANTEED = [
   'बिना किसी जोखिम', // TODO(review)
   'शून्य जोखिम', // TODO(review)
   '100% सुरक्षित', // TODO(review)
+  '100% गारंटीड', // TODO(review)
+  '100% निश्चित', // TODO(review)
   'निश्चित लाभ', // TODO(review)
 ];
 
@@ -18,12 +20,14 @@ export const HI_URGENCY = [
   'सीमित स्लॉट', // TODO(review)
   'सीमित सीटें', // TODO(review)
   'केवल आज', // TODO(review)
+  'आज ही', // TODO(review)
   'जल्दी करें', // TODO(review)
   'अंतिम मौका', // TODO(review)
   'ऑफर जल्द समाप्त', // TODO(review)
   'कुछ ही सीटें बची हैं', // TODO(review)
   'तुरंत जुड़ें', // TODO(review)
   'ऑफर सीमित समय के लिए', // TODO(review)
+  'तुरंत निवेश करें', // TODO(review)
 ];
 
 export const HI_REQUESTS_OTP = [
@@ -48,6 +52,7 @@ export const HI_REQUESTS_GROUP_JOIN = [
   'प्राइवेट चैनल', // TODO(review)
   'प्रीमियम ग्रुप', // TODO(review)
   'ग्रुप से जुड़ें', // TODO(review)
+  'चैनल से जुड़ें', // TODO(review)
 ];
 
 export const HI_REQUESTS_PAYMENT = [

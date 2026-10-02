@@ -104,8 +104,10 @@ export function extractClaims(maskedText: string, _lang: Lang = 'en'): Extracted
   }
 
   // C. Percentage returns (e.g. 20% daily, 50% per week, 100% per month)
-  const percentMatch = text.match(/(\d+(?:\.\d+)?)\s*%\s*(?:daily|per day|प्रतिदिन|தினமும்|weekly|per week|monthly|per month)?/i);
-  if (percentMatch && (!multiple || multiple === 1)) {
+  const is100Certainty = /100\s*%\s*(?:guaranteed|sure|safe|allotment|accuracy|सुरक्षित|निश्चित|गारंटी|पक्का|உத்தரவாதம்|நிச்சய|ஒதுக்கீடு|லாபம்)/i.test(lower);
+  const percentMatch = text.match(/(\d+(?:\.\d+)?)\s*%\s*(?:daily|per day|प्रतिदिन|தினமும்|weekly|per week|monthly|per month|returns?|profit|मुनाफा|வருமானம்)?/i);
+  
+  if (percentMatch && !is100Certainty && (!multiple || multiple === 1)) {
     const pct = parseFloat(percentMatch[1]);
     if (pct > 0) {
       multiple = 1 + pct / 100;

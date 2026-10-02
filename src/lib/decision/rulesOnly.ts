@@ -34,12 +34,19 @@ export class RulesOnlyDecisionEngine implements DecisionEngine {
       OTHER_OR_NONE: 0.1,
     };
 
-    // Keyword hits
+    // Keyword hits with explicit archetype priority
     for (const [arch, keywords] of Object.entries(ARCHETYPE_KEYWORDS)) {
       const archetypeKey = arch as Archetype;
       for (const kw of keywords) {
         if (lower.includes(kw.toLowerCase())) {
-          rawScores[archetypeKey] += 0.5;
+          // Specific investment vector archetypes get high keyword confidence
+          if (archetypeKey === 'COPY_TRADING' || archetypeKey === 'CRYPTO_STAKING_MINING' || archetypeKey === 'FAKE_IPO_OR_ALLOTMENT') {
+            rawScores[archetypeKey] += 1.2;
+          } else if (archetypeKey === 'COURSE_FINFLUENCER' || archetypeKey === 'REMOTE_ACCESS_SCAM') {
+            rawScores[archetypeKey] += 1.0;
+          } else {
+            rawScores[archetypeKey] += 0.6;
+          }
         }
       }
     }
@@ -47,24 +54,25 @@ export class RulesOnlyDecisionEngine implements DecisionEngine {
     // Rule heuristics for archetypes
     for (const rule of firedRules) {
       if (rule.ruleId === 'RETURN_TOO_HIGH' || rule.ruleId === 'GUARANTEED_RETURN') {
+        // High returns reinforce doubling schemes unless already dominated by a specialized model like copy trading
         rawScores.DOUBLING_SCHEME += 0.4;
       }
       if (rule.ruleId === 'ASKS_OTP_OR_APP_INSTALL') {
         if (lower.includes('anydesk') || lower.includes('teamviewer') || lower.includes('rustdesk')) {
-          rawScores.REMOTE_ACCESS_SCAM += 0.8;
+          rawScores.REMOTE_ACCESS_SCAM += 1.2;
         } else {
-          rawScores.FAKE_TRADING_APP_OR_PORTAL += 0.5;
+          rawScores.FAKE_TRADING_APP_OR_PORTAL += 0.4;
         }
       }
       if (rule.ruleId === 'VIP_GROUP_OR_PRIVATE_CHANNEL') {
-        rawScores.PUMP_AND_DUMP_GROUP += 0.2;
+        rawScores.PUMP_AND_DUMP_GROUP += 0.3;
         rawScores.FAKE_ADVISORY_OR_REG_CLAIM += 0.2;
       }
       if (rule.ruleId === 'COURSE_OR_MENTORSHIP_UPSELL') {
-        rawScores.COURSE_FINFLUENCER += 0.7;
+        rawScores.COURSE_FINFLUENCER += 0.8;
       }
       if (rule.ruleId === 'UNVERIFIABLE_REGISTRATION_CLAIM') {
-        rawScores.FAKE_ADVISORY_OR_REG_CLAIM += 0.5;
+        rawScores.FAKE_ADVISORY_OR_REG_CLAIM += 0.6;
       }
     }
 

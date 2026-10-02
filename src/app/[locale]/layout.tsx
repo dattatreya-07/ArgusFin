@@ -30,23 +30,26 @@ function HeaderNav() {
           </div>
         </div>
 
-        <nav className="flex items-center space-x-1 sm:space-x-4 text-xs sm:text-sm font-medium text-slate-600 overflow-x-auto pb-1 md:pb-0">
-          <Link href="/" className="hover:text-slate-900 px-2 py-1 rounded">
+        <nav className="flex items-center space-x-1 sm:space-x-3 text-xs sm:text-sm font-medium text-slate-600 overflow-x-auto pb-1 md:pb-0">
+          <Link href="/" className="hover:text-slate-900 px-2 py-1 rounded whitespace-nowrap">
             {tNav('home')}
           </Link>
-          <Link href="/check" className="hover:text-slate-900 px-2 py-1 rounded">
+          <Link href="/check" className="hover:text-slate-900 px-2 py-1 rounded whitespace-nowrap">
             {tNav('check')}
           </Link>
-          <Link href="/calculator" className="hover:text-slate-900 px-2 py-1 rounded">
+          <Link href="/calculator" className="hover:text-slate-900 px-2 py-1 rounded whitespace-nowrap">
             {tNav('calculator')}
           </Link>
-          <Link href="/learn" className="hover:text-slate-900 px-2 py-1 rounded">
-            {tNav('learn')}
+          <Link href="/simulate" className="hover:text-slate-900 px-2 py-1 rounded whitespace-nowrap">
+            {tNav('simulator')}
           </Link>
-          <Link href="/report" className="hover:text-slate-900 px-2 py-1 rounded">
+          <Link href="/authorities" className="hover:text-slate-900 px-2 py-1 rounded whitespace-nowrap">
+            {tNav('authorities')}
+          </Link>
+          <Link href="/report" className="hover:text-slate-900 px-2 py-1 rounded whitespace-nowrap">
             {tNav('report')}
           </Link>
-          <Link href="/ask" className="hover:text-slate-900 px-2 py-1 rounded">
+          <Link href="/ask" className="hover:text-slate-900 px-2 py-1 rounded whitespace-nowrap">
             {tNav('ask')}
           </Link>
         </nav>

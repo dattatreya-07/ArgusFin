@@ -62,6 +62,44 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
           </span>
         </Link>
 
+        {/* Scam Simulator Card */}
+        <Link
+          href="/simulate"
+          className="group block p-6 bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-400 transition"
+        >
+          <div className="w-10 h-10 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-lg mb-4">
+            📉
+          </div>
+          <h2 className="text-lg font-bold text-slate-900 group-hover:text-amber-600 transition">
+            {tHome('simCardTitle')}
+          </h2>
+          <p className="mt-2 text-sm text-slate-600">
+            {tHome('simCardDesc')}
+          </p>
+          <span className="inline-block mt-4 text-xs font-semibold text-amber-600 group-hover:translate-x-1 transition-transform">
+            Try Simulator →
+          </span>
+        </Link>
+
+        {/* Authorities Router Card */}
+        <Link
+          href="/authorities"
+          className="group block p-6 bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-400 transition"
+        >
+          <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg mb-4">
+            🛡️
+          </div>
+          <h2 className="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition">
+            {tHome('authoritiesCardTitle')}
+          </h2>
+          <p className="mt-2 text-sm text-slate-600">
+            {tHome('authoritiesCardDesc')}
+          </p>
+          <span className="inline-block mt-4 text-xs font-semibold text-blue-600 group-hover:translate-x-1 transition-transform">
+            Find Authority →
+          </span>
+        </Link>
+
         {/* Emergency / Report Card */}
         <Link
           href="/report"
@@ -81,29 +119,10 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
           </span>
         </Link>
 
-        {/* Learn Card */}
-        <Link
-          href="/learn"
-          className="group block p-6 bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-emerald-400 transition"
-        >
-          <div className="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg mb-4">
-            📚
-          </div>
-          <h2 className="text-lg font-bold text-slate-900 group-hover:text-emerald-600 transition">
-            {tHome('learnCardTitle')}
-          </h2>
-          <p className="mt-2 text-sm text-slate-600">
-            {tHome('learnCardDesc')}
-          </p>
-          <span className="inline-block mt-4 text-xs font-semibold text-emerald-600 group-hover:translate-x-1 transition-transform">
-            Start Learning →
-          </span>
-        </Link>
-
         {/* Ask Assistant Card */}
         <Link
           href="/ask"
-          className="group block p-6 bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-purple-400 transition md:col-span-2 lg:col-span-1"
+          className="group block p-6 bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-purple-400 transition"
         >
           <div className="w-10 h-10 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-lg mb-4">
             💬

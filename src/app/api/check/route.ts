@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { maskPII } from '@/lib/mask';
 import { extractClaims } from '@/lib/extract';
+import { extractAllSignals } from '@/lib/signals';
 import { evaluateRegisteredRules } from '@/lib/rules';
 import { defaultDecisionEngine } from '@/lib/decision';
 import { fuseDecisionAndRules } from '@/lib/fuse';
@@ -79,13 +80,14 @@ export async function POST(req: NextRequest) {
     const serverMaskResult = maskPII(maskedText);
     const sanitizedText = serverMaskResult.masked;
 
-    // 1. Deterministic Extraction
+    // 1. Deterministic Extraction & Signals Pipeline
     const claims = extractClaims(sanitizedText, lang);
+    const extractedSignalSet = await extractAllSignals(sanitizedText, { enableRdap: false });
 
     const decisionInput: DecisionInput = {
       maskedText: sanitizedText,
       claims,
-      signals: [], // Signals pipeline (RDAP/Domain) is Phase 2
+      signals: extractedSignalSet.signals,
       lang,
     };
 
@@ -162,7 +164,9 @@ export async function POST(req: NextRequest) {
         archetype: fusion.topArchetype,
         confidence: fusion.confidence,
         flags,
-        signals: [],
+        signals: extractedSignalSet.signals,
+        domainSignals: extractedSignalSet.domainSignals,
+        alertMatches: extractedSignalSet.alertMatches,
         unverified,
         explanation,
         citations: [],

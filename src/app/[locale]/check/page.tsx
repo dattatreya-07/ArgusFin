@@ -3,9 +3,10 @@
 import { useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { maskPII, MaskResult } from '@/lib/mask';
-import { Archetype, RiskBand } from '@/lib/types';
+import { Archetype, Lang, RiskBand } from '@/lib/types';
 import { RuleResult } from '@/lib/rules';
 import { Link } from '@/i18n/routing';
+import { VoiceInput } from '@/components/VoiceInput';
 
 interface CheckApiResponse {
   band: RiskBand;
@@ -124,9 +125,16 @@ export default function CheckPage() {
       {/* Input Form */}
       <form onSubmit={handleScan} className="p-6 bg-white rounded-xl border border-slate-200 shadow-sm space-y-4">
         <div>
-          <label className="block text-xs font-semibold text-slate-700 mb-1">
-            Paste suspicious message, WhatsApp forward, or offer text:
-          </label>
+          <div className="flex items-center justify-between mb-1">
+            <label className="block text-xs font-semibold text-slate-700">
+              Paste suspicious message, WhatsApp forward, or offer text:
+            </label>
+            <VoiceInput
+              onTranscript={(txt) => handleInputChange(`${rawInput} ${txt}`)}
+              lang={locale as Lang}
+              disabled={isLoading}
+            />
+          </div>
           <textarea
             rows={5}
             maxLength={4000}
@@ -240,11 +248,36 @@ export default function CheckPage() {
             </div>
           )}
 
-          {/* Explanation */}
-          <div className="p-4 bg-slate-50/80 rounded-lg border border-slate-200 text-xs text-slate-700 space-y-2">
-            <p className="font-semibold text-slate-900">Analysis Summary:</p>
-            <p className="whitespace-pre-line">{result.explanation}</p>
+        {/* Verified Technical Signals (Phase 2) */}
+        {result.signals && result.signals.length > 0 && (
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-slate-900">
+              ⚡ {tResults('signalsTitle')} ({result.signals.length})
+            </h3>
+            <div className="space-y-2">
+              {result.signals.map((sig, idx) => (
+                <div
+                  key={idx}
+                  className="p-3 bg-blue-50/70 border border-blue-200 rounded-lg text-xs space-y-1"
+                >
+                  <div className="flex items-center justify-between font-bold text-blue-950">
+                    <span>{sig.label}</span>
+                    <span className="text-[10px] uppercase font-bold text-blue-700 bg-blue-100 px-2 py-0.5 rounded border border-blue-300">
+                      Signal
+                    </span>
+                  </div>
+                  <p className="text-slate-700">{sig.value}</p>
+                </div>
+              ))}
+            </div>
           </div>
+        )}
+
+        {/* Explanation */}
+        <div className="p-4 bg-slate-50/80 rounded-lg border border-slate-200 text-xs text-slate-700 space-y-2">
+          <p className="font-semibold text-slate-900">Analysis Summary:</p>
+          <p className="whitespace-pre-line">{result.explanation}</p>
+        </div>
 
           {/* Could Not Verify Section */}
           <div className="space-y-2 pt-2 border-t border-slate-200/80">

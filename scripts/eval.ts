@@ -102,6 +102,13 @@ async function runEvaluation() {
       stats.scamCases++;
       if (fusion.finalBand === 'HIGH' || fusion.finalBand === 'MEDIUM') {
         stats.scamDetected++;
+      } else {
+        misclassifiedIds.push({
+          id: c.id,
+          expected: `${c.expected_archetype} (${c.expected_band})`,
+          got: `${fusion.topArchetype.top} (${fusion.finalBand})`,
+          reason: 'High-risk recall missed',
+        });
       }
     }
 
@@ -110,6 +117,12 @@ async function runEvaluation() {
       stats.benignCases++;
       if (fusion.finalBand === 'HIGH') {
         stats.benignFalseAlarms++;
+        misclassifiedIds.push({
+          id: c.id,
+          expected: `${c.expected_archetype} (${c.expected_band})`,
+          got: `${fusion.topArchetype.top} (${fusion.finalBand})`,
+          reason: 'Benign false alarm',
+        });
       }
     }
   }

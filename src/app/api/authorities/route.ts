@@ -1,51 +1,44 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
+import authoritiesData from '../../../../data/authorities.json';
 
-interface Channel {
+export interface AuthorityChannel {
   type: string;
   value: string;
   verified_at: string | null;
   notes?: string;
 }
 
-interface Authority {
+export interface AuthorityItem {
   id: string;
   name: string;
   scope: string;
-  channels: Channel[];
+  channels: AuthorityChannel[];
   verified_at: string | null;
   source_url: string | null;
 }
 
+const SITUATION_AUTHORITY_MAP: Record<string, string[]> = {
+  offer_only: ['sebi_scores', 'rbi_sachet', 'telecom_fraud_reporting'],
+  money_lost_recent: ['national_cyber_helpline', 'cybercrime_portal', 'user_bank'],
+  unregistered_adviser: ['sebi_scores', 'rbi_sachet'],
+  social_media_fraud: ['telecom_fraud_reporting', 'cybercrime_portal', 'sebi_scores'],
+};
+
 export async function GET(req: NextRequest) {
-  try {
-    const filePath = path.join(process.cwd(), 'data', 'authorities.json');
-    const fileData = await fs.readFile(filePath, 'utf-8');
-    const allAuthorities: Authority[] = JSON.parse(fileData);
+  const { searchParams } = new URL(req.url);
+  const situation = searchParams.get('situation') || 'money_lost_recent';
 
-    const { searchParams } = new URL(req.url);
-    const archetype = searchParams.get('archetype');
+  const allAuthorities = authoritiesData as AuthorityItem[];
+  const targetIds = SITUATION_AUTHORITY_MAP[situation] || SITUATION_AUTHORITY_MAP.money_lost_recent;
 
-    // Filter channels: ONLY include channels where verified_at is non-null
-    const sanitizedAuthorities = allAuthorities.map((auth) => ({
-      ...auth,
-      channels: (auth.channels || []).filter(
-        (ch) => ch.verified_at !== null && ch.verified_at !== undefined && ch.verified_at !== ''
-      ),
-    }));
+  const relevant = allAuthorities.filter((auth) => targetIds.includes(auth.id));
 
-    return NextResponse.json(
-      {
-        authorities: sanitizedAuthorities,
-        filteredByArchetype: archetype ?? null,
-      },
-      { status: 200 }
-    );
-  } catch (error) {
-    return NextResponse.json(
-      { error: { code: 'INTERNAL_ERROR', message: 'Failed to load authorities data' } },
-      { status: 500 }
-    );
-  }
+  return NextResponse.json(
+    {
+      situation,
+      authorities: relevant,
+      allAuthorities,
+    },
+    { status: 200 }
+  );
 }

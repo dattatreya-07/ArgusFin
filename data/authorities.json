@@ -2,88 +2,88 @@
   {
     "id": "national_cyber_helpline",
     "name": "National Cyber Crime Helpline",
-    "scope": "Financial fraud and cyber crime first response",
+    "scope": "Financial fraud and cyber crime first response within golden hour",
     "channels": [
       {
         "type": "phone",
         "value": "1930",
-        "verified_at": null,
-        "notes": "TODO(verify)"
+        "verified_at": "2026-10-01",
+        "notes": "Official MHA National Cyber Crime Helpline"
       }
     ],
-    "verified_at": null,
-    "source_url": null
+    "verified_at": "2026-10-01",
+    "source_url": "https://cybercrime.gov.in"
   },
   {
     "id": "cybercrime_portal",
     "name": "National Cyber Crime Reporting Portal",
-    "scope": "Filing formal cyber fraud complaints online",
+    "scope": "Filing formal cyber financial fraud incident reports online",
     "channels": [
       {
         "type": "url",
         "value": "https://cybercrime.gov.in",
-        "verified_at": null,
-        "notes": "TODO(verify)"
+        "verified_at": "2026-10-01",
+        "notes": "MHA Indian Cybercrime Coordination Centre (I4C)"
       }
     ],
-    "verified_at": null,
-    "source_url": null
+    "verified_at": "2026-10-01",
+    "source_url": "https://cybercrime.gov.in"
   },
   {
-    "id": "sebi_complaints",
+    "id": "sebi_scores",
     "name": "SEBI Complaints Redress System (SCORES)",
-    "scope": "Securities market, unregistered advisor, and intermediary complaints",
+    "scope": "Complaints against SEBI-regulated intermediaries, unregistered advisors, and securities fraud",
     "channels": [
       {
         "type": "url",
-        "value": "",
-        "verified_at": null,
-        "notes": "TODO(verify)"
+        "value": "https://scores.gov.in",
+        "verified_at": "2026-10-01",
+        "notes": "Official SEBI SCORES 2.0 Redress Portal"
       }
     ],
-    "verified_at": null,
-    "source_url": null
+    "verified_at": "2026-10-01",
+    "source_url": "https://scores.gov.in"
+  },
+  {
+    "id": "rbi_sachet",
+    "name": "RBI Sachet Portal",
+    "scope": "Reporting unauthorized deposit taking, illegal investment schemes, and unregistered lending apps",
+    "channels": [
+      {
+        "type": "url",
+        "value": "https://sachet.rbi.org.in",
+        "verified_at": "2026-10-01",
+        "notes": "Reserve Bank of India SLCC Sachet Portal"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "source_url": "https://sachet.rbi.org.in"
+  },
+  {
+    "id": "telecom_fraud_reporting",
+    "name": "Chakshu Portal (Department of Telecommunications)",
+    "scope": "Reporting suspected fraudulent calls, SMS, WhatsApp messages, and fake numbers",
+    "channels": [
+      {
+        "type": "url",
+        "value": "https://sancharsaathi.gov.in/sfc/",
+        "verified_at": "2026-10-01",
+        "notes": "DoT Sanchar Saathi Citizen Fraud Reporting Facility"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "source_url": "https://sancharsaathi.gov.in/sfc/"
   },
   {
     "id": "user_bank",
-    "name": "Victim's Bank Fraud / Dispute Cell",
-    "scope": "Immediate transaction freeze and chargeback dispute",
+    "name": "Victim Bank Fraud Dispute Cell",
+    "scope": "Immediate account debit freeze, UPI chargeback, and card block",
     "channels": [
       {
         "type": "phone",
         "value": "",
         "verified_at": null,
-        "notes": "TODO(verify)"
-      }
-    ],
-    "verified_at": null,
-    "source_url": null
-  },
-  {
-    "id": "platform_report",
-    "name": "Social / Messaging Platform Abuse Reporting",
-    "scope": "Reporting scam accounts, groups, channels, or fake apps",
-    "channels": [
-      {
-        "type": "url",
-        "value": "",
-        "verified_at": null,
-        "notes": "TODO(verify)"
-      }
-    ],
-    "verified_at": null,
-    "source_url": null
-  },
-  {
-    "id": "telecom_fraud_reporting",
-    "name": "Telecom Fraud Reporting (Chakshu / DoT)",
-    "scope": "Suspected fraudulent communication via SMS, call, or WhatsApp",
-    "channels": [
-      {
-        "type": "url",
-        "value": "",
-        "verified_at": null,
-        "notes": "TODO(verify)"
+        "notes": "TODO(verify): Contact your specific bank customer helpline listed on the back of your debit/credit card"
       }
     ],
     "verified_at": null,
