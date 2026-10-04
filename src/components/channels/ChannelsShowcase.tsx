@@ -100,20 +100,19 @@ export function ChannelsShowcase({ locale }: ChannelsShowcaseProps) {
             </p>
           </div>
           <div className="space-y-2">
-            {isTelegramConfigured ? (
-              <a
-                href={`https://t.me/${telegramBotUsername}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs font-bold text-accent hover:underline flex items-center gap-1 transition"
-              >
-                Open @{telegramBotUsername} <span>↗</span>
-              </a>
-            ) : null}
+            <a
+              href="https://t.me/ArgusFin_bot"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#229ED9] hover:bg-[#1d8cb8] text-white rounded-lg font-bold text-xs transition shadow-soft w-full justify-center"
+            >
+              <span>Open @ArgusFin_bot in Telegram</span>
+              <span>↗</span>
+            </a>
             <button
               type="button"
               onClick={() => runChannelDiagnostic('telegram')}
-              className="text-[11px] font-bold text-ink bg-surface px-3 py-1.5 rounded-lg border border-border hover:border-accent w-full text-left transition font-mono"
+              className="text-[11px] font-bold text-ink bg-surface px-3 py-1.5 rounded-lg border border-border hover:border-accent w-full text-center transition font-mono"
             >
               🧪 Test Telegram Webhook Status →
             </button>

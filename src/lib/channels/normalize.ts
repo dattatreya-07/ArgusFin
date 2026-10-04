@@ -17,22 +17,21 @@ const URL_REGEX = /(?:https?:\/\/|www\.)[^\s<>"'{}|\\^`]+[^\s<>"'{}|\\^`.,;:?!]/
  * Deterministic language detection or fallback to English.
  */
 function resolveLanguage(langStr?: string, text?: string): Lang {
+  if (text) {
+    // Priority 1: Direct script detection from message text
+    if (/[\u0900-\u097F]/.test(text)) {
+      return 'hi';
+    }
+    if (/[\u0B80-\u0BFF]/.test(text)) {
+      return 'ta';
+    }
+  }
+
   if (langStr) {
     const clean = langStr.toLowerCase().trim();
     if (clean.startsWith('hi')) return 'hi';
     if (clean.startsWith('ta')) return 'ta';
     if (clean.startsWith('en')) return 'en';
-  }
-
-  if (text) {
-    // Check Devanagari script range: \u0900-\u097F
-    if (/[\u0900-\u097F]/.test(text)) {
-      return 'hi';
-    }
-    // Check Tamil script range: \u0B80-\u0BFF
-    if (/[\u0B80-\u0BFF]/.test(text)) {
-      return 'ta';
-    }
   }
 
   return 'en';

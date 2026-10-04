@@ -95,48 +95,60 @@ export function SpeakButton({
       return;
     }
 
-    const chunks = segmentSentences(text, lang);
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
+      return;
+    }
+
+    // Clean markdown characters for clean audible speech
+    const cleanText = text
+      .replace(/#{1,6}\s?/g, '')
+      .replace(/[*_~`]/g, '')
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+      .replace(/[-•]\s?/g, '')
+      .trim();
+
+    const chunks = segmentSentences(cleanText, lang);
     if (chunks.length === 0) return;
 
-    const voices = typeof window !== 'undefined' && 'speechSynthesis' in window ? window.speechSynthesis.getVoices() : [];
+    const voices = window.speechSynthesis.getVoices();
     const voice = selectVoice({ language: lang, voices });
 
-    // If local system voice is available, use SpeechSynthesis
-    if (voice && typeof window !== 'undefined' && 'speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      setIsSpeaking(true);
+    window.speechSynthesis.cancel();
+    setIsSpeaking(true);
 
-      let currentIdx = 0;
-      const playNext = () => {
-        if (currentIdx >= chunks.length) {
-          setIsSpeaking(false);
-          return;
-        }
+    let currentIdx = 0;
+    const playNext = () => {
+      if (currentIdx >= chunks.length) {
+        setIsSpeaking(false);
+        return;
+      }
 
-        const utterance = new SpeechSynthesisUtterance(chunks[currentIdx]);
-        utterance.lang = LOCALE_MAP[lang] || 'en-IN';
+      const utterance = new SpeechSynthesisUtterance(chunks[currentIdx]);
+      utterance.lang = LOCALE_MAP[lang] || (lang === 'ta' ? 'ta-IN' : lang === 'hi' ? 'hi-IN' : 'en-IN');
+      if (voice) {
         utterance.voice = voice;
-        utterance.rate = lang === 'ta' || lang === 'hi' ? 0.92 : 1.0;
-        utterance.pitch = 1.0;
+      }
+      utterance.rate = lang === 'ta' || lang === 'hi' ? 0.9 : 1.0;
+      utterance.pitch = 1.0;
 
-        utterance.onend = () => {
-          currentIdx++;
-          playNext();
-        };
-
-        utterance.onerror = () => {
-          // Fall back to Audio TTS on utterance error
-          playFallbackAudio(chunks.slice(currentIdx));
-        };
-
-        window.speechSynthesis.speak(utterance);
+      utterance.onend = () => {
+        currentIdx++;
+        playNext();
       };
 
-      playNext();
-    } else {
-      // Fall back to universal online TTS Audio player (guarantees Tamil speech on any browser)
-      playFallbackAudio(chunks);
-    }
+      utterance.onerror = () => {
+        currentIdx++;
+        if (currentIdx < chunks.length) {
+          playNext();
+        } else {
+          setIsSpeaking(false);
+        }
+      };
+
+      window.speechSynthesis.speak(utterance);
+    };
+
+    playNext();
   };
 
   const defaultSpeakLabel =

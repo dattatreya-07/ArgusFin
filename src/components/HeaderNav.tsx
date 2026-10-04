@@ -112,6 +112,17 @@ export function HeaderNav() {
 
         {/* Desktop Controls */}
         <div className="hidden lg:flex items-center gap-3">
+          <a
+            href="https://t.me/ArgusFin_bot"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#229ED9]/10 hover:bg-[#229ED9]/20 text-[#229ED9] border border-[#229ED9]/30 rounded-lg font-semibold text-xs transition-all shadow-xs"
+          >
+            <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S17.63 0 12 0zm5.56 8.16l-2.02 9.51c-.15.68-.55.84-1.12.52l-3.1-2.28-1.5 1.44c-.17.17-.31.31-.63.31l.22-3.16 5.76-5.2c.25-.22-.05-.34-.35-.15l-7.12 4.48-3.06-.96c-.67-.21-.68-.67.14-.99l11.96-4.61c.55-.2 1.04.14.82.99z"/>
+            </svg>
+            <span>Telegram Bot</span>
+          </a>
           <ThemeToggle />
           <LanguageSwitcher />
         </div>
