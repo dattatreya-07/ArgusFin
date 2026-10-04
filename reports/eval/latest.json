@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-02T21:30:52.670Z",
+  "timestamp": "2026-10-04T09:45:50.157Z",
   "datasetSource": "data/eval_cases.json",
   "totalCases": 30,
   "overallArchAcc": "100.0%",
@@ -67,6 +67,14 @@
     "FAKE_IPO_OR_ALLOTMENT": {
       "total": 3,
       "correct": 3
+    },
+    "PRE_APPROVED_LOAN_SCAM": {
+      "total": 0,
+      "correct": 0
+    },
+    "OTHER_SUSPICIOUS_FINANCIAL_PATTERN": {
+      "total": 0,
+      "correct": 0
     },
     "OTHER_OR_NONE": {
       "total": 3,

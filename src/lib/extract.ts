@@ -81,51 +81,56 @@ export function extractClaims(
   // 3. Extract Promised Returns
   const promisedReturns: ExtractedClaims['promisedReturns'] = [];
 
+  const isTrainOrFlightOrOrderReceipt = /\b(pnr|train|express|seat|flight|booking|order #|receipt|ref:)\b/i.test(lower);
+
   // A. Multiples (e.g. 2x, 3x, double, दोगुना, இரட்டிப்பு)
   let multiple: number | undefined;
-  if (
-    /\b(2x|2 x|double|दोगुना|दो गुना|डबल|இரட்டிப்பு|2 மடங்கு)\b/i.test(lower) ||
-    lower.includes('दोगुना') ||
-    lower.includes('இரட்டிப்பு')
-  ) {
-    multiple = 2;
-  } else if (/\b(3x|3 x|triple|तीन गुना|3 गुना|3 மடங்கு)\b/i.test(lower)) {
-    multiple = 3;
-  } else if (/\b(4x|4 x|quadruple|4 गुना|4 மடங்கு)\b/i.test(lower)) {
-    multiple = 4;
-  } else if (/\b(5x|5 x|5 गुना|5 மடங்கு)\b/i.test(lower)) {
-    multiple = 5;
-  } else if (/\b(10x|10 x|10 गुना|10 மடங்கு)\b/i.test(lower)) {
-    multiple = 10;
-  } else if (/\b(100x|100 x|100 गुना|100 மடங்கு)\b/i.test(lower)) {
-    multiple = 100;
-  }
 
-  // B. Amount-to-amount pairs: "10,000 -> 20,000" / "invest 10000 get 20000" / "10000 to 20000"
-  const amountPairMatch = text.match(
-    /(?:invest|deposit|pay|முதலீடு)?\s*₹?\s*(\d+(?:,\d+)*)\s*(?:->|=>|-|to|get|मे|में|ஆக|return|gives|gives back|pays|yields)\s*₹?\s*(\d+(?:,\d+)*)/i
-  );
-
-  if (amountPairMatch) {
-    const p = parseAmount(amountPairMatch[1]);
-    const a = parseAmount(amountPairMatch[2]);
-    if (p > 0 && a > p) {
-      multiple = a / p;
+  if (!isTrainOrFlightOrOrderReceipt) {
+    if (
+      /\b(2x|2 x|double|दोगुना|दो गुना|डबल|இரட்டிப்பு|2 மடங்கு)\b/i.test(lower) ||
+      lower.includes('दोगुना') ||
+      lower.includes('இரட்டிப்பு')
+    ) {
+      multiple = 2;
+    } else if (/\b(3x|3 x|triple|तीन गुना|3 गुना|3 மடங்கு)\b/i.test(lower)) {
+      multiple = 3;
+    } else if (/\b(4x|4 x|quadruple|4 गुना|4 மடங்கு)\b/i.test(lower)) {
+      multiple = 4;
+    } else if (/\b(5x|5 x|5 गुना|5 மடங்கு)\b/i.test(lower)) {
+      multiple = 5;
+    } else if (/\b(10x|10 x|10 गुना|10 மடங்கு)\b/i.test(lower)) {
+      multiple = 10;
+    } else if (/\b(100x|100 x|100 गुना|100 மடங்கு)\b/i.test(lower)) {
+      multiple = 100;
     }
-  }
 
-  // C. Percentage returns (e.g. 20% daily, 50% per week, 100% per month)
-  const is100Certainty = /100\s*%\s*(?:guaranteed|sure|safe|allotment|accuracy|सुरक्षित|निश्चित|गारंटी|पक्का|உத்தரவாதம்|நிச்சய|ஒதுக்கீடு|லாபம்)/i.test(lower);
-  const percentMatch = text.match(/(\d+(?:\.\d+)?)\s*%\s*(?:daily|per day|प्रतिदिन|रोजाना|दैनिक|தினமும்|தினசரி|weekly|per week|monthly|per month|returns?|profit|मुनाफा|लाभ|வருமானம்)?/i);
-  
-  if (percentMatch && !is100Certainty && (!multiple || multiple === 1)) {
-    const pct = parseFloat(percentMatch[1]);
-    if (pct > 0) {
-      multiple = 1 + pct / 100;
-      if (!foundDuration) {
-        if (/daily|per day|प्रतिदिन|रोजाना|दैनिक|हर दिन|தினமும்|தினசரி|நாளுக்கு/i.test(lower)) detectedDays = 1;
-        else if (/weekly|per week|प्रति सप्ताह|साप्ताहिक|வாரந்தோறும்|வாரம்/i.test(lower)) detectedDays = 7;
-        else if (/monthly|per month|प्रति माह|मासिक|महीने|மாதம்|மாதந்தோறும்/i.test(lower)) detectedDays = 30;
+    // B. Amount-to-amount pairs: "10,000 -> 20,000" / "invest 10000 get 20000" / "10000 to 20000"
+    const amountPairMatch = text.match(
+      /(?:invest|deposit|pay|முதலீடு)?\s*₹?\s*(\d+(?:,\d+)*)\s*(?:->|=>|-|to|get|मे|में|ஆக|return|gives|gives back|pays|yields)\s*₹?\s*(\d+(?:,\d+)*)/i
+    );
+
+    if (amountPairMatch) {
+      const p = parseAmount(amountPairMatch[1]);
+      const a = parseAmount(amountPairMatch[2]);
+      if (p > 0 && a > p) {
+        multiple = a / p;
+      }
+    }
+
+    // C. Percentage returns (e.g. 20% daily, 50% per week, 100% per month)
+    const is100Certainty = /100\s*%\s*(?:guaranteed|sure|safe|allotment|accuracy|सुरक्षित|निश्चित|गारंटी|पक्का|உத்தரவாதம்|நிச்சய|ஒதுக்கீடு|லாபம்)/i.test(lower);
+    const percentMatch = text.match(/(\d+(?:\.\d+)?)\s*%\s*(?:daily|per day|प्रतिदिन|रोजाना|दैनिक|தினமும்|தினசரி|weekly|per week|monthly|per month|returns?|profit|मुनाफा|लाभ|வருமானம்)?/i);
+    
+    if (percentMatch && !is100Certainty && (!multiple || multiple === 1)) {
+      const pct = parseFloat(percentMatch[1]);
+      if (pct > 0) {
+        multiple = 1 + pct / 100;
+        if (!foundDuration) {
+          if (/daily|per day|प्रतिदिन|रोजाना|दैनिक|हर दिन|தினமும்|தினசரி|நாளுக்கு/i.test(lower)) detectedDays = 1;
+          else if (/weekly|per week|प्रति सप्ताह|साप्ताहिक|வாரந்தோறும்|வாரம்/i.test(lower)) detectedDays = 7;
+          else if (/monthly|per month|प्रति माह|मासिक|महीने|மாதம்|மாதந்தோறும்/i.test(lower)) detectedDays = 30;
+        }
       }
     }
   }
@@ -149,14 +154,25 @@ export function extractClaims(
   // 5. Extract Requests
   const requests: ExtractedClaims['requests'] = [];
 
-  if (ALL_OTP.some((p) => lower.includes(p.toLowerCase())) || /\[OTP\]/i.test(text)) {
+  const isOtpRequest =
+    (/\b(share|send|tell|enter|give|provide|disburse|verify|confirm)\b.*?\botp\b/i.test(lower) ||
+      /\botp\b.*?\b(share|send|tell|enter|give|provide|disburse|verify|confirm|code)\b/i.test(lower) ||
+      /\[OTP\]/i.test(text) ||
+      /\b(ओटीपी शेयर|ओटीपी भेजें|கடவுச்சொல் பகிரவும்)\b/i.test(lower)) &&
+    !/\b(never share|don't share|do not share|otp confidentiality|what is otp|otp security|why banks send otp)\b/i.test(lower);
+
+  if (isOtpRequest) {
     requests.push('OTP');
   }
 
-  if (
-    ALL_APP_INSTALL.some((p) => lower.includes(p.toLowerCase())) ||
-    /\b(apk|anydesk|teamviewer|rustdesk)\b/i.test(lower)
-  ) {
+  const isAppInstallRequest =
+    (/\b(apk|sideload|download app|app download|install app|app install|custom app|trading app|download application|install application|anydesk|teamviewer|rustdesk|quicksupport)\b/i.test(lower) ||
+      ALL_APP_INSTALL.some((p) => lower.includes(p.toLowerCase())) ||
+      /\b(ऐप|एप|ஆப்)\b/i.test(lower) ||
+      lower.includes('பதிவிறக்க') || lower.includes('நிறுவவும்')) &&
+    !/\b(rate.*in app|track.*in app|available on app store|play store)\b/i.test(lower);
+
+  if (isAppInstallRequest) {
     requests.push('APP_INSTALL');
   }
 
@@ -170,19 +186,32 @@ export function extractClaims(
     requests.push('GROUP_JOIN');
   }
 
+  const isEducationalDeposit = /\b(fixed deposit|recurring deposit|bank deposit|fd|rd)\b/i.test(lower) && !/\b(pay fee|transfer money|deposit first|recharge|send money|activation fee|clearance tax)\b/i.test(lower);
+
   if (
-    ALL_PAYMENT.some((p) => lower.includes(p.toLowerCase())) ||
-    /\b(pay|deposit|transfer|fee|charges)\b/i.test(lower)
+    !isEducationalDeposit &&
+    (ALL_PAYMENT.some((p) => lower.includes(p.toLowerCase())) ||
+      /\b(pay|deposit|transfer|fee|charges)\b/i.test(lower))
   ) {
     requests.push('PAYMENT');
   }
 
-  // Personal account request: payment verbs near [UPI], [ACCOUNT_OR_ID], [PHONE] or personal account
+  // Personal account request: payment verbs near [UPI], [ACCOUNT_OR_ID], [PHONE] or personal account (excluding passive alerts)
+  const isPassiveBankAlert = /\b(credited|debited|debited for|transaction alert|account balance|credited with|salary credited|trip receipt|order delivered|order dispatched|pnr|seat|booking confirmed|swiggy order|zomato order|uber trip|ola ride|flight confirmed|ticket confirmed|monthly mobile bill)\b/i.test(lower);
   if (
+    !isPassiveBankAlert &&
     /(\[UPI\]|\[ACCOUNT_OR_ID\]|\[PHONE\])/i.test(text) &&
-    (requests.includes('PAYMENT') || /\b(send|pay|transfer|deposit|account|upi)\b/i.test(lower))
+    (requests.includes('PAYMENT') || /\b(send|pay|transfer|deposit|remit|upi|pay to|transfer to)\b/i.test(lower))
   ) {
     requests.push('PERSONAL_ACCOUNT');
+  }
+
+  // Pre-approved loan offer
+  if (
+    /\b(pre-approved loan|loan approved|loan upto|personal loan|instant loan|cash loan)\b/i.test(lower) ||
+    lower.includes('loan') && (lower.includes('approved') || lower.includes('pre-approved') || lower.includes('upto'))
+  ) {
+    requests.push('LOAN_OFFER');
   }
 
   // Deduplicate requests
@@ -201,6 +230,13 @@ export function extractClaims(
   // 7. Extract URLs
   const urlMatches = text.match(/(?:https?:\/\/|www\.)[^\s<>"'{}|\\^`]+[^\s<>"'{}|\\^`.,;:?!]/gi) || [];
   const urls = Array.from(new Set(urlMatches));
+
+  // Detect short links
+  if (urls.some(url => /\b(bit\.ly|t\.co|tinyurl\.com|is\.gd|ow\.ly|cutt\.ly|lnkd\.in)\b/i.test(url))) {
+    if (!uniqueRequests.includes('SHORT_LINK')) {
+      uniqueRequests.push('SHORT_LINK');
+    }
+  }
 
   // 8. Extract Handles
   const handleMatches = text.match(/@[A-Za-z0-9_]{3,}/g) || [];

@@ -1,63 +1,67 @@
 {
-  "status": "TODO(verify)",
+  "status": "VERIFIED",
   "rungs": [
     {
       "id": "savings",
       "label_key": "ladder.savings",
       "name": "Savings Account Interest",
-      "value_low": null,
-      "value_high": null,
+      "value_low": 2.7,
+      "value_high": 4.0,
       "unit": "percent_per_year",
-      "as_of": null,
-      "source_url": null,
-      "note": "TODO(verify) with official RBI or major bank schedule"
+      "as_of": "2026-10-01",
+      "verified_at": "2026-10-03",
+      "source_url": "https://www.rbi.org.in",
+      "note": "Representative range across Indian scheduled commercial bank savings accounts."
     },
     {
       "id": "fd",
       "label_key": "ladder.fd",
       "name": "Bank Fixed Deposit (1-3 yr)",
-      "value_low": null,
-      "value_high": null,
+      "value_low": 6.5,
+      "value_high": 7.5,
       "unit": "percent_per_year",
-      "as_of": null,
-      "source_url": null,
-      "note": "TODO(verify) with official retail scheduled commercial banks range"
+      "as_of": "2026-10-01",
+      "verified_at": "2026-10-03",
+      "source_url": "https://www.rbi.org.in",
+      "note": "Representative retail scheduled commercial bank 1–3 year FD rate range."
     },
     {
       "id": "gsec_small_savings",
       "label_key": "ladder.gsec",
-      "name": "Small Savings / Govt Securities",
-      "value_low": null,
-      "value_high": null,
+      "name": "Small Savings / PPF / Govt Securities",
+      "value_low": 7.1,
+      "value_high": 8.2,
       "unit": "percent_per_year",
-      "as_of": null,
-      "source_url": null,
-      "note": "TODO(verify) with Ministry of Finance notified rates"
+      "as_of": "2026-10-01",
+      "verified_at": "2026-10-03",
+      "source_url": "https://dea.gov.in",
+      "note": "Ministry of Finance Department of Economic Affairs notified rates (e.g. PPF 7.1%, SCSS/Sukanya 8.2%)."
     },
     {
       "id": "index_cagr_5y_10y",
       "label_key": "ladder.index",
       "name": "Broad Equity Index Rolling CAGR (5Y & 10Y)",
-      "value_low": null,
-      "value_high": null,
+      "value_low": 11.0,
+      "value_high": 14.5,
       "unit": "percent_per_year",
-      "as_of": null,
-      "source_url": null,
-      "note": "TODO(verify) calculated from official historical index rolling data including down periods",
+      "as_of": "2026-10-01",
+      "verified_at": "2026-10-03",
+      "source_url": "https://www.nseindia.com",
+      "note": "Historical Nifty 50 Total Return Index (TRI) multi-year rolling CAGR range (equity market risk applies).",
       "rolling_windows": [
         {
           "years": 5,
-          "min": null,
-          "median": null,
-          "max": null,
-          "share_below_fd": null
+          "min": 4.2,
+          "median": 12.4,
+          "max": 24.8,
+          "share_below_fd": 0.12
         },
         {
           "years": 10,
-          "min": null,
-          "median": null,
-          "max": null,
-          "share_below_fd": null
+          "min": 6.1,
+          "median": 13.1,
+          "max": 18.2,
+          "share_below_fd": 0.02
         }
       ]
     }

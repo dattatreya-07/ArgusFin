@@ -1,15 +1,29 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
 import { Lang } from '@/lib/types';
 import { VoiceInput } from '@/components/VoiceInput';
 import { validateIncidentConsistency } from '@/lib/incident/consistency';
 import { routeAuthorities } from '@/lib/authorities/router';
+import { createCanonicalReportPacket } from '@/lib/report/packet';
+import { exportToHtml, exportToPlainText, exportToJson } from '@/lib/report/export';
+import { CanonicalReportPacket } from '@/lib/report/types';
 import { ConsistencyIssue } from '@/lib/incident/types';
 import { maskPii } from '@/lib/privacy';
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+  Button,
+  Field,
+  Stepper,
+  Banner,
+} from '@/components/ui';
 
 export default function ReportPage() {
   const t = useTranslations('report');
@@ -35,11 +49,10 @@ export default function ReportPage() {
   const [otpShared, setOtpShared] = useState<boolean>(false);
   const [remoteAccessGranted, setRemoteAccessGranted] = useState<boolean>(false);
 
-  const [userConfirmed, setUserConfirmed] = useState<boolean>(false);
   const [issues, setIssues] = useState<ConsistencyIssue[]>([]);
-  const [routedAuthorities, setRoutedAuthorities] = useState<any>(null);
+  const [packet, setPacket] = useState<CanonicalReportPacket | null>(null);
 
-  // Evaluate consistency & routing whenever moving to review
+  // Re-generate canonical report packet whenever inputs change
   useEffect(() => {
     const consistencyRes = validateIncidentConsistency({
       language: currentLang,
@@ -69,17 +82,34 @@ export default function ReportPage() {
 
     setIssues(consistencyRes.issues);
 
-    const routes = routeAuthorities({
-      category,
+    const newPacket = createCanonicalReportPacket({
+      locale: currentLang,
+      jurisdiction: 'IN',
+      sourceChannel: 'website',
+      rawUserInput: narrative,
+      incidentDate,
       platform,
-      moneySent: amount > 0,
+      claimedEntityOrAdvisor: entityName,
+      websiteOrDomain: domain,
+      totalClaimedLoss: amount,
+      transactions: utrNumber
+        ? [
+            {
+              utrNumber,
+              amount,
+              beneficiaryAccountOrUpi: beneficiaryInfo,
+              paymentMethod,
+              date: incidentDate,
+            },
+          ]
+        : [],
+      narrative,
       credentialsShared,
       otpShared,
       remoteAccessGranted,
-      lang: currentLang,
     });
 
-    setRoutedAuthorities(routes);
+    setPacket(newPacket);
   }, [
     incidentDate,
     platform,
@@ -104,530 +134,504 @@ export default function ReportPage() {
   };
 
   const handlePrint = () => {
-    window.print();
+    if (packet) {
+      const htmlStr = exportToHtml(packet);
+      const win = window.open('', '_blank');
+      if (win) {
+        win.document.write(htmlStr);
+        win.document.close();
+        win.focus();
+        win.print();
+      } else {
+        window.print();
+      }
+    }
+  };
+
+  const handleExportText = () => {
+    if (!packet) return;
+    const txt = exportToPlainText(packet);
+    const blob = new Blob([txt], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `sangyan-report-${packet.exportIntegrityHash.substring(0, 8)}.txt`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const handleExportJson = () => {
+    if (!packet) return;
+    const jsonStr = exportToJson(packet);
+    const blob = new Blob([jsonStr], { type: 'application/json;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `sangyan-report-${packet.exportIntegrityHash.substring(0, 8)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
   };
 
   const maskedNarrative = maskPii(narrative || 'No additional narrative text provided.');
-  const maskedEntity = entityName ? maskPii(entityName) : 'Unspecified / Individual';
   const maskedUtr = utrNumber ? maskPii(utrNumber) : '';
-  const maskedBeneficiary = beneficiaryInfo ? maskPii(beneficiaryInfo) : '';
+
+  const STEP_TITLES = [
+    'When & Platform',
+    'Entity & Domain',
+    'Payment & Money',
+    'Security Check',
+    'Review & Official Filing',
+  ];
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8 py-4">
+    <div className="max-w-3xl mx-auto space-y-8">
       {/* Header (hidden in print) */}
-      <div className="space-y-2 text-center md:text-left print:hidden">
-        <h1 className="text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
-          <span className="p-2 bg-rose-950 border border-rose-800 text-rose-400 rounded-xl text-xl">
-            📋
-          </span>
+      <div className="space-y-2 print:hidden">
+        <h1 className="text-3xl font-extrabold text-ink tracking-tight">
           {t('title')}
         </h1>
-        <p className="text-zinc-400 text-base max-w-2xl">{t('subtitle')}</p>
+        <p className="text-base text-ink-muted">
+          Organize your incident record step-by-step to prepare an accurate report for official portals (1930 / cybercrime.gov.in / scores.gov.in).
+        </p>
       </div>
 
-      {/* Progress Steps (hidden in print) */}
-      <div className="flex items-center justify-between gap-1 md:gap-2 border-b border-zinc-800 pb-4 print:hidden overflow-x-auto">
-        {[
-          { num: 1, label: '1. Incident' },
-          { num: 2, label: '2. Entity' },
-          { num: 3, label: '3. Financial' },
-          { num: 4, label: '4. Security' },
-          { num: 5, label: '5. Review' },
-        ].map((s) => (
-          <button
-            key={s.num}
-            type="button"
-            onClick={() => setStep(s.num)}
-            className={`flex-1 py-2 px-2 text-xs font-bold rounded-lg transition-all text-center whitespace-nowrap ${
-              step === s.num
-                ? 'bg-rose-950 border border-rose-700 text-rose-300 ring-1 ring-rose-500'
-                : step > s.num
-                ? 'bg-zinc-900 border border-zinc-800 text-emerald-400'
-                : 'bg-zinc-950 text-zinc-600'
-            }`}
-          >
-            {s.label}
-          </button>
-        ))}
+      {/* Stepper Progress Bar (hidden in print) */}
+      <div className="print:hidden">
+        <Stepper
+          currentStep={step}
+          totalSteps={5}
+          label={STEP_TITLES[step - 1]}
+        />
       </div>
 
       {/* Step 1: When & Platform */}
       {step === 1 && (
-        <div className="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-6 shadow-xl space-y-4 print:hidden">
-          <h2 className="text-lg font-bold text-white">{t('step1Title')}</h2>
+        <Card className="print:hidden">
+          <CardHeader>
+            <CardTitle>{t('step1Title')}</CardTitle>
+            <CardDescription>Specify the approximate time and where you were contacted.</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="space-y-1.5">
+              <label htmlFor="incident-date" className="text-xs font-semibold text-ink">{t('dateLabel')}</label>
+              <input
+                id="incident-date"
+                type="datetime-local"
+                value={incidentDate}
+                onChange={(e) => setIncidentDate(e.target.value)}
+                className="w-full px-3.5 py-2.5 border border-border bg-surface rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-sm text-ink"
+              />
+            </div>
 
-          <div className="space-y-2">
-            <label className="text-xs font-semibold text-zinc-300">{t('dateLabel')}</label>
-            <input
-              type="datetime-local"
-              value={incidentDate}
-              onChange={(e) => setIncidentDate(e.target.value)}
-              className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:ring-2 focus:ring-rose-500 focus:outline-none"
-            />
-          </div>
+            <div className="space-y-1.5">
+              <label htmlFor="platform-select" className="text-xs font-semibold text-ink">{t('platformLabel')}</label>
+              <select
+                id="platform-select"
+                value={platform}
+                onChange={(e) => setPlatform(e.target.value)}
+                className="w-full px-3.5 py-2.5 border border-border bg-surface rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-sm text-ink"
+              >
+                <option value="WhatsApp">WhatsApp</option>
+                <option value="Telegram">Telegram</option>
+                <option value="Instagram / Facebook">Instagram / Facebook</option>
+                <option value="Phone Call / SMS">Phone Call / SMS</option>
+                <option value="Fake Trading Website / Portal">Fake Trading Website / Portal</option>
+                <option value="Dating App / Matrimonial">Dating App / Matrimonial</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
 
-          <div className="space-y-2">
-            <label className="text-xs font-semibold text-zinc-300">{t('platformLabel')}</label>
-            <select
-              value={platform}
-              onChange={(e) => setPlatform(e.target.value)}
-              className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:ring-2 focus:ring-rose-500 focus:outline-none"
+            <div className="space-y-1.5">
+              <label htmlFor="category-select" className="text-xs font-semibold text-ink">Incident Category</label>
+              <select
+                id="category-select"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="w-full px-3.5 py-2.5 border border-border bg-surface rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-sm text-ink"
+              >
+                <option value="PROMISED_RETURN">Promised High Return / Investment Scheme</option>
+                <option value="TRADING_PLATFORM">Fake Trading App / Blocked Withdrawal</option>
+                <option value="IPO_ALLOTMENT">FII / Institutional IPO Allotment Claim</option>
+                <option value="IMPERSONATION">Impersonation of Regulated Broker / Official</option>
+                <option value="TASK_SCAM">Prepaid Task / YouTube Like / Part-Time Job</option>
+                <option value="CRYPTO_STAKING">Crypto Staking / Forex Doubling</option>
+                <option value="OTHER">Other Financial Fraud</option>
+              </select>
+            </div>
+          </CardContent>
+          <CardFooter>
+            <Button
+              variant="primary"
+              size="lg"
+              onClick={handleNextStep}
+              className="w-full"
             >
-              <option value="WhatsApp">WhatsApp</option>
-              <option value="Telegram">Telegram</option>
-              <option value="Instagram / Facebook">Instagram / Facebook</option>
-              <option value="Phone Call / SMS">Phone Call / SMS</option>
-              <option value="Fake Trading Website / Portal">Fake Trading Website / Portal</option>
-              <option value="Dating App / Matrimonial">Dating App / Matrimonial</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-
-          <div className="space-y-2">
-            <label className="text-xs font-semibold text-zinc-300">Incident Category</label>
-            <select
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-              className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:ring-2 focus:ring-rose-500 focus:outline-none"
-            >
-              <option value="PROMISED_RETURN">Promised High Return / Investment Scheme</option>
-              <option value="TRADING_PLATFORM">Fake Trading App / Blocked Withdrawal</option>
-              <option value="IPO_ALLOTMENT">FII / Institutional IPO Allotment Claim</option>
-              <option value="IMPERSONATION">Impersonation of Regulated Broker / Official</option>
-              <option value="TASK_SCAM">Prepaid Task / YouTube Like / Part-Time Job</option>
-              <option value="CRYPTO_STAKING">Crypto Staking / Forex Doubling</option>
-              <option value="OTHER">Other Financial Fraud</option>
-            </select>
-          </div>
-
-          <button
-            type="button"
-            onClick={handleNextStep}
-            className="w-full py-3 rounded-xl font-bold text-sm bg-rose-600 text-white hover:bg-rose-500 transition-all cursor-pointer shadow-lg"
-          >
-            Next: Entity & Platform Details →
-          </button>
-        </div>
+              Next: Entity &amp; Details →
+            </Button>
+          </CardFooter>
+        </Card>
       )}
 
       {/* Step 2: Entity & Domain */}
       {step === 2 && (
-        <div className="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-6 shadow-xl space-y-4 print:hidden">
-          <h2 className="text-lg font-bold text-white">{t('step2Title')}</h2>
-
-          <div className="space-y-2">
-            <label className="text-xs font-semibold text-zinc-300">
-              Claimed Advisor Name, Group Title, or Organisation
-            </label>
-            <input
-              type="text"
+        <Card className="print:hidden">
+          <CardHeader>
+            <CardTitle>{t('step2Title')}</CardTitle>
+            <CardDescription>Record what name, company, or link was provided to you.</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <Field
+              label="Claimed Advisor Name, Group Title, or Organisation"
               value={entityName}
               onChange={(e) => setEntityName(e.target.value)}
               placeholder="e.g. VIP Institutional Wealth Club, Prof. Sharma Trading Academy"
-              className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:ring-2 focus:ring-rose-500 focus:outline-none"
+              hint="The display name used in messages"
             />
-          </div>
 
-          <div className="space-y-2">
-            <label className="text-xs font-semibold text-zinc-300">
-              Website Domain or Portal Link (if any)
-            </label>
-            <input
-              type="text"
+            <Field
+              label="Website Domain or Portal Link (if any)"
               value={domain}
               onChange={(e) => setDomain(e.target.value)}
               placeholder="e.g. groww-institutional-vip.top, secure-trade-login.xyz"
-              className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:ring-2 focus:ring-rose-500 focus:outline-none"
+              hint="Write the domain if provided; do not visit unknown links"
             />
-          </div>
-
-          <div className="flex gap-3">
-            <button
-              type="button"
-              onClick={() => setStep(1)}
-              className="w-1/3 py-3 rounded-xl font-semibold text-sm bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition-all"
-            >
+          </CardContent>
+          <CardFooter className="flex gap-3">
+            <Button variant="secondary" size="md" onClick={() => setStep(1)} className="w-1/3">
               ← Back
-            </button>
-            <button
-              type="button"
-              onClick={handleNextStep}
-              className="w-2/3 py-3 rounded-xl font-bold text-sm bg-rose-600 text-white hover:bg-rose-500 transition-all shadow-lg"
-            >
-              Next: Financial Details →
-            </button>
-          </div>
-        </div>
+            </Button>
+            <Button variant="primary" size="lg" onClick={handleNextStep} className="w-2/3">
+              Next: Payment Details →
+            </Button>
+          </CardFooter>
+        </Card>
       )}
 
       {/* Step 3: Financial & Transactions */}
       {step === 3 && (
-        <div className="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-6 shadow-xl space-y-4 print:hidden">
-          <h2 className="text-lg font-bold text-white">{t('step3Title')}</h2>
+        <Card className="print:hidden">
+          <CardHeader>
+            <CardTitle>{t('step3Title')}</CardTitle>
+            <CardDescription>Record the amount transferred and transaction references.</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <Field
+              label={t('amountLabel')}
+              type="number"
+              min="0"
+              value={amount}
+              onChange={(e) => setAmount(parseFloat(e.target.value) || 0)}
+              placeholder="25000"
+              hint="Total cumulative amount paid"
+            />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <label className="text-xs font-semibold text-zinc-300">{t('amountLabel')}</label>
-              <input
-                type="number"
-                value={amount}
-                onChange={(e) => setAmount(Number(e.target.value))}
-                className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:ring-2 focus:ring-rose-500 focus:outline-none"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-xs font-semibold text-zinc-300">Payment Method Used</label>
+            <div className="space-y-1.5">
+              <label htmlFor="payment-method-select" className="text-xs font-semibold text-ink">Payment Method Used</label>
               <select
+                id="payment-method-select"
                 value={paymentMethod}
                 onChange={(e) => setPaymentMethod(e.target.value)}
-                className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:ring-2 focus:ring-rose-500 focus:outline-none"
+                className="w-full px-3.5 py-2.5 border border-border bg-surface rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-sm text-ink"
               >
-                <option value="UPI">UPI (GPay / PhonePe / Paytm / BHIM)</option>
-                <option value="IMPS / NEFT">IMPS / NEFT / RTGS Bank Transfer</option>
-                <option value="Card">Debit / Credit Card</option>
-                <option value="Crypto">Cryptocurrency / USDT</option>
-                <option value="Cash / Other">Cash / Other</option>
+                <option value="UPI">UPI (Google Pay, PhonePe, Paytm, BHIM)</option>
+                <option value="IMPS_NEFT">Bank IMPS / NEFT / RTGS Transfer</option>
+                <option value="CREDIT_CARD">Credit / Debit Card</option>
+                <option value="CRYPTO">Cryptocurrency / USDT</option>
+                <option value="NO_MONEY_SENT">No money sent (Offer inquiry only)</option>
               </select>
             </div>
-          </div>
 
-          <div className="space-y-2">
-            <label className="text-xs font-semibold text-zinc-300">
-              UPI Reference / Transaction UTR Number (12 Digits)
-            </label>
-            <input
-              type="text"
+            <Field
+              label="Transaction ID / UPI Reference / UTR Number"
               value={utrNumber}
               onChange={(e) => setUtrNumber(e.target.value)}
-              placeholder="e.g. 423912093481"
-              className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:ring-2 focus:ring-rose-500 focus:outline-none"
+              placeholder="e.g. 329849201948 (12-digit UTR from bank SMS)"
+              hint="Essential for bank transaction lien requests under 1930"
             />
-          </div>
 
-          <div className="space-y-2">
-            <label className="text-xs font-semibold text-zinc-300">
-              Beneficiary UPI VPA or Account Number
-            </label>
-            <input
-              type="text"
+            <Field
+              label="Beneficiary UPI ID or Account Name Given"
               value={beneficiaryInfo}
               onChange={(e) => setBeneficiaryInfo(e.target.value)}
-              placeholder="e.g. merchant@icici or 9876543210@paytm"
-              className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:ring-2 focus:ring-rose-500 focus:outline-none"
+              placeholder="e.g. merchant.pay@okaxis or John Doe"
+              hint="The account handle money was transferred to"
             />
-          </div>
-
-          <div className="space-y-2">
-            <div className="flex items-center justify-between">
-              <label className="text-xs font-semibold text-zinc-300">{t('narrativeLabel')}</label>
-              <VoiceInput onTranscript={(txt) => setNarrative((prev) => `${prev} ${txt}`)} lang={currentLang} />
-            </div>
-            <textarea
-              rows={4}
-              value={narrative}
-              onChange={(e) => setNarrative(e.target.value)}
-              placeholder="Describe how contact occurred, promises made, instructions given, and when withdrawal was blocked..."
-              className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:ring-2 focus:ring-rose-500 focus:outline-none leading-relaxed"
-            />
-          </div>
-
-          <div className="flex gap-3">
-            <button
-              type="button"
-              onClick={() => setStep(2)}
-              className="w-1/3 py-3 rounded-xl font-semibold text-sm bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition-all"
-            >
+          </CardContent>
+          <CardFooter className="flex gap-3">
+            <Button variant="secondary" size="md" onClick={() => setStep(2)} className="w-1/3">
               ← Back
-            </button>
-            <button
-              type="button"
-              onClick={handleNextStep}
-              className="w-2/3 py-3 rounded-xl font-bold text-sm bg-rose-600 text-white hover:bg-rose-500 transition-all shadow-lg"
-            >
-              Next: Security & Credentials →
-            </button>
-          </div>
-        </div>
+            </Button>
+            <Button variant="primary" size="lg" onClick={handleNextStep} className="w-2/3">
+              Next: Security Check →
+            </Button>
+          </CardFooter>
+        </Card>
       )}
 
-      {/* Step 4: Security & Credentials */}
+      {/* Step 4: Security & Narrative */}
       {step === 4 && (
-        <div className="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-6 shadow-xl space-y-5 print:hidden">
-          <h2 className="text-lg font-bold text-white">4. Security & Account Protection</h2>
-          <p className="text-xs text-zinc-400">
-            Did the counterparty ask you to perform any sensitive device or banking actions?
-          </p>
+        <Card className="print:hidden">
+          <CardHeader>
+            <CardTitle>4. Security Check &amp; What Happened</CardTitle>
+            <CardDescription>Tell us what occurred in your own words.</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="p-4 bg-surface-sunken border border-border rounded-md space-y-3">
+              <span className="text-xs font-bold text-ink uppercase tracking-wider block">
+                Immediate Exposure Checklist:
+              </span>
+              <label className="flex items-center gap-3 text-xs text-ink cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={credentialsShared}
+                  onChange={(e) => setCredentialsShared(e.target.checked)}
+                  className="rounded border-border text-accent focus:ring-accent w-4 h-4"
+                />
+                <span>I shared netbanking / broker login passwords</span>
+              </label>
+              <label className="flex items-center gap-3 text-xs text-ink cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={otpShared}
+                  onChange={(e) => setOtpShared(e.target.checked)}
+                  className="rounded border-border text-accent focus:ring-accent w-4 h-4"
+                />
+                <span>I shared SMS OTPs or verification codes</span>
+              </label>
+              <label className="flex items-center gap-3 text-xs text-ink cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={remoteAccessGranted}
+                  onChange={(e) => setRemoteAccessGranted(e.target.checked)}
+                  className="rounded border-border text-accent focus:ring-accent w-4 h-4"
+                />
+                <span>I installed AnyDesk, TeamViewer, RustDesk or an unverified app</span>
+              </label>
+            </div>
 
-          <div className="space-y-3">
-            <label className="flex items-start gap-3 p-4 rounded-xl bg-zinc-950 border border-zinc-800 cursor-pointer hover:border-zinc-700">
-              <input
-                type="checkbox"
-                checked={otpShared}
-                onChange={(e) => setOtpShared(e.target.checked)}
-                className="mt-1 h-4 w-4 rounded bg-zinc-900 border-zinc-700 text-rose-600 focus:ring-rose-500"
-              />
-              <div className="space-y-1">
-                <span className="text-sm font-semibold text-white block">
-                  I shared an SMS / Banking OTP with the counterparty
-                </span>
-                <span className="text-xs text-zinc-400 block">
-                  Alert: Bank accounts may be subject to ongoing unauthorized debits.
-                </span>
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between">
+                <label htmlFor="narrative-textarea" className="text-xs font-semibold text-ink">{t('narrativeLabel')}</label>
+                <VoiceInput
+                  onTranscript={(txt) => setNarrative(`${narrative} ${txt}`.trim())}
+                  lang={currentLang}
+                />
               </div>
-            </label>
-
-            <label className="flex items-start gap-3 p-4 rounded-xl bg-zinc-950 border border-zinc-800 cursor-pointer hover:border-zinc-700">
-              <input
-                type="checkbox"
-                checked={credentialsShared}
-                onChange={(e) => setCredentialsShared(e.target.checked)}
-                className="mt-1 h-4 w-4 rounded bg-zinc-900 border-zinc-700 text-rose-600 focus:ring-rose-500"
+              <textarea
+                id="narrative-textarea"
+                rows={4}
+                value={narrative}
+                onChange={(e) => setNarrative(e.target.value)}
+                placeholder="Briefly describe what they promised, how they communicated, and why withdrawal was blocked..."
+                className="w-full px-3.5 py-2.5 border border-border bg-surface rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-sm text-ink leading-relaxed"
               />
-              <div className="space-y-1">
-                <span className="text-sm font-semibold text-white block">
-                  I shared my net banking password, PIN, or PAN card photo
-                </span>
-                <span className="text-xs text-zinc-400 block">
-                  Alert: Immediate password reset and card hotlisting required.
-                </span>
-              </div>
-            </label>
-
-            <label className="flex items-start gap-3 p-4 rounded-xl bg-zinc-950 border border-zinc-800 cursor-pointer hover:border-zinc-700">
-              <input
-                type="checkbox"
-                checked={remoteAccessGranted}
-                onChange={(e) => setRemoteAccessGranted(e.target.checked)}
-                className="mt-1 h-4 w-4 rounded bg-zinc-900 border-zinc-700 text-rose-600 focus:ring-rose-500"
-              />
-              <div className="space-y-1">
-                <span className="text-sm font-semibold text-white block">
-                  I installed AnyDesk, TeamViewer, RustDesk, or a downloaded APK file
-                </span>
-                <span className="text-xs text-zinc-400 block">
-                  Alert: Remote software allows scammers to control your device silently. Turn off Wi-Fi and uninstall the application immediately.
-                </span>
-              </div>
-            </label>
-          </div>
-
-          <div className="flex gap-3">
-            <button
-              type="button"
-              onClick={() => setStep(3)}
-              className="w-1/3 py-3 rounded-xl font-semibold text-sm bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition-all"
-            >
+            </div>
+          </CardContent>
+          <CardFooter className="flex gap-3">
+            <Button variant="secondary" size="md" onClick={() => setStep(3)} className="w-1/3">
               ← Back
-            </button>
-            <button
-              type="button"
-              onClick={handleNextStep}
-              className="w-2/3 py-3 rounded-xl font-bold text-sm bg-rose-600 text-white hover:bg-rose-500 transition-all shadow-lg"
-            >
-              Review & Prepare Document →
-            </button>
-          </div>
-        </div>
+            </Button>
+            <Button variant="primary" size="lg" onClick={handleNextStep} className="w-2/3">
+              Review Final Record →
+            </Button>
+          </CardFooter>
+        </Card>
       )}
 
-      {/* Step 5: Final Review & Printable Incident Record */}
-      {step === 5 && (
+      {/* Step 5: Review & Export */}
+      {step === 5 && packet && (
         <div className="space-y-6">
-          {/* Consistency Issues Banner */}
-          {issues.length > 0 && (
-            <div className="p-4 rounded-xl bg-amber-950/60 border border-amber-800 text-amber-200 text-xs space-y-2 print:hidden">
-              <span className="font-bold flex items-center gap-1.5">
-                <span>⚠️</span> Entity Consistency & Fact Verification Notices:
-              </span>
-              <ul className="list-disc list-inside space-y-1">
-                {issues.map((iss, idx) => (
-                  <li key={idx}>
-                    <strong className="text-amber-100">[{iss.severity}]</strong> {iss.description}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+          <Card className="border-border">
+            <CardHeader className="border-b border-border pb-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                  <CardTitle>5. Incident Pre-Filing Review Packet</CardTitle>
+                  <CardDescription>
+                    Review your prepared incident packet before lodging on official portal.
+                  </CardDescription>
+                </div>
+                <div className="flex flex-wrap gap-2 print:hidden">
+                  <Button variant="secondary" size="sm" onClick={handleExportText}>
+                    📄 Export Text
+                  </Button>
+                  <Button variant="secondary" size="sm" onClick={handleExportJson}>
+                    {'{ }'} Export JSON
+                  </Button>
+                  <Button variant="primary" size="sm" onClick={handlePrint}>
+                    🖨️ Print / HTML
+                  </Button>
+                </div>
+              </div>
+            </CardHeader>
 
-          {/* User Confirmation Checkbox */}
-          <div className="p-4 rounded-xl bg-zinc-900 border border-zinc-800 space-y-3 print:hidden">
-            <label className="flex items-start gap-3 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={userConfirmed}
-                onChange={(e) => setUserConfirmed(e.target.checked)}
-                className="mt-1 h-4 w-4 rounded bg-zinc-950 border-zinc-700 text-emerald-500 focus:ring-emerald-500"
+            <CardContent className="pt-6 space-y-6">
+              {/* Mandatory Notice */}
+              <Banner
+                variant="warning"
+                title="PREPARED FOR YOUR REVIEW — NOT AUTOMATICALLY SUBMITTED"
+                description="SANGYAN does not submit complaints to law enforcement or regulators. Review this record, copy or export it, and lodge it through official portals."
               />
-              <span className="text-xs text-zinc-200 leading-relaxed font-medium">
-                I have reviewed the facts above and confirm that this summary accurately reflects the statements provided on my device. I understand that this summary is not an automatic police complaint and must be filed on official portals.
-              </span>
-            </label>
-          </div>
 
-          {/* Action buttons (hidden when printing) */}
-          <div className="flex justify-between items-center print:hidden">
-            <button
-              type="button"
-              onClick={() => setStep(4)}
-              className="px-4 py-2 rounded-xl text-xs font-semibold bg-zinc-800 text-zinc-300 hover:bg-zinc-700 transition-all"
-            >
-              ← Edit Details
-            </button>
-            <button
-              type="button"
-              disabled={!userConfirmed}
-              onClick={handlePrint}
-              className={`px-6 py-3 rounded-xl text-sm font-bold transition-all shadow-lg flex items-center gap-2 ${
-                userConfirmed
-                  ? 'bg-emerald-600 text-white hover:bg-emerald-500 cursor-pointer'
-                  : 'bg-zinc-800 text-zinc-500 cursor-not-allowed'
-              }`}
-            >
-              🖨️ {t('exportPdfBtn')}
-            </button>
-          </div>
+              {/* Exposure Alerts if any */}
+              {(credentialsShared || otpShared || remoteAccessGranted) && (
+                <Banner
+                  variant="warning"
+                  title="Immediate Exposure Notice"
+                  description="Credentials, OTPs, or remote access software were shared. Contact your bank immediately to freeze your account and uninstall remote access software."
+                />
+              )}
 
-          {/* Printable Document Card */}
-          <div className="bg-white text-zinc-900 rounded-2xl p-8 shadow-2xl space-y-6 border border-zinc-300 print:border-none print:shadow-none print:p-0">
-            {/* Doc Header */}
-            <div className="border-b border-zinc-300 pb-4 space-y-2">
-              <div className="flex justify-between items-start">
-                <div className="flex items-center space-x-3">
-                  <Image
-                    src="/argus-fin-logo.png"
-                    alt="Argus Fin"
-                    width={110}
-                    height={32}
-                    className="h-8 w-auto object-contain"
-                  />
-                  <div>
-                    <span className="text-[11px] font-extrabold tracking-wider text-slate-900 block">
-                      Argus Fin / SANGYAN
-                    </span>
-                    <span className="text-[9px] font-bold text-rose-700 tracking-widest uppercase block">
-                      CONFIDENTIAL PRE-FILING CITIZEN INCIDENT RECORD
-                    </span>
+              {/* 1. Incident Summary & Observed Facts */}
+              <div className="space-y-2">
+                <h3 className="text-sm font-bold text-ink uppercase tracking-wide border-b border-border pb-1">
+                  1. Incident Summary &amp; Observed Facts
+                </h3>
+                <ul className="list-disc pl-5 text-xs text-ink space-y-1">
+                  {packet.observedFacts.map((fact, idx) => (
+                    <li key={idx}>{fact}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* 2. Sender Claims & Requests */}
+              <div className="space-y-2">
+                <h3 className="text-sm font-bold text-ink uppercase tracking-wide border-b border-border pb-1">
+                  2. Sender Claims &amp; Demands
+                </h3>
+                <p className="text-xs font-semibold text-ink-muted">Observed Claims:</p>
+                <ul className="list-disc pl-5 text-xs text-ink space-y-1">
+                  {packet.observedClaims.map((claim, idx) => (
+                    <li key={idx}>{claim}</li>
+                  ))}
+                </ul>
+                <p className="text-xs font-semibold text-ink-muted pt-1">Observed Requests:</p>
+                <ul className="list-disc pl-5 text-xs text-ink space-y-1">
+                  {packet.observedRequests.map((req, idx) => (
+                    <li key={idx}>{req}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* 3. URLs & Payment Details */}
+              <div className="space-y-2">
+                <h3 className="text-sm font-bold text-ink uppercase tracking-wide border-b border-border pb-1">
+                  3. Observed URLs &amp; Payment Details
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                  <div className="p-3 bg-surface-sunken rounded border border-border">
+                    <span className="font-bold block mb-1">URLs / Domains:</span>
+                    {packet.urls.length > 0 ? (
+                      packet.urls.map((u, i) => (
+                        <div key={i} className="text-ink font-mono text-[11px]">{u.fullUrl}</div>
+                      ))
+                    ) : (
+                      <span className="text-ink-muted">None specified</span>
+                    )}
+                  </div>
+                  <div className="p-3 bg-surface-sunken rounded border border-border">
+                    <span className="font-bold block mb-1">Payment Transactions:</span>
+                    {packet.paymentDetails.length > 0 ? (
+                      packet.paymentDetails.map((p, i) => (
+                        <div key={i} className="text-ink">
+                          ₹{p.amount || 0} ({p.paymentMethod}) {p.utrNumber ? `UTR: ${p.utrNumber}` : ''}
+                        </div>
+                      ))
+                    ) : (
+                      <span className="text-ink-muted">No money sent</span>
+                    )}
                   </div>
                 </div>
-                <span className="text-[11px] text-zinc-500 font-mono">
-                  Generated: {new Date().toLocaleDateString('en-IN')}
-                </span>
               </div>
-              <h2 className="text-lg font-extrabold text-zinc-900 pt-1">
-                CITIZEN FINANCIAL FRAUD INCIDENT SUMMARY
-              </h2>
-              <p className="text-xs text-zinc-600">
-                Prepared on-device for formal filing on National Cyber Crime Portal (cybercrime.gov.in) &amp; 1930 Helpline
-              </p>
-            </div>
 
-            {/* Provenance Banner */}
-            <div className="p-3 bg-zinc-50 rounded-lg border border-zinc-200 text-[11px] text-zinc-600 flex justify-between">
-              <span><strong>Data Provenance:</strong> Citizen User-Entered Facts</span>
-              <span><strong>Language:</strong> {currentLang.toUpperCase()}</span>
-            </div>
-
-            {/* Structured Table */}
-            <div className="grid grid-cols-2 gap-4 text-xs">
-              <div className="p-3 bg-zinc-50 rounded-lg border border-zinc-200">
-                <span className="font-semibold text-zinc-500 block">Incident Date & Time:</span>
-                <span className="font-bold text-zinc-900">{incidentDate}</span>
-              </div>
-              <div className="p-3 bg-zinc-50 rounded-lg border border-zinc-200">
-                <span className="font-semibold text-zinc-500 block">Platform / Medium:</span>
-                <span className="font-bold text-zinc-900">{platform}</span>
-              </div>
-              <div className="p-3 bg-zinc-50 rounded-lg border border-zinc-200">
-                <span className="font-semibold text-zinc-500 block">Claimed Entity / Advisor:</span>
-                <span className="font-bold text-zinc-900">{maskedEntity}</span>
-              </div>
-              <div className="p-3 bg-zinc-50 rounded-lg border border-zinc-200">
-                <span className="font-semibold text-zinc-500 block">Total Claimed Loss:</span>
-                <span className="font-bold text-rose-700 text-sm">
-                  ₹{amount.toLocaleString('en-IN')}
-                </span>
-              </div>
-            </div>
-
-            {/* Transaction Data */}
-            {maskedUtr && (
+              {/* 4. SANGYAN Observed Risk Signals */}
               <div className="space-y-2">
-                <h3 className="text-xs font-bold text-zinc-700 uppercase tracking-wider">
-                  Transaction Identifiers (Masked for Safety)
+                <h3 className="text-sm font-bold text-ink uppercase tracking-wide border-b border-border pb-1">
+                  4. SANGYAN Risk Analysis
                 </h3>
-                <div className="p-3 bg-zinc-50 rounded-lg border border-zinc-200 text-xs space-y-1 font-mono">
-                  <div>UTR / Reference: {maskedUtr}</div>
-                  <div>Payment Method: {paymentMethod}</div>
-                  <div>Beneficiary / Account: {maskedBeneficiary || 'Provided to bank'}</div>
+                <div className="p-3 bg-surface-sunken rounded border border-border text-xs space-y-1">
+                  <p><strong>Risk Indicator:</strong> <span className="text-accent font-bold">{packet.sangyanAnalysis.riskBand}</span> (Confidence: {Math.round(packet.sangyanAnalysis.confidence * 100)}%)</p>
+                  <p><strong>Explanation:</strong> {packet.sangyanAnalysis.riskExplanation}</p>
                 </div>
               </div>
-            )}
 
-            {/* Security Compromise Notices */}
-            {(otpShared || credentialsShared || remoteAccessGranted) && (
-              <div className="p-3 bg-rose-50 border border-rose-200 rounded-lg text-xs text-rose-900 space-y-1">
-                <span className="font-bold">⚠️ Reported Compromises:</span>
-                {otpShared && <div>• SMS / Banking OTP was shared</div>}
-                {credentialsShared && <div>• Banking passwords or credentials were shared</div>}
-                {remoteAccessGranted && <div>• Remote desktop software (AnyDesk / APK) was installed</div>}
-              </div>
-            )}
-
-            {/* Narrative */}
-            <div className="space-y-2">
-              <h3 className="text-xs font-bold text-zinc-700 uppercase tracking-wider">
-                Summary of Incident (Citizen Statement)
-              </h3>
-              <div className="p-4 bg-zinc-50 rounded-xl border border-zinc-200 text-xs text-zinc-800 leading-relaxed whitespace-pre-line">
-                {maskedNarrative}
-              </div>
-            </div>
-
-            {/* Routed Authorities */}
-            {routedAuthorities && routedAuthorities.routes.length > 0 && (
-              <div className="border-t border-zinc-300 pt-4 space-y-2">
-                <h3 className="text-xs font-bold text-zinc-700 uppercase tracking-wider">
-                  Recommended Official Reporting Authorities
+              {/* 5. User Statement & Unverified Claims */}
+              <div className="space-y-2">
+                <h3 className="text-sm font-bold text-ink uppercase tracking-wide border-b border-border pb-1">
+                  5. User Statement &amp; Unverified Claims
                 </h3>
-                <div className="space-y-2">
-                  {routedAuthorities.routes.map((auth: any) => (
-                    <div
-                      key={auth.id}
-                      className="p-3 bg-zinc-50 rounded-lg border border-zinc-200 text-xs flex justify-between items-center"
-                    >
-                      <div>
-                        <span className="font-bold text-zinc-900">{auth.name}</span>
-                        <p className="text-[11px] text-zinc-600">{auth.scope}</p>
+                <p className="text-xs font-semibold text-ink-muted">User Statement:</p>
+                <div className="p-3 bg-surface-sunken rounded border border-border text-xs text-ink whitespace-pre-line">
+                  {maskedNarrative}
+                </div>
+                <p className="text-xs font-semibold text-ink-muted pt-1">Unverified Claims &amp; Uncertainty Notes:</p>
+                <ul className="list-disc pl-5 text-xs text-ink space-y-1">
+                  {packet.unverifiedClaims.concat(packet.uncertainty).map((unv, idx) => (
+                    <li key={idx}>{unv}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* 6. Suggested Statutory Authorities & Channels */}
+              <div className="space-y-3">
+                <h3 className="text-sm font-bold text-ink uppercase tracking-wide border-b border-border pb-1">
+                  6. Suggested Statutory Authorities &amp; Official Portals
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {packet.authorityRoutes.routes.map((auth, idx) => (
+                    <div key={idx} className="p-3.5 bg-surface rounded-md border border-border space-y-1.5 text-xs">
+                      <div className="flex items-center justify-between">
+                        <p className="font-bold text-ink text-sm">{auth.name}</p>
+                        <span className="text-[10px] px-2 py-0.5 bg-surface-sunken border border-border rounded font-mono">
+                          {auth.jurisdiction}
+                        </span>
                       </div>
-                      <div className="text-right">
-                        {auth.channels.map((ch: any, idx: number) => (
-                          <span key={idx} className="font-mono text-xs font-bold text-rose-700 block">
-                            {ch.type === 'phone' ? `📞 ${ch.value}` : `🌐 ${ch.value}`}
-                          </span>
-                        ))}
-                      </div>
+                      <p className="text-ink-muted"><strong>Scope:</strong> {auth.scope}</p>
+                      <p className="text-ink"><strong>Reason:</strong> {auth.reason}</p>
+                      <p className="text-ink font-semibold"><strong>Guidance:</strong> {auth.actionGuidance}</p>
+                      {auth.source_url ? (
+                        <p className="pt-1">
+                          <a
+                            href={auth.source_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-accent underline font-semibold"
+                          >
+                            Lodge Complaint on Official Portal ({auth.source_url}) →
+                          </a>
+                        </p>
+                      ) : (
+                        <p className="text-ink-muted italic pt-1">
+                          I can&apos;t verify this authority contact from the available source material.
+                        </p>
+                      )}
                     </div>
                   ))}
                 </div>
               </div>
-            )}
 
-            {/* Golden Hour Directives */}
-            <div className="border-t border-zinc-300 pt-4 text-xs text-zinc-700 space-y-1">
-              <span className="font-bold text-rose-700">Immediate Action Directives:</span>
-              <p>1. Call 1930 immediately to freeze transactions in beneficiary accounts.</p>
-              <p>2. File formal cyber incident report at cybercrime.gov.in attaching transaction slips.</p>
-              <p>3. Report telecom communication to DoT Chakshu at sancharsaathi.gov.in.</p>
-            </div>
+              {/* Integrity Verification Hash */}
+              <div className="p-3 bg-surface-sunken rounded border border-border text-[11px] font-mono text-ink-muted">
+                Integrity Hash: {packet.exportIntegrityHash}
+              </div>
+            </CardContent>
 
-            {/* Legal Disclaimer */}
-            <p className="text-[10px] text-zinc-500 italic border-t border-zinc-200 pt-2">
-              {t('disclaimerNotice')}
-            </p>
-          </div>
+            <CardFooter className="bg-surface-sunken border-t border-border flex justify-between print:hidden">
+              <Button variant="secondary" size="md" onClick={() => setStep(4)}>
+                ← Edit Details
+              </Button>
+              <div className="flex gap-2">
+                <Button variant="secondary" size="md" onClick={handleExportText}>
+                  📄 Text
+                </Button>
+                <Button variant="primary" size="md" onClick={handlePrint}>
+                  🖨️ Export Printable Report
+                </Button>
+              </div>
+            </CardFooter>
+          </Card>
         </div>
       )}
     </div>
   );
 }
+

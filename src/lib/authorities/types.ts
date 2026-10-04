@@ -8,20 +8,23 @@ export interface AuthorityChannel {
 export interface AuthorityRecord {
   id: string;
   name: string;
-  jurisdiction?: string;
+  purpose?: string;
   scope: string;
-  categories: string[];
+  jurisdiction: 'IN' | 'UNKNOWN' | string;
+  status: 'VERIFIED' | 'UNVERIFIED';
+  trust_tier?: string;
+  source_title?: string;
+  source_url: string | null;
   channels: AuthorityChannel[];
   verified_at: string | null;
-  source_url: string | null;
-  languages?: string[];
-  description?: string;
 }
 
 export interface RoutedAuthorityItem {
   id: string;
   name: string;
   scope: string;
+  jurisdiction: string;
+  status: 'VERIFIED' | 'UNVERIFIED';
   channels: AuthorityChannel[];
   verified_at: string | null;
   source_url: string | null;
@@ -30,11 +33,12 @@ export interface RoutedAuthorityItem {
   isEmergency: boolean;
 }
 
-export type AuthorityRouteStatus = 'ROUTED' | 'NO_MATCH' | 'UNAVAILABLE';
+export type AuthorityRouteStatus = 'ROUTED' | 'NO_MATCH' | 'UNKNOWN_JURISDICTION' | 'UNAVAILABLE';
 
 export interface AuthorityRouteResult {
   status: AuthorityRouteStatus;
   category: string;
+  jurisdiction: 'IN' | 'UNKNOWN' | string;
   authorityIds: string[];
   routes: RoutedAuthorityItem[];
   reasons: string[];
@@ -53,6 +57,6 @@ export interface RoutingInput {
   otpShared?: boolean;
   remoteAccessGranted?: boolean;
   hoursElapsed?: number;
-  jurisdiction?: string;
+  jurisdiction?: 'IN' | 'UNKNOWN' | string;
   lang?: 'en' | 'hi' | 'ta';
 }

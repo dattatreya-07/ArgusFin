@@ -21,6 +21,7 @@ export const EN_URGENCY = [
   'limited seats',
   'only today',
   'act now',
+  'please act now',
   'hurry up',
   'offer ends soon',
   'last chance',
@@ -31,6 +32,12 @@ export const EN_URGENCY = [
   'expires in',
   'dont miss',
   'don’t miss',
+  'immediate action required',
+  'account suspended',
+  'card blocked',
+  'kyc pending',
+  'account termination',
+  'prevent termination',
 ];
 
 export const EN_REQUESTS_OTP = [
@@ -40,6 +47,10 @@ export const EN_REQUESTS_OTP = [
   'verify otp',
   'enter otp',
   'otp received',
+  'otp',
+  'password',
+  'net banking password',
+  'credentials',
 ];
 
 export const EN_REQUESTS_APP_INSTALL = [
@@ -78,6 +89,12 @@ export const EN_REQUESTS_PAYMENT = [
   'processing fee',
   'pay to start',
   'send payment',
+  'advance fee',
+  'advance processing fee',
+  'tax fee',
+  'release fee',
+  'tax release fee',
+  'legal fee',
 ];
 
 export const EN_REGISTRATION_CLAIMS = [
@@ -108,3 +125,4 @@ export const EN_COURSE_UPSELL = [
   'secret strategy',
   'millionaire blueprint',
 ];
+

@@ -1,0 +1,1634 @@
+[
+  {
+    "id": "test-en-001",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Fixed Deposits (FD) offer guaranteed returns set by banks, unlike equity mutual funds which carry market volatility.",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-en-002",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Join our automated copy trading bot with 7% monthly profit guaranteed. Transfer fee to [UPI].",
+    "category": "copy_trading",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "copy_trading"
+    ]
+  },
+  {
+    "id": "test-en-003",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Join our secret trading masterclass for 99% accurate jackpot tips. Telegram link in bio.",
+    "category": "scam_promise",
+    "expectedArchetype": "COURSE_FINFLUENCER",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-en-004",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Mutual fund investments are subject to market risks. Read all scheme documents carefully.",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-en-005",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Download our custom trading APK app not available on Play Store to access institutional IPO allotment.",
+    "category": "scam_promise",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-en-006",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "SEBI registered advisory guaranteeing 15% monthly returns on jackpot stock calls.",
+    "category": "scam_promise",
+    "expectedArchetype": "FAKE_ADVISORY_OR_REG_CLAIM",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-en-007",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Government Securities (G-Secs) are backed by Sovereign Guarantee of RBI and Government of India.",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-en-008",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Install AnyDesk software so our executive can assist you with urgent bank account KYC update.",
+    "category": "credential_request",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "credential_request"
+    ]
+  },
+  {
+    "id": "test-en-009",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Guaranteed 100% pre-IPO allotment through illegal FII sub-accounts. Deposit cash via UPI.",
+    "category": "scam_promise",
+    "expectedArchetype": "FAKE_IPO_OR_ALLOTMENT",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-en-010",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "What is Compound Annual Growth Rate (CAGR) and how is it calculated for long term stock investments?",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-en-011",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Double your investment in 65 days guaranteed. Deposit ₹55000 to double your money. Join our VIP Telegram channel.",
+    "category": "scam_promise",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-en-012",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Join our automated copy trading bot with 7% monthly profit guaranteed. Transfer fee to [UPI].",
+    "category": "copy_trading",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "copy_trading"
+    ]
+  },
+  {
+    "id": "test-en-013",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Fixed Deposits (FD) offer guaranteed returns set by banks, unlike equity mutual funds which carry market volatility.",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-en-014",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Earn 11% daily USDT returns with our cloud crypto staking pool. Instant daily payout guaranteed.",
+    "category": "crypto",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "crypto"
+    ]
+  },
+  {
+    "id": "test-en-015",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Download our custom trading APK app not available on Play Store to access institutional IPO allotment.",
+    "category": "scam_promise",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-en-016",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Mutual fund investments are subject to market risks. Read all scheme documents carefully.",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-en-017",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Buy this penny stock immediately before upper circuit! Guaranteed 500% pump by operator group.",
+    "category": "scam_promise",
+    "expectedArchetype": "PUMP_AND_DUMP_GROUP",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-en-018",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Install AnyDesk software so our executive can assist you with urgent bank account KYC update.",
+    "category": "credential_request",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "credential_request"
+    ]
+  },
+  {
+    "id": "test-en-019",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Government Securities (G-Secs) are backed by Sovereign Guarantee of RBI and Government of India.",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-en-020",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Please share your OTP to disburse your pre-approved RBI loan of ₹5,00,000 immediately.",
+    "category": "credential_request",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "credential_request"
+    ]
+  },
+  {
+    "id": "test-en-021",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Double your investment in 55 days guaranteed. Deposit ₹105000 to double your money. Join our VIP Telegram channel.",
+    "category": "scam_promise",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-en-022",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "What is Compound Annual Growth Rate (CAGR) and how is it calculated for long term stock investments?",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-en-023",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Join our secret trading masterclass for 99% accurate jackpot tips. Telegram link in bio.",
+    "category": "scam_promise",
+    "expectedArchetype": "COURSE_FINFLUENCER",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-en-024",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Earn 11% daily USDT returns with our cloud crypto staking pool. Instant daily payout guaranteed.",
+    "category": "crypto",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "crypto"
+    ]
+  },
+  {
+    "id": "test-en-025",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Fixed Deposits (FD) offer guaranteed returns set by banks, unlike equity mutual funds which carry market volatility.",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-en-026",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "SEBI registered advisory guaranteeing 15% monthly returns on jackpot stock calls.",
+    "category": "scam_promise",
+    "expectedArchetype": "FAKE_ADVISORY_OR_REG_CLAIM",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-en-027",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Buy this penny stock immediately before upper circuit! Guaranteed 500% pump by operator group.",
+    "category": "scam_promise",
+    "expectedArchetype": "PUMP_AND_DUMP_GROUP",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-en-028",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Mutual fund investments are subject to market risks. Read all scheme documents carefully.",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-en-029",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Guaranteed 100% pre-IPO allotment through illegal FII sub-accounts. Deposit cash via UPI.",
+    "category": "scam_promise",
+    "expectedArchetype": "FAKE_IPO_OR_ALLOTMENT",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-en-030",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Please share your OTP to disburse your pre-approved RBI loan of ₹5,00,000 immediately.",
+    "category": "credential_request",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "credential_request"
+    ]
+  },
+  {
+    "id": "test-en-031",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Government Securities (G-Secs) are backed by Sovereign Guarantee of RBI and Government of India.",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-en-032",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Join our automated copy trading bot with 7% monthly profit guaranteed. Transfer fee to [UPI].",
+    "category": "copy_trading",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "copy_trading"
+    ]
+  },
+  {
+    "id": "test-en-033",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "Join our secret trading masterclass for 99% accurate jackpot tips. Telegram link in bio.",
+    "category": "scam_promise",
+    "expectedArchetype": "COURSE_FINFLUENCER",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-en-034",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "What is Compound Annual Growth Rate (CAGR) and how is it calculated for long term stock investments?",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "en",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-hi-035",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "फिक्स्ड डिपॉजिट (FD) बैंकों द्वारा तय रिटर्न देते हैं, जबकि इक्विटी फंड में बाजार जोखिम होता है।",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-hi-036",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "हमारे स्वचालित कॉपी ट्रेडिंग बॉट से जुड़ें। 7% मासिक लाभ की गारंटी।",
+    "category": "copy_trading",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "copy_trading"
+    ]
+  },
+  {
+    "id": "test-hi-037",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "99% सटीक इंट्राडे टिप्स के लिए हमारे सीक्रेट ट्रेडिंग मास्टरक्लास में शामिल हों।",
+    "category": "scam_promise",
+    "expectedArchetype": "COURSE_FINFLUENCER",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-hi-038",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "म्यूचुअल फंड निवेश बाजार जोखिमों के अधीन हैं। योजना से संबंधित सभी दस्तावेजों को ध्यान से पढ़ें।",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-hi-039",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "इंस्टीट्यूशनल आईपीओ आवंटन के लिए प्ले स्टोर के बाहर से हमारा कस्टम एपीके डाउनलोड करें।",
+    "category": "scam_promise",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-hi-040",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "सेबी पंजीकृत सलाहकार समिति द्वारा 100% सटीक स्टॉक टिप्स की गारंटी।",
+    "category": "scam_promise",
+    "expectedArchetype": "FAKE_ADVISORY_OR_REG_CLAIM",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-hi-041",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "सरकारी प्रतिभूतियां (G-Secs) भारतीय रिजर्व बैंक और भारत सरकार द्वारा संप्रभु गारंटीबद्ध हैं।",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-hi-042",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "बैंक खाता केवाईसी अपडेट के लिए तुरंत एनीडेस्क ऐप डाउनलोड करें।",
+    "category": "credential_request",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "credential_request"
+    ]
+  },
+  {
+    "id": "test-hi-043",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "एफआईआई सब-अकाउंट के जरिए 100% गारंटीकृत आईपीओ आवंटन। यूपीआई से भुगतान करें।",
+    "category": "scam_promise",
+    "expectedArchetype": "FAKE_IPO_OR_ALLOTMENT",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-hi-044",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "चक्रवृद्धि वार्षिक वृद्धि दर (CAGR) क्या है और इसकी गणना कैसे की जाती है?",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-hi-045",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "65 दिनों में अपने पैसे दोगुने करें। गारंटीकृत 2x रिटर्न के लिए ₹55000 जमा करें।",
+    "category": "scam_promise",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-hi-046",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "हमारे स्वचालित कॉपी ट्रेडिंग बॉट से जुड़ें। 7% मासिक लाभ की गारंटी।",
+    "category": "copy_trading",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "copy_trading"
+    ]
+  },
+  {
+    "id": "test-hi-047",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "फिक्स्ड डिपॉजिट (FD) बैंकों द्वारा तय रिटर्न देते हैं, जबकि इक्विटी फंड में बाजार जोखिम होता है।",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-hi-048",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "हमारे क्रिप्टो स्टेकिंग पूल से प्रतिदिन 11% यूएसडीटी रिटर्न प्राप्त करें।",
+    "category": "crypto",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "crypto"
+    ]
+  },
+  {
+    "id": "test-hi-049",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "इंस्टीट्यूशनल आईपीओ आवंटन के लिए प्ले स्टोर के बाहर से हमारा कस्टम एपीके डाउनलोड करें।",
+    "category": "scam_promise",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-hi-050",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "म्यूचुअल फंड निवेश बाजार जोखिमों के अधीन हैं। योजना से संबंधित सभी दस्तावेजों को ध्यान से पढ़ें।",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-hi-051",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "इस पेनी स्टॉक को तुरंत खरीदें। ऑपरेटर ग्रुप द्वारा 500% पंप की गारंटी।",
+    "category": "scam_promise",
+    "expectedArchetype": "PUMP_AND_DUMP_GROUP",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-hi-052",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "बैंक खाता केवाईसी अपडेट के लिए तुरंत एनीडेस्क ऐप डाउनलोड करें।",
+    "category": "credential_request",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "credential_request"
+    ]
+  },
+  {
+    "id": "test-hi-053",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "सरकारी प्रतिभूतियां (G-Secs) भारतीय रिजर्व बैंक और भारत सरकार द्वारा संप्रभु गारंटीबद्ध हैं।",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-hi-054",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "प्री-अप्रूव्ड लोन प्राप्त करने के लिए अपना ओटीपी साझा करें।",
+    "category": "credential_request",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "credential_request"
+    ]
+  },
+  {
+    "id": "test-hi-055",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "55 दिनों में अपने पैसे दोगुने करें। गारंटीकृत 2x रिटर्न के लिए ₹105000 जमा करें।",
+    "category": "scam_promise",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-hi-056",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "चक्रवृद्धि वार्षिक वृद्धि दर (CAGR) क्या है और इसकी गणना कैसे की जाती है?",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-hi-057",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "99% सटीक इंट्राडे टिप्स के लिए हमारे सीक्रेट ट्रेडिंग मास्टरक्लास में शामिल हों।",
+    "category": "scam_promise",
+    "expectedArchetype": "COURSE_FINFLUENCER",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-hi-058",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "हमारे क्रिप्टो स्टेकिंग पूल से प्रतिदिन 11% यूएसडीटी रिटर्न प्राप्त करें।",
+    "category": "crypto",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "crypto"
+    ]
+  },
+  {
+    "id": "test-hi-059",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "फिक्स्ड डिपॉजिट (FD) बैंकों द्वारा तय रिटर्न देते हैं, जबकि इक्विटी फंड में बाजार जोखिम होता है।",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-hi-060",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "सेबी पंजीकृत सलाहकार समिति द्वारा 100% सटीक स्टॉक टिप्स की गारंटी।",
+    "category": "scam_promise",
+    "expectedArchetype": "FAKE_ADVISORY_OR_REG_CLAIM",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-hi-061",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "इस पेनी स्टॉक को तुरंत खरीदें। ऑपरेटर ग्रुप द्वारा 500% पंप की गारंटी।",
+    "category": "scam_promise",
+    "expectedArchetype": "PUMP_AND_DUMP_GROUP",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-hi-062",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "म्यूचुअल फंड निवेश बाजार जोखिमों के अधीन हैं। योजना से संबंधित सभी दस्तावेजों को ध्यान से पढ़ें।",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-hi-063",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "एफआईआई सब-अकाउंट के जरिए 100% गारंटीकृत आईपीओ आवंटन। यूपीआई से भुगतान करें।",
+    "category": "scam_promise",
+    "expectedArchetype": "FAKE_IPO_OR_ALLOTMENT",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-hi-064",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "प्री-अप्रूव्ड लोन प्राप्त करने के लिए अपना ओटीपी साझा करें।",
+    "category": "credential_request",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "credential_request"
+    ]
+  },
+  {
+    "id": "test-hi-065",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "सरकारी प्रतिभूतियां (G-Secs) भारतीय रिजर्व बैंक और भारत सरकार द्वारा संप्रभु गारंटीबद्ध हैं।",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-hi-066",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "हमारे स्वचालित कॉपी ट्रेडिंग बॉट से जुड़ें। 7% मासिक लाभ की गारंटी।",
+    "category": "copy_trading",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "copy_trading"
+    ]
+  },
+  {
+    "id": "test-hi-067",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "99% सटीक इंट्राडे टिप्स के लिए हमारे सीक्रेट ट्रेडिंग मास्टरक्लास में शामिल हों।",
+    "category": "scam_promise",
+    "expectedArchetype": "COURSE_FINFLUENCER",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-hi-068",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "चक्रवृद्धि वार्षिक वृद्धि दर (CAGR) क्या है और इसकी गणना कैसे की जाती है?",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "hi",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-ta-069",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "நிலையான வைப்புத்தொகை (FD) நிலையான வருமானத்தை அளிக்கிறது, ஆனால் பங்கு சந்தை நிதிகளில் அபாயம் உண்டு.",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-ta-070",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "எங்கள் தானியங்கி காப்பி டிரேடிங் பாட்டில் இணையுங்கள். 7% மாத லாபம் உத்தரவாதம்.",
+    "category": "copy_trading",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "copy_trading"
+    ]
+  },
+  {
+    "id": "test-ta-071",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "99% துல்லியமான இன்ட்ராடே டிப்ஸ்களுக்கு எங்கள் வர்த்தக வகுப்பில் இணையுங்கள்.",
+    "category": "scam_promise",
+    "expectedArchetype": "COURSE_FINFLUENCER",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-ta-072",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "பரஸ்பர நிதி முதலீடுகள் சந்தை அபாயங்களுக்கு உட்பட்டவை. ஆவணங்களை கவனமாக படிக்கவும்.",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-ta-073",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "சிறப்பு IPO ஒதுக்கீட்டை பெற எங்களது பிரத்யேக வர்த்தக செயலியை பதிவிறக்கவும்.",
+    "category": "scam_promise",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-ta-074",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "செபி பதிவுசெய்த நிறுவனம் மூலம் மாதத்திற்கு 15% உத்தரவாதமான பங்கு லாபம்.",
+    "category": "scam_promise",
+    "expectedArchetype": "FAKE_ADVISORY_OR_REG_CLAIM",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-ta-075",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "அரசு பத்திரங்கள் (G-Secs) இந்திய ரிசர்வ் வங்கியின் உத்தரவாதத்தை கொண்டுள்ளன.",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-ta-076",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "வங்கி கணக்கு KYC புதுப்பிக்க AnyDesk செயலியை பதிவிறக்கவும்.",
+    "category": "credential_request",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "credential_request"
+    ]
+  },
+  {
+    "id": "test-ta-077",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "போலி FII கணக்கு மூலம் 100% உறுதியான IPO ஒதுக்கீடு பெற பணத்தை அனுப்புங்கள்.",
+    "category": "scam_promise",
+    "expectedArchetype": "FAKE_IPO_OR_ALLOTMENT",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-ta-078",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "கூட்டு வருடாந்திர வளர்ச்சி விகிதம் (CAGR) என்றால் என்ன, அது எவ்வாறு கணக்கிடப்படுகிறது?",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-ta-079",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "65 நாட்களில் உங்கள் பணத்தை இரட்டிப்பாக்குங்கள். ₹55000 முதலீடு செய்யுங்கள்.",
+    "category": "scam_promise",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-ta-080",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "எங்கள் தானியங்கி காப்பி டிரேடிங் பாட்டில் இணையுங்கள். 7% மாத லாபம் உத்தரவாதம்.",
+    "category": "copy_trading",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "copy_trading"
+    ]
+  },
+  {
+    "id": "test-ta-081",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "நிலையான வைப்புத்தொகை (FD) நிலையான வருமானத்தை அளிக்கிறது, ஆனால் பங்கு சந்தை நிதிகளில் அபாயம் உண்டு.",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-ta-082",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "எங்கள் கிரிப்டோ ஸ்டேக்கிங் மூலம் தினமும் 11% USDT வருமானம் பெறுங்கள்.",
+    "category": "crypto",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "crypto"
+    ]
+  },
+  {
+    "id": "test-ta-083",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "சிறப்பு IPO ஒதுக்கீட்டை பெற எங்களது பிரத்யேக வர்த்தக செயலியை பதிவிறக்கவும்.",
+    "category": "scam_promise",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-ta-084",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "பரஸ்பர நிதி முதலீடுகள் சந்தை அபாயங்களுக்கு உட்பட்டவை. ஆவணங்களை கவனமாக படிக்கவும்.",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-ta-085",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "இந்த பங்கினை உடனடியாக வாங்குங்கள். 500% ஏற்றம் பெற உத்தரவாதம்.",
+    "category": "scam_promise",
+    "expectedArchetype": "PUMP_AND_DUMP_GROUP",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-ta-086",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "வங்கி கணக்கு KYC புதுப்பிக்க AnyDesk செயலியை பதிவிறக்கவும்.",
+    "category": "credential_request",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "credential_request"
+    ]
+  },
+  {
+    "id": "test-ta-087",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "அரசு பத்திரங்கள் (G-Secs) இந்திய ரிசர்வ் வங்கியின் உத்தரவாதத்தை கொண்டுள்ளன.",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-ta-088",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "முன்-அனுமதிக்கப்பட்ட கடனை பெற உங்கள் OTP எண்ணை பகிரவும்.",
+    "category": "credential_request",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "credential_request"
+    ]
+  },
+  {
+    "id": "test-ta-089",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "55 நாட்களில் உங்கள் பணத்தை இரட்டிப்பாக்குங்கள். ₹105000 முதலீடு செய்யுங்கள்.",
+    "category": "scam_promise",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-ta-090",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "கூட்டு வருடாந்திர வளர்ச்சி விகிதம் (CAGR) என்றால் என்ன, அது எவ்வாறு கணக்கிடப்படுகிறது?",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-ta-091",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "99% துல்லியமான இன்ட்ராடே டிப்ஸ்களுக்கு எங்கள் வர்த்தக வகுப்பில் இணையுங்கள்.",
+    "category": "scam_promise",
+    "expectedArchetype": "COURSE_FINFLUENCER",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-ta-092",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "எங்கள் கிரிப்டோ ஸ்டேக்கிங் மூலம் தினமும் 11% USDT வருமானம் பெறுங்கள்.",
+    "category": "crypto",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "crypto"
+    ]
+  },
+  {
+    "id": "test-ta-093",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "நிலையான வைப்புத்தொகை (FD) நிலையான வருமானத்தை அளிக்கிறது, ஆனால் பங்கு சந்தை நிதிகளில் அபாயம் உண்டு.",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-ta-094",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "செபி பதிவுசெய்த நிறுவனம் மூலம் மாதத்திற்கு 15% உத்தரவாதமான பங்கு லாபம்.",
+    "category": "scam_promise",
+    "expectedArchetype": "FAKE_ADVISORY_OR_REG_CLAIM",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-ta-095",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "இந்த பங்கினை உடனடியாக வாங்குங்கள். 500% ஏற்றம் பெற உத்தரவாதம்.",
+    "category": "scam_promise",
+    "expectedArchetype": "PUMP_AND_DUMP_GROUP",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-ta-096",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "பரஸ்பர நிதி முதலீடுகள் சந்தை அபாயங்களுக்கு உட்பட்டவை. ஆவணங்களை கவனமாக படிக்கவும்.",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-ta-097",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "போலி FII கணக்கு மூலம் 100% உறுதியான IPO ஒதுக்கீடு பெற பணத்தை அனுப்புங்கள்.",
+    "category": "scam_promise",
+    "expectedArchetype": "FAKE_IPO_OR_ALLOTMENT",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-ta-098",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "முன்-அனுமதிக்கப்பட்ட கடனை பெற உங்கள் OTP எண்ணை பகிரவும்.",
+    "category": "credential_request",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "credential_request"
+    ]
+  },
+  {
+    "id": "test-ta-099",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "அரசு பத்திரங்கள் (G-Secs) இந்திய ரிசர்வ் வங்கியின் உத்தரவாதத்தை கொண்டுள்ளன.",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "benign_education"
+    ]
+  },
+  {
+    "id": "test-ta-100",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "எங்கள் தானியங்கி காப்பி டிரேடிங் பாட்டில் இணையுங்கள். 7% மாத லாபம் உத்தரவாதம்.",
+    "category": "copy_trading",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "copy_trading"
+    ]
+  },
+  {
+    "id": "test-ta-101",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "99% துல்லியமான இன்ட்ராடே டிப்ஸ்களுக்கு எங்கள் வர்த்தக வகுப்பில் இணையுங்கள்.",
+    "category": "scam_promise",
+    "expectedArchetype": "COURSE_FINFLUENCER",
+    "expectedRiskBand": "HIGH",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "scam_promise"
+    ]
+  },
+  {
+    "id": "test-ta-102",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "கூட்டு வருடாந்திர வளர்ச்சி விகிதம் (CAGR) என்றால் என்ன, அது எவ்வாறு கணக்கிடப்படுகிறது?",
+    "category": "benign_education",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": [
+      "test",
+      "ta",
+      "benign_education"
+    ]
+  }
+]

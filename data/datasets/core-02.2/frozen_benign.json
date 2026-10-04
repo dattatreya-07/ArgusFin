@@ -1,0 +1,4248 @@
+[
+  {
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "What is a 10% annual return on a bank fixed deposit?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "financial_education",
+    "rationale": "Educational question inquiring about standard banking fixed deposit interest rates.",
+    "frozen": true,
+    "createdFor": "CORE-02.2",
+    "id": "c022_benign_001"
+  },
+  {
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Why do scammers advertise guaranteed returns to trick vulnerable investors?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "WARNING_ABOUT_SCAM",
+      "ASKED_AS_QUESTION"
+    ],
+    "category": "scam_awareness",
+    "rationale": "Awareness question discussing scam tactics without active scam solicitation.",
+    "frozen": true,
+    "createdFor": "CORE-02.2",
+    "id": "c022_benign_002"
+  },
+  {
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Government Securities (G-Secs) are backed by Sovereign Guarantee of RBI.",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "banking_terminology",
+    "rationale": "Legitimate regulatory fact describing government bond sovereign backing.",
+    "frozen": true,
+    "createdFor": "CORE-02.2",
+    "id": "c022_benign_003"
+  },
+  {
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Calculate CAGR for ₹10,000 growing to ₹15,000 over 3 years.",
+    "expectedIntent": "CALCULATOR_NUMERIC",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION"
+    ],
+    "category": "return_mathematics",
+    "rationale": "Pure mathematical compounding return calculation.",
+    "frozen": true,
+    "createdFor": "CORE-02.2",
+    "id": "c022_benign_004"
+  },
+  {
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "म्यूचुअल फंड में एसआईपी (SIP) क्या है और यह कैसे काम करता है?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION"
+    ],
+    "category": "hindi_education",
+    "rationale": "Hindi educational question explaining systematic investment plans.",
+    "frozen": true,
+    "createdFor": "CORE-02.2",
+    "id": "c022_benign_005"
+  },
+  {
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "வங்கியில் நிலையான வைப்புத் தொகை (FD) வட்டி விகிதம் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION"
+    ],
+    "category": "tamil_education",
+    "rationale": "Tamil inquiry asking for bank fixed deposit interest rates.",
+    "frozen": true,
+    "createdFor": "CORE-02.2",
+    "id": "c022_benign_006"
+  },
+  {
+    "id": "c022_benign_007",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 7: What are the key features and benefits of Demat Account opening?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Demat Account opening.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_008",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 8: SEBI registration guidelines की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SEBI registration guidelines.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_009",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 9: RBI helpline 1930 இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding RBI helpline 1930.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_010",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 10: Phishing awareness की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Phishing awareness.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_011",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 11: What are the key features and benefits of OTP confidentiality?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding OTP confidentiality.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_012",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 12: Cybersecurity guidance இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Cybersecurity guidance.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_013",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 13: What are the key features and benefits of Stock market equity risks?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Stock market equity risks.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_014",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 14: Debt fund duration की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Debt fund duration.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_015",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 15: Corporate bond credit rating இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Corporate bond credit rating.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_016",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 16: Fixed Deposits की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Fixed Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_017",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 17: What are the key features and benefits of Recurring Deposits?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Recurring Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_018",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 18: Government Securities இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Government Securities.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_019",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 19: What are the key features and benefits of Mutual Funds?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Mutual Funds.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_020",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 20: SIP Investment की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SIP Investment.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_021",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 21: CAGR Calculation இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding CAGR Calculation.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_022",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 22: Demat Account opening की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Demat Account opening.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_023",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 23: What are the key features and benefits of SEBI registration guidelines?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SEBI registration guidelines.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_024",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 24: RBI helpline 1930 இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding RBI helpline 1930.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_025",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 25: What are the key features and benefits of Phishing awareness?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Phishing awareness.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_026",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 26: OTP confidentiality की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding OTP confidentiality.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_027",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 27: Cybersecurity guidance இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Cybersecurity guidance.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_028",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 28: Stock market equity risks की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Stock market equity risks.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_029",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 29: What are the key features and benefits of Debt fund duration?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Debt fund duration.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_030",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 30: Corporate bond credit rating இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Corporate bond credit rating.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_031",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 31: What are the key features and benefits of Fixed Deposits?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Fixed Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_032",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 32: Recurring Deposits की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Recurring Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_033",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 33: Government Securities இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Government Securities.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_034",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 34: Mutual Funds की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Mutual Funds.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_035",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 35: What are the key features and benefits of SIP Investment?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SIP Investment.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_036",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 36: CAGR Calculation இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding CAGR Calculation.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_037",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 37: What are the key features and benefits of Demat Account opening?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Demat Account opening.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_038",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 38: SEBI registration guidelines की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SEBI registration guidelines.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_039",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 39: RBI helpline 1930 இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding RBI helpline 1930.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_040",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 40: Phishing awareness की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Phishing awareness.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_041",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 41: What are the key features and benefits of OTP confidentiality?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding OTP confidentiality.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_042",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 42: Cybersecurity guidance இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Cybersecurity guidance.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_043",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 43: What are the key features and benefits of Stock market equity risks?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Stock market equity risks.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_044",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 44: Debt fund duration की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Debt fund duration.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_045",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 45: Corporate bond credit rating இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Corporate bond credit rating.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_046",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 46: Fixed Deposits की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Fixed Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_047",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 47: What are the key features and benefits of Recurring Deposits?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Recurring Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_048",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 48: Government Securities இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Government Securities.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_049",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 49: What are the key features and benefits of Mutual Funds?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Mutual Funds.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_050",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 50: SIP Investment की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SIP Investment.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_051",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 51: CAGR Calculation இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding CAGR Calculation.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_052",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 52: Demat Account opening की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Demat Account opening.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_053",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 53: What are the key features and benefits of SEBI registration guidelines?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SEBI registration guidelines.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_054",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 54: RBI helpline 1930 இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding RBI helpline 1930.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_055",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 55: What are the key features and benefits of Phishing awareness?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Phishing awareness.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_056",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 56: OTP confidentiality की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding OTP confidentiality.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_057",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 57: Cybersecurity guidance இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Cybersecurity guidance.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_058",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 58: Stock market equity risks की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Stock market equity risks.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_059",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 59: What are the key features and benefits of Debt fund duration?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Debt fund duration.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_060",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 60: Corporate bond credit rating இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Corporate bond credit rating.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_061",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 61: What are the key features and benefits of Fixed Deposits?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Fixed Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_062",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 62: Recurring Deposits की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Recurring Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_063",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 63: Government Securities இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Government Securities.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_064",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 64: Mutual Funds की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Mutual Funds.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_065",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 65: What are the key features and benefits of SIP Investment?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SIP Investment.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_066",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 66: CAGR Calculation இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding CAGR Calculation.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_067",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 67: What are the key features and benefits of Demat Account opening?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Demat Account opening.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_068",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 68: SEBI registration guidelines की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SEBI registration guidelines.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_069",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 69: RBI helpline 1930 இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding RBI helpline 1930.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_070",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 70: Phishing awareness की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Phishing awareness.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_071",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 71: What are the key features and benefits of OTP confidentiality?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding OTP confidentiality.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_072",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 72: Cybersecurity guidance இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Cybersecurity guidance.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_073",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 73: What are the key features and benefits of Stock market equity risks?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Stock market equity risks.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_074",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 74: Debt fund duration की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Debt fund duration.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_075",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 75: Corporate bond credit rating இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Corporate bond credit rating.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_076",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 76: Fixed Deposits की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Fixed Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_077",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 77: What are the key features and benefits of Recurring Deposits?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Recurring Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_078",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 78: Government Securities இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Government Securities.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_079",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 79: What are the key features and benefits of Mutual Funds?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Mutual Funds.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_080",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 80: SIP Investment की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SIP Investment.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_081",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 81: CAGR Calculation இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding CAGR Calculation.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_082",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 82: Demat Account opening की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Demat Account opening.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_083",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 83: What are the key features and benefits of SEBI registration guidelines?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SEBI registration guidelines.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_084",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 84: RBI helpline 1930 இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding RBI helpline 1930.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_085",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 85: What are the key features and benefits of Phishing awareness?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Phishing awareness.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_086",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 86: OTP confidentiality की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding OTP confidentiality.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_087",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 87: Cybersecurity guidance இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Cybersecurity guidance.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_088",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 88: Stock market equity risks की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Stock market equity risks.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_089",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 89: What are the key features and benefits of Debt fund duration?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Debt fund duration.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_090",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 90: Corporate bond credit rating இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Corporate bond credit rating.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_091",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 91: What are the key features and benefits of Fixed Deposits?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Fixed Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_092",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 92: Recurring Deposits की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Recurring Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_093",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 93: Government Securities இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Government Securities.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_094",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 94: Mutual Funds की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Mutual Funds.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_095",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 95: What are the key features and benefits of SIP Investment?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SIP Investment.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_096",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 96: CAGR Calculation இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding CAGR Calculation.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_097",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 97: What are the key features and benefits of Demat Account opening?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Demat Account opening.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_098",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 98: SEBI registration guidelines की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SEBI registration guidelines.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_099",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 99: RBI helpline 1930 இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding RBI helpline 1930.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_100",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 100: Phishing awareness की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Phishing awareness.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_101",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 101: What are the key features and benefits of OTP confidentiality?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding OTP confidentiality.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_102",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 102: Cybersecurity guidance இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Cybersecurity guidance.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_103",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 103: What are the key features and benefits of Stock market equity risks?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Stock market equity risks.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_104",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 104: Debt fund duration की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Debt fund duration.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_105",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 105: Corporate bond credit rating இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Corporate bond credit rating.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_106",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 106: Fixed Deposits की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Fixed Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_107",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 107: What are the key features and benefits of Recurring Deposits?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Recurring Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_108",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 108: Government Securities இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Government Securities.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_109",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 109: What are the key features and benefits of Mutual Funds?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Mutual Funds.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_110",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 110: SIP Investment की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SIP Investment.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_111",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 111: CAGR Calculation இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding CAGR Calculation.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_112",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 112: Demat Account opening की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Demat Account opening.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_113",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 113: What are the key features and benefits of SEBI registration guidelines?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SEBI registration guidelines.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_114",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 114: RBI helpline 1930 இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding RBI helpline 1930.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_115",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 115: What are the key features and benefits of Phishing awareness?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Phishing awareness.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_116",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 116: OTP confidentiality की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding OTP confidentiality.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_117",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 117: Cybersecurity guidance இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Cybersecurity guidance.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_118",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 118: Stock market equity risks की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Stock market equity risks.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_119",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 119: What are the key features and benefits of Debt fund duration?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Debt fund duration.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_120",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 120: Corporate bond credit rating இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Corporate bond credit rating.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_121",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 121: What are the key features and benefits of Fixed Deposits?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Fixed Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_122",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 122: Recurring Deposits की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Recurring Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_123",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 123: Government Securities இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Government Securities.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_124",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 124: Mutual Funds की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Mutual Funds.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_125",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 125: What are the key features and benefits of SIP Investment?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SIP Investment.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_126",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 126: CAGR Calculation இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding CAGR Calculation.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_127",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 127: What are the key features and benefits of Demat Account opening?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Demat Account opening.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_128",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 128: SEBI registration guidelines की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SEBI registration guidelines.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_129",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 129: RBI helpline 1930 இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding RBI helpline 1930.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_130",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 130: Phishing awareness की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Phishing awareness.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_131",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 131: What are the key features and benefits of OTP confidentiality?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding OTP confidentiality.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_132",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 132: Cybersecurity guidance இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Cybersecurity guidance.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_133",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 133: What are the key features and benefits of Stock market equity risks?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Stock market equity risks.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_134",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 134: Debt fund duration की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Debt fund duration.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_135",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 135: Corporate bond credit rating இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Corporate bond credit rating.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_136",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 136: Fixed Deposits की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Fixed Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_137",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 137: What are the key features and benefits of Recurring Deposits?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Recurring Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_138",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 138: Government Securities இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Government Securities.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_139",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 139: What are the key features and benefits of Mutual Funds?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Mutual Funds.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_140",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 140: SIP Investment की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SIP Investment.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_141",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 141: CAGR Calculation இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding CAGR Calculation.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_142",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 142: Demat Account opening की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Demat Account opening.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_143",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 143: What are the key features and benefits of SEBI registration guidelines?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SEBI registration guidelines.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_144",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 144: RBI helpline 1930 இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding RBI helpline 1930.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_145",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 145: What are the key features and benefits of Phishing awareness?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Phishing awareness.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_146",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 146: OTP confidentiality की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding OTP confidentiality.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_147",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 147: Cybersecurity guidance இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Cybersecurity guidance.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_148",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 148: Stock market equity risks की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Stock market equity risks.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_149",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 149: What are the key features and benefits of Debt fund duration?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Debt fund duration.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_150",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 150: Corporate bond credit rating இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Corporate bond credit rating.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_151",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 151: What are the key features and benefits of Fixed Deposits?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Fixed Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_152",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 152: Recurring Deposits की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Recurring Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_153",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 153: Government Securities இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Government Securities.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_154",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 154: Mutual Funds की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Mutual Funds.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_155",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 155: What are the key features and benefits of SIP Investment?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SIP Investment.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_156",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 156: CAGR Calculation இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding CAGR Calculation.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_157",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 157: What are the key features and benefits of Demat Account opening?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Demat Account opening.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_158",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 158: SEBI registration guidelines की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SEBI registration guidelines.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_159",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 159: RBI helpline 1930 இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding RBI helpline 1930.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_160",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 160: Phishing awareness की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Phishing awareness.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_161",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 161: What are the key features and benefits of OTP confidentiality?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding OTP confidentiality.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_162",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 162: Cybersecurity guidance இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Cybersecurity guidance.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_163",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 163: What are the key features and benefits of Stock market equity risks?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Stock market equity risks.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_164",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 164: Debt fund duration की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Debt fund duration.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_165",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 165: Corporate bond credit rating இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Corporate bond credit rating.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_166",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 166: Fixed Deposits की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Fixed Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_167",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 167: What are the key features and benefits of Recurring Deposits?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Recurring Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_168",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 168: Government Securities இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Government Securities.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_169",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 169: What are the key features and benefits of Mutual Funds?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Mutual Funds.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_170",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 170: SIP Investment की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SIP Investment.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_171",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 171: CAGR Calculation இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding CAGR Calculation.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_172",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 172: Demat Account opening की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Demat Account opening.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_173",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 173: What are the key features and benefits of SEBI registration guidelines?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SEBI registration guidelines.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_174",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 174: RBI helpline 1930 இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding RBI helpline 1930.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_175",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 175: What are the key features and benefits of Phishing awareness?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Phishing awareness.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_176",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 176: OTP confidentiality की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding OTP confidentiality.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_177",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 177: Cybersecurity guidance இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Cybersecurity guidance.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_178",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 178: Stock market equity risks की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Stock market equity risks.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_179",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 179: What are the key features and benefits of Debt fund duration?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Debt fund duration.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_180",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 180: Corporate bond credit rating இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Corporate bond credit rating.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_181",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 181: What are the key features and benefits of Fixed Deposits?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Fixed Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_182",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 182: Recurring Deposits की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Recurring Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_183",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 183: Government Securities இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Government Securities.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_184",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 184: Mutual Funds की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Mutual Funds.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_185",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 185: What are the key features and benefits of SIP Investment?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SIP Investment.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_186",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 186: CAGR Calculation இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding CAGR Calculation.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_187",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 187: What are the key features and benefits of Demat Account opening?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Demat Account opening.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_188",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 188: SEBI registration guidelines की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SEBI registration guidelines.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_189",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 189: RBI helpline 1930 இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding RBI helpline 1930.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_190",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 190: Phishing awareness की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Phishing awareness.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_191",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 191: What are the key features and benefits of OTP confidentiality?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding OTP confidentiality.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_192",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 192: Cybersecurity guidance இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Cybersecurity guidance.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_193",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 193: What are the key features and benefits of Stock market equity risks?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Stock market equity risks.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_194",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 194: Debt fund duration की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Debt fund duration.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_195",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 195: Corporate bond credit rating இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Corporate bond credit rating.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_196",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 196: Fixed Deposits की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Fixed Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_197",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 197: What are the key features and benefits of Recurring Deposits?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Recurring Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_198",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 198: Government Securities இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Government Securities.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_199",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 199: What are the key features and benefits of Mutual Funds?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Mutual Funds.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_200",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 200: SIP Investment की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SIP Investment.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_201",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 201: CAGR Calculation இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding CAGR Calculation.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_202",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 202: Demat Account opening की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Demat Account opening.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_203",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 203: What are the key features and benefits of SEBI registration guidelines?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SEBI registration guidelines.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_204",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 204: RBI helpline 1930 இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding RBI helpline 1930.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_205",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 205: What are the key features and benefits of Phishing awareness?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Phishing awareness.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_206",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 206: OTP confidentiality की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding OTP confidentiality.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_207",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 207: Cybersecurity guidance இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Cybersecurity guidance.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_208",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 208: Stock market equity risks की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Stock market equity risks.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_209",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 209: What are the key features and benefits of Debt fund duration?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Debt fund duration.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_210",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 210: Corporate bond credit rating இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Corporate bond credit rating.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_211",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 211: What are the key features and benefits of Fixed Deposits?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Fixed Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_212",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 212: Recurring Deposits की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Recurring Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_213",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 213: Government Securities இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Government Securities.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_214",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 214: Mutual Funds की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Mutual Funds.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_215",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 215: What are the key features and benefits of SIP Investment?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SIP Investment.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_216",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 216: CAGR Calculation இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding CAGR Calculation.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_217",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 217: What are the key features and benefits of Demat Account opening?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Demat Account opening.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_218",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 218: SEBI registration guidelines की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SEBI registration guidelines.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_219",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 219: RBI helpline 1930 இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding RBI helpline 1930.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_220",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 220: Phishing awareness की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Phishing awareness.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_221",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 221: What are the key features and benefits of OTP confidentiality?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding OTP confidentiality.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_222",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 222: Cybersecurity guidance இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Cybersecurity guidance.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_223",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 223: What are the key features and benefits of Stock market equity risks?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Stock market equity risks.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_224",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 224: Debt fund duration की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Debt fund duration.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_225",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 225: Corporate bond credit rating இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Corporate bond credit rating.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_226",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 226: Fixed Deposits की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Fixed Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_227",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 227: What are the key features and benefits of Recurring Deposits?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Recurring Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_228",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 228: Government Securities இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Government Securities.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_229",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 229: What are the key features and benefits of Mutual Funds?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Mutual Funds.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_230",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 230: SIP Investment की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SIP Investment.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_231",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 231: CAGR Calculation இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding CAGR Calculation.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_232",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 232: Demat Account opening की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Demat Account opening.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_233",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 233: What are the key features and benefits of SEBI registration guidelines?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SEBI registration guidelines.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_234",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 234: RBI helpline 1930 இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding RBI helpline 1930.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_235",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 235: What are the key features and benefits of Phishing awareness?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Phishing awareness.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_236",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 236: OTP confidentiality की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding OTP confidentiality.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_237",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 237: Cybersecurity guidance இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Cybersecurity guidance.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_238",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 238: Stock market equity risks की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Stock market equity risks.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_239",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 239: What are the key features and benefits of Debt fund duration?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Debt fund duration.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_240",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 240: Corporate bond credit rating இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Corporate bond credit rating.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_241",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 241: What are the key features and benefits of Fixed Deposits?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Fixed Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_242",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 242: Recurring Deposits की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Recurring Deposits.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_243",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 243: Government Securities இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Government Securities.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_244",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 244: Mutual Funds की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Mutual Funds.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_245",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 245: What are the key features and benefits of SIP Investment?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SIP Investment.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_246",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 246: CAGR Calculation இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding CAGR Calculation.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_247",
+    "split": "frozen_benign",
+    "locale": "en",
+    "text": "Educational guide 247: What are the key features and benefits of Demat Account opening?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Demat Account opening.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_248",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 248: SEBI registration guidelines की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding SEBI registration guidelines.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_249",
+    "split": "frozen_benign",
+    "locale": "ta",
+    "text": "கல்வி வழிகாட்டி 249: RBI helpline 1930 இன் முக்கிய அம்சங்கள் என்ன?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding RBI helpline 1930.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_benign_250",
+    "split": "frozen_benign",
+    "locale": "hi",
+    "text": "शैक्षणिक निर्देश 250: Phishing awareness की मुख्य विशेषताएं क्या हैं?",
+    "expectedIntent": "EDUCATIONAL_QA",
+    "expectedRisk": "LOW_SIGNALS",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "ASKED_AS_QUESTION",
+      "EXPLAINED_AS_CONCEPT"
+    ],
+    "category": "expanded_education",
+    "rationale": "Independently authored educational question regarding Phishing awareness.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  }
+]

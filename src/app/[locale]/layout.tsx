@@ -1,143 +1,179 @@
 import { ReactNode } from 'react';
-import Image from 'next/image';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 import { Lang } from '@/lib/types';
+import { VoiceDiagnostics } from '@/components/VoiceDiagnostics';
+import { CustomCursor } from '@/components/CustomCursor';
+import { ScrollRevealProvider } from '@/components/ScrollReveal';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-function HeaderNav() {
-  const tNav = useTranslations('nav');
-  const tCommon = useTranslations('common');
-
-  return (
-    <header className="border-b border-slate-200 bg-white/95 backdrop-blur sticky top-0 z-30 shadow-sm">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-        <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2.5 group">
-            {/* Canonical Argus Fin Logo */}
-            <Image
-              src="/argus-fin-logo.png"
-              alt="Argus Fin Logo"
-              width={140}
-              height={36}
-              priority
-              className="h-9 w-auto object-contain transition-transform group-hover:scale-105"
-            />
-            <div className="flex flex-col">
-              <div className="flex items-center space-x-2">
-                <span className="text-lg font-extrabold tracking-tight text-slate-900 font-sans">
-                  Argus <span className="text-emerald-600 font-black">Fin</span>
-                </span>
-                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-blue-100 text-blue-900 rounded-full border border-blue-200">
-                  SANGYAN
-                </span>
-              </div>
-              <span className="text-[10px] font-medium text-slate-500 hidden sm:inline">
-                Investor Resilience Infrastructure
-              </span>
-            </div>
-          </Link>
-          <div className="md:hidden">
-            <LanguageSwitcher />
-          </div>
-        </div>
-
-        <nav className="flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm font-semibold text-slate-600 overflow-x-auto pb-1 md:pb-0">
-          <Link href="/" className="hover:text-slate-900 hover:bg-slate-100 px-2.5 py-1.5 rounded-lg whitespace-nowrap transition">
-            {tNav('home')}
-          </Link>
-          <Link href="/check" className="hover:text-slate-900 hover:bg-slate-100 px-2.5 py-1.5 rounded-lg whitespace-nowrap transition">
-            {tNav('check')}
-          </Link>
-          <Link href="/calculator" className="hover:text-slate-900 hover:bg-slate-100 px-2.5 py-1.5 rounded-lg whitespace-nowrap transition">
-            {tNav('calculator')}
-          </Link>
-          <Link href="/simulate" className="hover:text-slate-900 hover:bg-slate-100 px-2.5 py-1.5 rounded-lg whitespace-nowrap transition">
-            {tNav('simulator')}
-          </Link>
-          <Link href="/authorities" className="hover:text-slate-900 hover:bg-slate-100 px-2.5 py-1.5 rounded-lg whitespace-nowrap transition">
-            {tNav('authorities')}
-          </Link>
-          <Link href="/report" className="hover:text-slate-900 hover:bg-slate-100 px-2.5 py-1.5 rounded-lg whitespace-nowrap transition">
-            {tNav('report')}
-          </Link>
-          <Link href="/ask" className="hover:text-slate-900 hover:bg-slate-100 px-2.5 py-1.5 rounded-lg whitespace-nowrap transition">
-            {tNav('ask')}
-          </Link>
-        </nav>
-
-        <div className="hidden md:block">
-          <LanguageSwitcher />
-        </div>
-      </div>
-    </header>
-  );
-}
+import { HeaderNav } from '@/components/HeaderNav';
 
 function Footer() {
-  const t = useTranslations('common');
-
   return (
-    <footer className="border-t border-slate-200 bg-slate-900 text-slate-400 mt-16 py-10 text-xs">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-6 border-b border-slate-800">
-          <div className="flex items-center space-x-3">
-            <Image
-              src="/argus-fin-logo.png"
-              alt="Argus Fin"
-              width={120}
-              height={32}
-              className="h-8 w-auto object-contain brightness-110"
-            />
-            <div>
-              <p className="text-white font-bold text-sm">
-                Argus Fin <span className="text-slate-400 font-normal">/ SANGYAN — Investor Resilience</span>
-              </p>
-              <p className="text-[11px] text-slate-500">
-                Evidence-Based Fraud Defense & Truth in Numbers for Indian Retail Investors
-              </p>
+    <footer className="border-t border-border bg-surface-sunken/80 text-ink-muted mt-24 py-14 text-xs">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 space-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b border-border/60">
+          {/* Brand Column */}
+          <div className="md:col-span-4 space-y-3">
+            <div className="flex items-center gap-2.5">
+              <img
+                src="/assets/logo.png"
+                alt="Argus Fin"
+                className="w-7 h-7 object-contain rounded"
+              />
+              <div className="flex items-center">
+                <span className="text-lg font-black tracking-tight text-ink font-inktrap">
+                  Argus
+                </span>
+                <span className="text-lg font-black tracking-tight text-[#F5A524] font-inktrap ml-0.5">
+                  Fin
+                </span>
+              </div>
+              <span className="tag-bracket text-[10px]">
+                Scam Defense
+              </span>
+            </div>
+            <p className="text-ink-muted text-xs leading-relaxed max-w-[40ch]">
+              Evidence-based scam claim verification, mathematical reality checks, and verified authority routing grounded in official Indian regulatory standards.
+            </p>
+            <div className="flex items-center gap-2 pt-1 font-mono text-[11px]">
+              <span className="px-2.5 py-1 rounded bg-surface border border-border text-emerald-500 dark:text-emerald-400">
+                ● 100% In-Browser Privacy
+              </span>
+              <span className="px-2.5 py-1 rounded bg-surface border border-border text-ink-dim">
+                Zero User Storage
+              </span>
             </div>
           </div>
-          <div className="flex items-center space-x-2 text-[11px] text-slate-400">
-            <span className="px-2 py-1 rounded bg-slate-800 border border-slate-700 text-emerald-400 font-mono">
-              Privacy Shield Active
-            </span>
-            <span className="px-2 py-1 rounded bg-slate-800 border border-slate-700 text-blue-300 font-mono">
-              SEBI/RBI Grounded
-            </span>
+
+          {/* Quick Navigation Links */}
+          <div className="md:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-6">
+            <div className="space-y-2">
+              <p className="font-bold text-xs uppercase tracking-wider text-ink font-mono">
+                Scam Analysis
+              </p>
+              <ul className="space-y-1.5 text-ink-muted">
+                <li>
+                  <Link href="/check" className="hover:text-accent transition-colors">
+                    Scam Detect
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/calculator" className="hover:text-accent transition-colors">
+                    Yield Calculator
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/simulate" className="hover:text-accent transition-colors">
+                    Doubling Simulator
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div className="space-y-2">
+              <p className="font-bold text-xs uppercase tracking-wider text-ink font-mono">
+                Authorities & Help
+              </p>
+              <ul className="space-y-1.5 text-ink-muted">
+                <li>
+                  <Link href="/authorities" className="hover:text-accent transition-colors">
+                    Authority Directory
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/report" className="hover:text-accent transition-colors">
+                    Victim Incident Record
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/ask" className="hover:text-accent transition-colors">
+                    Cited Q&A Assistant
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div className="space-y-2">
+              <p className="font-bold text-xs uppercase tracking-wider text-ink font-mono">
+                Emergency Portals
+              </p>
+              <ul className="space-y-1.5 text-ink-muted">
+                <li>
+                  <a
+                    href="https://cybercrime.gov.in"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-accent transition-colors"
+                  >
+                    Cyber Crime 1930 ↗
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://scores.gov.in"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-accent transition-colors"
+                  >
+                    SEBI SCORES ↗
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://sachet.rbi.org.in"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-accent transition-colors"
+                  >
+                    RBI Sachet Portal ↗
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div className="p-3 bg-amber-950/40 border border-amber-800/60 rounded-xl text-amber-200">
-          <p className="font-semibold text-xs tracking-wide uppercase text-amber-300 mb-1">
-            Mandatory Notice (G3)
-          </p>
-          <p>{t('disclaimer')}</p>
+        {/* Mandatory Educational & Regulatory Disclaimers */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="p-4 bg-surface/70 rounded-lg border border-border space-y-1">
+            <p className="font-bold text-xs uppercase tracking-wider text-ink font-mono">
+              Educational Public Good
+            </p>
+            <p className="text-ink-muted leading-relaxed text-[11px]">
+              Educational tool. Not investment advice. Not a legal document. Independent public good project; not an official service of SEBI, RBI, or any regulator. No financial promotions, stock tips, or monetization.
+            </p>
+          </div>
+          <div className="p-4 bg-surface/70 rounded-lg border border-border space-y-1">
+            <p className="font-bold text-xs uppercase tracking-wider text-ink font-mono">
+              Privacy By Design
+            </p>
+            <p className="text-ink-muted leading-relaxed text-[11px]">
+              Nothing is stored on any server. Personal and financial identifiers (phone numbers, account numbers, UPI IDs) are masked directly on your device before any external analysis.
+            </p>
+          </div>
         </div>
-        <div className="p-3 bg-slate-800/70 border border-slate-700/80 rounded-xl text-slate-300">
-          <p className="font-semibold text-xs tracking-wide uppercase text-slate-400 mb-1">
-            Privacy Guarantee (G6)
+
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between pt-4 border-t border-border/60 text-ink-dim text-[11px]">
+          <p>© 2026 ArgusFin · Educational Public Good Project</p>
+          <p className="mt-1 sm:mt-0 font-mono">
+            STRICTLY NON-COMMERCIAL · ZERO ADS · ZERO AFFILIATES
           </p>
-          <p>{t('privacyNotice')}</p>
-        </div>
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between pt-4 border-t border-slate-800 text-slate-500">
-          <p>© 2026 Argus Fin • SANGYAN Investor Resilience Initiative</p>
-          <p>Strictly non-commercial · SEBI + NSDL Investor Protection Hackathon</p>
         </div>
       </div>
     </footer>
   );
 }
-
-import { VoiceDiagnostics } from '@/components/VoiceDiagnostics';
 
 export default async function LocaleLayout({
   children,
@@ -154,15 +190,42 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
-      <body className="min-h-screen flex flex-col justify-between bg-slate-50 text-slate-900 antialiased">
+    <html lang={locale} className="light" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                var t = localStorage.getItem('argus-theme');
+                if (t === 'dark') {
+                  document.documentElement.classList.remove('light');
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                  document.documentElement.classList.add('light');
+                }
+              } catch(e) {}
+            `,
+          }}
+        />
+      </head>
+      <body className="min-h-screen flex flex-col justify-between bg-canvas text-ink antialiased font-sans selection:bg-accent selection:text-accent-ink transition-colors duration-200">
+        <CustomCursor />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2.5 focus:bg-accent focus:text-accent-ink focus:rounded-md focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent"
+        >
+          Skip to main content
+        </a>
         <NextIntlClientProvider messages={messages}>
-          <HeaderNav />
-          <main className="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8">
-            {children}
-          </main>
-          <Footer />
-          <VoiceDiagnostics lang={locale as Lang} />
+          <ScrollRevealProvider>
+            <HeaderNav />
+            <main id="main-content" className="flex-grow max-w-[1240px] w-full mx-auto px-4 sm:px-6 py-8">
+              {children}
+            </main>
+            <Footer />
+            <VoiceDiagnostics lang={locale as Lang} />
+          </ScrollRevealProvider>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -2,91 +2,121 @@
   {
     "id": "national_cyber_helpline",
     "name": "National Cyber Crime Helpline",
+    "purpose": "Financial fraud and cyber crime first response within golden hour",
     "scope": "Financial fraud and cyber crime first response within golden hour",
+    "jurisdiction": "IN",
+    "trust_tier": "TIER_1_PRIMARY",
+    "status": "VERIFIED",
+    "verified_at": "2026-10-01",
+    "source_title": "MHA National Cyber Crime Reporting Portal & 1930 Helpline SOP",
+    "source_url": "https://cybercrime.gov.in",
     "channels": [
       {
         "type": "phone",
         "value": "1930",
         "verified_at": "2026-10-01",
-        "notes": "Official MHA National Cyber Crime Helpline"
+        "notes": "Official MHA National Cyber Crime Helpline (24/7)"
       }
-    ],
-    "verified_at": "2026-10-01",
-    "source_url": "https://cybercrime.gov.in"
+    ]
   },
   {
     "id": "cybercrime_portal",
     "name": "National Cyber Crime Reporting Portal",
+    "purpose": "Filing formal cyber financial fraud incident reports online",
     "scope": "Filing formal cyber financial fraud incident reports online",
+    "jurisdiction": "IN",
+    "trust_tier": "TIER_1_PRIMARY",
+    "status": "VERIFIED",
+    "verified_at": "2026-10-01",
+    "source_title": "MHA Indian Cybercrime Coordination Centre (I4C)",
+    "source_url": "https://cybercrime.gov.in",
     "channels": [
       {
         "type": "url",
         "value": "https://cybercrime.gov.in",
         "verified_at": "2026-10-01",
-        "notes": "MHA Indian Cybercrime Coordination Centre (I4C)"
+        "notes": "MHA Official Cyber Crime Incident Reporting Portal"
       }
-    ],
-    "verified_at": "2026-10-01",
-    "source_url": "https://cybercrime.gov.in"
+    ]
   },
   {
     "id": "sebi_scores",
     "name": "SEBI Complaints Redress System (SCORES)",
+    "purpose": "Complaints against SEBI-regulated intermediaries, unregistered advisors, and securities fraud",
     "scope": "Complaints against SEBI-regulated intermediaries, unregistered advisors, and securities fraud",
+    "jurisdiction": "IN",
+    "trust_tier": "TIER_1_PRIMARY",
+    "status": "VERIFIED",
+    "verified_at": "2026-10-01",
+    "source_title": "SEBI SCORES 2.0 Redress Portal",
+    "source_url": "https://scores.gov.in",
     "channels": [
       {
         "type": "url",
         "value": "https://scores.gov.in",
         "verified_at": "2026-10-01",
-        "notes": "Official SEBI SCORES 2.0 Redress Portal"
+        "notes": "Official SEBI Investor Grievance Portal"
       }
-    ],
-    "verified_at": "2026-10-01",
-    "source_url": "https://scores.gov.in"
+    ]
   },
   {
     "id": "rbi_sachet",
     "name": "RBI Sachet Portal",
+    "purpose": "Reporting unauthorized deposit taking, illegal investment schemes, and unregistered lending apps",
     "scope": "Reporting unauthorized deposit taking, illegal investment schemes, and unregistered lending apps",
+    "jurisdiction": "IN",
+    "trust_tier": "TIER_1_PRIMARY",
+    "status": "VERIFIED",
+    "verified_at": "2026-10-01",
+    "source_title": "Reserve Bank of India Sachet SLCC Portal",
+    "source_url": "https://sachet.rbi.org.in",
     "channels": [
       {
         "type": "url",
         "value": "https://sachet.rbi.org.in",
         "verified_at": "2026-10-01",
-        "notes": "Reserve Bank of India SLCC Sachet Portal"
+        "notes": "RBI State Level Coordination Committee Portal"
       }
-    ],
-    "verified_at": "2026-10-01",
-    "source_url": "https://sachet.rbi.org.in"
+    ]
   },
   {
     "id": "telecom_fraud_reporting",
     "name": "Chakshu Portal (Department of Telecommunications)",
-    "scope": "Reporting suspected fraudulent calls, SMS, WhatsApp messages, and fake numbers",
+    "purpose": "Reporting suspected fraudulent calls, SMS, WhatsApp messages, and fake telecom numbers",
+    "scope": "Reporting suspected fraudulent calls, SMS, WhatsApp messages, and fake telecom numbers",
+    "jurisdiction": "IN",
+    "trust_tier": "TIER_1_PRIMARY",
+    "status": "VERIFIED",
+    "verified_at": "2026-10-01",
+    "source_title": "DoT Sanchar Saathi Chakshu Facility",
+    "source_url": "https://sancharsaathi.gov.in/sfc/",
     "channels": [
       {
         "type": "url",
         "value": "https://sancharsaathi.gov.in/sfc/",
         "verified_at": "2026-10-01",
-        "notes": "DoT Sanchar Saathi Citizen Fraud Reporting Facility"
+        "notes": "DoT Citizen Financial Fraud Reporting Facility"
       }
-    ],
-    "verified_at": "2026-10-01",
-    "source_url": "https://sancharsaathi.gov.in/sfc/"
+    ]
   },
   {
     "id": "user_bank",
     "name": "Victim Bank Fraud Dispute Cell",
+    "purpose": "Immediate account debit freeze, UPI chargeback, and card block",
     "scope": "Immediate account debit freeze, UPI chargeback, and card block",
+    "jurisdiction": "IN",
+    "trust_tier": "TIER_2_OFFICIAL_EDUCATIONAL",
+    "status": "UNVERIFIED",
+    "verified_at": null,
+    "source_title": "General Banking Dispute Guidance",
+    "source_url": null,
     "channels": [
       {
         "type": "phone",
         "value": "",
         "verified_at": null,
-        "notes": "TODO(verify): Contact your specific bank customer helpline listed on the back of your debit/credit card"
+        "notes": "Contact your specific bank customer helpline listed on the reverse of your debit/credit card"
       }
-    ],
-    "verified_at": null,
-    "source_url": null
+    ]
   }
 ]

@@ -1,8 +1,8 @@
-import { Lang, RiskBand, Archetype } from '../types';
-import { RuleResult } from '../rules';
-import { Signal, DomainSignals, ExtractedSignalSet } from '../signals/types';
+import { Archetype, Lang, RiskBand, Signal } from '@/lib/types';
+import { RuleResult } from '@/lib/rules';
+import { CanonicalInput } from '@/lib/scam/types';
 
-export type ChannelType = 'web' | 'pwa-share' | 'telegram' | 'whatsapp';
+export type ChannelType = 'web' | 'telegram' | 'whatsapp' | 'email' | 'pwa-share';
 
 export interface ChannelInput {
   channel: ChannelType;
@@ -10,8 +10,7 @@ export interface ChannelInput {
   title?: string;
   url?: string;
   language?: string;
-  senderId?: string; // Hashed or ephemeral identifier; never raw phone/PII
-  metadata?: Record<string, string | number | boolean>;
+  senderId?: string;
 }
 
 export interface NormalizedChannelMessage {
@@ -23,9 +22,10 @@ export interface NormalizedChannelMessage {
   language: Lang;
   isForwarded: boolean;
   provenance: {
-    source: ChannelType;
+    source: string;
     receivedAt: string;
   };
+  privacyMasked?: boolean;
 }
 
 export interface ChannelCheckResult {
@@ -37,8 +37,8 @@ export interface ChannelCheckResult {
   confidence: number;
   flags: RuleResult[];
   signals: Signal[];
-  domainSignals?: DomainSignals[];
-  alertMatches?: ExtractedSignalSet['alertMatches'];
+  domainSignals: any[];
+  alertMatches: any[];
   unverified: string[];
   explanation: string;
   engine: string;
@@ -50,7 +50,6 @@ export interface ChannelCheckResult {
 export interface ChannelResponseAction {
   label: string;
   url: string;
-  isExternal?: boolean;
 }
 
 export interface ChannelResponse {
@@ -59,7 +58,7 @@ export interface ChannelResponse {
   riskBand: RiskBand;
   topSignals: string[];
   unverifiedAspects: string[];
-  primaryAction?: ChannelResponseAction;
+  primaryAction: ChannelResponseAction;
   calculatorAction?: ChannelResponseAction;
   disclaimer: string;
 }
@@ -71,35 +70,29 @@ export interface TelegramUpdate {
     from?: {
       id: number;
       is_bot: boolean;
-      first_name?: string;
-      username?: string;
+      first_name: string;
       language_code?: string;
     };
     chat: {
       id: number;
-      type: 'private' | 'group' | 'supergroup' | 'channel';
+      type: string;
       title?: string;
-      username?: string;
     };
     date: number;
     text?: string;
     caption?: string;
-    forward_from?: {
-      id: number;
-      first_name?: string;
-      username?: string;
-    };
-    forward_from_chat?: {
-      id: number;
-      title?: string;
-      type: string;
-    };
-    forward_date?: number;
-    entities?: Array<{
-      type: string;
-      offset: number;
-      length: number;
-      url?: string;
+    photo?: Array<{
+      file_id: string;
+      file_unique_id: string;
+      file_size?: number;
+      width: number;
+      height: number;
     }>;
   };
+}
+
+export interface ChannelAdapter<TInput = any> {
+  readonly name: string;
+  validate(rawInput: TInput): boolean;
+  toCanonicalInput(rawInput: TInput): CanonicalInput;
 }

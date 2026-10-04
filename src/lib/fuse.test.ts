@@ -15,6 +15,8 @@ describe('fuseDecisionAndRules', () => {
       PUMP_AND_DUMP_GROUP: 0.02,
       REMOTE_ACCESS_SCAM: 0.01,
       FAKE_IPO_OR_ALLOTMENT: 0.01,
+      PRE_APPROVED_LOAN_SCAM: 0.0,
+      OTHER_SUSPICIOUS_FINANCIAL_PATTERN: 0.0,
       OTHER_OR_NONE: 0.0,
     },
     riskBand: {

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "core02_multi_001",
+    "language": "hi",
+    "source": "WHATSAPP",
+    "input": "Bhai 10k invest karo aur 20k daily profit paao, full guaranteed hai no loss.",
+    "category": "hinglish",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedRiskBand": "HIGH",
+    "provenance": "MULTILINGUAL_BENCHMARK",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "hinglish",
+      "mixed_lang"
+    ]
+  },
+  {
+    "id": "core02_multi_002",
+    "language": "ta",
+    "source": "TELEGRAM",
+    "input": "VIP trading group join pannunga. 100% guaranteed return kidaikkum no risk.",
+    "category": "tanglish",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedRiskBand": "HIGH",
+    "provenance": "MULTILINGUAL_BENCHMARK",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "tanglish",
+      "mixed_lang"
+    ]
+  }
+]

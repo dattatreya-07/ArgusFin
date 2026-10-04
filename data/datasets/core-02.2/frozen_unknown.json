@@ -1,0 +1,1702 @@
+[
+  {
+    "id": "c022_unk_001",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 1: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_002",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 2: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_003",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 3: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_004",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 4: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_005",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 5: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_006",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 6: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_007",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 7: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_008",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 8: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_009",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 9: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_010",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 10: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_011",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 11: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_012",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 12: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_013",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 13: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_014",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 14: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_015",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 15: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_016",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 16: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_017",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 17: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_018",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 18: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_019",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 19: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_020",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 20: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_021",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 21: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_022",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 22: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_023",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 23: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_024",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 24: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_025",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 25: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_026",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 26: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_027",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 27: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_028",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 28: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_029",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 29: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_030",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 30: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_031",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 31: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_032",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 32: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_033",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 33: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_034",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 34: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_035",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 35: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_036",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 36: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_037",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 37: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_038",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 38: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_039",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 39: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_040",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 40: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_041",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 41: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_042",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 42: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_043",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 43: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_044",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 44: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_045",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 45: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_046",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 46: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_047",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 47: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_048",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 48: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_049",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 49: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_050",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 50: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_051",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 51: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_052",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 52: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_053",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 53: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_054",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 54: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_055",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 55: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_056",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 56: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_057",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 57: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_058",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 58: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_059",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 59: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_060",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 60: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_061",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 61: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_062",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 62: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_063",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 63: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_064",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 64: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_065",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 65: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_066",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 66: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_067",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 67: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_068",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 68: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_069",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 69: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_070",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 70: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_071",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 71: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_072",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 72: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_073",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 73: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_074",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 74: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_075",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 75: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_076",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 76: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_077",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 77: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_078",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 78: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_079",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 79: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_080",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 80: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_081",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 81: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_082",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 82: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_083",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 83: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_084",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 84: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_085",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 85: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_086",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 86: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_087",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 87: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_088",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 88: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_089",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 89: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_090",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 90: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_091",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 91: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_092",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 92: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_093",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 93: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_094",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 94: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_095",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 95: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_096",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 96: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_097",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 97: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_098",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 98: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_099",
+    "split": "frozen_unknown",
+    "locale": "en",
+    "text": "Novel financial offer 99: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_unk_100",
+    "split": "frozen_unknown",
+    "locale": "hi",
+    "text": "Novel financial offer 100: Join our autonomous AI arbitrage liquidity vault. Pay ₹2,500 gas fee to activate account.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "novel_unseen_archetype",
+    "rationale": "Unseen financial behavior testing whether detector assigns OTHER_OR_NONE without forcing false archetypes.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  }
+]

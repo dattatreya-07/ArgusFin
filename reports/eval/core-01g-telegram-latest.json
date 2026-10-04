@@ -1,0 +1,131 @@
+{
+  "timestamp": "2026-10-04T08:36:32.441Z",
+  "liveStatus": "IMPLEMENTED_N8N_ARCHITECTURE",
+  "totalCases": 15,
+  "updateParsingPassed": 15,
+  "channelParityPassed": 12,
+  "channelParityAccuracyPercent": 100,
+  "authPassed": true,
+  "results": [
+    {
+      "id": "TG_001",
+      "description": "Standard guaranteed return message via Telegram text",
+      "category": "TEXT",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "TG_002",
+      "description": "Daily return claim via Telegram caption",
+      "category": "CAPTION",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "TG_003",
+      "description": "Copy trading pitch via Telegram",
+      "category": "COPY_TRADING",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "TG_004",
+      "description": "Crypto staking/mining offer",
+      "category": "CRYPTO",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "TG_005",
+      "description": "Withdrawal tax fee scam",
+      "category": "FEE_SCAM",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "TG_006",
+      "description": "OTP credential harvesting request",
+      "category": "SECURITY",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "TG_007",
+      "description": "Suspicious URL embedded in Telegram message",
+      "category": "SUSPICIOUS_URL",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "TG_008",
+      "description": "Prompt injection attack inside Telegram message",
+      "category": "PROMPT_INJECTION",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "TG_009",
+      "description": "Multilingual Hindi investment scam message",
+      "category": "MULTILINGUAL_HI",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "TG_010",
+      "description": "Multilingual Tamil investment scam message",
+      "category": "MULTILINGUAL_TA",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "TG_011",
+      "description": "Synthetic PII masked in Telegram update",
+      "category": "PII_MASKING",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "TG_012",
+      "description": "Benign investment education inquiry via Telegram",
+      "category": "BENIGN",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "TG_013",
+      "description": "Telegram command /start",
+      "category": "COMMAND",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "TG_014",
+      "description": "Duplicate update handling test",
+      "category": "DUPLICATE",
+      "expectedStatus": "SKIPPED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "TG_015",
+      "description": "Empty message update test",
+      "category": "MALFORMED",
+      "expectedStatus": "SKIPPED",
+      "actualStatus": "SKIPPED",
+      "parityMatches": true
+    }
+  ]
+}

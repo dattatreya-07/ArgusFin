@@ -11,7 +11,7 @@ const CATEGORY_MAP: Record<string, string[]> = {
 };
 
 /**
- * Validates and retrieves all verified authority records from data/authorities.json
+ * Validates and retrieves all source-governed authority records from data/authorities.json
  */
 export function getVerifiedAuthorities(): AuthorityRecord[] {
   if (!Array.isArray(rawAuthorities) || rawAuthorities.length === 0) {
@@ -31,13 +31,15 @@ export function getVerifiedAuthorities(): AuthorityRecord[] {
     return {
       id: String(raw.id),
       name: String(raw.name),
-      scope: String(raw.scope || ''),
-      categories: CATEGORY_MAP[raw.id] || ['GENERAL_REPORTING'],
+      purpose: raw.purpose ? String(raw.purpose) : undefined,
+      scope: String(raw.scope || raw.purpose || ''),
+      jurisdiction: (raw.jurisdiction || 'IN') as 'IN' | 'UNKNOWN',
+      status: raw.verified_at ? 'VERIFIED' : 'UNVERIFIED',
+      trust_tier: raw.trust_tier || 'TIER_1_PRIMARY',
+      source_title: raw.source_title ? String(raw.source_title) : undefined,
+      source_url: raw.source_url ?? null,
       channels,
       verified_at: raw.verified_at ?? null,
-      source_url: raw.source_url ?? null,
-      languages: ['en', 'hi', 'ta'],
-      jurisdiction: 'India (National)',
     };
   });
 }

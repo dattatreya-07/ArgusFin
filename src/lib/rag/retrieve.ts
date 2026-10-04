@@ -19,6 +19,22 @@ const CONCEPT_MAPPINGS: Record<string, string[]> = {
   'chakshu': ['chakshu', 'telecom', 'sms', 'whatsapp', 'dot', 'sanchar'],
   'complaint': ['complaint', 'report', 'cybercrime', '1930', 'scores', 'शिकायत', 'புகார்'],
   'fraud': ['fraud', 'scam', 'loss', 'धोखाधड़ी', 'மோசடி', '1930'],
+  'nav': ['mutual', 'fund', 'units', 'asset', 'expense', 'ratio', 'म्यूचुअल', 'फंड'],
+  'sip': ['systematic', 'mutual', 'fund', 'monthly', 'contribution', 'rupee', 'averaging'],
+  'cagr': ['compound', 'annual', 'growth', 'rate', 'return', 'yield', 'सीएजीआर'],
+  'bond': ['fixed', 'income', 'coupon', 'yield', 'price', 'maturity', 'g-sec', 'debenture', 'बॉन्ड'],
+  'debt': ['fixed', 'income', 'bond', 'corporate', 'credit', 'interest', 'rate'],
+  'equity': ['share', 'stock', 'market', 'capitalization', 'dividend', 'sebi', 'शेयर'],
+  'share': ['equity', 'stock', 'dividend', 'demat', 'nsdl', 'cdsl', 'nse', 'bse'],
+  'dividend': ['share', 'equity', 'payout', 'capital', 'gains', 'company'],
+  'futures': ['derivatives', 'options', 'f&o', 'expiry', 'margin', 'leverage', 'strike'],
+  'options': ['futures', 'call', 'put', 'premium', 'strike', 'expiry', 'derivatives', 'margin'],
+  'margin': ['leverage', 'futures', 'options', 'derivatives', 'initial', 'balance'],
+  'leverage': ['margin', 'loss', 'futures', 'options', 'risk', 'amplifies'],
+  'crypto': ['virtual', 'digital', 'vda', 'blockchain', 'wallet', 'staking', 'counterparty'],
+  'wallet': ['crypto', 'private', 'key', 'blockchain', 'custody', 'transfer'],
+  'staking': ['crypto', 'yield', 'mining', 'ponzi', 'unregulated', 'unrealistic'],
+  'settlement': ['t+1', 'broker', 'depository', 'nsdl', 'cdsl', 'clearing'],
 };
 
 /**

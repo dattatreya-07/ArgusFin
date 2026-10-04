@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { maskPII, MaskResult } from '@/lib/mask';
 import { Archetype, Lang, RiskBand } from '@/lib/types';
@@ -8,9 +8,29 @@ import { RuleResult } from '@/lib/rules';
 import { Link } from '@/i18n/routing';
 import { VoiceInput } from '@/components/VoiceInput';
 import { SpeakButton } from '@/components/SpeakButton';
+import { WhatsAppConnectModal } from '@/components/WhatsAppConnectModal';
+import { RiskGauge } from '@/components/RiskGauge';
 import { validateEvidenceFile } from '@/lib/evidence/validate';
 import { defaultOcrProvider } from '@/lib/evidence/ocr';
 import { ClaimSource } from '@/lib/evidence/types';
+import {
+  Button,
+  Card,
+  CardHeader,
+  CardContent,
+  CardFooter,
+  BandBadge,
+  Banner,
+  SkeletonBlock,
+  Chip,
+} from '@/components/ui';
+import {
+  IconPaste,
+  IconCalculator,
+  IconPhone,
+  IconQuestion,
+  IconBook,
+} from '@/components/icons';
 
 interface CheckApiResponse {
   band: RiskBand;
@@ -25,11 +45,43 @@ interface CheckApiResponse {
   engine: 'jev' | 'llm-fallback' | 'rules-only';
 }
 
+const PRESET_EXAMPLES = [
+  {
+    id: 'fql-app',
+    icon: '💼',
+    label: 'Part-time Job / FQL App',
+    text: `1. அந்தந்த நாட்டின் பிரத்யேக டொமைன் இணைப்பு: https://fqlexin.com https://fqlin.com\n2. உலாவியைத் திறந்து இணைப்பை ஒட்டவும், FQL அதிகாரப்பூர்வப் பக்கத்திற்குள் நுழையவும். “APP-ஐ பதிவிறக்குக” என்பதைக் கிளிக் செய்யவும்.\n3. உங்கள் மொபைல் சிஸ்டத்தை (ஆண்ட்ராய்டு / ஆப்பிள்) தேர்ந்தெடுத்து பதிவிறக்கம் செய்து நிறுவவும்.`,
+  },
+  {
+    id: 'utility-bill',
+    icon: '⚡',
+    label: 'Utility Bill Cut',
+    text: 'Dear Customer, Your Electricity power line will be disconnected tonight at 9:30 PM due to unpaid bill. Pay ₹450 immediately or call electricity desk at +919876543210.',
+  },
+  {
+    id: 'kbc-lottery',
+    icon: '🏆',
+    label: 'KBC Lottery Win',
+    text: 'Congratulations! You won ₹25,00,000 in KBC All-India Lucky Draw. Transfer ₹12,500 advance processing fee to release prize money immediately.',
+  },
+  {
+    id: 'kyc-block',
+    icon: '🏦',
+    label: 'Bank KYC Block',
+    text: 'Your HDFC Bank account is blocked due to pending KYC update. Click http://hdfc-kyc-update.xyz/login to enter net banking password and OTP to unblock.',
+  },
+  {
+    id: 'daily-yield',
+    icon: '📈',
+    label: 'Daily 10% Yield',
+    text: 'Exclusive VIP Wealth Scheme: Guaranteed 10% daily return on deposit. Transfer ₹10,000 to our registered trading bot account now.',
+  },
+];
+
 export default function CheckPage() {
   const t = useTranslations('placeholders');
   const tResults = useTranslations('results');
   const tRules = useTranslations('rules');
-  const tCommon = useTranslations('common');
   const locale = useLocale();
 
   const [rawInput, setRawInput] = useState('');
@@ -37,6 +89,8 @@ export default function CheckPage() {
   const [evidenceFilename, setEvidenceFilename] = useState<string | null>(null);
   const [isProcessingEvidence, setIsProcessingEvidence] = useState(false);
   const [evidenceError, setEvidenceError] = useState<string | null>(null);
+  const [isFromShareTarget, setIsFromShareTarget] = useState(false);
+  const [isWhatsAppModalOpen, setIsWhatsAppModalOpen] = useState(false);
 
   const [maskedPreview, setMaskedPreview] = useState<MaskResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -45,6 +99,23 @@ export default function CheckPage() {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // Read Share Target query params on initial mount
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const textParam = params.get('text') || '';
+      const titleParam = params.get('title') || '';
+      const urlParam = params.get('url') || '';
+
+      const combinedText = [textParam, titleParam, urlParam].filter(Boolean).join('\n').trim();
+
+      if (combinedText.length > 0) {
+        setIsFromShareTarget(true);
+        handleInputChange(combinedText, 'USER_TEXT');
+      }
+    }
+  }, []);
+
   const handleInputChange = (text: string, source: ClaimSource = 'USER_TEXT') => {
     setRawInput(text);
     setEvidenceSource(source);
@@ -52,6 +123,21 @@ export default function CheckPage() {
       setMaskedPreview(maskPII(text));
     } else {
       setMaskedPreview(null);
+    }
+  };
+
+  const handleSelectPreset = (presetText: string) => {
+    handleInputChange(presetText, 'USER_TEXT');
+  };
+
+  const handlePasteClipboard = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      if (text) {
+        handleInputChange(text, 'USER_TEXT');
+      }
+    } catch {
+      // Clipboard access might be blocked
     }
   };
 
@@ -75,14 +161,11 @@ export default function CheckPage() {
       const reader = new FileReader();
       reader.onload = async () => {
         const base64Data = reader.result as string;
-        // In local/browser processing, invoke OCR extraction abstraction
         const ocrRes = await defaultOcrProvider.processImage(base64Data, locale as Lang);
 
         if (ocrRes.status === 'FOUND' && ocrRes.text && ocrRes.text.trim().length > 0) {
           handleInputChange(ocrRes.text, 'OCR');
         } else {
-          // If no embedded OCR string or binary without client worker:
-          // Set placeholder prompt for user verification
           const sampleExtracted = `[Uploaded Image: ${file.name}]\nReview text manually or edit message here.`;
           handleInputChange(sampleExtracted, 'OCR');
         }
@@ -117,7 +200,6 @@ export default function CheckPage() {
     setErrorMsg(null);
     setIsLoading(true);
 
-    // Ensure client-side masking is executed before payload creation
     const clientMasked = maskPII(rawInput);
     setMaskedPreview(clientMasked);
 
@@ -146,261 +228,335 @@ export default function CheckPage() {
     }
   };
 
-  const getBandBadge = (band: RiskBand) => {
-    switch (band) {
-      case 'HIGH':
-        return {
-          label: tResults('band_HIGH'),
-          icon: '🚨',
-          badgeClass: 'bg-rose-100 text-rose-800 border-rose-300',
-          bgCard: 'border-rose-300 bg-rose-50/40',
-        };
-      case 'MEDIUM':
-        return {
-          label: tResults('band_MEDIUM'),
-          icon: '⚠️',
-          badgeClass: 'bg-amber-100 text-amber-800 border-amber-300',
-          bgCard: 'border-amber-300 bg-amber-50/40',
-        };
-      case 'LOW_SIGNALS':
-        return {
-          label: tResults('band_LOW_SIGNALS'),
-          icon: '🛡️',
-          badgeClass: 'bg-emerald-100 text-emerald-800 border-emerald-300',
-          bgCard: 'border-emerald-300 bg-emerald-50/40',
-        };
-      case 'CANNOT_VERIFY':
-      default:
-        return {
-          label: tResults('band_CANNOT_VERIFY'),
-          icon: '❓',
-          badgeClass: 'bg-slate-100 text-slate-800 border-slate-300',
-          bgCard: 'border-slate-300 bg-slate-50/40',
-        };
-    }
-  };
-
   return (
-    <div className="max-w-3xl mx-auto space-y-8">
-      <div>
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-          {t('checkTitle')}
-        </h1>
-        <p className="mt-1 text-sm text-slate-600">{t('checkDesc')}</p>
-      </div>
+    <div className="max-w-4xl mx-auto space-y-8">
+      <WhatsAppConnectModal
+        isOpen={isWhatsAppModalOpen}
+        onClose={() => setIsWhatsAppModalOpen(false)}
+      />
 
-      {/* Input Form */}
-      <form onSubmit={handleScan} className="p-6 bg-white rounded-xl border border-slate-200 shadow-sm space-y-4">
-        {/* Upload and Voice Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
-          <div className="flex items-center gap-2">
-            <input
-              type="file"
-              ref={fileInputRef}
-              onChange={handleFileUpload}
-              accept="image/png, image/jpeg, image/webp"
-              className="hidden"
-              id="screenshot-upload"
-            />
-            <label
-              htmlFor="screenshot-upload"
-              className="px-3 py-1.5 rounded-lg border border-slate-300 bg-slate-50 text-slate-700 text-xs font-semibold hover:bg-slate-100 cursor-pointer flex items-center gap-1.5 transition-all shadow-sm"
-            >
-              📷 Upload Screenshot (OCR)
-            </label>
-            {evidenceFilename && (
-              <span className="text-xs text-blue-600 font-medium flex items-center gap-1 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-200">
-                <span>📎</span> {evidenceFilename}
-                <button
-                  type="button"
-                  onClick={handleRemoveEvidence}
-                  className="text-slate-400 hover:text-rose-600 font-bold ml-1"
-                >
-                  ✕
-                </button>
-              </span>
-            )}
-          </div>
-
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-slate-500 font-medium">Voice Input:</span>
-            <VoiceInput
-              onTranscript={(txt) => handleInputChange(`${rawInput} ${txt}`.trim(), 'STT')}
-              lang={locale as Lang}
-              disabled={isLoading || isProcessingEvidence}
-            />
-          </div>
+      {/* Header with WhatsApp Quick Link */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="space-y-1">
+          <h1 className="text-3xl font-black text-ink tracking-tight font-inktrap">
+            {t('checkTitle')}
+          </h1>
+          <p className="text-sm sm:text-base text-ink-muted">
+            {t('checkDesc')}
+          </p>
         </div>
-
-        {evidenceError && (
-          <div className="p-3 bg-rose-50 border border-rose-200 rounded-lg text-xs text-rose-700">
-            ⚠️ {evidenceError}
-          </div>
-        )}
-
-        <div>
-          <div className="flex items-center justify-between mb-1">
-            <label className="block text-xs font-semibold text-slate-700">
-              Message text or OCR extracted claims:
-            </label>
-            {evidenceSource !== 'USER_TEXT' && (
-              <span className="text-[11px] font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800">
-                Source: {evidenceSource === 'OCR' ? 'Screenshot OCR' : 'Voice STT'}
-              </span>
-            )}
-          </div>
-          <textarea
-            rows={5}
-            maxLength={4000}
-            value={rawInput}
-            onChange={(e) => handleInputChange(e.target.value, evidenceSource)}
-            placeholder="Double your money in 30 days! Guaranteed 2x returns, limited slots. Join our VIP Telegram channel..."
-            className="w-full px-3.5 py-2.5 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-            required
-          />
-          <div className="flex justify-between items-center text-[11px] text-slate-400 mt-1">
-            <span>Client-side privacy masking active. Never send raw phone numbers or bank accounts.</span>
-            <span>{rawInput.length}/4000</span>
-          </div>
-        </div>
-
-        {maskedPreview && (
-          <div className="p-3 bg-slate-50 border border-slate-200 rounded-md space-y-1">
-            <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">
-              Client-Side Masked Preview (Sent to Server)
-            </span>
-            <p className="text-xs text-slate-700 font-mono break-all">{maskedPreview.masked}</p>
-          </div>
-        )}
-
-        {errorMsg && (
-          <div className="p-3 bg-rose-50 border border-rose-200 text-rose-700 text-xs rounded-md">
-            {errorMsg}
-          </div>
-        )}
 
         <button
-          type="submit"
-          disabled={isLoading || !rawInput.trim() || isProcessingEvidence}
-          className={`w-full py-2.5 px-4 rounded-md font-semibold text-sm text-white transition-colors cursor-pointer ${
-            isLoading || isProcessingEvidence
-              ? 'bg-blue-300 cursor-not-allowed'
-              : 'bg-blue-600 hover:bg-blue-700'
-          }`}
+          onClick={() => setIsWhatsAppModalOpen(true)}
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-bold text-xs transition cursor-pointer self-start sm:self-auto"
         >
-          {isLoading ? 'Scanning Offer...' : isProcessingEvidence ? 'Extracting Text...' : 'Scan for Red Flags'}
+          <span>💬 Connect on WhatsApp</span>
         </button>
-      </form>
+      </div>
 
-      {/* Result Display */}
-      {result && (
-        <div className="space-y-6">
-          <div className={`p-6 rounded-xl border shadow-sm space-y-4 ${getBandBadge(result.band).bgCard}`}>
-            <div className="flex items-center justify-between">
-              <span
-                className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border ${
-                  getBandBadge(result.band).badgeClass
-                }`}
-              >
-                <span>{getBandBadge(result.band).icon}</span>
-                <span>{getBandBadge(result.band).label}</span>
-              </span>
-              <div className="flex items-center gap-2">
-                <SpeakButton
-                  text={`${result.explanation} ${result.flags.map(f => f.ruleId).join('. ')}`}
-                  lang={locale as Lang}
+      {/* Input Form Card */}
+      <Card>
+        <form onSubmit={handleScan}>
+          <CardContent className="pt-6 space-y-4">
+            {/* Action Bar: Paste / OCR Upload / Voice */}
+            <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-border">
+              <div className="flex flex-wrap items-center gap-2">
+                <Button
+                  type="button"
+                  variant="secondary"
+                  size="md"
+                  icon={<IconPaste />}
+                  onClick={handlePasteClipboard}
+                >
+                  Paste
+                </Button>
+
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  onChange={handleFileUpload}
+                  accept="image/png, image/jpeg, image/webp"
+                  className="hidden"
+                  id="screenshot-upload"
                 />
-                <span className="text-xs text-slate-500">
-                  Engine: <code className="font-mono bg-white/70 px-1 py-0.5 rounded">{result.engine}</code>
-                </span>
+                <label
+                  htmlFor="screenshot-upload"
+                  className="inline-flex items-center justify-center min-h-[48px] px-4 py-2 text-sm font-semibold rounded-pill border border-border bg-surface text-ink hover:bg-surface-sunken cursor-pointer transition focus-within:ring-2 focus-within:ring-accent"
+                >
+                  📷 Upload Screenshot
+                </label>
+
+                {evidenceFilename && (
+                  <Chip>
+                    <span>📎 {evidenceFilename}</span>
+                    <button
+                      type="button"
+                      onClick={handleRemoveEvidence}
+                      className="text-ink-muted hover:text-ink font-bold ml-1"
+                      aria-label="Remove uploaded image"
+                    >
+                      ✕
+                    </button>
+                  </Chip>
+                )}
+              </div>
+
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-ink-muted font-medium">Voice:</span>
+                <VoiceInput
+                  onTranscript={(txt) => handleInputChange(`${rawInput} ${txt}`.trim(), 'STT')}
+                  lang={locale as Lang}
+                  disabled={isLoading || isProcessingEvidence}
+                />
               </div>
             </div>
 
-            <div className="space-y-1">
-              <h3 className="text-base font-bold text-slate-900">
-                {tResults('archetypeLikely')}{' '}
-                <span className="text-blue-700">{result.archetype.top.replace(/_/g, ' ')}</span>
-              </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">{result.explanation}</p>
-            </div>
-
-            {/* Red Flag Rules */}
-            {result.flags.length > 0 && (
-              <div className="space-y-2 pt-3 border-t border-slate-200">
-                <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider">
-                  {tResults('redFlagsTitle')} ({result.flags.length})
-                </h4>
-                <ul className="space-y-1.5">
-                  {result.flags.map((flag, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-xs text-rose-900">
-                      <span className="text-rose-600 font-bold">•</span>
-                      <span>
-                        <strong className="font-semibold">{flag.ruleId}:</strong> {tRules(flag.ruleId as any)}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {evidenceError && (
+              <Banner variant="warning" title="Upload Note" description={evidenceError} />
             )}
 
-            {/* Technical Signals */}
-            {result.signals && result.signals.length > 0 && (
-              <div className="space-y-2 pt-3 border-t border-slate-200">
-                <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider">
-                  {tResults('signalsTitle')} ({result.signals.length})
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {result.signals.map((sig, idx) => (
-                    <div key={idx} className="p-2.5 bg-white/80 rounded-lg border border-slate-200 text-xs">
-                      <span className="font-bold text-slate-700 block">{sig.label}</span>
-                      <span className="text-slate-600 font-mono text-[11px]">{sig.value}</span>
-                    </div>
+            {/* Big Textarea Field */}
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <label htmlFor="message-input" className="text-xs font-bold uppercase tracking-wider text-ink font-mono">
+                  Suspicious Message Box
+                </label>
+                <div className="flex items-center gap-2">
+                  {evidenceSource !== 'USER_TEXT' && (
+                    <span className="text-xs font-bold px-2 py-0.5 rounded-pill bg-accent-soft text-accent">
+                      Source: {evidenceSource === 'OCR' ? 'Screenshot OCR' : 'Voice STT'}
+                    </span>
+                  )}
+                  <span className="text-xs font-mono text-ink-muted">{rawInput.length} characters</span>
+                </div>
+              </div>
+
+              <textarea
+                id="message-input"
+                rows={5}
+                maxLength={4000}
+                value={rawInput}
+                onChange={(e) => handleInputChange(e.target.value, evidenceSource)}
+                placeholder="Paste any suspicious WhatsApp message, SMS, email text, or investment offer link here..."
+                className="w-full px-4 py-3 border border-border bg-surface rounded-xl focus:outline-none focus:ring-2 focus:ring-accent text-base text-ink placeholder:text-ink-muted/50 leading-relaxed resize-y min-h-[140px] font-sans"
+                required
+              />
+
+              {/* Preset Test Examples Chips */}
+              <div className="space-y-1.5 pt-1">
+                <span className="text-[11px] font-bold text-ink-muted uppercase tracking-wider block font-mono">
+                  Examples to test:
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {PRESET_EXAMPLES.map((preset) => (
+                    <button
+                      key={preset.id}
+                      type="button"
+                      onClick={() => handleSelectPreset(preset.text)}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border bg-surface-sunken hover:bg-surface-elevated text-xs font-semibold text-ink hover:text-accent hover:border-accent/40 transition-all cursor-pointer"
+                    >
+                      <span>{preset.icon}</span>
+                      <span>{preset.label}</span>
+                    </button>
                   ))}
                 </div>
               </div>
-            )}
+            </div>
 
-            {/* Unverified Items (Limitation disclosure) */}
-            {result.unverified && result.unverified.length > 0 && (
-              <div className="space-y-1.5 pt-3 border-t border-slate-200">
-                <h4 className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                  {tResults('couldNotVerifyTitle')}
-                </h4>
-                <ul className="space-y-1 text-xs text-slate-500 list-disc list-inside">
-                  {result.unverified.map((item, idx) => (
-                    <li key={idx}>{tResults(item as any)}</li>
-                  ))}
-                </ul>
+            {/* Quiet Masked Preview */}
+            {maskedPreview && (
+              <div className="p-3 bg-surface-sunken border border-border rounded-xl space-y-1">
+                <span className="text-[11px] font-bold text-ink-muted uppercase tracking-wider block font-mono">
+                  Masked Preview (On-Device Privacy Gate)
+                </span>
+                <p className="text-xs text-ink font-mono break-all">{maskedPreview.masked}</p>
               </div>
             )}
-          </div>
 
-          {/* Next Steps CTA */}
-          <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-sm space-y-3">
-            <h3 className="text-sm font-bold text-slate-900">{tResults('nextSteps')}</h3>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="/calculator"
-                className="px-4 py-2 bg-slate-900 text-white text-xs font-semibold rounded-lg hover:bg-slate-800 transition-colors shadow-sm"
-              >
-                🧮 {tResults('actionCalculator')}
-              </Link>
-              <Link
-                href="/report"
-                className="px-4 py-2 bg-rose-600 text-white text-xs font-semibold rounded-lg hover:bg-rose-500 transition-colors shadow-sm"
-              >
-                📋 {tResults('actionReport')}
-              </Link>
-              <Link
-                href="/authorities"
-                className="px-4 py-2 bg-blue-600 text-white text-xs font-semibold rounded-lg hover:bg-blue-500 transition-colors shadow-sm"
-              >
-                🛡️ Authority Router
-              </Link>
-            </div>
+            {errorMsg && (
+              <Banner
+                variant="warning"
+                title="Could Not Complete Scan"
+                description={`${errorMsg}. You can try again or test the figures directly in the calculator.`}
+              />
+            )}
+          </CardContent>
+
+          <CardFooter className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-2">
+            <Button
+              type="submit"
+              variant="primary"
+              size="lg"
+              loading={isLoading || isProcessingEvidence}
+              disabled={isLoading || !rawInput.trim() || isProcessingEvidence}
+              className="w-full sm:w-auto"
+            >
+              {isLoading
+                ? 'Scanning for Scams...'
+                : isProcessingEvidence
+                ? 'Extracting Text...'
+                : 'Scan for Scams'}
+            </Button>
+
+            <Link href="/calculator" className="text-xs font-semibold text-accent hover:underline text-center sm:text-right py-2">
+              Or test figures in Yield Calculator →
+            </Link>
+          </CardFooter>
+        </form>
+      </Card>
+
+      {/* Loading Skeleton */}
+      {isLoading && (
+        <Card className="space-y-4 p-6 animate-pulse">
+          <div className="flex items-center justify-between">
+            <SkeletonBlock height="h-8" width="w-48" rounded="pill" />
+            <SkeletonBlock height="h-12" width="w-12" rounded="full" />
           </div>
+          <SkeletonBlock height="h-4" width="w-3/4" />
+          <SkeletonBlock height="h-4" width="w-full" />
+          <SkeletonBlock height="h-20" width="w-full" rounded="md" />
+        </Card>
+      )}
+
+      {/* Results Display Card matching HuggingFace Space Layout */}
+      {result && !isLoading && (
+        <div className="space-y-6" aria-live="polite">
+          {/* Limited Mode Banner if applicable */}
+          {result.engine === 'rules-only' && (
+            <Banner
+              variant="limited"
+              title="Limited Mode Active"
+              description={tResults('limitedModeBanner')}
+            />
+          )}
+
+          {/* Main Decision Card */}
+          <Card className="border-border">
+            <CardHeader className="space-y-4 pb-4">
+              <div className="flex items-center justify-between flex-wrap gap-4 border-b border-border pb-4">
+                <div className="flex items-center gap-3">
+                  <BandBadge band={result.band} size="lg" />
+                  <span className="text-xs text-ink-muted bg-surface-sunken px-2.5 py-1 rounded-pill border border-border font-mono">
+                    Engine: {result.engine}
+                  </span>
+                </div>
+
+                {/* Circular Score Gauge */}
+                <div className="flex items-center gap-3">
+                  <SpeakButton
+                    text={`${result.explanation} ${result.flags.map((f) => f.ruleId).join('. ')}`}
+                    lang={locale as Lang}
+                  />
+                  <RiskGauge band={result.band} confidence={result.confidence} size={68} />
+                </div>
+              </div>
+
+              {/* Analysis Summary */}
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-base">🎯</span>
+                  <h2 className="text-xs font-bold uppercase tracking-wider text-ink font-mono">
+                    Risk Analysis Summary
+                  </h2>
+                </div>
+                <p className="text-base sm:text-lg text-ink font-medium leading-relaxed">
+                  {result.explanation}
+                </p>
+              </div>
+            </CardHeader>
+
+            <CardContent className="space-y-6 border-t border-border pt-6">
+              {/* Red Flag Explanations */}
+              {result.flags.length > 0 && (
+                <div className="space-y-3">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-ink font-mono flex items-center gap-1.5">
+                    <span>🚩</span> Identified Red Flags ({result.flags.length})
+                  </h3>
+                  <div className="space-y-2">
+                    {result.flags.map((flag, idx) => (
+                      <div
+                        key={idx}
+                        className="p-3.5 rounded-xl bg-risk-high-bg border border-risk-high-border/30 text-xs text-risk-high-text space-y-1"
+                      >
+                        <p className="font-bold text-sm">{flag.ruleId}</p>
+                        <p className="leading-relaxed">{tRules(flag.ruleId as any)}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Signals */}
+              {result.signals && result.signals.length > 0 && (
+                <div className="space-y-3">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-ink font-mono flex items-center gap-1.5">
+                    <span>🔍</span> Observable Evidence Signals
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {result.signals.map((sig, idx) => (
+                      <div
+                        key={idx}
+                        className="p-3 bg-surface-sunken rounded-xl border border-border text-xs space-y-1"
+                      >
+                        <span className="font-bold text-ink block">{sig.label}</span>
+                        <span className="text-ink-muted font-mono text-[11px] block break-all">{sig.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Recommended Next Steps List */}
+              <div className="space-y-2 pt-2 border-t border-border">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-ink font-mono flex items-center gap-1.5">
+                  <span>💡</span> Recommended Action Steps
+                </h3>
+                <ul className="space-y-2 text-xs sm:text-sm text-ink leading-relaxed list-disc list-inside">
+                  <li>Do not click on any unverified links or download external APK files.</li>
+                  <li>Never transfer money to personal bank accounts, UPI IDs, or unknown wallets.</li>
+                  <li>Block the sender and report the message to official authorities.</li>
+                  {result.unverified && result.unverified.length > 0 && (
+                    <li>Verify official registration on SEBI SCORES or RBI Sachet portal.</li>
+                  )}
+                </ul>
+              </div>
+            </CardContent>
+
+            {/* Next Steps Footer */}
+            <CardFooter className="bg-surface-sunken flex-col items-start gap-4 border-t border-border pt-4 rounded-b-xl">
+              <div className="flex flex-wrap items-center justify-between gap-3 w-full">
+                <div className="flex flex-wrap gap-2 w-full sm:w-auto">
+                  <Link href="/calculator">
+                    <Button variant="secondary" size="md" icon={<IconCalculator />}>
+                      {tResults('actionCalculator')}
+                    </Button>
+                  </Link>
+                  <Link href="/report">
+                    <Button variant="primary" size="md" icon={<IconPhone />}>
+                      {tResults('actionReport')}
+                    </Button>
+                  </Link>
+                  <Link href="/authorities">
+                    <Button variant="quiet" size="md" icon={<IconQuestion />}>
+                      Authority Router
+                    </Button>
+                  </Link>
+                </div>
+
+                <button
+                  onClick={() => setIsWhatsAppModalOpen(true)}
+                  className="text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1 cursor-pointer"
+                >
+                  <span>💬 Connect on WhatsApp for daily scans →</span>
+                </button>
+              </div>
+            </CardFooter>
+          </Card>
         </div>
       )}
+
     </div>
   );
 }
+
+

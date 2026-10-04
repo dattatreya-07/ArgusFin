@@ -2,91 +2,101 @@
   {
     "id": "DOUBLING_SCHEME",
     "archetype": "DOUBLING_SCHEME",
-    "red_flags": [],
+    "red_flags": ["GUARANTEED_RETURN", "RETURN_TOO_HIGH"],
     "summary_i18n": {
-      "en": "",
-      "hi": "",
-      "ta": ""
+      "en": "Promises of double money, 2x-10x returns, or daily fixed compounding are mathematically impossible in legitimate regulated capital markets and indicate high-yield ponzi fraud.",
+      "hi": "पैसे दोगुने करने, 2x-10x रिटर्न या दैनिक निश्चित मुनाफे के वादे वास्तविक विनियमित बाजारों में गणितीय रूप से असंभव हैं और पोंजी धोखाधड़ी का संकेत देते हैं।",
+      "ta": "பணத்தை இரட்டிப்பாக்குதல், 2x-10x வருமானம் அல்லது தினசரி நிலையான வட்டி தருவதாகக் கூறும் வாக்குறுதிகள் உண்மையான சந்தையில் சாத்தியமற்றவை மற்றும் போன்சி மோசடியைக் குறிக்கின்றன."
     }
   },
   {
     "id": "COPY_TRADING",
     "archetype": "COPY_TRADING",
-    "red_flags": [],
+    "red_flags": ["GUARANTEED_RETURN", "PAY_TO_PERSONAL_ACCOUNT_OR_UPI"],
     "summary_i18n": {
-      "en": "",
-      "hi": "",
-      "ta": ""
+      "en": "Unregulated copy-trading bots, mirror trading accounts, or automated profit sharing operated by unregistered intermediaries carry high capital loss risks.",
+      "hi": "अनियमित कॉपी-ट्रेडिंग बॉट या स्वचालित लाभ साझाकरण खाते उच्च वित्तीय नुकसान का जोखिम उठाते हैं और सेबी द्वारा प्रतिबंधित हैं।",
+      "ta": "பதிவு செய்யப்படாத நபர்களால் இயக்கப்படும் தானியங்கி காப்பி டிரேடிங் பாட்டுகள் மற்றும் லாப பகிர்வு கணக்குகள் கடுமையான நிதி இழப்பு அபாயத்தைக் கொண்டுள்ளன."
     }
   },
   {
     "id": "COURSE_FINFLUENCER",
     "archetype": "COURSE_FINFLUENCER",
-    "red_flags": [],
+    "red_flags": ["COURSE_OR_MENTORSHIP_UPSELL", "SCREENSHOT_PROFIT_PROOF"],
     "summary_i18n": {
-      "en": "",
-      "hi": "",
-      "ta": ""
+      "en": "Expensive trading masterclasses and secret strategy mentorships advertised using staged luxury lifestyles and fabricated profit screenshots.",
+      "hi": "फर्जी मुनाफे के स्क्रीनशॉट और विलासिता भरी जीवनशैली दिखाकर महंगे ट्रेडिंग कोर्स और गुप्त रणनीतियों की बिक्री करना।",
+      "ta": "போலியான லாப ஸ்கிரீன்ஷாட்கள் மற்றும் ஆடம்பர வாழ்க்கை முறையை காட்டி அதிக கட்டணம் வசூலிக்கும் பயிற்சி வகுப்புகள் மற்றும் வழிகாட்டுதல் திட்டங்கள்."
     }
   },
   {
     "id": "CRYPTO_STAKING_MINING",
     "archetype": "CRYPTO_STAKING_MINING",
-    "red_flags": [],
+    "red_flags": ["RETURN_TOO_HIGH", "PAY_TO_PERSONAL_ACCOUNT_OR_UPI"],
     "summary_i18n": {
-      "en": "",
-      "hi": "",
-      "ta": ""
+      "en": "Fake cryptocurrency cloud mining pools, USDT staking platforms, and high-interest crypto deposit schemes operated outside sovereign banking oversight.",
+      "hi": "फर्जी क्रिप्टोकरेंसी क्लाउड माइनिंग और यूएसडीटी स्टेकिंग प्लेटफॉर्म जो सरकारी बैंकिंग सुरक्षा के बाहर संचालित होते हैं।",
+      "ta": "அரசு மற்றும் வங்கி மேற்பார்வைக்கு வெளியே இயங்கும் போலியான கிரிப்டோ மைனிங் பூல்கள் மற்றும் யுஎஸ்டிடி (USDT) ஸ்டேக்கிங் திட்டங்கள்."
     }
   },
   {
     "id": "FAKE_TRADING_APP_OR_PORTAL",
     "archetype": "FAKE_TRADING_APP_OR_PORTAL",
-    "red_flags": [],
+    "red_flags": ["ASKS_OTP_OR_APP_INSTALL", "PAY_TO_PERSONAL_ACCOUNT_OR_UPI"],
     "summary_i18n": {
-      "en": "",
-      "hi": "",
-      "ta": ""
+      "en": "Custom APK downloads and fake institutional portals simulating fake profits but demanding withdrawal clearance taxes when victims try to cash out.",
+      "hi": "कस्टम एपीके डाउनलोड और फर्जी ट्रेडिंग पोर्टल जो नकली मुनाफा दिखाते हैं लेकिन पैसे निकालने के नाम पर अतिरिक्त निकासी टैक्स मांगते हैं।",
+      "ta": "போலி லாபத்தை காட்டி ஏமாற்றும் செயலிகள் (APK) மற்றும் பணத்தை எடுக்கும்போது கூடுதல் அனுமதி வரி கேட்கும் போலி வர்த்தக தளங்கள்."
     }
   },
   {
     "id": "FAKE_ADVISORY_OR_REG_CLAIM",
     "archetype": "FAKE_ADVISORY_OR_REG_CLAIM",
-    "red_flags": [],
+    "red_flags": ["UNVERIFIABLE_REGISTRATION_CLAIM", "GUARANTEED_RETURN"],
     "summary_i18n": {
-      "en": "",
-      "hi": "",
-      "ta": ""
+      "en": "Sure-shot tips, 99% accuracy jackpot calls, and forged SEBI registration numbers distributed to solicit illegal advisory fees.",
+      "hi": "सटीक टिप्स, 99% सटीकता वाले जैकपॉट कॉल और जाली सेबी पंजीकरण संख्याएं जिनका उपयोग अवैध सलाह शुल्क वसूलने के लिए किया जाता है।",
+      "ta": "99% துல்லியமான டிப்ஸ், ஜாக்பாட் அழைப்புகள் மற்றும் போலி செபி பதிவு எண்களைப் பயன்படுத்தி சட்டவிரோத ஆலோசனை கட்டணம் வசூலிக்கும் தந்திரங்கள்."
     }
   },
   {
     "id": "PUMP_AND_DUMP_GROUP",
     "archetype": "PUMP_AND_DUMP_GROUP",
-    "red_flags": [],
+    "red_flags": ["VIP_GROUP_OR_PRIVATE_CHANNEL", "URGENCY_LIMITED_SLOTS"],
     "summary_i18n": {
-      "en": "",
-      "hi": "",
-      "ta": ""
+      "en": "Coordinated buying calls on illiquid penny stocks in VIP WhatsApp or Telegram channels to artificially inflate prices before operators dump shares.",
+      "hi": "कम लिक्विडिटी वाले पेनी स्टॉक में वीआईपी व्हाट्सएप या टेलीग्राम ग्रुप पर कृत्रिम तेजी लाकर आम निवेशकों को फंसाना।",
+      "ta": "குறைந்த வர்த்தகம் உள்ள பென்னி பங்குகளை வாட்ஸ்அப்/டெலிகிராம் குழுக்களில் விளம்பரப்படுத்தி விலையை ஏற்றி பின்னர் மோசடி நபர்கள் விற்று வெளியேறும் உத்தி."
     }
   },
   {
     "id": "REMOTE_ACCESS_SCAM",
     "archetype": "REMOTE_ACCESS_SCAM",
-    "red_flags": [],
+    "red_flags": ["ASKS_OTP_OR_APP_INSTALL"],
     "summary_i18n": {
-      "en": "",
-      "hi": "",
-      "ta": ""
+      "en": "Callers prompting victims to install AnyDesk, TeamViewer, or RustDesk under the pretext of KYC update or trade terminal support to drain accounts.",
+      "hi": "केवाईसी अपडेट या ट्रेडिंग सपोर्ट के नाम पर AnyDesk या TeamViewer जैसे स्क्रीन शेयरिंग ऐप इंस्टॉल करवाकर बैंक खाते खाली करना।",
+      "ta": "கேஒய்சி (KYC) அல்லது வர்த்தக உதவி என்ற பெயரில் AnyDesk, TeamViewer செயலிகளை நிறுவ வைத்து வங்கிக் கணக்கிலிருந்து பணத்தைத் திருடுதல்."
     }
   },
   {
     "id": "FAKE_IPO_OR_ALLOTMENT",
     "archetype": "FAKE_IPO_OR_ALLOTMENT",
-    "red_flags": [],
+    "red_flags": ["GUARANTEED_RETURN", "PAY_TO_PERSONAL_ACCOUNT_OR_UPI"],
     "summary_i18n": {
-      "en": "",
-      "hi": "",
-      "ta": ""
+      "en": "Offers of guaranteed IPO allotment quotas or FII institutional allocation accessible via private bank accounts.",
+      "hi": "निजी बैंक खातों के माध्यम से गारंटीकृत आईपीओ कोटा या एफआईआई संस्थागत आवंटन की पेशकश।",
+      "ta": "தனிநபர் வங்கிக் கணக்குகள் வழியாக 100% உத்தரவாதமான ஐபிஓ ஒதுக்கீடு அல்லது எஃப்ஐஐ ஒதுக்கீடு தருவதாகக் கூறும் ஏமாற்று வேலை."
+    }
+  },
+  {
+    "id": "PRE_APPROVED_LOAN_SCAM",
+    "archetype": "PRE_APPROVED_LOAN_SCAM",
+    "red_flags": ["SUSPICIOUS_LOAN_OFFER", "SUSPICIOUS_SHORT_LINK"],
+    "summary_i18n": {
+      "en": "Unsolicited pre-approved loan SMS with shortened bit.ly links and instant disbursement promises designed to steal advance processing fees or personal identity data.",
+      "hi": "पूर्व-स्वीकृत ऋण और तत्काल भुगतान के अनचाहे संदेश (bit.ly लिंक सहित) जिनका उद्देश्य प्रोसेसिंग शुल्क या व्यक्तिगत डेटा चुराना होता है।",
+      "ta": "முன்-அங்கீகரிக்கப்பட்ட கடன் சலுகை மற்றும் உடனடி கடன் தருவதாகக் கூறி குறுக்கு இணைப்புகள் (bit.ly) மூலம் கட்டணம் அல்லது தனிநபர் தகவல்களைத் திருடும் மோசடி."
     }
   },
   {
@@ -94,9 +104,9 @@
     "archetype": "OTHER_OR_NONE",
     "red_flags": [],
     "summary_i18n": {
-      "en": "",
-      "hi": "",
-      "ta": ""
+      "en": "No definitive high-risk scam archetype patterns detected in this text.",
+      "hi": "इस संदेश में कोई विशिष्ट उच्च-जोखिम धोखाधड़ी पैटर्न नहीं पाया गया।",
+      "ta": "இந்த உரையில் கடுமையான மோசடி எச்சரிக்கை அமைப்புகள் எதுவும் கண்டறியப்படவில்லை."
     }
   }
 ]

@@ -1,0 +1,74 @@
+[
+  {
+    "entityId": "sebi",
+    "name": "Securities and Exchange Board of India",
+    "officialDomain": "sebi.gov.in",
+    "category": "REGULATOR",
+    "provenance": "OFFICIAL_GOVERNMENT_DIRECTORY",
+    "reviewDate": "2026-10-01"
+  },
+  {
+    "entityId": "rbi",
+    "name": "Reserve Bank of India",
+    "officialDomain": "rbi.org.in",
+    "category": "REGULATOR",
+    "provenance": "OFFICIAL_GOVERNMENT_DIRECTORY",
+    "reviewDate": "2026-10-01"
+  },
+  {
+    "entityId": "rbi_sachet",
+    "name": "RBI Sachet Fraud Reporting Portal",
+    "officialDomain": "sachet.rbi.org.in",
+    "category": "REGULATOR_PORTAL",
+    "provenance": "OFFICIAL_GOVERNMENT_DIRECTORY",
+    "reviewDate": "2026-10-01"
+  },
+  {
+    "entityId": "mha_cybercrime",
+    "name": "National Cyber Crime Reporting Portal",
+    "officialDomain": "cybercrime.gov.in",
+    "category": "LAW_ENFORCEMENT",
+    "provenance": "OFFICIAL_GOVERNMENT_DIRECTORY",
+    "reviewDate": "2026-10-01"
+  },
+  {
+    "entityId": "dot_sancharsaathi",
+    "name": "DoT Sanchar Saathi Portal",
+    "officialDomain": "sancharsaathi.gov.in",
+    "category": "GOVERNMENT_PORTAL",
+    "provenance": "OFFICIAL_GOVERNMENT_DIRECTORY",
+    "reviewDate": "2026-10-01"
+  },
+  {
+    "entityId": "nse",
+    "name": "National Stock Exchange of India",
+    "officialDomain": "nseindia.com",
+    "category": "EXCHANGE",
+    "provenance": "OFFICIAL_MARKET_DIRECTORY",
+    "reviewDate": "2026-10-01"
+  },
+  {
+    "entityId": "bse",
+    "name": "BSE Limited",
+    "officialDomain": "bseindia.com",
+    "category": "EXCHANGE",
+    "provenance": "OFFICIAL_MARKET_DIRECTORY",
+    "reviewDate": "2026-10-01"
+  },
+  {
+    "entityId": "nsdl",
+    "name": "National Securities Depository Limited",
+    "officialDomain": "nsdl.co.in",
+    "category": "DEPOSITORY",
+    "provenance": "OFFICIAL_MARKET_DIRECTORY",
+    "reviewDate": "2026-10-01"
+  },
+  {
+    "entityId": "cdsl",
+    "name": "Central Depository Services Limited",
+    "officialDomain": "cdslindia.com",
+    "category": "DEPOSITORY",
+    "provenance": "OFFICIAL_MARKET_DIRECTORY",
+    "reviewDate": "2026-10-01"
+  }
+]

@@ -14,7 +14,12 @@ export type RuleId =
   | 'VIP_GROUP_OR_PRIVATE_CHANNEL'
   | 'UNVERIFIABLE_REGISTRATION_CLAIM'
   | 'SCREENSHOT_PROFIT_PROOF'
-  | 'COURSE_OR_MENTORSHIP_UPSELL';
+  | 'COURSE_OR_MENTORSHIP_UPSELL'
+  | 'SUSPICIOUS_LOAN_OFFER'
+  | 'SUSPICIOUS_SHORT_LINK'
+  | 'EMAIL_SENDER_SPOOFING_MISMATCH'
+  | 'EMAIL_REPLYTO_MISMATCH'
+  | 'EMAIL_LINK_DESTINATION_MISMATCH';
 
 export type RuleSeverity = 'critical' | 'high' | 'medium';
 
@@ -43,13 +48,21 @@ export const RULE_DEFINITIONS: Record<RuleId, RuleDefinition> = {
     name: 'Guaranteed or Assured Return Claim',
     severity: RULE_THRESHOLDS.SEVERITIES.GUARANTEED_RETURN,
     evaluate: (input: DecisionInput) => {
-      const hasGuaranteedClaim = input.claims.promisedReturns.some((r) => r.guaranteed === true);
       const lower = input.maskedText.toLowerCase();
+
+      // Educational & Banking Product Safeguard
+      const isEducationalContext =
+        /\b(fixed deposit|fd|g-sec|government securities|sovereign guarantee|backed by rbi|set by banks|learned in|literacy class|article about|news report|why do scammers|how to identify|what is a guaranteed|what is fd|what are g-secs)\b/i.test(
+          lower
+        ) || /\b(do not|never|don't|scammers|phishing)\b/i.test(lower);
+
+      const hasGuaranteedClaim = input.claims.promisedReturns.some((r) => r.guaranteed === true);
       const hasGuaranteedWord =
-        hasGuaranteedClaim ||
-        [...enLex.EN_GUARANTEED, ...hiLex.HI_GUARANTEED, ...taLex.TA_GUARANTEED].some((w) =>
-          lower.includes(w.toLowerCase())
-        );
+        !isEducationalContext &&
+        (hasGuaranteedClaim ||
+          [...enLex.EN_GUARANTEED, ...hiLex.HI_GUARANTEED, ...taLex.TA_GUARANTEED].some((w) =>
+            lower.includes(w.toLowerCase())
+          ));
 
       return {
         ruleId: 'GUARANTEED_RETURN',
@@ -66,22 +79,30 @@ export const RULE_DEFINITIONS: Record<RuleId, RuleDefinition> = {
     name: 'Mathematically Unsustainable Return Promise',
     severity: RULE_THRESHOLDS.SEVERITIES.RETURN_TOO_HIGH,
     evaluate: (input: DecisionInput) => {
+      const lower = input.maskedText.toLowerCase();
+      const isEducationalContext =
+        /\b(learned in|literacy class|article about|news report|warning about|why do scammers|how to identify|what would|what is a|calculate)\b/i.test(
+          lower
+        );
+
       let triggered = false;
 
-      for (const pr of input.claims.promisedReturns) {
-        if (pr.multiple && pr.durationDays) {
-          const calc = computeAnnualised({
-            invested: 10000,
-            payout: 10000 * pr.multiple,
-            durationDays: pr.durationDays,
-          });
+      if (!isEducationalContext) {
+        for (const pr of input.claims.promisedReturns) {
+          if (pr.multiple && pr.durationDays) {
+            const calc = computeAnnualised({
+              invested: 10000,
+              payout: 10000 * pr.multiple,
+              durationDays: pr.durationDays,
+            });
 
-          if (
-            calc.success &&
-            (calc.tier === 4 || calc.annualisedMultiple > RULE_THRESHOLDS.RETURN_TOO_HIGH_MULTIPLE || calc.overflow)
-          ) {
-            triggered = true;
-            break;
+            if (
+              calc.success &&
+              (calc.tier === 4 || calc.annualisedMultiple > RULE_THRESHOLDS.RETURN_TOO_HIGH_MULTIPLE || calc.overflow)
+            ) {
+              triggered = true;
+              break;
+            }
           }
         }
       }
@@ -118,8 +139,15 @@ export const RULE_DEFINITIONS: Record<RuleId, RuleDefinition> = {
     name: 'Request for OTP or Remote App / APK Installation',
     severity: RULE_THRESHOLDS.SEVERITIES.ASKS_OTP_OR_APP_INSTALL,
     evaluate: (input: DecisionInput) => {
+      const lower = input.maskedText.toLowerCase();
+      const isEducationalQuestion =
+        /\b(what are|why do|how do|explain|what is|phishing techniques|literacy class)\b/i.test(lower) &&
+        !/\b(share otp|enter otp|send otp|download app|install apk|give pin)\b/i.test(lower);
+
       const triggered =
-        input.claims.requests.includes('OTP') || input.claims.requests.includes('APP_INSTALL');
+        !isEducationalQuestion &&
+        (input.claims.requests.includes('OTP') || input.claims.requests.includes('APP_INSTALL'));
+
       return {
         ruleId: 'ASKS_OTP_OR_APP_INSTALL',
         triggered,
@@ -211,6 +239,86 @@ export const RULE_DEFINITIONS: Record<RuleId, RuleDefinition> = {
       };
     },
   },
+
+  SUSPICIOUS_LOAN_OFFER: {
+    id: 'SUSPICIOUS_LOAN_OFFER',
+    name: 'Unsolicited Pre-Approved Loan Offer',
+    severity: 'critical',
+    evaluate: (input: DecisionInput) => {
+      const triggered = input.claims.requests.includes('LOAN_OFFER');
+      return {
+        ruleId: 'SUSPICIOUS_LOAN_OFFER',
+        triggered,
+        score: triggered ? 0.9 : 0,
+        severity: 'critical',
+        reasonKey: 'rules.SUSPICIOUS_LOAN_OFFER',
+      };
+    },
+  },
+
+  SUSPICIOUS_SHORT_LINK: {
+    id: 'SUSPICIOUS_SHORT_LINK',
+    name: 'Suspicious Shortened Link',
+    severity: 'high',
+    evaluate: (input: DecisionInput) => {
+      const triggered = input.claims.requests.includes('SHORT_LINK');
+      return {
+        ruleId: 'SUSPICIOUS_SHORT_LINK',
+        triggered,
+        score: triggered ? 0.7 : 0,
+        severity: 'high',
+        reasonKey: 'rules.SUSPICIOUS_SHORT_LINK',
+      };
+    },
+  },
+
+  EMAIL_SENDER_SPOOFING_MISMATCH: {
+    id: 'EMAIL_SENDER_SPOOFING_MISMATCH',
+    name: 'Email Sender Display-Name Brand Spoofing Mismatch',
+    severity: 'high',
+    evaluate: (input: DecisionInput) => {
+      const triggered = input.maskedText.includes('[Signal: Display name claims authority brand');
+      return {
+        ruleId: 'EMAIL_SENDER_SPOOFING_MISMATCH',
+        triggered,
+        score: triggered ? 0.8 : 0,
+        severity: 'high',
+        reasonKey: 'rules.EMAIL_SENDER_SPOOFING_MISMATCH',
+      };
+    },
+  },
+
+  EMAIL_REPLYTO_MISMATCH: {
+    id: 'EMAIL_REPLYTO_MISMATCH',
+    name: 'Email Reply-To Domain Differs From Sender Domain',
+    severity: 'high',
+    evaluate: (input: DecisionInput) => {
+      const triggered = input.maskedText.includes('[Signal: Reply-To domain differs');
+      return {
+        ruleId: 'EMAIL_REPLYTO_MISMATCH',
+        triggered,
+        score: triggered ? 0.8 : 0,
+        severity: 'high',
+        reasonKey: 'rules.EMAIL_REPLYTO_MISMATCH',
+      };
+    },
+  },
+
+  EMAIL_LINK_DESTINATION_MISMATCH: {
+    id: 'EMAIL_LINK_DESTINATION_MISMATCH',
+    name: 'HTML Anchor Visible Text vs Destination URL Mismatch',
+    severity: 'high',
+    evaluate: (input: DecisionInput) => {
+      const triggered = input.maskedText.includes('[Signal Link Destination Mismatch');
+      return {
+        ruleId: 'EMAIL_LINK_DESTINATION_MISMATCH',
+        triggered,
+        score: triggered ? 0.9 : 0,
+        severity: 'high',
+        reasonKey: 'rules.EMAIL_LINK_DESTINATION_MISMATCH',
+      };
+    },
+  },
 };
 
 export function evaluateRegisteredRules(input: DecisionInput): RuleResult[] {
@@ -223,3 +331,4 @@ export function evaluateRegisteredRules(input: DecisionInput): RuleResult[] {
   }
   return results;
 }
+

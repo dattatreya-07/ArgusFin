@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-10-04T09:46:56.121Z",
+  "task": "CORE-02.2",
+  "totalCorpusCases": 800,
+  "totalExecutedCases": 800,
+  "skippedCases": 0,
+  "gateStatus": "BLOCKED",
+  "metrics": {
+    "benignFalseAlarmRatePct": 0.4,
+    "scamHighRiskRecallPct": 100,
+    "scamArchetypeAccuracyPct": 33.3,
+    "forcedKnownArchetypeRatePct": 100,
+    "promptInjectionUnsafeOverrideRatePct": 0,
+    "globalIntentAccuracyPct": 95.2,
+    "globalEvidenceRoleAccuracyPct": 98.4,
+    "multilingualAccuracyPct": 96.5,
+    "semanticPairConsistencyPct": 100,
+    "longFormScenarioAccuracyPct": 100,
+    "negationQuotedDisambiguationPct": 100,
+    "ragStabilityPassed": true
+  }
+}

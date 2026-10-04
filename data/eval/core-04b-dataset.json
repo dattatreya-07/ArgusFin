@@ -1,0 +1,1052 @@
+[
+  {
+    "id": "c04b-1",
+    "domain": "FIXED_INCOME",
+    "query": "What is the difference between coupon rate and bond yield?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-2",
+    "domain": "FIXED_INCOME",
+    "query": "Why do government securities G-Secs have sovereign backing?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-3",
+    "domain": "FIXED_INCOME",
+    "query": "What happens to existing corporate bond market prices when interest rates rise?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-4",
+    "domain": "FIXED_INCOME",
+    "query": "How is a treasury bill different from a long term corporate bond?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-5",
+    "domain": "FIXED_INCOME",
+    "query": "What is credit risk or default risk in debt instruments?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-6",
+    "domain": "FIXED_INCOME",
+    "query": "Why can a corporate bond trade in secondary markets below its face value?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-7",
+    "domain": "FIXED_INCOME",
+    "query": "What is the penalty for premature withdrawal of a fixed deposit?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-8",
+    "domain": "FIXED_INCOME",
+    "query": "Why does bond yield move inversely to bond price?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-9",
+    "domain": "FIXED_INCOME",
+    "query": "What is the maturity period of a 91 day treasury bill?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-10",
+    "domain": "FIXED_INCOME",
+    "query": "How does compounding frequency affect fixed deposit interest yield?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-11",
+    "domain": "FIXED_INCOME",
+    "query": "बॉन्ड यील्ड और कूपन रेट में क्या अंतर है?",
+    "lang": "hi",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-12",
+    "domain": "FIXED_INCOME",
+    "query": "बॉन्ड की कीमत ब्याज दर बढ़ने पर क्यों गिरती है?",
+    "lang": "hi",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-13",
+    "domain": "FIXED_INCOME",
+    "query": "பத்திர விளைச்சல் என்றால் என்ன?",
+    "lang": "ta",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-14",
+    "domain": "FIXED_INCOME",
+    "query": "What is interest rate risk in fixed income portfolios?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-15",
+    "domain": "FIXED_INCOME",
+    "query": "How does credit rating affect corporate bond yields?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-16",
+    "domain": "MUTUAL_FUNDS",
+    "query": "How is Net Asset Value NAV calculated for mutual fund units?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-17",
+    "domain": "MUTUAL_FUNDS",
+    "query": "How does the annual expense ratio affect investor net returns?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-18",
+    "domain": "MUTUAL_FUNDS",
+    "query": "What is rupee cost averaging in a Systematic Investment Plan SIP?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-19",
+    "domain": "MUTUAL_FUNDS",
+    "query": "What is the difference between open ended and closed ended mutual funds?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-20",
+    "domain": "MUTUAL_FUNDS",
+    "query": "How does a liquid debt mutual fund work compared to savings deposit?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-21",
+    "domain": "MUTUAL_FUNDS",
+    "query": "What is fund redemption in mutual fund units?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-22",
+    "domain": "MUTUAL_FUNDS",
+    "query": "Why is historical 3 year CAGR performance not a guarantee of future NAV growth?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-23",
+    "domain": "MUTUAL_FUNDS",
+    "query": "What is the role of an Asset Management Company AMC?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-24",
+    "domain": "MUTUAL_FUNDS",
+    "query": "What is a benchmark index for an equity mutual fund?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-25",
+    "domain": "MUTUAL_FUNDS",
+    "query": "What is the difference between dividend payout option and growth option in mutual funds?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-26",
+    "domain": "MUTUAL_FUNDS",
+    "query": "म्यूचुअल फंड में एनएवी और एक्सपेंस रेशियो क्या है?",
+    "lang": "hi",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-27",
+    "domain": "MUTUAL_FUNDS",
+    "query": "एसआईपी में रुपया लागत औसतीकरण कैसे काम करता है?",
+    "lang": "hi",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-28",
+    "domain": "MUTUAL_FUNDS",
+    "query": "மியூச்சுவல் ஃபண்டில் NAV எவ்வாறு கணக்கிடப்படுகிறது?",
+    "lang": "ta",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-29",
+    "domain": "MUTUAL_FUNDS",
+    "query": "How is exit load calculated on mutual fund redemption?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-30",
+    "domain": "MUTUAL_FUNDS",
+    "query": "What is tracking error in index mutual funds?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-31",
+    "domain": "EQUITY_SHARES",
+    "query": "What does T+1 settlement cycle mean in stock market trading?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-32",
+    "domain": "EQUITY_SHARES",
+    "query": "What is the difference between market capitalization and book value?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-33",
+    "domain": "EQUITY_SHARES",
+    "query": "What happens during share dilution when a company issues new shares?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-34",
+    "domain": "EQUITY_SHARES",
+    "query": "What is the role of stockbrokers on NSE and BSE exchanges?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-35",
+    "domain": "EQUITY_SHARES",
+    "query": "What is the regulatory role of depositories like NSDL and CDSL?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-36",
+    "domain": "EQUITY_SHARES",
+    "query": "How do dividend payments differ from capital gains?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-37",
+    "domain": "EQUITY_SHARES",
+    "query": "What is a Demat account and why is it mandatory for share trading?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-38",
+    "domain": "EQUITY_SHARES",
+    "query": "Why does a stock price move when company earnings reports are published?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-39",
+    "domain": "EQUITY_SHARES",
+    "query": "What is a corporate action like stock split or bonus share issue?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-40",
+    "domain": "EQUITY_SHARES",
+    "query": "What is fractional share ownership in equity markets?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-41",
+    "domain": "EQUITY_SHARES",
+    "query": "शेयर बाजार में T+1 सेटलमेंट का क्या अर्थ है?",
+    "lang": "hi",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-42",
+    "domain": "EQUITY_SHARES",
+    "query": "डिमैट खाता और स्टॉक ब्रोकर की क्या भूमिका है?",
+    "lang": "hi",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-43",
+    "domain": "EQUITY_SHARES",
+    "query": "பங்குச் சந்தையில் T+1 செட்டில்மென்ட் என்றால் என்ன?",
+    "lang": "ta",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-44",
+    "domain": "EQUITY_SHARES",
+    "query": "How does equity liquidity affect share price volatility?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-45",
+    "domain": "EQUITY_SHARES",
+    "query": "What is face value versus market price of a stock?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-46",
+    "domain": "IPO_ALLOTMENT",
+    "query": "How does ASBA Application Supported by Blocked Amount protect IPO applicants?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-47",
+    "domain": "IPO_ALLOTMENT",
+    "query": "What is the primary market versus secondary stock market?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-48",
+    "domain": "IPO_ALLOTMENT",
+    "query": "Why can a valid IPO application fail to get share allotment in oversubscription?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-49",
+    "domain": "IPO_ALLOTMENT",
+    "query": "What is price discovery in an IPO book building process?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-50",
+    "domain": "IPO_ALLOTMENT",
+    "query": "Why are claims of 100% guaranteed IPO allotment fraudulent under SEBI rules?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-51",
+    "domain": "IPO_ALLOTMENT",
+    "query": "What is the listing day price band in an initial public offering?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-52",
+    "domain": "IPO_ALLOTMENT",
+    "query": "What is the difference between retail quota and QIB quota in IPOs?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-53",
+    "domain": "IPO_ALLOTMENT",
+    "query": "How are refund amounts unblocked if an IPO is not allotted?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-54",
+    "domain": "IPO_ALLOTMENT",
+    "query": "What is a red herring prospectus RHP in an IPO?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-55",
+    "domain": "IPO_ALLOTMENT",
+    "query": "Why should investors never pay cash to private individuals for IPO shares?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-56",
+    "domain": "IPO_ALLOTMENT",
+    "query": "आईपीओ में एएसबीए व्यवस्था कैसे काम करती है?",
+    "lang": "hi",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-57",
+    "domain": "IPO_ALLOTMENT",
+    "query": "गारंटीकृत आईपीओ अलॉटमेंट के दावे अवैध क्यों हैं?",
+    "lang": "hi",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-58",
+    "domain": "IPO_ALLOTMENT",
+    "query": "IPO ஒதுக்கீட்டில் ASBA எவ்வாறு செயல்படுகிறது?",
+    "lang": "ta",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-59",
+    "domain": "IPO_ALLOTMENT",
+    "query": "What is anchor investor quota in IPO book building?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-60",
+    "domain": "IPO_ALLOTMENT",
+    "query": "What is green shoe option in IPO listing?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-61",
+    "domain": "FUTURES_OPTIONS",
+    "query": "Why is leverage dangerous for retail traders in futures and options F&O?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-62",
+    "domain": "FUTURES_OPTIONS",
+    "query": "What is the difference between a Call option and a Put option?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-63",
+    "domain": "FUTURES_OPTIONS",
+    "query": "What is option premium paid by the buyer to the seller?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-64",
+    "domain": "FUTURES_OPTIONS",
+    "query": "What happens on the strike price expiry date of a derivatives contract?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-65",
+    "domain": "FUTURES_OPTIONS",
+    "query": "Why do SEBI studies show 9 out of 10 retail traders lose money in F&O?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-66",
+    "domain": "FUTURES_OPTIONS",
+    "query": "What is initial margin required to open a futures position?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-67",
+    "domain": "FUTURES_OPTIONS",
+    "query": "What is an underlying asset in a derivative contract?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-68",
+    "domain": "FUTURES_OPTIONS",
+    "query": "How does time decay theta affect option premium value?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-69",
+    "domain": "FUTURES_OPTIONS",
+    "query": "What is open interest OI in futures market analysis?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-70",
+    "domain": "FUTURES_OPTIONS",
+    "query": "Why is F&O designed for institutional hedging rather than retail doubling?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-71",
+    "domain": "FUTURES_OPTIONS",
+    "query": "वायदा और विकल्प एफएंडओ ट्रेडिंग में मार्जिन और लीवरेज क्या है?",
+    "lang": "hi",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-72",
+    "domain": "FUTURES_OPTIONS",
+    "query": "सेबी अध्ययन के अनुसार F&O में नुकसान क्यों होता है?",
+    "lang": "hi",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-73",
+    "domain": "FUTURES_OPTIONS",
+    "query": "ஃபியூச்சர்ஸ் மற்றும் ஆப்சன்ஸ் வர்த்தகத்தில் லீவரேஜ் ஆபத்து ஏன்?",
+    "lang": "ta",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-74",
+    "domain": "FUTURES_OPTIONS",
+    "query": "What is marked to market MTM settlement in futures trading?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-75",
+    "domain": "FUTURES_OPTIONS",
+    "query": "What is short selling in derivative market contracts?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-76",
+    "domain": "COMMODITIES",
+    "query": "How do commodity futures contracts work on MCX exchange?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-77",
+    "domain": "COMMODITIES",
+    "query": "What is physical settlement versus financial settlement in commodity trading?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-78",
+    "domain": "COMMODITIES",
+    "query": "Why do agricultural commodities experience extreme seasonal price volatility?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-79",
+    "domain": "COMMODITIES",
+    "query": "What is margin requirement in commodity futures trading?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-80",
+    "domain": "COMMODITIES",
+    "query": "How does global supply chain disruption affect crude oil futures prices?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-81",
+    "domain": "COMMODITIES",
+    "query": "What is gold sovereign bond versus gold commodity futures contract?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-82",
+    "domain": "COMMODITIES",
+    "query": "Why can leverage in commodity trading cause rapid capital loss?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-83",
+    "domain": "COMMODITIES",
+    "query": "What is spot price versus futures price in commodity markets?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-84",
+    "domain": "COMMODITIES",
+    "query": "How is storage cost or carry cost factored into commodity futures?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-85",
+    "domain": "COMMODITIES",
+    "query": "What is backwardation versus contango in commodity curves?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-86",
+    "domain": "COMMODITIES",
+    "query": "कमोडिटी वायदा कारोबार में मार्जिन और सेटलमेंट कैसे होता है?",
+    "lang": "hi",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-87",
+    "domain": "COMMODITIES",
+    "query": "गोल्ड बांड और कमोडिटी फ्यूचर्स में क्या अंतर है?",
+    "lang": "hi",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-88",
+    "domain": "COMMODITIES",
+    "query": "கமாடிட்டி சந்தையில் ஃபியூச்சர்ஸ் வர்த்தகம் எவ்வாறு செயல்படுகிறது?",
+    "lang": "ta",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-89",
+    "domain": "COMMODITIES",
+    "query": "What is contract lot size in MCX commodity trading?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-90",
+    "domain": "COMMODITIES",
+    "query": "How does currency fluctuation affect imported commodity prices?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-91",
+    "domain": "CRYPTO_VDA",
+    "query": "Why are cryptocurrency blockchain transactions mathematically irreversible?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-92",
+    "domain": "CRYPTO_VDA",
+    "query": "What is counterparty risk when storing crypto on an unregulated exchange?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-93",
+    "domain": "CRYPTO_VDA",
+    "query": "Why are crypto staking platforms promising fixed daily yields dangerous?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-94",
+    "domain": "CRYPTO_VDA",
+    "query": "What is the difference between a hot wallet and a cold storage wallet?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-95",
+    "domain": "CRYPTO_VDA",
+    "query": "Why is cryptocurrency not recognized as legal tender in India?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-96",
+    "domain": "CRYPTO_VDA",
+    "query": "What is private key security in self custody crypto wallets?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-97",
+    "domain": "CRYPTO_VDA",
+    "query": "Why do crypto exchanges temporarily restrict withdrawals during market crashes?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-98",
+    "domain": "CRYPTO_VDA",
+    "query": "What is extreme price volatility in virtual digital asset markets?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-99",
+    "domain": "CRYPTO_VDA",
+    "query": "How do Ponzi schemes hide behind crypto yield mining claims?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-100",
+    "domain": "CRYPTO_VDA",
+    "query": "What is FIU-IND registration requirement for virtual digital asset providers?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-101",
+    "domain": "CRYPTO_VDA",
+    "query": "क्रिप्टो संपत्ति में लेनदेन अपरिवर्तनीय क्यों होते हैं?",
+    "lang": "hi",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-102",
+    "domain": "CRYPTO_VDA",
+    "query": "क्रिप्टो एक्सचेंज में कस्टडी और प्लेटफॉर्म रिस्क क्या है?",
+    "lang": "hi",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-103",
+    "domain": "CRYPTO_VDA",
+    "query": "கிரிப்டோ பரிவர்த்தனைகள் ஏன் மாற்ற முடியாதவை?",
+    "lang": "ta",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-104",
+    "domain": "CRYPTO_VDA",
+    "query": "What is double spending risk in blockchain consensus?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-105",
+    "domain": "CRYPTO_VDA",
+    "query": "Why are recovery agents promising to hack lost crypto wallets fraudulent?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-106",
+    "domain": "COPY_TRADING",
+    "query": "Why does SEBI warn retail investors against unregistered copy trading platforms?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-107",
+    "domain": "COPY_TRADING",
+    "query": "What is the conflict of interest in leader follower mirror trading bots?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-108",
+    "domain": "COPY_TRADING",
+    "query": "Why are fake profit screenshots on Telegram used to lure copy trading subscribers?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-109",
+    "domain": "COPY_TRADING",
+    "query": "What is the risk of sharing trading API tokens or account credentials with third party bots?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-110",
+    "domain": "COPY_TRADING",
+    "query": "Why is guaranteed return in algorithmic copy trading illegal under SEBI rules?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-111",
+    "domain": "COPY_TRADING",
+    "query": "How do unregistered finfluencers monetize fake trading signals?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-112",
+    "domain": "COPY_TRADING",
+    "query": "What is slippage risk during automated copy trading execution?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-113",
+    "domain": "COPY_TRADING",
+    "query": "Why can a strategy leader profit while followers incur severe slippage losses?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-114",
+    "domain": "COPY_TRADING",
+    "query": "What is SEBI registration requirement for investment advisers?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-115",
+    "domain": "COPY_TRADING",
+    "query": "How to verify if a copy trading platform is registered on SEBI SCORES portal?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-116",
+    "domain": "COPY_TRADING",
+    "query": "सेबी कॉपी ट्रेडिंग और अनधिकृत एल्गो बॉट पर क्या चेतावनी देता है?",
+    "lang": "hi",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-117",
+    "domain": "COPY_TRADING",
+    "query": "ट्रेडिंग एपीआई टोकन साझा करने का क्या जोखिम है?",
+    "lang": "hi",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-118",
+    "domain": "COPY_TRADING",
+    "query": "செபி அங்கீகரிக்கப்படாத காப்பி டிரேடிங் எச்சரிக்கை என்ன?",
+    "lang": "ta",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-119",
+    "domain": "COPY_TRADING",
+    "query": "What is master account leverage pass through in mirror trading?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-120",
+    "domain": "COPY_TRADING",
+    "query": "Why are VIP signal channels demanding advance subscription fees fraudulent?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-121",
+    "domain": "FINANCIAL_SAFETY",
+    "query": "Why is the first 2 to 4 hours called the Golden Hour for dialing 1930 cyber helpline?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-122",
+    "domain": "FINANCIAL_SAFETY",
+    "query": "How does calling 1930 alert beneficiary banks to freeze siphoned funds?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-123",
+    "domain": "FINANCIAL_SAFETY",
+    "query": "Why should you never install AnyDesk or TeamViewer at the request of an unknown caller?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-124",
+    "domain": "FINANCIAL_SAFETY",
+    "query": "How does Chakshu facility on Sanchar Saathi block fraudulent telecom numbers?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-125",
+    "domain": "FINANCIAL_SAFETY",
+    "query": "Why do scammers demand advance TDS or clearance tax fees before releasing fake profits?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-126",
+    "domain": "FINANCIAL_SAFETY",
+    "query": "What is a mule bank account used by cybercrime networks?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-127",
+    "domain": "FINANCIAL_SAFETY",
+    "query": "How to file a formal complaint on cybercrime.gov.in after financial fraud?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-128",
+    "domain": "FINANCIAL_SAFETY",
+    "query": "Why do legitimate government officers never issue digital arrest warrants over video call?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-129",
+    "domain": "FINANCIAL_SAFETY",
+    "query": "Why should you never enter your UPI PIN to receive a money refund?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-130",
+    "domain": "FINANCIAL_SAFETY",
+    "query": "How do phishing short links bit.ly steal banking credentials?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-131",
+    "domain": "FINANCIAL_SAFETY",
+    "query": "1930 हेल्पलाइन पर गोल्डन आवर में कॉल करने का क्या लाभ है?",
+    "lang": "hi",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-132",
+    "domain": "FINANCIAL_SAFETY",
+    "query": "रिमोट एक्सेस ऐप जैसे AnyDesk इंस्टॉल करने से धोखाधड़ी कैसे होती है?",
+    "lang": "hi",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-133",
+    "domain": "FINANCIAL_SAFETY",
+    "query": "1930 உதவி எண் மற்றும் cybercrime.gov.in புகாரளிக்கும் முறை என்ன?",
+    "lang": "ta",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-134",
+    "domain": "FINANCIAL_SAFETY",
+    "query": "What is credential harvesting via fake bank KYC update SMS?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-135",
+    "domain": "FINANCIAL_SAFETY",
+    "query": "Why are recovery scam agents claiming to refund lost money advance fee traps?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-136",
+    "domain": "REGULATORY_ECOSYSTEM",
+    "query": "What is the primary mandate of SEBI in protecting retail securities investors?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-137",
+    "domain": "REGULATORY_ECOSYSTEM",
+    "query": "What is the role of RBI in regulating bank deposits and payment systems?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-138",
+    "domain": "REGULATORY_ECOSYSTEM",
+    "query": "How does SEBI SCORES portal resolve investor grievances against registered intermediaries?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-139",
+    "domain": "REGULATORY_ECOSYSTEM",
+    "query": "What is the function of RBI Sachet portal in checking unregistered deposit schemes?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-140",
+    "domain": "REGULATORY_ECOSYSTEM",
+    "query": "What is the role of Stock Exchange Investor Protection Fund IPF?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-141",
+    "domain": "REGULATORY_ECOSYSTEM",
+    "query": "What is the statutory role of IRDAI in insurance sector regulation?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-142",
+    "domain": "REGULATORY_ECOSYSTEM",
+    "query": "What is the function of PFRDA in pension fund regulation?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-143",
+    "domain": "REGULATORY_ECOSYSTEM",
+    "query": "How to verify an entity regulatory registration number before depositing money?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-144",
+    "domain": "REGULATORY_ECOSYSTEM",
+    "query": "What is the Banning of Unregulated Deposit Schemes BUDS Act 2019?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-145",
+    "domain": "REGULATORY_ECOSYSTEM",
+    "query": "What is the difference between SEBI registered broker and unregistered sub agent?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-146",
+    "domain": "REGULATORY_ECOSYSTEM",
+    "query": "सेबी और आरबीआई का निवेशक संरक्षण में क्या कार्य है?",
+    "lang": "hi",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-147",
+    "domain": "REGULATORY_ECOSYSTEM",
+    "query": "स्कोर्स SCORES पोर्टल पर शिकायत कैसे दर्ज की जाती है?",
+    "lang": "hi",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-148",
+    "domain": "REGULATORY_ECOSYSTEM",
+    "query": "செபி மற்றும் ஆர்பிஐ அமைப்புகளின் முதலீட்டாளர் பாதுகாப்பு பங்கை விவரிக்கவும்.",
+    "lang": "ta",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-149",
+    "domain": "REGULATORY_ECOSYSTEM",
+    "query": "What is SEBI Ombudsman framework for investor dispute resolution?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  },
+  {
+    "id": "c04b-150",
+    "domain": "REGULATORY_ECOSYSTEM",
+    "query": "How does Financial Intelligence Unit FIU-IND monitor suspicious financial transactions?",
+    "lang": "en",
+    "expectedStatus": "ANSWERED"
+  }
+]

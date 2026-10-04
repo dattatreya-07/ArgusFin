@@ -1,0 +1,121 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { Link, usePathname } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { ThemeToggle } from '@/components/ThemeToggle';
+
+export function HeaderNav() {
+  const tNav = useTranslations('nav');
+  const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 40);
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { href: '/', label: tNav('home'), exact: true },
+    { href: '/check', label: tNav('check'), badge: true },
+    { href: '/calculator', label: tNav('calculator') },
+    { href: '/learn', label: tNav('learn') },
+    { href: '/intelligence', label: tNav('intelligence') },
+    { href: '/authorities', label: tNav('authorities') },
+    { href: '/report', label: tNav('report') },
+    { href: '/ask', label: tNav('ask') },
+  ];
+
+  const isActiveRoute = (href: string, exact: boolean = false) => {
+    if (exact || href === '/') {
+      return pathname === '/' || pathname === '';
+    }
+    return pathname.startsWith(href);
+  };
+
+  return (
+    <header
+      className={`sticky top-0 z-40 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-surface/95 backdrop-blur-md border-b border-border shadow-soft'
+          : 'bg-canvas/40 backdrop-blur-sm border-b border-transparent'
+      }`}
+    >
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 py-3 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
+        {/* Brand Logo & Mobile Actions */}
+        <div className="flex items-center justify-between">
+          <Link
+            href="/"
+            className="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg p-1"
+          >
+            {/* Official Branded Mark from Assets */}
+            <div className="relative flex items-center justify-center">
+              <img
+                src="/assets/logo.png"
+                alt="Argus Fin Logo"
+                className="w-8 h-8 object-contain rounded-md shadow-soft group-hover:scale-105 transition-transform"
+              />
+              <span className="absolute -top-1 -right-1 flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+            </div>
+
+            {/* ARGUS in Ink and FIN in Golden Light Orange */}
+            <div className="flex items-center">
+              <span className="text-xl font-black tracking-tight text-ink font-inktrap">
+                Argus
+              </span>
+              <span className="text-xl font-black tracking-tight text-highlight font-inktrap ml-0.5">
+                Fin
+              </span>
+              <span className="hidden sm:inline-block ml-2 text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 bg-surface-sunken text-accent border border-border rounded">
+                Scam Defense
+              </span>
+            </div>
+          </Link>
+
+          <div className="flex items-center gap-2 lg:hidden">
+            <ThemeToggle />
+            <LanguageSwitcher />
+          </div>
+        </div>
+
+        {/* Matrix-Style Navigation Bar (No Scrollbar, 6 Clean Links) */}
+        <nav
+          aria-label="Main navigation"
+          className="grid grid-cols-3 sm:flex sm:flex-wrap items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-ink-muted"
+        >
+          {navLinks.map((link) => {
+            const active = isActiveRoute(link.href, link.exact);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-center px-2.5 py-1.5 rounded-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent flex items-center justify-center gap-1.5 ${
+                  active
+                    ? 'font-bold text-accent border-b-2 border-accent bg-accent-soft/40 shadow-xs'
+                    : 'font-semibold border-b-2 border-transparent hover:border-border hover:bg-surface-sunken hover:text-ink'
+                }`}
+              >
+                {link.badge && <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />}
+                <span>{link.label}</span>
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Desktop Controls */}
+        <div className="hidden lg:flex items-center gap-3">
+          <ThemeToggle />
+          <LanguageSwitcher />
+        </div>
+      </div>
+    </header>
+  );
+}

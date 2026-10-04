@@ -1,0 +1,487 @@
+{
+  "summary": {
+    "evaluatedAt": "2026-10-04T10:09:43.495Z",
+    "totalNovelScams": 20,
+    "passedNovelScams": 20,
+    "novelScamPassRate": 100,
+    "benignQueriesTested": 7,
+    "benignQueriesPassed": 7,
+    "benignPassRate": 100,
+    "n8nParityCases": 20,
+    "n8nParityPassed": 20,
+    "n8nParityRate": 100,
+    "imageCasesTested": 4,
+    "imageCasesPassed": 4,
+    "imagePassRate": 100
+  },
+  "apiResults": [
+    {
+      "id": "api-01-courier",
+      "category": "courier",
+      "input": "Your package is waiting for customs clearance. Pay ₹1840 within 30 minutes using the link below or the shipment will be returned.",
+      "endpoint": "/api/check",
+      "httpStatus": 200,
+      "requestId": "req_mutnszsm_5qixo5",
+      "returnedRiskBand": "HIGH",
+      "returnedArchetype": "OTHER_SUSPICIOUS_FINANCIAL_PATTERN",
+      "signalsCount": 0,
+      "explanation": "Claims representation of official government, regulatory, or police authority Uses institutional or official authority to enforce compliance Requests monetary payment, transfer, or fee deposit\n\nBased on patterns in the message only; not checked against official sources yet.",
+      "unverifiedCount": 4,
+      "citationsCount": 2,
+      "latencyMs": 49,
+      "passed": true
+    },
+    {
+      "id": "api-02-electricity",
+      "category": "electricity",
+      "input": "FINAL NOTICE: Electricity supply will be disconnected tonight because your bill has not been updated. Complete the ₹799 verification payment immediately.",
+      "endpoint": "/api/check",
+      "httpStatus": 200,
+      "requestId": "req_mutnszub_xikxge",
+      "returnedRiskBand": "HIGH",
+      "returnedArchetype": "OTHER_SUSPICIOUS_FINANCIAL_PATTERN",
+      "signalsCount": 0,
+      "explanation": "Claims representation of power / electricity utility department Imposes short deadline or immediate time pressure Threatens severe negative consequences (disconnection, arrest, SIM deactivation, fine, suspension) Leverages fear or legal penalty to coerce action Uses institutional or official authority to enforce compliance Requests monetary payment, transfer, or fee deposit\n\nBased on patterns in the message only; not checked against official sources yet.",
+      "unverifiedCount": 4,
+      "citationsCount": 0,
+      "latencyMs": 4,
+      "passed": true
+    },
+    {
+      "id": "api-03-employment",
+      "category": "employment",
+      "input": "You have been selected for remote work. Deposit ₹1,200 for account activation and you can start earning ₹4,000 per day.",
+      "endpoint": "/api/check",
+      "httpStatus": 200,
+      "requestId": "req_mutnszuj_hyvvwz",
+      "returnedRiskBand": "MEDIUM",
+      "returnedArchetype": "OTHER_SUSPICIOUS_FINANCIAL_PATTERN",
+      "signalsCount": 0,
+      "explanation": "Requests monetary payment, transfer, or fee deposit\n\nBased on patterns in the message only; not checked against official sources yet.",
+      "unverifiedCount": 4,
+      "citationsCount": 2,
+      "latencyMs": 7,
+      "passed": true
+    },
+    {
+      "id": "api-04-refund",
+      "category": "fake refund",
+      "input": "Your online purchase qualifies for a ₹6,850 refund. Confirm your bank details through this link within 15 minutes.",
+      "endpoint": "/api/check",
+      "httpStatus": 200,
+      "requestId": "req_mutnszv2_66hubg",
+      "returnedRiskBand": "MEDIUM",
+      "returnedArchetype": "OTHER_SUSPICIOUS_FINANCIAL_PATTERN",
+      "signalsCount": 0,
+      "explanation": "Requests monetary payment, transfer, or fee deposit\n\nBased on patterns in the message only; not checked against official sources yet.",
+      "unverifiedCount": 4,
+      "citationsCount": 0,
+      "latencyMs": 7,
+      "passed": true
+    },
+    {
+      "id": "api-05-gov",
+      "category": "government impersonation",
+      "input": "Your subsidy application is approved. Pay ₹399 processing charges to release the amount today.",
+      "endpoint": "/api/check",
+      "httpStatus": 200,
+      "requestId": "req_mutnszvi_v2wjrk",
+      "returnedRiskBand": "MEDIUM",
+      "returnedArchetype": "OTHER_SUSPICIOUS_FINANCIAL_PATTERN",
+      "signalsCount": 0,
+      "explanation": "Requests monetary payment, transfer, or fee deposit\n\nBased on patterns in the message only; not checked against official sources yet.",
+      "unverifiedCount": 4,
+      "citationsCount": 1,
+      "latencyMs": 5,
+      "passed": true
+    },
+    {
+      "id": "api-06-social",
+      "category": "social engineering",
+      "input": "Your friend's phone has been damaged. Please urgently send ₹12,000 to this new UPI ID. Do not call because the phone is unavailable.",
+      "endpoint": "/api/check",
+      "httpStatus": 200,
+      "requestId": "req_mutnszvz_27u9mb",
+      "returnedRiskBand": "MEDIUM",
+      "returnedArchetype": "OTHER_SUSPICIOUS_FINANCIAL_PATTERN",
+      "signalsCount": 0,
+      "explanation": "Requests monetary payment, transfer, or fee deposit\n\nBased on patterns in the message only; not checked against official sources yet.",
+      "unverifiedCount": 4,
+      "citationsCount": 2,
+      "latencyMs": 7,
+      "passed": true
+    },
+    {
+      "id": "api-07-support",
+      "category": "fake support",
+      "input": "Your wallet account has been flagged. Contact our security officer on this number and install the verification application.",
+      "endpoint": "/api/check",
+      "httpStatus": 200,
+      "requestId": "req_mutnszwh_im2kk4",
+      "returnedRiskBand": "HIGH",
+      "returnedArchetype": "OTHER_SUSPICIOUS_FINANCIAL_PATTERN",
+      "signalsCount": 0,
+      "explanation": "Requests downloading unverified mobile APK file or external application\n\nBased on patterns in the message only; not checked against official sources yet.",
+      "unverifiedCount": 4,
+      "citationsCount": 3,
+      "latencyMs": 12,
+      "passed": true
+    },
+    {
+      "id": "api-08-crypto",
+      "category": "crypto",
+      "input": "Your staking account generated ₹72,000. Pay the release tax first to unlock your balance.",
+      "endpoint": "/api/check",
+      "httpStatus": 200,
+      "requestId": "req_mutnszwy_ghxa1g",
+      "returnedRiskBand": "MEDIUM",
+      "returnedArchetype": "OTHER_SUSPICIOUS_FINANCIAL_PATTERN",
+      "signalsCount": 0,
+      "explanation": "Requests monetary payment, transfer, or fee deposit\n\nBased on patterns in the message only; not checked against official sources yet.",
+      "unverifiedCount": 4,
+      "citationsCount": 0,
+      "latencyMs": 3,
+      "passed": true
+    },
+    {
+      "id": "api-09-legal",
+      "category": "fake legal threat",
+      "input": "A legal notice has been issued against your mobile number. Pay the settlement amount immediately to avoid further action.",
+      "endpoint": "/api/check",
+      "httpStatus": 200,
+      "requestId": "req_mutnszx6_qnbtw7",
+      "returnedRiskBand": "HIGH",
+      "returnedArchetype": "OTHER_SUSPICIOUS_FINANCIAL_PATTERN",
+      "signalsCount": 0,
+      "explanation": "Imposes short deadline or immediate time pressure Requests monetary payment, transfer, or fee deposit\n\nBased on patterns in the message only; not checked against official sources yet.",
+      "unverifiedCount": 4,
+      "citationsCount": 0,
+      "latencyMs": 2,
+      "passed": true
+    },
+    {
+      "id": "api-10-travel",
+      "category": "fake travel refund",
+      "input": "Your cancelled flight refund is pending. Pay ₹249 verification charges to receive ₹18,500.",
+      "endpoint": "/api/check",
+      "httpStatus": 200,
+      "requestId": "req_mutnszxd_1i8zmg",
+      "returnedRiskBand": "MEDIUM",
+      "returnedArchetype": "OTHER_SUSPICIOUS_FINANCIAL_PATTERN",
+      "signalsCount": 0,
+      "explanation": "Requests monetary payment, transfer, or fee deposit\n\nBased on patterns in the message only; not checked against official sources yet.",
+      "unverifiedCount": 4,
+      "citationsCount": 0,
+      "latencyMs": 3,
+      "passed": true
+    },
+    {
+      "id": "api-11-digital-arrest",
+      "category": "digital arrest",
+      "input": "Customs department alert: A parcel containing illegal items was seized under your name. Pay ₹25,000 verification bail via UPI immediately.",
+      "endpoint": "/api/check",
+      "httpStatus": 200,
+      "requestId": "req_mutnszxl_efxcqp",
+      "returnedRiskBand": "HIGH",
+      "returnedArchetype": "OTHER_SUSPICIOUS_FINANCIAL_PATTERN",
+      "signalsCount": 0,
+      "explanation": "Claims representation of official government, regulatory, or police authority Imposes short deadline or immediate time pressure Uses institutional or official authority to enforce compliance Requests monetary payment, transfer, or fee deposit\n\nBased on patterns in the message only; not checked against official sources yet.",
+      "unverifiedCount": 4,
+      "citationsCount": 2,
+      "latencyMs": 3,
+      "passed": true
+    },
+    {
+      "id": "api-12-challan-apk",
+      "category": "traffic challan apk",
+      "input": "E-challan pending: Your vehicle recorded 2 speeding violations. Download the official challan pay app from http://echallan-vahan.xyz/pay.apk to avoid court summons.",
+      "endpoint": "/api/check",
+      "httpStatus": 200,
+      "requestId": "req_mutnszxr_96h6z8",
+      "returnedRiskBand": "HIGH",
+      "returnedArchetype": "OTHER_SUSPICIOUS_FINANCIAL_PATTERN",
+      "signalsCount": 1,
+      "explanation": "Never share OTPs or install remote control apps/APKs for investment offers. Claims representation of official government, regulatory, or police authority Uses institutional or official authority to enforce compliance Requests monetary payment, transfer, or fee deposit Contains external hyperlink or URL destination Requests downloading unverified mobile APK file or external application\n\nBased on patterns in the message only; not checked against official sources yet.",
+      "unverifiedCount": 4,
+      "citationsCount": 0,
+      "latencyMs": 8,
+      "passed": true
+    },
+    {
+      "id": "api-13-rental-deposit",
+      "category": "rental deposit scam",
+      "input": "Spacious 2BHK flat available for rent at ₹15,000. Pay ₹5,000 gate pass deposit before visiting to reserve flat.",
+      "endpoint": "/api/check",
+      "httpStatus": 200,
+      "requestId": "req_mutnszy5_nd4shm",
+      "returnedRiskBand": "MEDIUM",
+      "returnedArchetype": "OTHER_SUSPICIOUS_FINANCIAL_PATTERN",
+      "signalsCount": 0,
+      "explanation": "Requests monetary payment, transfer, or fee deposit\n\nBased on patterns in the message only; not checked against official sources yet.",
+      "unverifiedCount": 4,
+      "citationsCount": 2,
+      "latencyMs": 3,
+      "passed": true
+    },
+    {
+      "id": "api-14-medical-emergency",
+      "category": "medical emergency scam",
+      "input": "Urgent: Your nephew was admitted to hospital following an accident. Send ₹15,000 immediately to hospital counter UPI emergency-care@upi for operation.",
+      "endpoint": "/api/check",
+      "httpStatus": 200,
+      "requestId": "req_mutnszyb_gp684s",
+      "returnedRiskBand": "HIGH",
+      "returnedArchetype": "OTHER_SUSPICIOUS_FINANCIAL_PATTERN",
+      "signalsCount": 0,
+      "explanation": "Regulated entities never request deposits into individual personal bank or UPI accounts. Imposes short deadline or immediate time pressure Requests monetary payment, transfer, or fee deposit\n\nBased on patterns in the message only; not checked against official sources yet.",
+      "unverifiedCount": 4,
+      "citationsCount": 2,
+      "latencyMs": 2,
+      "passed": true
+    },
+    {
+      "id": "api-15-pension-update",
+      "category": "fake pension update",
+      "input": "EPFO Alert: Your monthly pension will be suspended due to pending digital life certificate. Submit OTP and pay ₹199 update fee.",
+      "endpoint": "/api/check",
+      "httpStatus": 200,
+      "requestId": "req_mutnszyi_5fpr3f",
+      "returnedRiskBand": "HIGH",
+      "returnedArchetype": "OTHER_SUSPICIOUS_FINANCIAL_PATTERN",
+      "signalsCount": 0,
+      "explanation": "Threatens severe negative consequences (disconnection, arrest, SIM deactivation, fine, suspension) Leverages fear or legal penalty to coerce action Requests monetary payment, transfer, or fee deposit\n\nBased on patterns in the message only; not checked against official sources yet.",
+      "unverifiedCount": 4,
+      "citationsCount": 0,
+      "latencyMs": 2,
+      "passed": true
+    },
+    {
+      "id": "api-16-blue-tick",
+      "category": "fake social media verification",
+      "input": "Instagram badge approval: Your account is verified for blue tick. Pay ₹499 badge fee via link within 2 hours or verification expires.",
+      "endpoint": "/api/check",
+      "httpStatus": 200,
+      "requestId": "req_mutnszyn_5md8p3",
+      "returnedRiskBand": "HIGH",
+      "returnedArchetype": "OTHER_SUSPICIOUS_FINANCIAL_PATTERN",
+      "signalsCount": 0,
+      "explanation": "Imposes short deadline or immediate time pressure Requests monetary payment, transfer, or fee deposit\n\nBased on patterns in the message only; not checked against official sources yet.",
+      "unverifiedCount": 4,
+      "citationsCount": 0,
+      "latencyMs": 2,
+      "passed": true
+    },
+    {
+      "id": "api-17-loyalty-points",
+      "category": "fake loyalty rewards",
+      "input": "Credit Card Reward Points expiring: Redeem 14,500 points worth ₹7,250 now. Enter credit card number and OTP at http://card-rewards-claim.xyz.",
+      "endpoint": "/api/check",
+      "httpStatus": 200,
+      "requestId": "req_mutnszyt_0eltbf",
+      "returnedRiskBand": "HIGH",
+      "returnedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+      "signalsCount": 0,
+      "explanation": "Never share OTPs or install remote control apps/APKs for investment offers. Requests monetary payment, transfer, or fee deposit Contains external hyperlink or URL destination Requests recipient to share active One-Time Password (OTP)\n\nBased on patterns in the message only; not checked against official sources yet.",
+      "unverifiedCount": 4,
+      "citationsCount": 0,
+      "latencyMs": 3,
+      "passed": true
+    },
+    {
+      "id": "api-18-sim-kyc",
+      "category": "fake telecom kyc",
+      "input": "Jio SIM alert: Your SIM card will be deactivated within 2 hours due to unverified KYC. Call customer care 9876543210 immediately.",
+      "endpoint": "/api/check",
+      "httpStatus": 200,
+      "requestId": "req_mutnszz0_g84b46",
+      "returnedRiskBand": "HIGH",
+      "returnedArchetype": "OTHER_SUSPICIOUS_FINANCIAL_PATTERN",
+      "signalsCount": 0,
+      "explanation": "Imposes short deadline or immediate time pressure Threatens severe negative consequences (disconnection, arrest, SIM deactivation, fine, suspension) Leverages fear or legal penalty to coerce action\n\nBased on patterns in the message only; not checked against official sources yet.",
+      "unverifiedCount": 4,
+      "citationsCount": 2,
+      "latencyMs": 2,
+      "passed": true
+    },
+    {
+      "id": "api-19-task-group",
+      "category": "task scam / telegram vip group",
+      "input": "Earn money by rating Google maps places. Complete 3 tasks to earn ₹1,500. Transfer ₹2,000 deposit to enter VIP payout channel.",
+      "endpoint": "/api/check",
+      "httpStatus": 200,
+      "requestId": "req_mutnszz5_csvwge",
+      "returnedRiskBand": "MEDIUM",
+      "returnedArchetype": "PUMP_AND_DUMP_GROUP",
+      "signalsCount": 0,
+      "explanation": "Private VIP channels and groups are commonly used to isolate victims from official warnings. Requests monetary payment, transfer, or fee deposit\n\nBased on patterns in the message only; not checked against official sources yet.",
+      "unverifiedCount": 4,
+      "citationsCount": 0,
+      "latencyMs": 2,
+      "passed": true
+    },
+    {
+      "id": "api-20-loan-waiver",
+      "category": "fake loan waiver",
+      "input": "PM Mudra Loan Waiver scheme: Your outstanding loan of ₹2,00,000 is 100% waived off. Pay ₹1,499 registration fee to download clearance certificate.",
+      "endpoint": "/api/check",
+      "httpStatus": 200,
+      "requestId": "req_mutnszzc_w8d4ap",
+      "returnedRiskBand": "HIGH",
+      "returnedArchetype": "DOUBLING_SCHEME",
+      "signalsCount": 0,
+      "explanation": "Promised return rate is mathematically unsustainable and exceeds real economic benchmarks. Requests monetary payment, transfer, or fee deposit Demands advance fee or upfront payment before releasing service/funds\n\nBased on patterns in the message only; not checked against official sources yet.",
+      "unverifiedCount": 4,
+      "citationsCount": 3,
+      "latencyMs": 3,
+      "passed": true
+    }
+  ],
+  "n8nParityResults": [
+    {
+      "id": "api-01-courier",
+      "checkBand": "HIGH",
+      "n8nBand": "HIGH",
+      "parity": true
+    },
+    {
+      "id": "api-02-electricity",
+      "checkBand": "HIGH",
+      "n8nBand": "HIGH",
+      "parity": true
+    },
+    {
+      "id": "api-03-employment",
+      "checkBand": "MEDIUM",
+      "n8nBand": "MEDIUM",
+      "parity": true
+    },
+    {
+      "id": "api-04-refund",
+      "checkBand": "MEDIUM",
+      "n8nBand": "MEDIUM",
+      "parity": true
+    },
+    {
+      "id": "api-05-gov",
+      "checkBand": "MEDIUM",
+      "n8nBand": "MEDIUM",
+      "parity": true
+    },
+    {
+      "id": "api-06-social",
+      "checkBand": "MEDIUM",
+      "n8nBand": "MEDIUM",
+      "parity": true
+    },
+    {
+      "id": "api-07-support",
+      "checkBand": "HIGH",
+      "n8nBand": "HIGH",
+      "parity": true
+    },
+    {
+      "id": "api-08-crypto",
+      "checkBand": "MEDIUM",
+      "n8nBand": "MEDIUM",
+      "parity": true
+    },
+    {
+      "id": "api-09-legal",
+      "checkBand": "HIGH",
+      "n8nBand": "HIGH",
+      "parity": true
+    },
+    {
+      "id": "api-10-travel",
+      "checkBand": "MEDIUM",
+      "n8nBand": "MEDIUM",
+      "parity": true
+    },
+    {
+      "id": "api-11-digital-arrest",
+      "checkBand": "HIGH",
+      "n8nBand": "HIGH",
+      "parity": true
+    },
+    {
+      "id": "api-12-challan-apk",
+      "checkBand": "HIGH",
+      "n8nBand": "HIGH",
+      "parity": true
+    },
+    {
+      "id": "api-13-rental-deposit",
+      "checkBand": "MEDIUM",
+      "n8nBand": "MEDIUM",
+      "parity": true
+    },
+    {
+      "id": "api-14-medical-emergency",
+      "checkBand": "HIGH",
+      "n8nBand": "HIGH",
+      "parity": true
+    },
+    {
+      "id": "api-15-pension-update",
+      "checkBand": "HIGH",
+      "n8nBand": "HIGH",
+      "parity": true
+    },
+    {
+      "id": "api-16-blue-tick",
+      "checkBand": "HIGH",
+      "n8nBand": "HIGH",
+      "parity": true
+    },
+    {
+      "id": "api-17-loyalty-points",
+      "checkBand": "HIGH",
+      "n8nBand": "HIGH",
+      "parity": true
+    },
+    {
+      "id": "api-18-sim-kyc",
+      "checkBand": "HIGH",
+      "n8nBand": "HIGH",
+      "parity": true
+    },
+    {
+      "id": "api-19-task-group",
+      "checkBand": "MEDIUM",
+      "n8nBand": "MEDIUM",
+      "parity": true
+    },
+    {
+      "id": "api-20-loan-waiver",
+      "checkBand": "HIGH",
+      "n8nBand": "HIGH",
+      "parity": true
+    }
+  ],
+  "imageResults": [
+    {
+      "id": "img-1",
+      "filename": "bank_kyc.png",
+      "band": "HIGH",
+      "valid": true
+    },
+    {
+      "id": "img-2",
+      "filename": "courier_customs.png",
+      "band": "HIGH",
+      "valid": true
+    },
+    {
+      "id": "img-3",
+      "filename": "electricity_disconnect.png",
+      "band": "HIGH",
+      "valid": true
+    },
+    {
+      "id": "img-4",
+      "filename": "work_from_home.png",
+      "band": "MEDIUM",
+      "valid": true
+    }
+  ]
+}

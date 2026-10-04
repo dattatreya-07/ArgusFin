@@ -10,6 +10,8 @@ export type Archetype =
   | 'PUMP_AND_DUMP_GROUP'
   | 'REMOTE_ACCESS_SCAM'
   | 'FAKE_IPO_OR_ALLOTMENT'
+  | 'PRE_APPROVED_LOAN_SCAM'
+  | 'OTHER_SUSPICIOUS_FINANCIAL_PATTERN'
   | 'OTHER_OR_NONE';
 
 export type RiskBand = 'HIGH' | 'MEDIUM' | 'LOW_SIGNALS' | 'CANNOT_VERIFY';
@@ -17,7 +19,7 @@ export type RiskBand = 'HIGH' | 'MEDIUM' | 'LOW_SIGNALS' | 'CANNOT_VERIFY';
 export interface ExtractedClaims {
   promisedReturns: { multiple?: number; durationDays?: number; guaranteed?: boolean }[];
   urgencyPhrases: string[];
-  requests: ('OTP' | 'APP_INSTALL' | 'PAYMENT' | 'GROUP_JOIN' | 'PERSONAL_ACCOUNT')[];
+  requests: ('OTP' | 'APP_INSTALL' | 'PAYMENT' | 'GROUP_JOIN' | 'PERSONAL_ACCOUNT' | 'LOAN_OFFER' | 'SHORT_LINK')[];
   registrationClaims: string[];
   urls: string[];
   handles: string[];

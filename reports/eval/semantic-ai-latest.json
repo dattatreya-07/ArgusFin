@@ -1,0 +1,154 @@
+{
+  "timestamp": "2026-10-04T16:21:39.663Z",
+  "architecture": "Grounded Semantic AI scam detection + Deterministic Safety Engine (Gemini 2.5 + TF-IDF RAG Gating)",
+  "fullArchitecture": {
+    "totalCases": 603,
+    "overallAccuracyPct": 58.5,
+    "scamPrecisionPct": 90.6,
+    "scamRecallPct": 60.5,
+    "scamF1Score": 72.6,
+    "benignFalsePositiveRatePct": 8.5,
+    "promptInjectionResiliencePct": 66,
+    "knowledgeGateAccuracyPct": 73.8,
+    "ragExecutedCount": 4,
+    "ragBypassedCount": 599,
+    "averageLatencyMs": 1,
+    "categoryBreakdown": {
+      "NOVEL_SCAM": {
+        "total": 204,
+        "correct": 124,
+        "accuracyPct": 60.8
+      },
+      "BENIGN_FINANCIAL": {
+        "total": 99,
+        "correct": 11,
+        "accuracyPct": 11.1
+      },
+      "EDUCATIONAL_QUESTION": {
+        "total": 100,
+        "correct": 95,
+        "accuracyPct": 95
+      },
+      "SCAM_WARNING_QUOTE": {
+        "total": 50,
+        "correct": 27,
+        "accuracyPct": 54
+      },
+      "MULTILINGUAL_CODESWITCH": {
+        "total": 50,
+        "correct": 28,
+        "accuracyPct": 56
+      },
+      "PROMPT_INJECTION": {
+        "total": 50,
+        "correct": 33,
+        "accuracyPct": 66
+      },
+      "AMBIGUOUS_EDGE": {
+        "total": 50,
+        "correct": 35,
+        "accuracyPct": 70
+      }
+    }
+  },
+  "ragOffAblation": {
+    "totalCases": 603,
+    "overallAccuracyPct": 58.5,
+    "scamPrecisionPct": 90.6,
+    "scamRecallPct": 60.5,
+    "scamF1Score": 72.6,
+    "benignFalsePositiveRatePct": 8.5,
+    "promptInjectionResiliencePct": 66,
+    "knowledgeGateAccuracyPct": 100,
+    "ragExecutedCount": 0,
+    "ragBypassedCount": 603,
+    "averageLatencyMs": 0,
+    "categoryBreakdown": {
+      "NOVEL_SCAM": {
+        "total": 204,
+        "correct": 124,
+        "accuracyPct": 60.8
+      },
+      "BENIGN_FINANCIAL": {
+        "total": 99,
+        "correct": 11,
+        "accuracyPct": 11.1
+      },
+      "EDUCATIONAL_QUESTION": {
+        "total": 100,
+        "correct": 95,
+        "accuracyPct": 95
+      },
+      "SCAM_WARNING_QUOTE": {
+        "total": 50,
+        "correct": 27,
+        "accuracyPct": 54
+      },
+      "MULTILINGUAL_CODESWITCH": {
+        "total": 50,
+        "correct": 28,
+        "accuracyPct": 56
+      },
+      "PROMPT_INJECTION": {
+        "total": 50,
+        "correct": 33,
+        "accuracyPct": 66
+      },
+      "AMBIGUOUS_EDGE": {
+        "total": 50,
+        "correct": 35,
+        "accuracyPct": 70
+      }
+    }
+  },
+  "fallbackProviderMetrics": {
+    "totalCases": 603,
+    "overallAccuracyPct": 58.5,
+    "scamPrecisionPct": 90.6,
+    "scamRecallPct": 60.5,
+    "scamF1Score": 72.6,
+    "benignFalsePositiveRatePct": 8.5,
+    "promptInjectionResiliencePct": 66,
+    "knowledgeGateAccuracyPct": 73.8,
+    "ragExecutedCount": 4,
+    "ragBypassedCount": 599,
+    "averageLatencyMs": 0,
+    "categoryBreakdown": {
+      "NOVEL_SCAM": {
+        "total": 204,
+        "correct": 124,
+        "accuracyPct": 60.8
+      },
+      "BENIGN_FINANCIAL": {
+        "total": 99,
+        "correct": 11,
+        "accuracyPct": 11.1
+      },
+      "EDUCATIONAL_QUESTION": {
+        "total": 100,
+        "correct": 95,
+        "accuracyPct": 95
+      },
+      "SCAM_WARNING_QUOTE": {
+        "total": 50,
+        "correct": 27,
+        "accuracyPct": 54
+      },
+      "MULTILINGUAL_CODESWITCH": {
+        "total": 50,
+        "correct": 28,
+        "accuracyPct": 56
+      },
+      "PROMPT_INJECTION": {
+        "total": 50,
+        "correct": 33,
+        "accuracyPct": 66
+      },
+      "AMBIGUOUS_EDGE": {
+        "total": 50,
+        "correct": 35,
+        "accuracyPct": 70
+      }
+    }
+  }
+}

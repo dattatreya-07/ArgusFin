@@ -2,6 +2,7 @@ import { OcrResult, ExtractedSignal } from './types';
 import { normalizeEvidenceText } from './normalize';
 import { maskPii } from '../privacy';
 import { detectLanguage } from '../detect-lang';
+import { createWorker } from 'tesseract.js';
 
 export interface OcrProvider {
   id: string;
@@ -117,16 +118,43 @@ export class DeterministicOcrProvider implements OcrProvider {
       };
     }
 
-    // When only raw image binary is available without an active GPU/Wasm engine:
-    return {
-      status: 'FOUND',
-      text: '',
-      normalizedText: '',
-      language: targetLang || 'en',
-      confidence: 0.7,
-      warnings: ['Processed via client-side vision abstraction.'],
-      provider: this.id,
-    };
+    // Use Tesseract.js for actual OCR extraction
+    try {
+      const langMap: Record<string, string> = { en: 'eng', hi: 'hin', ta: 'tam' };
+      const tessLang = langMap[targetLang || 'en'] || 'eng';
+      
+      const worker = await createWorker(tessLang);
+      const { data: { text, confidence } } = await worker.recognize(imageData);
+      await worker.terminate();
+
+      if (!text || text.trim().length === 0) {
+        return {
+          status: 'NO_TEXT',
+          warnings: ['No readable text found via OCR.'],
+          provider: this.id,
+        };
+      }
+
+      const normalized = normalizeEvidenceText(text);
+      const masked = maskPii(normalized);
+      const detected = targetLang || detectLanguage(masked);
+
+      return {
+        status: 'FOUND',
+        text: masked,
+        normalizedText: normalized,
+        language: detected,
+        confidence: confidence / 100, // Tesseract is 0-100
+        warnings: [],
+        provider: this.id,
+      };
+    } catch (err) {
+      return {
+        status: 'FAILED',
+        warnings: ['OCR processing failed.'],
+        provider: this.id,
+      };
+    }
   }
 }
 

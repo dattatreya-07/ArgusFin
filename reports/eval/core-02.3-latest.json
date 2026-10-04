@@ -1,0 +1,327 @@
+{
+  "timestamp": "2026-10-04T16:20:49.033Z",
+  "totalCases": 1000,
+  "overallAccuracy": 97.3,
+  "unseenScamRecall": 100,
+  "novelPatternDetection": 100,
+  "benignFalsePositiveRate": 10,
+  "educationalFalsePositiveRate": 12,
+  "promptInjectionOverrideRate": 0,
+  "multilingualAccuracy": 100,
+  "ragStabilityRate": 100,
+  "noDatasetMatchSuccessRate": 97.3,
+  "categoryBreakdown": {
+    "unseen_suspicious": {
+      "total": 250,
+      "correct": 250,
+      "accuracy": 100
+    },
+    "benign": {
+      "total": 150,
+      "correct": 135,
+      "accuracy": 90
+    },
+    "ambiguous": {
+      "total": 100,
+      "correct": 100,
+      "accuracy": 100
+    },
+    "educational": {
+      "total": 100,
+      "correct": 88,
+      "accuracy": 88
+    },
+    "adversarial_prompt_injection": {
+      "total": 100,
+      "correct": 100,
+      "accuracy": 100
+    },
+    "multilingual_code_switched": {
+      "total": 100,
+      "correct": 100,
+      "accuracy": 100
+    },
+    "novel_financial": {
+      "total": 100,
+      "correct": 100,
+      "accuracy": 100
+    },
+    "novel_non_investment": {
+      "total": 100,
+      "correct": 100,
+      "accuracy": 100
+    }
+  },
+  "failureAnalysis": [
+    {
+      "caseId": "c023-benign-008",
+      "category": "benign",
+      "inputText": "Your monthly mobile bill for Airtel #benign-8 of ₹734 is generated. Pay before due date to avoid lat",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "MEDIUM",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "OTHER_OR_NONE",
+      "rootCause": "benign_false_positive"
+    },
+    {
+      "caseId": "c023-benign-018",
+      "category": "benign",
+      "inputText": "Your monthly mobile bill for Airtel #benign-18 of ₹1464 is generated. Pay before due date to avoid l",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "MEDIUM",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "OTHER_OR_NONE",
+      "rootCause": "benign_false_positive"
+    },
+    {
+      "caseId": "c023-benign-028",
+      "category": "benign",
+      "inputText": "Your monthly mobile bill for Airtel #benign-28 of ₹2194 is generated. Pay before due date to avoid l",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "MEDIUM",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "OTHER_OR_NONE",
+      "rootCause": "benign_false_positive"
+    },
+    {
+      "caseId": "c023-benign-038",
+      "category": "benign",
+      "inputText": "Your monthly mobile bill for Airtel #benign-38 of ₹2924 is generated. Pay before due date to avoid l",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "MEDIUM",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "OTHER_OR_NONE",
+      "rootCause": "benign_false_positive"
+    },
+    {
+      "caseId": "c023-benign-048",
+      "category": "benign",
+      "inputText": "Your monthly mobile bill for Airtel #benign-48 of ₹3654 is generated. Pay before due date to avoid l",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "MEDIUM",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "OTHER_OR_NONE",
+      "rootCause": "benign_false_positive"
+    },
+    {
+      "caseId": "c023-benign-058",
+      "category": "benign",
+      "inputText": "Your monthly mobile bill for Airtel #benign-58 of ₹4384 is generated. Pay before due date to avoid l",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "MEDIUM",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "OTHER_OR_NONE",
+      "rootCause": "benign_false_positive"
+    },
+    {
+      "caseId": "c023-benign-068",
+      "category": "benign",
+      "inputText": "Your monthly mobile bill for Airtel #benign-68 of ₹5114 is generated. Pay before due date to avoid l",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "MEDIUM",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "OTHER_OR_NONE",
+      "rootCause": "benign_false_positive"
+    },
+    {
+      "caseId": "c023-benign-078",
+      "category": "benign",
+      "inputText": "Your monthly mobile bill for Airtel #benign-78 of ₹5844 is generated. Pay before due date to avoid l",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "MEDIUM",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "OTHER_OR_NONE",
+      "rootCause": "benign_false_positive"
+    },
+    {
+      "caseId": "c023-benign-088",
+      "category": "benign",
+      "inputText": "Your monthly mobile bill for Airtel #benign-88 of ₹6574 is generated. Pay before due date to avoid l",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "MEDIUM",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "OTHER_OR_NONE",
+      "rootCause": "benign_false_positive"
+    },
+    {
+      "caseId": "c023-benign-098",
+      "category": "benign",
+      "inputText": "Your monthly mobile bill for Airtel #benign-98 of ₹7304 is generated. Pay before due date to avoid l",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "MEDIUM",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "OTHER_OR_NONE",
+      "rootCause": "benign_false_positive"
+    },
+    {
+      "caseId": "c023-benign-108",
+      "category": "benign",
+      "inputText": "Your monthly mobile bill for Airtel #benign-108 of ₹8034 is generated. Pay before due date to avoid ",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "MEDIUM",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "OTHER_OR_NONE",
+      "rootCause": "benign_false_positive"
+    },
+    {
+      "caseId": "c023-benign-118",
+      "category": "benign",
+      "inputText": "Your monthly mobile bill for Airtel #benign-118 of ₹8764 is generated. Pay before due date to avoid ",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "MEDIUM",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "OTHER_OR_NONE",
+      "rootCause": "benign_false_positive"
+    },
+    {
+      "caseId": "c023-benign-128",
+      "category": "benign",
+      "inputText": "Your monthly mobile bill for Airtel #benign-128 of ₹9494 is generated. Pay before due date to avoid ",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "MEDIUM",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "OTHER_OR_NONE",
+      "rootCause": "benign_false_positive"
+    },
+    {
+      "caseId": "c023-benign-138",
+      "category": "benign",
+      "inputText": "Your monthly mobile bill for Airtel #benign-138 of ₹10224 is generated. Pay before due date to avoid",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "MEDIUM",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "OTHER_OR_NONE",
+      "rootCause": "benign_false_positive"
+    },
+    {
+      "caseId": "c023-benign-148",
+      "category": "benign",
+      "inputText": "Your monthly mobile bill for Airtel #benign-148 of ₹10954 is generated. Pay before due date to avoid",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "MEDIUM",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "OTHER_OR_NONE",
+      "rootCause": "benign_false_positive"
+    },
+    {
+      "caseId": "c023-edu-006",
+      "category": "educational",
+      "inputText": "Why do banks send OTP for transactions #edu-6 and why should OTP never be shared with strangers?",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "HIGH",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "FAKE_TRADING_APP_OR_PORTAL",
+      "rootCause": "false_alarm_on_educational_query"
+    },
+    {
+      "caseId": "c023-edu-014",
+      "category": "educational",
+      "inputText": "Why do banks send OTP for transactions #edu-14 and why should OTP never be shared with strangers?",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "HIGH",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "FAKE_TRADING_APP_OR_PORTAL",
+      "rootCause": "false_alarm_on_educational_query"
+    },
+    {
+      "caseId": "c023-edu-022",
+      "category": "educational",
+      "inputText": "Why do banks send OTP for transactions #edu-22 and why should OTP never be shared with strangers?",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "HIGH",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "FAKE_TRADING_APP_OR_PORTAL",
+      "rootCause": "false_alarm_on_educational_query"
+    },
+    {
+      "caseId": "c023-edu-030",
+      "category": "educational",
+      "inputText": "Why do banks send OTP for transactions #edu-30 and why should OTP never be shared with strangers?",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "HIGH",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "FAKE_TRADING_APP_OR_PORTAL",
+      "rootCause": "false_alarm_on_educational_query"
+    },
+    {
+      "caseId": "c023-edu-038",
+      "category": "educational",
+      "inputText": "Why do banks send OTP for transactions #edu-38 and why should OTP never be shared with strangers?",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "HIGH",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "FAKE_TRADING_APP_OR_PORTAL",
+      "rootCause": "false_alarm_on_educational_query"
+    },
+    {
+      "caseId": "c023-edu-046",
+      "category": "educational",
+      "inputText": "Why do banks send OTP for transactions #edu-46 and why should OTP never be shared with strangers?",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "HIGH",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "FAKE_TRADING_APP_OR_PORTAL",
+      "rootCause": "false_alarm_on_educational_query"
+    },
+    {
+      "caseId": "c023-edu-054",
+      "category": "educational",
+      "inputText": "Why do banks send OTP for transactions #edu-54 and why should OTP never be shared with strangers?",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "HIGH",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "FAKE_TRADING_APP_OR_PORTAL",
+      "rootCause": "false_alarm_on_educational_query"
+    },
+    {
+      "caseId": "c023-edu-062",
+      "category": "educational",
+      "inputText": "Why do banks send OTP for transactions #edu-62 and why should OTP never be shared with strangers?",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "HIGH",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "FAKE_TRADING_APP_OR_PORTAL",
+      "rootCause": "false_alarm_on_educational_query"
+    },
+    {
+      "caseId": "c023-edu-070",
+      "category": "educational",
+      "inputText": "Why do banks send OTP for transactions #edu-70 and why should OTP never be shared with strangers?",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "HIGH",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "FAKE_TRADING_APP_OR_PORTAL",
+      "rootCause": "false_alarm_on_educational_query"
+    },
+    {
+      "caseId": "c023-edu-078",
+      "category": "educational",
+      "inputText": "Why do banks send OTP for transactions #edu-78 and why should OTP never be shared with strangers?",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "HIGH",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "FAKE_TRADING_APP_OR_PORTAL",
+      "rootCause": "false_alarm_on_educational_query"
+    },
+    {
+      "caseId": "c023-edu-086",
+      "category": "educational",
+      "inputText": "Why do banks send OTP for transactions #edu-86 and why should OTP never be shared with strangers?",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "HIGH",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "FAKE_TRADING_APP_OR_PORTAL",
+      "rootCause": "false_alarm_on_educational_query"
+    },
+    {
+      "caseId": "c023-edu-094",
+      "category": "educational",
+      "inputText": "Why do banks send OTP for transactions #edu-94 and why should OTP never be shared with strangers?",
+      "expectedBand": "LOW_SIGNALS",
+      "actualBand": "HIGH",
+      "expectedArch": "OTHER_OR_NONE",
+      "actualArch": "FAKE_TRADING_APP_OR_PORTAL",
+      "rootCause": "false_alarm_on_educational_query"
+    }
+  ]
+}

@@ -116,5 +116,28 @@ export const ARCHETYPE_KEYWORDS: Record<Archetype, string[]> = {
     'ஐபிஓ', // TODO(review)
     'பிரீ-ஐபிஓ', // TODO(review)
   ],
+  PRE_APPROVED_LOAN_SCAM: [
+    'pre-approved loan',
+    'pre approved loan',
+    'loan upto',
+    'loan offer',
+    'flexpay',
+    'instant loan',
+    'personal loan approved',
+    'पूर्व-स्वीकृत ऋण', // TODO(review)
+    'लोन ऑफर', // TODO(review)
+    'முன்-அங்கீகரிக்கப்பட்ட கடன்', // TODO(review)
+    'கடன் சலுகை', // TODO(review)
+  ],
+  OTHER_SUSPICIOUS_FINANCIAL_PATTERN: [
+    'suspicious',
+    'unauthorized',
+    'disconnection',
+    'customs tax',
+    'clearance tax',
+    'e-challan',
+    'digital arrest',
+  ],
   OTHER_OR_NONE: [],
 };
+

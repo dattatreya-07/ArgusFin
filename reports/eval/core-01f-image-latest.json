@@ -1,0 +1,230 @@
+{
+  "timestamp": "2026-10-03T14:26:45.713Z",
+  "totalCases": 20,
+  "validationPassed": 20,
+  "decisionAccuracyCount": 20,
+  "decisionAccuracyPercent": 100,
+  "safetyLimitsVerified": true,
+  "results": [
+    {
+      "id": "IMG_001",
+      "description": "Guaranteed-return screenshot claim",
+      "category": "SCREENSHOT_CLAIM",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "qrCount": 0,
+      "extractedUrlsCount": 0,
+      "privacyStatus": "NO_SENSITIVE_DATA_DETECTED"
+    },
+    {
+      "id": "IMG_002",
+      "description": "Unrealistic-return screenshot",
+      "category": "SCREENSHOT_CLAIM",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "qrCount": 0,
+      "extractedUrlsCount": 0,
+      "privacyStatus": "NO_SENSITIVE_DATA_DETECTED"
+    },
+    {
+      "id": "IMG_003",
+      "description": "Copy-trading screenshot",
+      "category": "COPY_TRADING",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "qrCount": 1,
+      "extractedUrlsCount": 0,
+      "privacyStatus": "NO_SENSITIVE_DATA_DETECTED"
+    },
+    {
+      "id": "IMG_004",
+      "description": "Crypto staking/mining screenshot",
+      "category": "CRYPTO",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "qrCount": 0,
+      "extractedUrlsCount": 0,
+      "privacyStatus": "NO_SENSITIVE_DATA_DETECTED"
+    },
+    {
+      "id": "IMG_005",
+      "description": "Withdrawal-fee screenshot",
+      "category": "FEE_SCAM",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "qrCount": 0,
+      "extractedUrlsCount": 0,
+      "privacyStatus": "NO_SENSITIVE_DATA_DETECTED"
+    },
+    {
+      "id": "IMG_006",
+      "description": "Payment-request screenshot",
+      "category": "PAYMENT_REQUEST",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "qrCount": 1,
+      "extractedUrlsCount": 0,
+      "privacyStatus": "MASKED"
+    },
+    {
+      "id": "IMG_007",
+      "description": "OTP-request screenshot",
+      "category": "SECURITY",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "qrCount": 0,
+      "extractedUrlsCount": 0,
+      "privacyStatus": "NO_SENSITIVE_DATA_DETECTED"
+    },
+    {
+      "id": "IMG_008",
+      "description": "Remote-access request screenshot",
+      "category": "REMOTE_ACCESS",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "qrCount": 0,
+      "extractedUrlsCount": 0,
+      "privacyStatus": "NO_SENSITIVE_DATA_DETECTED"
+    },
+    {
+      "id": "IMG_009",
+      "description": "Benign investment education screenshot",
+      "category": "BENIGN",
+      "expectedBand": "CANNOT_VERIFY",
+      "actualBand": "CANNOT_VERIFY",
+      "bandMatches": true,
+      "qrCount": 1,
+      "extractedUrlsCount": 0,
+      "privacyStatus": "NO_SENSITIVE_DATA_DETECTED"
+    },
+    {
+      "id": "IMG_010",
+      "description": "Benign bank/payment UI screenshot",
+      "category": "BENIGN",
+      "expectedBand": "CANNOT_VERIFY",
+      "actualBand": "CANNOT_VERIFY",
+      "bandMatches": true,
+      "qrCount": 0,
+      "extractedUrlsCount": 0,
+      "privacyStatus": "MASKED"
+    },
+    {
+      "id": "IMG_011",
+      "description": "Multilingual Hindi investment scam screenshot",
+      "category": "MULTILINGUAL_HI",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "qrCount": 0,
+      "extractedUrlsCount": 0,
+      "privacyStatus": "NO_SENSITIVE_DATA_DETECTED"
+    },
+    {
+      "id": "IMG_012",
+      "description": "Multilingual Tamil investment scam screenshot",
+      "category": "MULTILINGUAL_TA",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "qrCount": 0,
+      "extractedUrlsCount": 0,
+      "privacyStatus": "NO_SENSITIVE_DATA_DETECTED"
+    },
+    {
+      "id": "IMG_013",
+      "description": "OCR-corrupted numbers (20O% kept exact, not auto-converted)",
+      "category": "CORRUPTED_OCR",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "qrCount": 0,
+      "extractedUrlsCount": 0,
+      "privacyStatus": "NO_SENSITIVE_DATA_DETECTED"
+    },
+    {
+      "id": "IMG_014",
+      "description": "OCR-corrupted URL handled safely",
+      "category": "CORRUPTED_URL",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "qrCount": 0,
+      "extractedUrlsCount": 0,
+      "privacyStatus": "NO_SENSITIVE_DATA_DETECTED"
+    },
+    {
+      "id": "IMG_015",
+      "description": "Prompt injection inside screenshot text",
+      "category": "PROMPT_INJECTION",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "qrCount": 0,
+      "extractedUrlsCount": 0,
+      "privacyStatus": "NO_SENSITIVE_DATA_DETECTED"
+    },
+    {
+      "id": "IMG_016",
+      "description": "QR containing suspicious URL",
+      "category": "QR_URL",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "qrCount": 1,
+      "extractedUrlsCount": 0,
+      "privacyStatus": "NO_SENSITIVE_DATA_DETECTED"
+    },
+    {
+      "id": "IMG_017",
+      "description": "QR containing payment-like UPI URI",
+      "category": "QR_PAYMENT",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "qrCount": 1,
+      "extractedUrlsCount": 0,
+      "privacyStatus": "NO_SENSITIVE_DATA_DETECTED"
+    },
+    {
+      "id": "IMG_018",
+      "description": "QR containing harmless text",
+      "category": "QR_TEXT",
+      "expectedBand": "CANNOT_VERIFY",
+      "actualBand": "CANNOT_VERIFY",
+      "bandMatches": true,
+      "qrCount": 1,
+      "extractedUrlsCount": 0,
+      "privacyStatus": "NO_SENSITIVE_DATA_DETECTED"
+    },
+    {
+      "id": "IMG_019",
+      "description": "Screenshot with multiple claims",
+      "category": "MULTIPLE_CLAIMS",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "qrCount": 0,
+      "extractedUrlsCount": 0,
+      "privacyStatus": "NO_SENSITIVE_DATA_DETECTED"
+    },
+    {
+      "id": "IMG_020",
+      "description": "Screenshot with synthetic PII masked",
+      "category": "PII_MASKING",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "qrCount": 0,
+      "extractedUrlsCount": 0,
+      "privacyStatus": "MASKED"
+    }
+  ]
+}

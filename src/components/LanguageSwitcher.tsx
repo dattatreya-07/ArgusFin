@@ -15,16 +15,16 @@ export function LanguageSwitcher() {
   };
 
   return (
-    <div className="flex items-center space-x-2 text-sm">
-      <span className="text-slate-500 font-medium">{t('language')}:</span>
-      <div className="inline-flex rounded-md shadow-sm border border-slate-300 bg-white p-0.5">
+    <div className="flex items-center space-x-2 text-sm font-sans">
+      <span className="text-ink-muted text-xs font-semibold">{t('language')}:</span>
+      <div className="inline-flex rounded-lg border border-border bg-surface-sunken p-0.5">
         <button
           type="button"
           onClick={() => handleLanguageChange('en')}
-          className={`px-2.5 py-1 text-xs rounded font-medium transition ${
+          className={`px-2.5 py-1 text-xs rounded-md font-semibold transition-all ${
             currentLocale === 'en'
-              ? 'bg-slate-900 text-white'
-              : 'text-slate-700 hover:bg-slate-100'
+              ? 'bg-accent text-accent-ink shadow-xs'
+              : 'text-ink hover:text-accent hover:bg-surface'
           }`}
         >
           {t('english')}
@@ -32,10 +32,10 @@ export function LanguageSwitcher() {
         <button
           type="button"
           onClick={() => handleLanguageChange('hi')}
-          className={`px-2.5 py-1 text-xs rounded font-medium transition ${
+          className={`px-2.5 py-1 text-xs rounded-md font-semibold transition-all ${
             currentLocale === 'hi'
-              ? 'bg-slate-900 text-white'
-              : 'text-slate-700 hover:bg-slate-100'
+              ? 'bg-accent text-accent-ink shadow-xs'
+              : 'text-ink hover:text-accent hover:bg-surface'
           }`}
         >
           {t('hindi')}
@@ -43,10 +43,10 @@ export function LanguageSwitcher() {
         <button
           type="button"
           onClick={() => handleLanguageChange('ta')}
-          className={`px-2.5 py-1 text-xs rounded font-medium transition ${
+          className={`px-2.5 py-1 text-xs rounded-md font-semibold transition-all ${
             currentLocale === 'ta'
-              ? 'bg-slate-900 text-white'
-              : 'text-slate-700 hover:bg-slate-100'
+              ? 'bg-accent text-accent-ink shadow-xs'
+              : 'text-ink hover:text-accent hover:bg-surface'
           }`}
         >
           {t('tamil')}

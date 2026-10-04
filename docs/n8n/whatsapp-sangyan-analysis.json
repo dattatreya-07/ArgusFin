@@ -1,0 +1,112 @@
+{
+  "name": "SANGYAN - WhatsApp Scam Analysis Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "whatsapp-webhook",
+        "options": {}
+      },
+      "id": "node-whatsapp-webhook",
+      "name": "WhatsApp Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        100,
+        300
+      ],
+      "webhookId": "whatsapp-sangyan-webhook"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.YOUR_SANGYAN_API_URL }}/api/integrations/n8n/analyze",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-n8n-secret",
+              "value": "={{ $env.YOUR_N8N_SECRET }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"channel\": \"WHATSAPP\",\n  \"message\": {\n    \"id\": \"{{ $json.body.entry[0].changes[0].value.messages[0].id }}\",\n    \"text\": \"{{ $json.body.entry[0].changes[0].value.messages[0].text ? $json.body.entry[0].changes[0].value.messages[0].text.body : '' }}\",\n    \"caption\": \"{{ $json.body.entry[0].changes[0].value.messages[0].image ? $json.body.entry[0].changes[0].value.messages[0].image.caption : '' }}\"\n  },\n  \"locale\": \"en\",\n  \"provenance\": {\n    \"senderId\": \"{{ $json.body.entry[0].changes[0].value.messages[0].from }}\",\n    \"timestamp\": \"{{ new Date().toISOString() }}\"\n  }\n}",
+        "options": {}
+      },
+      "id": "node-sangyan-api",
+      "name": "SANGYAN Canonical API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        350,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.facebook.com/v20.0/YOUR_WHATSAPP_PHONE_NUMBER_ID/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.YOUR_WHATSAPP_ACCESS_TOKEN }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"messaging_product\": \"whatsapp\",\n  \"recipient_type\": \"individual\",\n  \"to\": \"{{ $node['WhatsApp Webhook Trigger'].json.body.entry[0].changes[0].value.messages[0].from }}\",\n  \"type\": \"text\",\n  \"text\": {\n    \"preview_url\": false,\n    \"body\": \"{{ $json.formattedMessage }}\"\n  }\n}",
+        "options": {}
+      },
+      "id": "node-whatsapp-reply",
+      "name": "Send WhatsApp Reply",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        600,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "WhatsApp Webhook Trigger": {
+      "main": [
+        [
+          {
+            "node": "SANGYAN Canonical API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SANGYAN Canonical API": {
+      "main": [
+        [
+          {
+            "node": "Send WhatsApp Reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": []
+}

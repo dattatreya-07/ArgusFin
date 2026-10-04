@@ -95,8 +95,8 @@ export function VoiceInput({ onTranscript, lang = 'en', disabled = false }: Voic
       aria-label={isListening ? 'Stop speech recognition' : 'Start speech recognition'}
       className={`relative inline-flex items-center justify-center p-2 rounded-lg transition-all border ${
         isListening
-          ? 'bg-rose-950 border-rose-500 text-rose-300 animate-pulse ring-2 ring-rose-500'
-          : 'bg-zinc-800 border-zinc-700 text-zinc-300 hover:bg-zinc-700 hover:text-white'
+          ? 'bg-risk-high-bg border-risk-high-border text-risk-high-ink animate-pulse ring-2 ring-risk-high-border'
+          : 'bg-surface-sunken border-border text-ink hover:border-accent hover:text-accent'
       } ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
     >
       <svg

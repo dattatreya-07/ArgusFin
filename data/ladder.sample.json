@@ -1,0 +1,81 @@
+{
+  "status": "SAMPLE (Illustrative Benchmark Rates)",
+  "rungs": [
+    {
+      "id": "savings",
+      "label_key": "ladder.savings",
+      "name": "Savings Account Interest",
+      "value_low": 2.7,
+      "value_high": 4.0,
+      "unit": "percent_per_year",
+      "as_of": "2024-10-01",
+      "source_url": "https://rbi.org.in",
+      "note": "Representative sample of major Indian commercial bank savings rates",
+      "illustrative": true
+    },
+    {
+      "id": "fd",
+      "label_key": "ladder.fd",
+      "name": "Bank Fixed Deposit (1-3 yr)",
+      "value_low": 6.5,
+      "value_high": 7.5,
+      "unit": "percent_per_year",
+      "as_of": "2024-10-01",
+      "source_url": "https://rbi.org.in",
+      "note": "Representative sample of retail scheduled commercial bank FD rates",
+      "illustrative": true
+    },
+    {
+      "id": "gsec_small_savings",
+      "label_key": "ladder.gsec",
+      "name": "Small Savings / PPF / Govt Securities",
+      "value_low": 7.1,
+      "value_high": 8.2,
+      "unit": "percent_per_year",
+      "as_of": "2024-10-01",
+      "source_url": "https://dea.gov.in",
+      "note": "Ministry of Finance notified small savings rates (e.g. PPF, Sukanya Samriddhi)",
+      "illustrative": true
+    },
+    {
+      "id": "corporate_bonds",
+      "label_key": "ladder.bonds",
+      "name": "AAA Corporate Bonds",
+      "value_low": 7.5,
+      "value_high": 8.8,
+      "unit": "percent_per_year",
+      "as_of": "2024-10-01",
+      "source_url": "https://sebi.gov.in",
+      "note": "High-grade domestic corporate bond yields",
+      "illustrative": true
+    },
+    {
+      "id": "index_cagr_5y_10y",
+      "label_key": "ladder.index",
+      "name": "Broad Equity Index Rolling CAGR (5Y & 10Y)",
+      "value_low": 11.0,
+      "value_high": 14.5,
+      "unit": "percent_per_year",
+      "as_of": "2024-10-01",
+      "source_url": "https://nseindia.com",
+      "note": "Historical rolling multi-year index return range (equity market risk applies)",
+      "illustrative": true,
+      "rolling_windows": [
+        {
+          "years": 5,
+          "min": -2.1,
+          "median": 12.4,
+          "max": 24.8,
+          "share_below_fd": 0.14
+        },
+        {
+          "years": 10,
+          "min": 4.5,
+          "median": 13.1,
+          "max": 18.2,
+          "share_below_fd": 0.04
+        }
+      ]
+    }
+  ]
+}

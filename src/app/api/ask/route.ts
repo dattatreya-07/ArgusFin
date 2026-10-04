@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { maskPII } from '@/lib/mask';
 import { askRag } from '@/lib/rag';
+import { analyzeScam } from '@/lib/scam/analyze';
+import { classifyQueryIntent } from '@/lib/detector/intent';
 import { Lang } from '@/lib/types';
 import { generateRequestId, logAppEvent } from '@/lib/observability';
 
@@ -108,6 +110,47 @@ export async function POST(req: NextRequest) {
     const masked = maskPII(rawQuery);
     const sanitizedQuery = masked.masked;
 
+    // 1. Classify Intent
+    const intentClassification = classifyQueryIntent(sanitizedQuery);
+
+    // 2. Route based on intent
+    if (intentClassification.intent === 'CONTENT_ANALYSIS') {
+      const analysis = await analyzeScam({
+        source: 'WEB_TEXT',
+        language: lang,
+        text: sanitizedQuery,
+        privacyStatus: 'MASKED',
+      });
+
+      const durationMs = Date.now() - startTime;
+      logAppEvent({
+        name: 'request_completed',
+        requestId,
+        route: '/api/ask',
+        subsystem: 'ask_content_analysis',
+        status: 'success',
+        language: lang,
+        durationMs,
+      });
+
+      return NextResponse.json(
+        {
+          requestId,
+          intent: 'CONTENT_ANALYSIS',
+          status: 'ANSWERED',
+          answer: analysis.explanation.summary,
+          verified: true,
+          citations: analysis.explanation.citations,
+          confidence: analysis.decision.confidence,
+          language: lang,
+          decision: analysis.decision,
+          flags: analysis.flags,
+          uncertainty: false,
+        },
+        { status: 200 }
+      );
+    }
+
     const ragResult = await askRag(sanitizedQuery, lang);
 
     const durationMs = Date.now() - startTime;
@@ -138,6 +181,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(
       {
         requestId,
+        intent: intentClassification.intent,
         status: ragResult.status,
         answer: ragResult.answer,
         verified: ragResult.verified,

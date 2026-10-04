@@ -63,13 +63,32 @@ const DISCLAIMER =
 
 /**
  * Deterministic Authority Router
+ * Uses structured issue types, evidence metadata, and source-governed registry.
  */
 export function routeAuthorities(input: RoutingInput): AuthorityRouteResult {
+  const jurisdiction = input.jurisdiction ? String(input.jurisdiction).toUpperCase() : 'IN';
+
+  // 0. Explicit Jurisdiction Check
+  if (jurisdiction === 'UNKNOWN' || (jurisdiction !== 'IN' && jurisdiction !== 'INDIA')) {
+    return {
+      status: 'UNKNOWN_JURISDICTION',
+      category: input.category || 'UNKNOWN',
+      jurisdiction,
+      authorityIds: [],
+      routes: [],
+      reasons: [
+        `Jurisdiction '${jurisdiction}' is unsupported or unknown. SANGYAN routes complaints exclusively within verified jurisdictions and does not fabricate foreign authority contacts.`
+      ],
+      disclaimer: DISCLAIMER,
+    };
+  }
+
   const allAuthorities = getVerifiedAuthorities();
   if (allAuthorities.length === 0) {
     return {
       status: 'UNAVAILABLE',
       category: input.category || input.situation || 'UNKNOWN',
+      jurisdiction: 'IN',
       authorityIds: [],
       routes: [],
       reasons: ['Verified authority database is temporarily unavailable.'],
@@ -80,60 +99,71 @@ export function routeAuthorities(input: RoutingInput): AuthorityRouteResult {
   const selectedIds = new Set<string>();
   const situationReasons: string[] = [];
 
-  // 1. Evaluate emergency / lost funds / golden hour
+  // Normalize category/archetype inputs
+  const cat = (input.category || '').toUpperCase();
+  const arch = (input.archetype || '').toUpperCase();
+
+  // 1. Evaluate emergency / lost funds / golden hour / account takeover
   const hasMoneyLost =
     input.moneySent === true ||
     input.situation === 'money_lost_recent' ||
-    input.category === 'PAYMENT_FRAUD' ||
+    cat === 'PAYMENT_FRAUD' ||
+    cat === 'CYBERCRIME_FINANCIAL_FRAUD' ||
+    cat === 'BANKING_PAYMENT_ISSUE' ||
+    cat === 'RECOVERY_SCAM' ||
+    arch === 'RECOVERY_SCAM' ||
     (typeof input.hoursElapsed === 'number' && input.hoursElapsed <= 48);
 
   const hasCredentialsCompromised =
     input.credentialsShared === true ||
     input.otpShared === true ||
-    input.remoteAccessGranted === true;
+    input.remoteAccessGranted === true ||
+    cat === 'ACCOUNT_TAKEOVER_CREDENTIAL';
 
   if (hasMoneyLost || hasCredentialsCompromised) {
     selectedIds.add('national_cyber_helpline');
     selectedIds.add('user_bank');
     selectedIds.add('cybercrime_portal');
 
-    if (input.remoteAccessGranted) {
+    if (input.remoteAccessGranted || cat === 'ACCOUNT_TAKEOVER_CREDENTIAL') {
       situationReasons.push(
-        'Remote access software or credentials reported: Immediate bank account protection and cyber helpline notification prioritized.'
+        'Remote access software or compromised credentials reported: Immediate bank account protection and cyber helpline notification prioritized.'
       );
     } else {
       situationReasons.push(
-        'Recent financial transaction reported: Golden hour cyber helpline (1930) and bank freeze procedures prioritized.'
+        'Financial loss or recent transfer reported: Golden hour cyber helpline (1930) and bank freeze procedures prioritized.'
       );
     }
   }
 
   // 2. Evaluate securities / investment advisory / fake IPO / Ponzi
   const isSecuritiesOrAdvisory =
-    input.category === 'SECURITIES_FRAUD' ||
-    input.category === 'UNREGISTERED_ADVISORY' ||
-    input.category === 'PROMISED_RETURN' ||
-    input.category === 'TRADING_PLATFORM' ||
-    input.category === 'IPO_ALLOTMENT' ||
+    cat === 'SECURITIES_FRAUD' ||
+    cat === 'SECURITIES_INVESTMENT_COMPLAINT' ||
+    cat === 'UNREGISTERED_ADVISORY' ||
+    cat === 'PROMISED_RETURN' ||
+    cat === 'TRADING_PLATFORM' ||
+    cat === 'IPO_ALLOTMENT' ||
     input.situation === 'unregistered_adviser' ||
-    input.archetype === 'UNREGISTERED_ADVISORY' ||
-    input.archetype === 'FAKE_IPO' ||
-    input.archetype === 'COPY_TRADING_SCHEME';
+    arch === 'UNREGISTERED_ADVISORY' ||
+    arch === 'FAKE_IPO' ||
+    arch === 'COPY_TRADING_SCHEME';
 
   if (isSecuritiesOrAdvisory) {
     selectedIds.add('sebi_scores');
     selectedIds.add('rbi_sachet');
     situationReasons.push(
-      'Securities, trading, or investment advisory claims detected: Regulated under SEBI and RBI investor grievance frameworks.'
+      'Securities trading, stock advisory, or investment claims detected: May be appropriate for SEBI and RBI investor grievance portals.'
     );
   }
 
-  // 3. Evaluate deposit schemes / Ponzi / MLM
+  // 3. Evaluate deposit schemes / Ponzi / MLM / Unauthorized Financial Activity
   const isDepositOrPonzi =
-    input.category === 'DEPOSIT_SCHEME' ||
-    input.category === 'CRYPTO_STAKING' ||
-    input.archetype === 'PONZI_PYRAMID' ||
-    input.archetype === 'TASK_SCAM';
+    cat === 'DEPOSIT_SCHEME' ||
+    cat === 'UNAUTHORIZED_FINANCIAL_ACTIVITY' ||
+    cat === 'CRYPTO_STAKING' ||
+    arch === 'PONZI_PYRAMID' ||
+    arch === 'TASK_SCAM';
 
   if (isDepositOrPonzi) {
     selectedIds.add('rbi_sachet');
@@ -141,16 +171,17 @@ export function routeAuthorities(input: RoutingInput): AuthorityRouteResult {
       selectedIds.add('sebi_scores');
     }
     situationReasons.push(
-      'Unauthorized deposit-taking or collective investment scheme patterns identified: Managed via RBI Sachet portal.'
+      'Unauthorized deposit collection or scheme patterns detected: May be appropriate for reporting via RBI Sachet portal.'
     );
   }
 
-  // 4. Evaluate communication channels (WhatsApp / Telegram / SMS / Phone)
+  // 4. Evaluate communication channels (WhatsApp / Telegram / SMS / Phone / Phishing)
   const isTelecomOrSocial =
     input.situation === 'social_media_fraud' ||
-    input.category === 'TELECOM_FRAUD' ||
-    input.category === 'IMPERSONATION' ||
-    input.category === 'GROUP_SOLICITATION' ||
+    cat === 'TELECOM_FRAUD' ||
+    cat === 'TELECOM_SPAM_PHISHING' ||
+    cat === 'IMPERSONATION' ||
+    cat === 'GROUP_SOLICITATION' ||
     (input.platform &&
       /whatsapp|telegram|sms|instagram|facebook|phone/i.test(input.platform));
 
@@ -160,11 +191,20 @@ export function routeAuthorities(input: RoutingInput): AuthorityRouteResult {
       selectedIds.add('cybercrime_portal');
     }
     situationReasons.push(
-      'Suspicious communication originated via telecom, messaging, or social media: Reporting via DoT Chakshu recommended.'
+      'Suspicious communication via telecom or messaging platform: Reporting via DoT Chakshu recommended.'
     );
   }
 
-  // 5. Preventive / Offer Only
+  // 5. Recovery Scam specific routing
+  if (cat === 'RECOVERY_SCAM' || arch === 'RECOVERY_SCAM') {
+    selectedIds.add('cybercrime_portal');
+    selectedIds.add('national_cyber_helpline');
+    situationReasons.push(
+      'Suspected advance-fee recovery claim: Official law enforcement portals should be used rather than third-party fee recovery services.'
+    );
+  }
+
+  // 6. Preventive / Offer Only
   if (input.situation === 'offer_only' && selectedIds.size === 0) {
     selectedIds.add('sebi_scores');
     selectedIds.add('rbi_sachet');
@@ -174,6 +214,31 @@ export function routeAuthorities(input: RoutingInput): AuthorityRouteResult {
     );
   }
 
+  // Ambiguous or Benign check
+  if (cat === 'BENIGN' || cat === 'EDUCATIONAL' || cat === 'BENIGN_EDUCATIONAL') {
+    return {
+      status: 'NO_MATCH',
+      category: 'BENIGN_EDUCATIONAL',
+      jurisdiction: 'IN',
+      authorityIds: [],
+      routes: [],
+      reasons: ['Content appears educational or benign. Formal authority reporting is not required.'],
+      disclaimer: DISCLAIMER,
+    };
+  }
+
+  if (cat === 'AMBIGUOUS') {
+    return {
+      status: 'NO_MATCH',
+      category: 'AMBIGUOUS',
+      jurisdiction: 'IN',
+      authorityIds: [],
+      routes: [],
+      reasons: ['Insufficient incident characteristics or ambiguous input provided for authority routing.'],
+      disclaimer: DISCLAIMER,
+    };
+  }
+
   // Fallback if no specific trigger matched
   if (selectedIds.size === 0) {
     if (input.situation || input.category) {
@@ -181,15 +246,16 @@ export function routeAuthorities(input: RoutingInput): AuthorityRouteResult {
       selectedIds.add('sebi_scores');
       selectedIds.add('telecom_fraud_reporting');
       situationReasons.push(
-        'General financial grievance: Cross-jurisdictional reporting resources provided.'
+        'General financial concern: Pre-filing resources provided across primary statutory channels.'
       );
     } else {
       return {
         status: 'NO_MATCH',
         category: 'UNSPECIFIED',
+        jurisdiction: 'IN',
         authorityIds: [],
         routes: [],
-        reasons: ['No matching incident category or situation provided for routing.'],
+        reasons: ['Insufficient incident characteristics provided to route confidently.'],
         disclaimer: DISCLAIMER,
       };
     }
@@ -212,6 +278,8 @@ export function routeAuthorities(input: RoutingInput): AuthorityRouteResult {
       id: auth.id,
       name: auth.name,
       scope: auth.scope,
+      jurisdiction: auth.jurisdiction,
+      status: auth.status,
       channels: auth.channels,
       verified_at: auth.verified_at,
       source_url: auth.source_url,
@@ -226,14 +294,16 @@ export function routeAuthorities(input: RoutingInput): AuthorityRouteResult {
 
   const resolvedCategory =
     input.category ||
-    (hasMoneyLost ? 'PAYMENT_FRAUD' : isSecuritiesOrAdvisory ? 'SECURITIES_FRAUD' : input.situation || 'GENERAL_GRIEVANCE');
+    (hasMoneyLost ? 'CYBERCRIME_FINANCIAL_FRAUD' : isSecuritiesOrAdvisory ? 'SECURITIES_INVESTMENT_COMPLAINT' : input.situation || 'GENERAL_GRIEVANCE');
 
   return {
     status: 'ROUTED',
     category: resolvedCategory,
+    jurisdiction: 'IN',
     authorityIds: routedItems.map((r) => r.id),
     routes: routedItems,
     reasons: situationReasons,
     disclaimer: DISCLAIMER,
   };
 }
+

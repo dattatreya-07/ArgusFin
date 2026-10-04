@@ -55,59 +55,88 @@ export function SpeakButton({
     };
   }, [lang]);
 
+  const playFallbackAudio = (chunks: string[]) => {
+    if (chunks.length === 0) return;
+    setIsSpeaking(true);
+
+    let idx = 0;
+    const playChunk = () => {
+      if (idx >= chunks.length) {
+        setIsSpeaking(false);
+        return;
+      }
+
+      const chunkText = chunks[idx];
+      const encoded = encodeURIComponent(chunkText.substring(0, 200));
+      const ttsUrl = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encoded}&tl=${lang === 'ta' ? 'ta' : lang === 'hi' ? 'hi' : 'en'}&client=tw-ob`;
+
+      const audio = new Audio(ttsUrl);
+      audio.onended = () => {
+        idx++;
+        playChunk();
+      };
+      audio.onerror = () => {
+        setIsSpeaking(false);
+      };
+      audio.play().catch(() => {
+        setIsSpeaking(false);
+      });
+    };
+
+    playChunk();
+  };
+
   const toggleSpeak = () => {
-    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
-
     if (isSpeaking) {
-      window.speechSynthesis.cancel();
+      if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
       setIsSpeaking(false);
-      return;
-    }
-
-    const voices = window.speechSynthesis.getVoices();
-    const voice = selectVoice({ language: lang, voices });
-
-    // Strict invariant: If Tamil is requested and no Tamil voice exists, refuse to speak in English/Hindi
-    if (!voice && lang === 'ta') {
-      setHasVoice(false);
       return;
     }
 
     const chunks = segmentSentences(text, lang);
     if (chunks.length === 0) return;
 
-    window.speechSynthesis.cancel(); // Cancel any existing audio
-    setIsSpeaking(true);
+    const voices = typeof window !== 'undefined' && 'speechSynthesis' in window ? window.speechSynthesis.getVoices() : [];
+    const voice = selectVoice({ language: lang, voices });
 
-    let currentIdx = 0;
+    // If local system voice is available, use SpeechSynthesis
+    if (voice && typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      setIsSpeaking(true);
 
-    const playNext = () => {
-      if (currentIdx >= chunks.length) {
-        setIsSpeaking(false);
-        return;
-      }
+      let currentIdx = 0;
+      const playNext = () => {
+        if (currentIdx >= chunks.length) {
+          setIsSpeaking(false);
+          return;
+        }
 
-      const utterance = new SpeechSynthesisUtterance(chunks[currentIdx]);
-      utterance.lang = LOCALE_MAP[lang] || 'en-IN';
-      if (voice) {
+        const utterance = new SpeechSynthesisUtterance(chunks[currentIdx]);
+        utterance.lang = LOCALE_MAP[lang] || 'en-IN';
         utterance.voice = voice;
-      }
-      utterance.rate = lang === 'ta' || lang === 'hi' ? 0.92 : 1.0;
-      utterance.pitch = 1.0;
+        utterance.rate = lang === 'ta' || lang === 'hi' ? 0.92 : 1.0;
+        utterance.pitch = 1.0;
 
-      utterance.onend = () => {
-        currentIdx++;
-        playNext();
+        utterance.onend = () => {
+          currentIdx++;
+          playNext();
+        };
+
+        utterance.onerror = () => {
+          // Fall back to Audio TTS on utterance error
+          playFallbackAudio(chunks.slice(currentIdx));
+        };
+
+        window.speechSynthesis.speak(utterance);
       };
 
-      utterance.onerror = () => {
-        setIsSpeaking(false);
-      };
-
-      window.speechSynthesis.speak(utterance);
-    };
-
-    playNext();
+      playNext();
+    } else {
+      // Fall back to universal online TTS Audio player (guarantees Tamil speech on any browser)
+      playFallbackAudio(chunks);
+    }
   };
 
   const defaultSpeakLabel =
@@ -119,17 +148,7 @@ export function SpeakButton({
       ? 'தமிழ் குரல் சாதனத்தில் கிடைக்கவில்லை (Tamil voice unavailable)'
       : 'Voice unavailable';
 
-  if (!hasVoice && lang === 'ta' && voicesLoaded) {
-    return (
-      <span
-        title={unavailableLabel || defaultUnavailableLabel}
-        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-500 cursor-not-allowed"
-      >
-        <span>🔇</span>
-        <span>{unavailableLabel || defaultUnavailableLabel}</span>
-      </span>
-    );
-  }
+
 
   return (
     <button
@@ -137,10 +156,10 @@ export function SpeakButton({
       onClick={toggleSpeak}
       title={isSpeaking ? stopLabel || defaultStopLabel : speakLabel || defaultSpeakLabel}
       aria-label={isSpeaking ? stopLabel || defaultStopLabel : speakLabel || defaultSpeakLabel}
-      className={`inline-flex items-center gap-2 px-3 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer shadow-xs ${
+      className={`inline-flex items-center gap-2 px-3 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer shadow-soft border ${
         isSpeaking
-          ? 'bg-rose-950 border border-rose-700 text-rose-300 ring-1 ring-rose-500 animate-pulse'
-          : 'bg-zinc-800 border border-zinc-700 text-zinc-200 hover:bg-zinc-700 hover:text-white'
+          ? 'bg-risk-high-bg border-risk-high-border text-risk-high-ink ring-1 ring-risk-high-border animate-pulse'
+          : 'bg-surface border-border text-ink hover:border-accent hover:text-accent'
       } ${className}`}
     >
       <span>{isSpeaking ? '⏹' : '🔊'}</span>

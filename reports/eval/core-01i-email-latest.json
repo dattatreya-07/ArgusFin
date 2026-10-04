@@ -1,0 +1,283 @@
+{
+  "timestamp": "2026-10-03T20:11:35.707Z",
+  "manualIntakeStatus": "AVAILABLE",
+  "mailboxConnectorStatus": "NOT_CONFIGURED",
+  "totalCases": 30,
+  "parserPassed": 30,
+  "decisionAccuracyCount": 30,
+  "decisionAccuracyPercent": 100,
+  "quadParityPassed": 24,
+  "quadParityAccuracyPercent": 85.71428571428571,
+  "results": [
+    {
+      "id": "EM_001",
+      "description": "Benign educational newsletter email",
+      "category": "BENIGN",
+      "expectedBand": "CANNOT_VERIFY",
+      "actualBand": "CANNOT_VERIFY",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_002",
+      "description": "Benign bank payment transaction alert",
+      "category": "BENIGN",
+      "expectedBand": "CANNOT_VERIFY",
+      "actualBand": "CANNOT_VERIFY",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_003",
+      "description": "Guaranteed-return claim email",
+      "category": "GUARANTEED_RETURN",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_004",
+      "description": "Unrealistic daily return claim",
+      "category": "UNREALISTIC_RETURNS",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_005",
+      "description": "Advance fee / processing fee scam email",
+      "category": "ADVANCE_FEE",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_006",
+      "description": "Withdrawal tax fee scam email",
+      "category": "WITHDRAWAL_FEE",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_007",
+      "description": "OTP harvesting request email",
+      "category": "OTP_REQUEST",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_008",
+      "description": "Credential harvesting request email",
+      "category": "CREDENTIAL_HARVESTING",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_009",
+      "description": "Malicious URL in email body",
+      "category": "MALICIOUS_URL",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_010",
+      "description": "HTML Anchor Text vs URL Destination Mismatch",
+      "category": "LINK_MISMATCH",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": false
+    },
+    {
+      "id": "EM_011",
+      "description": "Copy trading invitation email",
+      "category": "COPY_TRADING",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_012",
+      "description": "Crypto investment offer",
+      "category": "CRYPTO",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_013",
+      "description": "Crypto staking/mining yield claim",
+      "category": "CRYPTO",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_014",
+      "description": "Fake IPO allotment guarantee email",
+      "category": "FAKE_IPO",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_015",
+      "description": "Fake advisory registration claim",
+      "category": "REGISTRATION_CLAIM",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_016",
+      "description": "Impersonation pattern (Display name claims HDFC but email is generic)",
+      "category": "SENDER_MISMATCH",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": false
+    },
+    {
+      "id": "EM_017",
+      "description": "Remote access app installation request",
+      "category": "REMOTE_ACCESS",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_018",
+      "description": "Scam victim fund recovery offer",
+      "category": "RECOVERY_SCAM",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_019",
+      "description": "Attachment text evidence parsing",
+      "category": "ATTACHMENT_EVIDENCE",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_020",
+      "description": "Screenshot attachment with OCR text",
+      "category": "SCREENSHOT_ATTACHMENT",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_021",
+      "description": "OCR Tamil investment scam text in email",
+      "category": "MULTILINGUAL_TA",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_022",
+      "description": "OCR Hindi investment scam text in email",
+      "category": "MULTILINGUAL_HI",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_023",
+      "description": "Raw RFC-822 MIME MIME format parsing test",
+      "category": "RAW_MIME",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_024",
+      "description": "Oversized email text truncation handling",
+      "category": "OVERSIZED_INPUT",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_025",
+      "description": "Prompt injection attack inside email plain body",
+      "category": "PROMPT_INJECTION",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_026",
+      "description": "Prompt injection attack inside HTML email body",
+      "category": "PROMPT_INJECTION",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": false
+    },
+    {
+      "id": "EM_027",
+      "description": "Prompt injection in attachment text",
+      "category": "PROMPT_INJECTION",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_028",
+      "description": "Sender vs Reply-To domain mismatch test",
+      "category": "REPLYTO_MISMATCH",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": false
+    },
+    {
+      "id": "EM_029",
+      "description": "Email with SPF/DKIM failure headers",
+      "category": "AUTH_FAILURE",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    },
+    {
+      "id": "EM_030",
+      "description": "Synthetic PII masked in email intake",
+      "category": "PII_MASKING",
+      "expectedBand": "HIGH",
+      "actualBand": "HIGH",
+      "bandMatches": true,
+      "parityMatches": true
+    }
+  ]
+}

@@ -28,6 +28,15 @@ export const HI_URGENCY = [
   'तुरंत जुड़ें', // TODO(review)
   'ऑफर सीमित समय के लिए', // TODO(review)
   'तुरंत निवेश करें', // TODO(review)
+  'jaldi kare',
+  'act now',
+  'please act now',
+  'turant update kare',
+  'तुरंत अपडेट करें',
+  'खाता सत्यापन लंबित',
+  'card block ho gaya',
+  'kyc update',
+  'kyc पूरा नहीं है',
 ];
 
 export const HI_REQUESTS_OTP = [

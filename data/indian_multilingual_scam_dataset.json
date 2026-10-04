@@ -1,0 +1,842 @@
+[
+  {
+    "message": "आपका बैंक खाता सत्यापन लंबित है, कृपया तुरंत अपडेट करें jaldi kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "ecommerce",
+    "language": "Hindi"
+  },
+  {
+    "message": "Your order has been shipped and will arrive tomorrow please act now",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "telecom",
+    "language": "English"
+  },
+  {
+    "message": "Aapka parcel customs me atka hai, ₹35 pay karke release kare please act now",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "telecom",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Your payment of ₹899 has been received jaldi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "government",
+    "language": "English"
+  },
+  {
+    "message": "आपका KYC पूरा नहीं है, तुरंत अपडेट करें jaldi kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "finance",
+    "language": "Hindi"
+  },
+  {
+    "message": "Your parcel has been delivered successfully immediately",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "government",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Aapka ATM card block ho gaya hai, details update kare jaldi kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "telecom",
+    "language": "English"
+  },
+  {
+    "message": "Your train ticket has been booked successfully please act now",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "finance",
+    "language": "Hindi"
+  },
+  {
+    "message": "You are selected for instant loan approval, click to proceed immediately",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "government",
+    "language": "English"
+  },
+  {
+    "message": "Thank you for your purchase",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "ecommerce",
+    "language": "Hinglish"
+  },
+  {
+    "message": "आपका बैंक खाता सत्यापन लंबित है, कृपया तुरंत अपडेट करें immediately",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "ecommerce",
+    "language": "English"
+  },
+  {
+    "message": "Your order has been shipped and will arrive tomorrow jaldi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "ecommerce",
+    "language": "English"
+  },
+  {
+    "message": "Aapka parcel customs me atka hai, ₹35 pay karke release kare immediately",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "ecommerce",
+    "language": "Hindi"
+  },
+  {
+    "message": "Your payment of ₹899 has been received please act now",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "telecom",
+    "language": "Hindi"
+  },
+  {
+    "message": "आपका KYC पूरा नहीं है, तुरंत अपडेट करें abhi kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "finance",
+    "language": "Hindi"
+  },
+  {
+    "message": "Your parcel has been delivered successfully immediately",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "banking",
+    "language": "English"
+  },
+  {
+    "message": "Aapka ATM card block ho gaya hai, details update kare abhi kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "banking",
+    "language": "English"
+  },
+  {
+    "message": "Your train ticket has been booked successfully",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "finance",
+    "language": "Hinglish"
+  },
+  {
+    "message": "You are selected for instant loan approval, click to proceed please act now",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "finance",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Thank you for your purchase jaldi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "government",
+    "language": "English"
+  },
+  {
+    "message": "आपका बैंक खाता सत्यापन लंबित है, कृपया तुरंत अपडेट करें abhi kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "banking",
+    "language": "Hindi"
+  },
+  {
+    "message": "Your order has been shipped and will arrive tomorrow abhi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "telecom",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Aapka parcel customs me atka hai, ₹35 pay karke release kare abhi kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "finance",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Your payment of ₹899 has been received abhi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "finance",
+    "language": "English"
+  },
+  {
+    "message": "आपका KYC पूरा नहीं है, तुरंत अपडेट करें please act now",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "government",
+    "language": "English"
+  },
+  {
+    "message": "Your parcel has been delivered successfully",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "banking",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Aapka ATM card block ho gaya hai, details update kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "government",
+    "language": "English"
+  },
+  {
+    "message": "Your train ticket has been booked successfully jaldi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "telecom",
+    "language": "Hinglish"
+  },
+  {
+    "message": "You are selected for instant loan approval, click to proceed please act now",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "banking",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Thank you for your purchase immediately",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "government",
+    "language": "English"
+  },
+  {
+    "message": "आपका बैंक खाता सत्यापन लंबित है, कृपया तुरंत अपडेट करें please act now",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "banking",
+    "language": "Hindi"
+  },
+  {
+    "message": "Your order has been shipped and will arrive tomorrow immediately",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "utilities",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Aapka parcel customs me atka hai, ₹35 pay karke release kare immediately",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "ecommerce",
+    "language": "Hindi"
+  },
+  {
+    "message": "Your payment of ₹899 has been received immediately",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "finance",
+    "language": "English"
+  },
+  {
+    "message": "आपका KYC पूरा नहीं है, तुरंत अपडेट करें immediately",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "utilities",
+    "language": "Hindi"
+  },
+  {
+    "message": "Your parcel has been delivered successfully abhi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "ecommerce",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Aapka ATM card block ho gaya hai, details update kare abhi kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "government",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Your train ticket has been booked successfully abhi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "finance",
+    "language": "Hinglish"
+  },
+  {
+    "message": "You are selected for instant loan approval, click to proceed please act now",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "ecommerce",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Thank you for your purchase abhi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "banking",
+    "language": "Hinglish"
+  },
+  {
+    "message": "आपका बैंक खाता सत्यापन लंबित है, कृपया तुरंत अपडेट करें immediately",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "telecom",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Your order has been shipped and will arrive tomorrow",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "government",
+    "language": "Hindi"
+  },
+  {
+    "message": "Aapka parcel customs me atka hai, ₹35 pay karke release kare immediately",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "finance",
+    "language": "Hindi"
+  },
+  {
+    "message": "Your payment of ₹899 has been received abhi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "ecommerce",
+    "language": "English"
+  },
+  {
+    "message": "आपका KYC पूरा नहीं है, तुरंत अपडेट करें",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "banking",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Your parcel has been delivered successfully please act now",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "telecom",
+    "language": "Hindi"
+  },
+  {
+    "message": "Aapka ATM card block ho gaya hai, details update kare abhi kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "finance",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Your train ticket has been booked successfully",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "finance",
+    "language": "Hindi"
+  },
+  {
+    "message": "You are selected for instant loan approval, click to proceed please act now",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "government",
+    "language": "English"
+  },
+  {
+    "message": "Thank you for your purchase jaldi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "ecommerce",
+    "language": "Hinglish"
+  },
+  {
+    "message": "आपका बैंक खाता सत्यापन लंबित है, कृपया तुरंत अपडेट करें",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "government",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Your order has been shipped and will arrive tomorrow",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "finance",
+    "language": "Hindi"
+  },
+  {
+    "message": "Aapka parcel customs me atka hai, ₹35 pay karke release kare please act now",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "ecommerce",
+    "language": "Hindi"
+  },
+  {
+    "message": "Your payment of ₹899 has been received jaldi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "finance",
+    "language": "English"
+  },
+  {
+    "message": "आपका KYC पूरा नहीं है, तुरंत अपडेट करें abhi kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "telecom",
+    "language": "English"
+  },
+  {
+    "message": "Your parcel has been delivered successfully immediately",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "ecommerce",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Aapka ATM card block ho gaya hai, details update kare immediately",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "ecommerce",
+    "language": "Hindi"
+  },
+  {
+    "message": "Your train ticket has been booked successfully abhi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "banking",
+    "language": "Hindi"
+  },
+  {
+    "message": "You are selected for instant loan approval, click to proceed jaldi kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "telecom",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Thank you for your purchase jaldi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "banking",
+    "language": "English"
+  },
+  {
+    "message": "आपका बैंक खाता सत्यापन लंबित है, कृपया तुरंत अपडेट करें jaldi kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "finance",
+    "language": "Hindi"
+  },
+  {
+    "message": "Your order has been shipped and will arrive tomorrow jaldi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "banking",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Aapka parcel customs me atka hai, ₹35 pay karke release kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "ecommerce",
+    "language": "English"
+  },
+  {
+    "message": "Your payment of ₹899 has been received",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "banking",
+    "language": "Hindi"
+  },
+  {
+    "message": "आपका KYC पूरा नहीं है, तुरंत अपडेट करें",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "ecommerce",
+    "language": "English"
+  },
+  {
+    "message": "Your parcel has been delivered successfully jaldi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "finance",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Aapka ATM card block ho gaya hai, details update kare jaldi kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "banking",
+    "language": "English"
+  },
+  {
+    "message": "Your train ticket has been booked successfully immediately",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "government",
+    "language": "Hindi"
+  },
+  {
+    "message": "You are selected for instant loan approval, click to proceed",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "utilities",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Thank you for your purchase please act now",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "ecommerce",
+    "language": "Hinglish"
+  },
+  {
+    "message": "आपका बैंक खाता सत्यापन लंबित है, कृपया तुरंत अपडेट करें abhi kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "finance",
+    "language": "Hindi"
+  },
+  {
+    "message": "Your order has been shipped and will arrive tomorrow abhi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "banking",
+    "language": "Hindi"
+  },
+  {
+    "message": "Aapka parcel customs me atka hai, ₹35 pay karke release kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "government",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Your payment of ₹899 has been received",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "banking",
+    "language": "Hindi"
+  },
+  {
+    "message": "आपका KYC पूरा नहीं है, तुरंत अपडेट करें jaldi kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "banking",
+    "language": "Hindi"
+  },
+  {
+    "message": "Your parcel has been delivered successfully",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "utilities",
+    "language": "Hindi"
+  },
+  {
+    "message": "Aapka ATM card block ho gaya hai, details update kare jaldi kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "banking",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Your train ticket has been booked successfully immediately",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "government",
+    "language": "English"
+  },
+  {
+    "message": "You are selected for instant loan approval, click to proceed immediately",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "utilities",
+    "language": "Hindi"
+  },
+  {
+    "message": "Thank you for your purchase abhi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "ecommerce",
+    "language": "English"
+  },
+  {
+    "message": "आपका बैंक खाता सत्यापन लंबित है, कृपया तुरंत अपडेट करें jaldi kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "telecom",
+    "language": "Hindi"
+  },
+  {
+    "message": "Your order has been shipped and will arrive tomorrow jaldi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "banking",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Aapka parcel customs me atka hai, ₹35 pay karke release kare immediately",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "telecom",
+    "language": "Hindi"
+  },
+  {
+    "message": "Your payment of ₹899 has been received",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "government",
+    "language": "Hinglish"
+  },
+  {
+    "message": "आपका KYC पूरा नहीं है, तुरंत अपडेट करें",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "ecommerce",
+    "language": "Hindi"
+  },
+  {
+    "message": "Your parcel has been delivered successfully please act now",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "government",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Aapka ATM card block ho gaya hai, details update kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "government",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Your train ticket has been booked successfully jaldi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "ecommerce",
+    "language": "Hinglish"
+  },
+  {
+    "message": "You are selected for instant loan approval, click to proceed",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "banking",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Thank you for your purchase immediately",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "telecom",
+    "language": "English"
+  },
+  {
+    "message": "आपका बैंक खाता सत्यापन लंबित है, कृपया तुरंत अपडेट करें abhi kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "utilities",
+    "language": "English"
+  },
+  {
+    "message": "Your order has been shipped and will arrive tomorrow jaldi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "banking",
+    "language": "English"
+  },
+  {
+    "message": "Aapka parcel customs me atka hai, ₹35 pay karke release kare immediately",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "utilities",
+    "language": "English"
+  },
+  {
+    "message": "Your payment of ₹899 has been received please act now",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "finance",
+    "language": "Hindi"
+  },
+  {
+    "message": "आपका KYC पूरा नहीं है, तुरंत अपडेट करें please act now",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "utilities",
+    "language": "English"
+  },
+  {
+    "message": "Your parcel has been delivered successfully jaldi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "ecommerce",
+    "language": "Hindi"
+  },
+  {
+    "message": "Aapka ATM card block ho gaya hai, details update kare immediately",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "telecom",
+    "language": "English"
+  },
+  {
+    "message": "Your train ticket has been booked successfully abhi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "government",
+    "language": "English"
+  },
+  {
+    "message": "You are selected for instant loan approval, click to proceed please act now",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "ecommerce",
+    "language": "Hindi"
+  },
+  {
+    "message": "Thank you for your purchase immediately",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "ecommerce",
+    "language": "Hinglish"
+  },
+  {
+    "message": "आपका बैंक खाता सत्यापन लंबित है, कृपया तुरंत अपडेट करें",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "banking",
+    "language": "English"
+  },
+  {
+    "message": "Your order has been shipped and will arrive tomorrow please act now",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "utilities",
+    "language": "English"
+  },
+  {
+    "message": "Aapka parcel customs me atka hai, ₹35 pay karke release kare immediately",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "telecom",
+    "language": "English"
+  },
+  {
+    "message": "Your payment of ₹899 has been received immediately",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "ecommerce",
+    "language": "Hinglish"
+  },
+  {
+    "message": "आपका KYC पूरा नहीं है, तुरंत अपडेट करें jaldi kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "telecom",
+    "language": "English"
+  },
+  {
+    "message": "Your parcel has been delivered successfully immediately",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "government",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Aapka ATM card block ho gaya hai, details update kare please act now",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "ecommerce",
+    "language": "Hindi"
+  },
+  {
+    "message": "Your train ticket has been booked successfully jaldi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "telecom",
+    "language": "English"
+  },
+  {
+    "message": "You are selected for instant loan approval, click to proceed immediately",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "ecommerce",
+    "language": "English"
+  },
+  {
+    "message": "Thank you for your purchase abhi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "government",
+    "language": "English"
+  },
+  {
+    "message": "आपका बैंक खाता सत्यापन लंबित है, कृपया तुरंत अपडेट करें immediately",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "government",
+    "language": "Hindi"
+  },
+  {
+    "message": "Your order has been shipped and will arrive tomorrow abhi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "government",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Aapka parcel customs me atka hai, ₹35 pay karke release kare jaldi kare",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "banking",
+    "language": "Hinglish"
+  },
+  {
+    "message": "Your payment of ₹899 has been received",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "telecom",
+    "language": "Hinglish"
+  },
+  {
+    "message": "आपका KYC पूरा नहीं है, तुरंत अपडेट करें immediately",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "ecommerce",
+    "language": "English"
+  },
+  {
+    "message": "Your parcel has been delivered successfully please act now",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "telecom",
+    "language": "Hindi"
+  },
+  {
+    "message": "Aapka ATM card block ho gaya hai, details update kare immediately",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "government",
+    "language": "English"
+  },
+  {
+    "message": "Your train ticket has been booked successfully jaldi kare",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "ecommerce",
+    "language": "Hinglish"
+  },
+  {
+    "message": "You are selected for instant loan approval, click to proceed",
+    "label": "scam",
+    "reason": "Urgency, reward or suspicious instruction",
+    "domain": "finance",
+    "language": "English"
+  },
+  {
+    "message": "Thank you for your purchase immediately",
+    "label": "legit",
+    "reason": "Normal transactional message",
+    "domain": "government",
+    "language": "Hindi"
+  }
+]

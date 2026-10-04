@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { computeAnnualised } from './calc';
+import { computeAnnualised, computeResearchCagrModeB } from './calc';
 
 describe('computeAnnualised', () => {
   it('computes worked example ₹10,000 -> ₹20,000 in 30 days correctly (~4,598x, tier 4)', () => {
@@ -104,3 +104,55 @@ describe('computeAnnualised', () => {
     }
   });
 });
+
+describe('computeResearchCagrModeB', () => {
+  it('computes 3-year CAGR for ₹1,00,000 -> ₹1,44,000 correctly (~12.92%)', () => {
+    const res = computeResearchCagrModeB({
+      initialLumpSum: 100000,
+      endingValue: 144000,
+      startDateStr: '2023-01-01',
+      endDateStr: '2026-01-01',
+    });
+
+    expect(res.success).toBe(true);
+    if (res.success) {
+      expect(res.cagrPct).toBeGreaterThan(12.8);
+      expect(res.cagrPct).toBeLessThan(13.1);
+      expect(res.absoluteChange).toBe(44000);
+      expect(res.totalReturnPct).toBe(44);
+      expect(res.isLoss).toBe(false);
+      expect(res.labelDisclaimer).toContain('Based only on the values you entered');
+    }
+  });
+
+  it('handles negative start amount safely with error', () => {
+    const res = computeResearchCagrModeB({
+      initialLumpSum: -100,
+      endingValue: 200,
+      startDateStr: '2023-01-01',
+      endDateStr: '2024-01-01',
+    });
+    expect(res.success).toBe(false);
+  });
+
+  it('handles same-day dates safely with error', () => {
+    const res = computeResearchCagrModeB({
+      initialLumpSum: 10000,
+      endingValue: 12000,
+      startDateStr: '2024-01-01',
+      endDateStr: '2024-01-01',
+    });
+    expect(res.success).toBe(false);
+  });
+
+  it('handles reverse dates (end before start) with error', () => {
+    const res = computeResearchCagrModeB({
+      initialLumpSum: 10000,
+      endingValue: 12000,
+      startDateStr: '2025-01-01',
+      endDateStr: '2024-01-01',
+    });
+    expect(res.success).toBe(false);
+  });
+});
+

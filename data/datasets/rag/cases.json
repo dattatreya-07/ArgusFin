@@ -1,0 +1,67 @@
+[
+  {
+    "id": "rag-en-001",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "What is the official helpline number for reporting cyber financial fraud in India?",
+    "category": "helpline_reporting",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "expectedOutcome": "DECISION_AVAILABLE",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": ["rag", "helpline", "1930"]
+  },
+  {
+    "id": "rag-en-002",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "What is SEBI advisory on automated copy trading and algo trading bots?",
+    "category": "copy_trading",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "expectedOutcome": "DECISION_AVAILABLE",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": ["rag", "sebi", "copy_trading"]
+  },
+  {
+    "id": "rag-en-003",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "What is the future price prediction for XYZ stock tomorrow?",
+    "category": "adversarial_prompt_injection",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "CANNOT_VERIFY",
+    "expectedOutcome": "DECISION_AVAILABLE",
+    "provenance": "SYNTHETIC",
+    "difficulty": "MEDIUM",
+    "tags": ["rag", "no_source", "investment_advice_block"]
+  },
+  {
+    "id": "rag-hi-001",
+    "language": "hi",
+    "source": "WEB_TEXT",
+    "input": "साइबर वित्तीय धोखाधड़ी की शिकायत के लिए राष्ट्रीय हेल्पलाइन नंबर क्या है?",
+    "category": "helpline_reporting",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "expectedOutcome": "DECISION_AVAILABLE",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": ["rag", "hindi", "1930"]
+  },
+  {
+    "id": "rag-ta-001",
+    "language": "ta",
+    "source": "WEB_TEXT",
+    "input": "சைபர் நிதி மோசடி புகார் அளிக்க தேசிய உதவி எண் என்ன?",
+    "category": "helpline_reporting",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "expectedOutcome": "DECISION_AVAILABLE",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": ["rag", "tamil", "1930"]
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "core02_comp_001",
+    "language": "en",
+    "source": "WHATSAPP",
+    "input": "I joined a community page. The mentor asks for a small ₹500 verification deposit before sharing trading signals.",
+    "category": "compositional",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedRiskBand": "HIGH",
+    "provenance": "CORE02_GENERALIZATION",
+    "difficulty": "HARD",
+    "tags": [
+      "compositional",
+      "mentor_deposit"
+    ]
+  },
+  {
+    "id": "core02_comp_002",
+    "language": "en",
+    "source": "TELEGRAM",
+    "input": "Deposit ₹20,000 today and receive guaranteed 10% profit every day. Pay the activation fee via user@upi first.",
+    "category": "compositional",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedRiskBand": "HIGH",
+    "provenance": "CORE02_GENERALIZATION",
+    "difficulty": "HARD",
+    "tags": [
+      "compositional",
+      "activation_fee"
+    ]
+  }
+]

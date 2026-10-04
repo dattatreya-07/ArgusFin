@@ -6,10 +6,10 @@ export default function manifest(): MetadataRoute.Manifest {
     short_name: 'Argus Fin',
     description:
       'Bharat-first educational investor protection, claim verification, and yield reality checks grounded in official benchmarks',
-    start_url: '/en',
+    start_url: '/',
     display: 'standalone',
-    background_color: '#020617',
-    theme_color: '#0f172a',
+    background_color: '#FBF7F1',
+    theme_color: '#B84E00',
     icons: [
       {
         src: '/icon-192.png',
@@ -22,9 +22,9 @@ export default function manifest(): MetadataRoute.Manifest {
         type: 'image/png',
       },
     ],
-    // Web Share Target API Specification for Android
+    // Web Share Target API Specification for Android / PWA
     share_target: {
-      action: '/en/share',
+      action: '/check',
       method: 'GET',
       enctype: 'application/x-www-form-urlencoded',
       params: {

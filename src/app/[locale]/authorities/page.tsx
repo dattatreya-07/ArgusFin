@@ -4,6 +4,24 @@ import React, { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
 import { Lang } from '@/lib/types';
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+  Button,
+  Chip,
+  Banner,
+  SectionHeading,
+} from '@/components/ui';
+import {
+  IconPhone,
+  IconShield,
+  IconInfo,
+  IconAlertTriangle,
+} from '@/components/icons';
 
 interface AuthorityChannel {
   type: string;
@@ -54,110 +72,126 @@ export default function AuthoritiesPage() {
   }, [selectedSituation, currentLang]);
 
   const situations = [
-    { key: 'money_lost_recent', label: t('opt2'), badge: 'Golden Hour' },
-    { key: 'offer_only', label: t('opt1'), badge: 'Preventive' },
-    { key: 'unregistered_adviser', label: t('opt3'), badge: 'Regulatory' },
-    { key: 'social_media_fraud', label: t('opt4'), badge: 'Telecom/Cyber' },
+    { key: 'money_lost_recent', label: t('opt2'), badge: 'Golden Hour (1930)' },
+    { key: 'offer_only', label: t('opt1'), badge: 'Preventive Alert' },
+    { key: 'unregistered_adviser', label: t('opt3'), badge: 'SEBI / RBI Regulatory' },
+    { key: 'social_media_fraud', label: t('opt4'), badge: 'DoT / Telecom / Cyber' },
   ];
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8 py-4">
+    <div className="max-w-4xl mx-auto space-y-8">
       {/* Header */}
-      <div className="space-y-2 text-center md:text-left">
-        <h1 className="text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
-          <span className="p-2 bg-blue-950 border border-blue-800 text-blue-400 rounded-xl text-xl">
-            🛡️
-          </span>
-          {t('title')}
-        </h1>
-        <p className="text-zinc-400 text-base max-w-2xl">{t('subtitle')}</p>
+      <div className="space-y-2">
+        <SectionHeading
+          badge="Official Redressal Router"
+          title={t('title')}
+          subtitle={t('subtitle')}
+        />
       </div>
 
       {/* Situation Selector */}
-      <div className="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-6 shadow-xl space-y-4">
-        <label className="block text-sm font-semibold text-zinc-300">
-          {t('situationPrompt')}
-        </label>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {situations.map((sit) => {
-            const isSelected = selectedSituation === sit.key;
-            return (
-              <button
-                key={sit.key}
-                type="button"
-                onClick={() => setSelectedSituation(sit.key)}
-                className={`p-4 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between gap-2 ${
-                  isSelected
-                    ? 'bg-blue-950/70 border-blue-500 text-white shadow-lg ring-1 ring-blue-500'
-                    : 'bg-zinc-950/60 border-zinc-800 text-zinc-300 hover:border-zinc-700 hover:text-white'
-                }`}
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold px-2 py-0.5 rounded-md bg-zinc-800 text-zinc-400">
-                    {sit.badge}
-                  </span>
-                  {isSelected && <span className="text-blue-400 text-xs">● Active</span>}
-                </div>
-                <span className="text-sm font-medium">{sit.label}</span>
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Rationale explanation banner */}
-      {reasons.length > 0 && (
-        <div className="p-4 rounded-xl bg-blue-950/40 border border-blue-800/80 text-blue-200 text-xs space-y-1">
-          <span className="font-bold flex items-center gap-1.5">
-            <span>ℹ️</span> Routing Rationale:
-          </span>
-          <ul className="list-disc list-inside space-y-0.5 text-blue-300">
-            {reasons.map((r, idx) => (
-              <li key={idx}>{r}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {/* Authorities List */}
-      <div className="space-y-4">
-        <h2 className="text-sm font-bold text-zinc-400 uppercase tracking-wider">
-          {t('recommendedAuthorities')}
-        </h2>
-
-        {loading ? (
-          <div className="p-8 text-center text-zinc-500 text-sm">Loading authorities...</div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {authorities.map((auth) => (
-              <div
-                key={auth.id}
-                className="bg-zinc-900/80 border border-zinc-800 rounded-2xl p-5 shadow-lg flex flex-col justify-between gap-4"
-              >
-                <div className="space-y-2">
+      <Card>
+        <CardHeader className="space-y-1">
+          <div className="flex items-center justify-between">
+            <CardTitle className="text-lg font-bold text-ink">
+              {t('situationPrompt')}
+            </CardTitle>
+            <span className="text-xs text-accent font-mono font-bold">[ Smart Router ]</span>
+          </div>
+          <CardDescription className="text-xs text-ink-muted">
+            Select your scenario to view verified emergency helplines &amp; official grievance portals.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="pt-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {situations.map((sit) => {
+              const isSelected = selectedSituation === sit.key;
+              return (
+                <button
+                  key={sit.key}
+                  type="button"
+                  onClick={() => setSelectedSituation(sit.key)}
+                  className={`p-4 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between gap-2.5 ${
+                    isSelected
+                      ? 'bg-accent-soft border-accent text-ink shadow-md ring-1 ring-accent font-bold'
+                      : 'bg-surface-sunken border-border text-ink-muted hover:border-accent/60 hover:text-ink'
+                  }`}
+                >
                   <div className="flex items-center justify-between">
-                    <h3 className="text-base font-bold text-white">{auth.name}</h3>
-                    {auth.isEmergency && (
-                      <span className="text-[10px] uppercase font-bold px-2 py-0.5 bg-rose-950 text-rose-300 border border-rose-800 rounded-md">
-                        Priority First Response
+                    <span className="text-[11px] font-bold px-2 py-0.5 rounded bg-surface border border-border text-accent font-mono">
+                      {sit.badge}
+                    </span>
+                    {isSelected && (
+                      <span className="text-xs font-bold text-accent font-mono">
+                        ● Selected
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-zinc-400 leading-relaxed">{auth.scope}</p>
+                  <span className="text-sm leading-snug">{sit.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Rationale Explanation Banner */}
+      {reasons.length > 0 && (
+        <Banner
+          variant="info"
+          title="Routing Rationale"
+          description={
+            <ul className="list-disc list-inside space-y-1 pt-1 font-mono text-xs">
+              {reasons.map((r, idx) => (
+                <li key={idx}>{r}</li>
+              ))}
+            </ul>
+          }
+        />
+      )}
+
+      {/* Authorities Grid */}
+      <div className="space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="text-xs font-bold uppercase tracking-wider text-ink font-mono">
+            {t('recommendedAuthorities')} ({authorities.length})
+          </h2>
+          <span className="text-[11px] text-ink-muted font-mono">
+            Source: data/authorities.json
+          </span>
+        </div>
+
+        {loading ? (
+          <Card className="p-8 text-center text-ink-muted text-sm font-mono animate-pulse">
+            Loading verified authorities...
+          </Card>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {authorities.map((auth) => (
+              <Card key={auth.id} className="border-border hover:border-accent transition-all flex flex-col justify-between">
+                <CardHeader className="space-y-2">
+                  <div className="flex items-start justify-between gap-2">
+                    <CardTitle className="text-base font-bold text-ink">{auth.name}</CardTitle>
+                    {auth.isEmergency && (
+                      <span className="text-[10px] uppercase font-bold px-2 py-0.5 bg-risk-high-bg text-risk-high-text border border-risk-high-border/30 rounded font-mono shrink-0">
+                        Priority 1930
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-xs text-ink-muted leading-relaxed">{auth.scope}</p>
 
                   {auth.reason && (
-                    <div className="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800 text-[11px] text-zinc-300 space-y-1">
-                      <span className="font-semibold text-zinc-400 block">Why this resource:</span>
-                      <p className="text-zinc-300">{auth.reason}</p>
+                    <div className="p-3 rounded-lg bg-surface-sunken border border-border text-xs space-y-1">
+                      <span className="font-bold text-ink block font-mono text-[11px]">Why this authority:</span>
+                      <p className="text-ink-muted">{auth.reason}</p>
                       {auth.actionGuidance && (
-                        <p className="text-emerald-400 pt-1 font-medium">{auth.actionGuidance}</p>
+                        <p className="text-accent font-bold pt-1">{auth.actionGuidance}</p>
                       )}
                     </div>
                   )}
-                </div>
+                </CardHeader>
 
-                {/* Channels */}
-                <div className="space-y-2 pt-3 border-t border-zinc-800/80">
+                <CardContent className="space-y-3 pt-3 border-t border-border">
                   {auth.channels.map((ch, idx) => {
                     // Hard Rule 8: If unverified, hide number and show portal note only
                     const isVerified = ch.verified_at !== null && ch.value.length > 0;
@@ -165,16 +199,17 @@ export default function AuthoritiesPage() {
                     if (ch.type === 'phone') {
                       return (
                         <div key={idx} className="flex items-center justify-between gap-2">
-                          <span className="text-xs text-zinc-400">Emergency Helpline:</span>
+                          <span className="text-xs text-ink-muted font-medium">Helpline:</span>
                           {isVerified ? (
                             <a
                               href={`tel:${ch.value}`}
-                              className="px-3 py-1.5 rounded-lg bg-rose-600 text-white font-bold text-sm hover:bg-rose-500 transition-all cursor-pointer shadow-md"
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-accent text-accent-ink font-bold text-xs hover:scale-105 transition-all shadow-sm"
                             >
-                              📞 {ch.value} ({t('callNow')})
+                              <IconPhone className="w-3.5 h-3.5" />
+                              {ch.value} ({t('callNow')})
                             </a>
                           ) : (
-                            <span className="text-xs text-zinc-500 italic">
+                            <span className="text-xs text-ink-muted italic">
                               Check back of bank card
                             </span>
                           )}
@@ -185,18 +220,18 @@ export default function AuthoritiesPage() {
                     if (ch.type === 'url') {
                       return (
                         <div key={idx} className="flex items-center justify-between gap-2">
-                          <span className="text-xs text-zinc-400">Official Portal:</span>
+                          <span className="text-xs text-ink-muted font-medium">Official Portal:</span>
                           {isVerified ? (
                             <a
                               href={ch.value}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="px-3 py-1.5 rounded-lg bg-blue-600 text-white font-semibold text-xs hover:bg-blue-500 transition-all cursor-pointer"
+                              className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-sunken border border-border text-ink hover:border-accent font-bold text-xs transition-all"
                             >
                               🌐 {t('visitPortal')} ↗
                             </a>
                           ) : (
-                            <span className="text-xs text-zinc-500 italic">Official Portal</span>
+                            <span className="text-xs text-ink-muted italic">Official Portal</span>
                           )}
                         </div>
                       );
@@ -204,31 +239,50 @@ export default function AuthoritiesPage() {
 
                     return null;
                   })}
-                </div>
+                </CardContent>
 
                 {auth.verified_at && (
-                  <span className="text-[10px] text-zinc-600">
+                  <CardFooter className="bg-surface-sunken border-t border-border py-2 text-[10px] text-ink-muted font-mono">
                     Source verified as of: {auth.verified_at}
-                  </span>
+                  </CardFooter>
                 )}
-              </div>
+              </Card>
             ))}
           </div>
         )}
       </div>
 
-      {/* Checklist box */}
-      <div className="p-5 rounded-2xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-400 space-y-2">
-        <h3 className="font-bold text-zinc-300 uppercase tracking-wider">
-          {t('checklistTitle')}
-        </h3>
-        <ul className="list-disc list-inside space-y-1 text-zinc-400">
-          <li>Transaction UTR / UPI Reference Number (12 digits)</li>
-          <li>Beneficiary account number, phone number, or UPI VPA</li>
-          <li>Date, exact time, and debit account details</li>
-          <li>Screenshots of chat conversations, fake portal URLs, and app download links</li>
-        </ul>
-      </div>
+      {/* Evidence Preparation Checklist Box */}
+      <Card className="border-border bg-surface-sunken">
+        <CardHeader className="space-y-2">
+          <CardTitle className="text-sm font-bold text-ink uppercase tracking-wider font-mono flex items-center gap-2">
+            <span>📋</span> {t('checklistTitle')}
+          </CardTitle>
+          <CardDescription className="text-xs text-ink-muted">
+            Have these 4 pieces of details ready before lodging a complaint with 1930 or SEBI SCORES:
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="pt-0">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-ink-muted">
+            <li className="p-2.5 rounded bg-surface border border-border flex items-center gap-2">
+              <span className="text-accent font-bold">✓</span>
+              <span>Transaction UTR / UPI Ref Number (12 digits)</span>
+            </li>
+            <li className="p-2.5 rounded bg-surface border border-border flex items-center gap-2">
+              <span className="text-accent font-bold">✓</span>
+              <span>Beneficiary Bank Account, Phone, or UPI VPA</span>
+            </li>
+            <li className="p-2.5 rounded bg-surface border border-border flex items-center gap-2">
+              <span className="text-accent font-bold">✓</span>
+              <span>Date, Exact Timestamp &amp; Debit Bank Details</span>
+            </li>
+            <li className="p-2.5 rounded bg-surface border border-border flex items-center gap-2">
+              <span className="text-accent font-bold">✓</span>
+              <span>Screenshots of Chat History, Fake Portals &amp; Apps</span>
+            </li>
+          </ul>
+        </CardContent>
+      </Card>
     </div>
   );
 }

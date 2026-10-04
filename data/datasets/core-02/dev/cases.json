@@ -1,0 +1,92 @@
+[
+  {
+    "id": "core02_para_001",
+    "language": "en",
+    "source": "TELEGRAM",
+    "input": "You receive a fixed 5 percent credit in your account every morning at 9 AM guaranteed.",
+    "category": "paraphrased",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedRiskBand": "HIGH",
+    "provenance": "CORE02_GENERALIZATION",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "paraphrase",
+      "daily_cadence"
+    ]
+  },
+  {
+    "id": "core02_para_002",
+    "language": "en",
+    "source": "WHATSAPP",
+    "input": "My portfolio manager claims my initial capital will automatically double by next month without any market risk.",
+    "category": "paraphrased",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedRiskBand": "HIGH",
+    "provenance": "CORE02_GENERALIZATION",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "paraphrase",
+      "no_risk"
+    ]
+  },
+  {
+    "id": "core02_para_003",
+    "language": "hi",
+    "source": "WHATSAPP",
+    "input": "मेरे अंकल ने कहा कि इस स्कीम में पैसे लगाने पर हर महीने 100% फायदा पक्का मिलता है।",
+    "category": "paraphrased",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedRiskBand": "HIGH",
+    "provenance": "CORE02_GENERALIZATION",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "paraphrase",
+      "hindi"
+    ]
+  },
+  {
+    "id": "core02_para_004",
+    "language": "ta",
+    "source": "TELEGRAM",
+    "input": "எங்கள் வர்த்தகக் குழுவில் சேர்ந்து தினமும் 10% நிலையான லாபத்தைப் பெறுங்கள்.",
+    "category": "paraphrased",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedRiskBand": "HIGH",
+    "provenance": "CORE02_GENERALIZATION",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "paraphrase",
+      "tamil"
+    ]
+  },
+  {
+    "id": "core02_comp_001",
+    "language": "en",
+    "source": "WHATSAPP",
+    "input": "I joined a community page. The mentor asks for a small ₹500 verification deposit before sharing trading signals.",
+    "category": "compositional",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedRiskBand": "HIGH",
+    "provenance": "CORE02_GENERALIZATION",
+    "difficulty": "HARD",
+    "tags": [
+      "compositional",
+      "mentor_deposit"
+    ]
+  },
+  {
+    "id": "core02_comp_002",
+    "language": "en",
+    "source": "TELEGRAM",
+    "input": "Deposit ₹20,000 today and receive guaranteed 10% profit every day. Pay the activation fee via user@upi first.",
+    "category": "compositional",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedRiskBand": "HIGH",
+    "provenance": "CORE02_GENERALIZATION",
+    "difficulty": "HARD",
+    "tags": [
+      "compositional",
+      "activation_fee"
+    ]
+  }
+]

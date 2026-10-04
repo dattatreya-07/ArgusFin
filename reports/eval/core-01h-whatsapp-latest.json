@@ -1,0 +1,123 @@
+{
+  "timestamp": "2026-10-04T08:36:46.414Z",
+  "liveStatus": "IMPLEMENTED_N8N_ARCHITECTURE",
+  "totalCases": 14,
+  "transportParsedPassed": 14,
+  "tripleParityPassed": 12,
+  "tripleParityAccuracyPercent": 100,
+  "authPassed": true,
+  "results": [
+    {
+      "id": "WA_001",
+      "description": "Standard guaranteed return claim via WhatsApp text message",
+      "category": "TEXT",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "WA_002",
+      "description": "Daily return claim via WhatsApp image caption",
+      "category": "CAPTION",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "WA_003",
+      "description": "Copy trading pitch via WhatsApp",
+      "category": "COPY_TRADING",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "WA_004",
+      "description": "Crypto staking/mining offer",
+      "category": "CRYPTO",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "WA_005",
+      "description": "Withdrawal tax fee scam claim",
+      "category": "FEE_SCAM",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "WA_006",
+      "description": "OTP credential harvesting request",
+      "category": "SECURITY",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "WA_007",
+      "description": "Suspicious URL embedded in WhatsApp message",
+      "category": "SUSPICIOUS_URL",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "WA_008",
+      "description": "Prompt injection attack inside WhatsApp message",
+      "category": "PROMPT_INJECTION",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "WA_009",
+      "description": "Multilingual Hindi investment scam message",
+      "category": "MULTILINGUAL_HI",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "WA_010",
+      "description": "Multilingual Tamil investment scam message",
+      "category": "MULTILINGUAL_TA",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "WA_011",
+      "description": "Synthetic PII masked in WhatsApp update",
+      "category": "PII_MASKING",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "WA_012",
+      "description": "Benign educational message via WhatsApp",
+      "category": "BENIGN",
+      "expectedStatus": "PROCESSED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "WA_013",
+      "description": "Duplicate event handling test (same wamid)",
+      "category": "DUPLICATE",
+      "expectedStatus": "SKIPPED",
+      "actualStatus": "PROCESSED",
+      "parityMatches": true
+    },
+    {
+      "id": "WA_014",
+      "description": "Status update acknowledgment payload (non-message event)",
+      "category": "STATUS_UPDATE",
+      "expectedStatus": "SKIPPED",
+      "actualStatus": "SKIPPED",
+      "parityMatches": true
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CORE-01 Evaluation Case Schema",
+  "description": "Schema for SANGYAN / ArgusFin multi-dimensional evaluation and benchmark cases.",
+  "type": "object",
+  "required": [
+    "id",
+    "language",
+    "source",
+    "input",
+    "category",
+    "expectedArchetype",
+    "expectedRiskBand",
+    "provenance",
+    "difficulty",
+    "tags"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique evaluation case identifier (e.g., dev-en-001, test-hi-045, adv-ta-012)"
+    },
+    "language": {
+      "type": "string",
+      "enum": ["en", "hi", "ta"]
+    },
+    "source": {
+      "type": "string",
+      "enum": ["WEB_TEXT", "CHAT", "URL", "IMAGE", "OCR", "AUDIO_TRANSCRIPT", "EMAIL", "TELEGRAM", "WHATSAPP"]
+    },
+    "input": {
+      "type": "string",
+      "minLength": 1
+    },
+    "normalizedInput": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "description": "Functional capability category (e.g. scam_promise, benign_education, adversarial_prompt_injection, ocr_corrupted, return_math, copy_trading, crypto, payment_escalation, credential_request, url_phishing)"
+    },
+    "expectedArchetype": {
+      "type": "string",
+      "enum": [
+        "DOUBLING_SCHEME",
+        "COPY_TRADING",
+        "COURSE_FINFLUENCER",
+        "CRYPTO_STAKING_MINING",
+        "FAKE_TRADING_APP_OR_PORTAL",
+        "FAKE_ADVISORY_OR_REG_CLAIM",
+        "PUMP_AND_DUMP_GROUP",
+        "REMOTE_ACCESS_SCAM",
+        "FAKE_IPO_OR_ALLOTMENT",
+        "PRE_APPROVED_LOAN_SCAM",
+        "OTHER_OR_NONE"
+      ]
+    },
+    "expectedRiskBand": {
+      "type": "string",
+      "enum": ["HIGH", "MEDIUM", "LOW_SIGNALS", "CANNOT_VERIFY"]
+    },
+    "expectedSignals": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "expectedClaims": {
+      "type": "object"
+    },
+    "expectedDuration": {
+      "type": ["number", "null"]
+    },
+    "expectedReturn": {
+      "type": ["number", "null"]
+    },
+    "expectedPaymentRequest": {
+      "type": "boolean"
+    },
+    "expectedCredentialRequest": {
+      "type": "boolean"
+    },
+    "expectedURLSignals": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "expectedOutcome": {
+      "type": "string",
+      "enum": ["DECISION_AVAILABLE", "DECISION_DEGRADED", "DECISION_UNAVAILABLE"]
+    },
+    "provenance": {
+      "type": "string",
+      "enum": ["HUMAN_AUTHORED", "PUBLIC_SOURCE_DERIVED", "SYNTHETIC", "ADVERSARIAL_SYNTHETIC", "OCR_DERIVED", "TRANSLATION_DERIVED"]
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["EASY", "MEDIUM", "HARD", "ADVERSARIAL"]
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

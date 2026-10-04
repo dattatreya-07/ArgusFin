@@ -7,6 +7,20 @@ import { Lang } from '@/lib/types';
 import { VoiceInput } from '@/components/VoiceInput';
 import { SpeakButton } from '@/components/SpeakButton';
 import { Citation } from '@/lib/rag/types';
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+  Button,
+  SourceChip,
+  BandBadge,
+  Banner,
+  SkeletonBlock,
+} from '@/components/ui';
+import { IconBook, IconQuestion, IconSpeaker } from '@/components/icons';
 
 export default function AskPage() {
   const t = useTranslations('ask');
@@ -49,8 +63,8 @@ export default function AskPage() {
       setVerified(data.verified);
       setCitations(data.citations || []);
       setConfidence(data.confidence);
-    } catch (err) {
-      setError('An error occurred while retrieving information. Please try again.');
+    } catch {
+      setError('An error occurred while retrieving information. Please try again or test the calculator.');
     } finally {
       setLoading(false);
     }
@@ -62,21 +76,18 @@ export default function AskPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8 py-4">
+    <div className="max-w-4xl mx-auto space-y-8">
       {/* Header */}
-      <div className="space-y-2 text-center md:text-left">
-        <h1 className="text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
-          <span className="p-2 bg-emerald-950 border border-emerald-800 text-emerald-400 rounded-xl text-xl">
-            🏛️
-          </span>
+      <div className="space-y-2">
+        <h1 className="text-3xl font-extrabold text-ink tracking-tight">
           {t('title')}
         </h1>
-        <p className="text-zinc-400 text-base max-w-2xl">{t('subtitle')}</p>
+        <p className="text-base text-ink-muted max-w-2xl">{t('subtitle')}</p>
       </div>
 
-      {/* Suggested Queries */}
+      {/* Suggested Questions */}
       <div className="space-y-2">
-        <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">
+        <p className="text-xs font-semibold text-ink-muted uppercase tracking-wider">
           {t('suggestedTitle')}
         </p>
         <div className="flex flex-wrap gap-2">
@@ -88,7 +99,7 @@ export default function AskPage() {
                 setQuery(sug);
                 handleSubmit(sug);
               }}
-              className="text-xs px-3 py-1.5 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 hover:border-emerald-700 hover:text-white transition-all text-left"
+              className="text-xs px-3.5 py-2 rounded-pill bg-surface border border-border text-ink hover:border-accent hover:text-accent transition text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               {sug}
             </button>
@@ -96,99 +107,109 @@ export default function AskPage() {
         </div>
       </div>
 
-      {/* Search Input Box */}
-      <div className="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-4 shadow-xl backdrop-blur space-y-3">
-        <div className="flex items-center gap-2">
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
-            placeholder={t('inputPlaceholder')}
-            className="flex-1 bg-zinc-950 border border-zinc-800 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all placeholder:text-zinc-600"
-          />
-          <VoiceInput onTranscript={handleVoiceTranscript} lang={currentLang} disabled={loading} />
-          <button
-            type="button"
-            onClick={() => handleSubmit()}
-            disabled={loading || !query.trim()}
-            className="px-5 py-3 rounded-xl font-semibold text-sm bg-emerald-600 text-white hover:bg-emerald-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer shadow-lg shadow-emerald-950"
-          >
-            {loading ? '...' : t('askBtn')}
-          </button>
-        </div>
-      </div>
+      {/* Question Input Card */}
+      <Card>
+        <CardContent className="pt-6 space-y-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
+              placeholder={t('inputPlaceholder')}
+              className="flex-1 px-4 py-3 border border-border bg-surface rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-base text-ink placeholder:text-ink-muted/60"
+            />
+            <div className="flex items-center gap-2 self-end sm:self-center">
+              <VoiceInput onTranscript={handleVoiceTranscript} lang={currentLang} disabled={loading} />
+              <Button
+                variant="primary"
+                size="md"
+                onClick={() => handleSubmit()}
+                disabled={loading || !query.trim()}
+                loading={loading}
+              >
+                {t('askBtn')}
+              </Button>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
-      {/* Error display */}
+      {/* Loading Skeleton */}
+      {loading && (
+        <Card className="p-6 space-y-4 animate-pulse">
+          <SkeletonBlock height="h-6" width="w-48" rounded="pill" />
+          <SkeletonBlock height="h-4" width="w-full" />
+          <SkeletonBlock height="h-4" width="w-5/6" />
+          <SkeletonBlock height="h-4" width="w-2/3" />
+        </Card>
+      )}
+
+      {/* Error Banner */}
       {error && (
-        <div className="p-4 rounded-xl bg-rose-950/60 border border-rose-800 text-rose-300 text-sm">
-          {error}
-        </div>
+        <Banner
+          variant="warning"
+          title="Service Notice"
+          description={error}
+        />
       )}
 
       {/* Answer & Citations Card */}
-      {answer && (
-        <div className="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-6 shadow-2xl space-y-6">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-800 pb-4">
+      {answer && !loading && (
+        <Card className="border-border shadow-soft">
+          <CardHeader className="flex flex-row items-center justify-between gap-3 border-b border-border pb-4">
             <div className="flex items-center gap-2">
               <span
-                className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${
+                className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-pill text-xs font-semibold ${
                   verified
-                    ? 'bg-emerald-950 border border-emerald-800 text-emerald-300'
-                    : 'bg-zinc-800 border border-zinc-700 text-zinc-400'
+                    ? 'bg-surface-sunken border border-border text-accent'
+                    : 'bg-risk-unverified-bg border border-risk-unverified-border text-risk-unverified-text'
                 }`}
               >
-                {verified ? '✓ ' + t('verifiedBadge') : '⚠ ' + t('unverifiedBadge')}
+                {verified ? '✓ ' + t('verifiedBadge') : 'ℹ ' + t('unverifiedBadge')}
               </span>
               {confidence !== null && confidence > 0 && (
-                <span className="text-xs text-zinc-500">
+                <span className="text-xs text-ink-muted">
                   Confidence: {Math.round(confidence * 100)}%
                 </span>
               )}
             </div>
 
-            {/* Robust Read Aloud Button */}
             <SpeakButton
               text={answer}
               lang={currentLang}
               speakLabel={t('readAloud')}
               stopLabel={t('stopReading')}
             />
-          </div>
+          </CardHeader>
 
-          {/* Answer Body */}
-          <div className="text-zinc-200 text-sm md:text-base leading-relaxed whitespace-pre-line">
-            {answer}
-          </div>
-
-          {/* Source Citations */}
-          {citations.length > 0 && (
-            <div className="space-y-3 pt-4 border-t border-zinc-800">
-              <h3 className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
-                {t('citationsTitle')}
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {citations.map((c, idx) => (
-                  <a
-                    key={idx}
-                    href={c.sourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex flex-col p-3 rounded-xl bg-zinc-950/70 border border-zinc-800 hover:border-emerald-700/60 transition-all group"
-                  >
-                    <span className="text-xs font-semibold text-emerald-400 group-hover:underline line-clamp-1">
-                      {c.title}
-                    </span>
-                    <span className="text-xs text-zinc-400 mt-1">{c.publisher}</span>
-                    <span className="text-[10px] text-zinc-600 mt-2">
-                      Verified as of: {c.verifiedAt} ↗
-                    </span>
-                  </a>
-                ))}
-              </div>
+          <CardContent className="pt-6 space-y-6">
+            {/* Answer text */}
+            <div className="text-ink text-base leading-relaxed whitespace-pre-line">
+              {answer}
             </div>
-          )}
-        </div>
+
+            {/* Citations List */}
+            {citations.length > 0 && (
+              <div className="space-y-3 pt-4 border-t border-border">
+                <h3 className="text-xs font-bold text-ink uppercase tracking-wider">
+                  {t('citationsTitle')}
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {citations.map((c, idx) => (
+                    <SourceChip
+                      key={idx}
+                      title={c.title}
+                      publisher={c.publisher}
+                      date={c.verifiedAt}
+                      href={c.sourceUrl}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+          </CardContent>
+        </Card>
       )}
     </div>
   );

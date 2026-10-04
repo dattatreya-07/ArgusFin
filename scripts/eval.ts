@@ -106,6 +106,8 @@ async function runEvaluation() {
     PUMP_AND_DUMP_GROUP: { total: 0, correct: 0 },
     REMOTE_ACCESS_SCAM: { total: 0, correct: 0 },
     FAKE_IPO_OR_ALLOTMENT: { total: 0, correct: 0 },
+    PRE_APPROVED_LOAN_SCAM: { total: 0, correct: 0 },
+    OTHER_SUSPICIOUS_FINANCIAL_PATTERN: { total: 0, correct: 0 },
     OTHER_OR_NONE: { total: 0, correct: 0 },
   };
 

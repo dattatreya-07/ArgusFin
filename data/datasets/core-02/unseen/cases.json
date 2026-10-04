@@ -1,0 +1,62 @@
+[
+  {
+    "id": "core02_unseen_001",
+    "language": "en",
+    "source": "EMAIL",
+    "input": "Pay a 10% customs clearance tax via UPI to release your international crypto trading withdrawal.",
+    "category": "unseen_withdrawal_tax",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedRiskBand": "HIGH",
+    "provenance": "CORE02_GENERALIZATION",
+    "difficulty": "HARD",
+    "tags": [
+      "unseen",
+      "withdrawal_tax"
+    ]
+  },
+  {
+    "id": "core02_unseen_002",
+    "language": "en",
+    "source": "TELEGRAM",
+    "input": "Part time Youtube video rating task: Earn ₹5,000 daily. Recharge ₹2,000 prepaid deposit to unlock VIP task commission.",
+    "category": "unseen_task_scam",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedRiskBand": "HIGH",
+    "provenance": "CORE02_GENERALIZATION",
+    "difficulty": "HARD",
+    "tags": [
+      "unseen",
+      "task_scam"
+    ]
+  },
+  {
+    "id": "core02_unseen_003",
+    "language": "en",
+    "source": "WEB_TEXT",
+    "input": "We are certified fund recovery experts. Pay ₹3,000 upfront fee to recover your scammed UPI funds from cyber criminals.",
+    "category": "unseen_recovery_scam",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "HIGH",
+    "provenance": "CORE02_GENERALIZATION",
+    "difficulty": "HARD",
+    "tags": [
+      "unseen",
+      "recovery_scam"
+    ]
+  },
+  {
+    "id": "core02_unseen_004",
+    "language": "en",
+    "source": "WHATSAPP",
+    "input": "Download AnyDesk and share the 9-digit code to verify your bank account details for refund processing.",
+    "category": "unseen_remote_access",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedRiskBand": "HIGH",
+    "provenance": "CORE02_GENERALIZATION",
+    "difficulty": "HARD",
+    "tags": [
+      "unseen",
+      "anydesk"
+    ]
+  }
+]

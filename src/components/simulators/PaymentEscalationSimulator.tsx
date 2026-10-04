@@ -47,15 +47,15 @@ export function PaymentEscalationSimulator() {
   return (
     <div className="space-y-6">
       {/* Educational Notice Banner */}
-      <div className="p-4 rounded-xl bg-amber-950/60 border border-amber-800 text-amber-200 text-xs space-y-1">
+      <div className="p-4 rounded-xl bg-risk-medium-bg border border-risk-medium-border text-risk-medium-ink text-xs space-y-1">
         <span className="font-bold flex items-center gap-1.5">
           <span>🛡️</span> {PAYMENT_SIMULATOR_DISCLAIMER}
         </span>
       </div>
 
       {/* Scenario Selector */}
-      <div className="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-6 shadow-xl space-y-4">
-        <label className="block text-xs font-bold text-zinc-400 uppercase tracking-wider">
+      <div className="bg-surface border border-border rounded-2xl p-6 shadow-soft space-y-4">
+        <label className="block text-xs font-bold text-ink-muted uppercase tracking-wider">
           Select Deceptive Escalation Scenario
         </label>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -68,18 +68,18 @@ export function PaymentEscalationSimulator() {
                 onClick={() => handleSelectScenario(scen.id)}
                 className={`p-4 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between gap-2 ${
                   isSelected
-                    ? 'bg-rose-950/70 border-rose-500 text-white ring-1 ring-rose-500'
-                    : 'bg-zinc-950/60 border-zinc-800 text-zinc-300 hover:border-zinc-700'
+                    ? 'bg-accent-soft border-accent text-ink ring-2 ring-accent'
+                    : 'bg-surface-sunken border-border text-ink hover:border-accent/60'
                 }`}
               >
                 <div>
-                  <span className="text-xs font-semibold text-rose-400 block mb-1">
+                  <span className="text-xs font-semibold text-accent block mb-1 uppercase font-mono">
                     {scen.category.replace(/_/g, ' ')}
                   </span>
-                  <span className="text-sm font-bold text-white">{scen.title}</span>
-                  <p className="text-xs text-zinc-400 mt-1 line-clamp-2">{scen.description}</p>
+                  <span className="text-sm font-bold text-ink">{scen.title}</span>
+                  <p className="text-xs text-ink-muted mt-1 line-clamp-2">{scen.description}</p>
                 </div>
-                <span className="text-[11px] text-emerald-400 font-mono mt-2 block">
+                <span className="text-[11px] text-accent font-mono mt-2 block font-semibold">
                   Initial bait: {scen.initialPromisedReturn}
                 </span>
               </button>
@@ -89,34 +89,34 @@ export function PaymentEscalationSimulator() {
       </div>
 
       {/* Live Simulation Card */}
-      <div className="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-6 shadow-xl space-y-6">
+      <div className="bg-surface border border-border rounded-2xl p-6 shadow-soft space-y-6">
         {/* Cumulative Exposure Metrics */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 bg-zinc-950 rounded-xl border border-zinc-800">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 bg-surface-sunken rounded-xl border border-border">
           <div>
-            <span className="text-[11px] text-zinc-500 block">Total Fictional Demanded:</span>
-            <span className="text-lg font-extrabold text-rose-400">
+            <span className="text-[11px] text-ink-muted block font-mono">Total Demanded:</span>
+            <span className="text-lg font-extrabold text-risk-high-ink font-mono">
               ₹{simState.cumulativeAmountPaid.toLocaleString('en-IN')}
             </span>
           </div>
           <div>
-            <span className="text-[11px] text-zinc-500 block">Escalation Multiplier:</span>
-            <span className="text-lg font-extrabold text-amber-400">{multiplier}x initial request</span>
+            <span className="text-[11px] text-ink-muted block font-mono">Escalation Multiplier:</span>
+            <span className="text-lg font-extrabold text-accent font-mono">{multiplier}x initial request</span>
           </div>
           <div>
-            <span className="text-[11px] text-zinc-500 block">Simulation Status:</span>
+            <span className="text-[11px] text-ink-muted block font-mono">Simulation Status:</span>
             <span
-              className={`text-sm font-bold ${
+              className={`text-sm font-bold font-mono ${
                 simState.isStopped
-                  ? 'text-emerald-400'
+                  ? 'text-emerald-700'
                   : simState.isCompleted
-                  ? 'text-rose-500'
-                  : 'text-amber-400'
+                  ? 'text-risk-high-ink'
+                  : 'text-accent'
               }`}
             >
               {simState.isStopped
                 ? '✅ Stopped Early (Saved Funds)'
                 : simState.isCompleted
-                ? '🚨 Max Escalation Trap Reached'
+                ? '🚨 Max Trap Reached'
                 : `Step ${simState.currentStepIndex + 1} of ${currentScenario.steps.length}`}
             </span>
           </div>
@@ -124,31 +124,31 @@ export function PaymentEscalationSimulator() {
 
         {/* Current Step Display or Conclusion */}
         {!simState.isCompleted && !simState.isStopped && currentStep && (
-          <div className="space-y-4 p-5 rounded-xl bg-zinc-950/80 border border-zinc-800">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-rose-400 uppercase tracking-wider">
+          <div className="space-y-4 p-5 rounded-xl bg-surface-sunken border border-border">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <span className="text-xs font-bold text-risk-high-ink uppercase tracking-wider font-mono">
                 Step {currentStep.stepNumber}: {currentStep.title}
               </span>
-              <span className="text-sm font-bold text-white bg-rose-950 px-3 py-1 rounded-md border border-rose-800">
+              <span className="text-sm font-bold text-risk-high-ink bg-risk-high-bg px-3 py-1 rounded-md border border-risk-high-border font-mono">
                 Demanding: ₹{currentStep.demandAmount.toLocaleString('en-IN')}
               </span>
             </div>
 
-            <div className="space-y-2 text-xs text-zinc-300 leading-relaxed">
-              <p className="bg-zinc-900 p-3 rounded-lg border border-zinc-800">
-                <strong className="text-zinc-200 block mb-1">Pretext Used by Scammer:</strong>
+            <div className="space-y-2 text-xs text-ink leading-relaxed">
+              <p className="bg-surface p-3 rounded-lg border border-border">
+                <strong className="text-ink block mb-1">Pretext Used by Scammer:</strong>
                 {currentStep.pretext}
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
-                <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-900/60 text-amber-200">
-                  <strong className="block text-[11px] uppercase tracking-wider mb-1">
+                <div className="p-3 rounded-lg bg-risk-medium-bg border border-risk-medium-border text-risk-medium-ink">
+                  <strong className="block text-[11px] uppercase tracking-wider mb-1 font-mono">
                     Psychological Pressure:
                   </strong>
                   {currentStep.psychologicalTrigger}
                 </div>
-                <div className="p-3 rounded-lg bg-blue-950/30 border border-blue-900/60 text-blue-200">
-                  <strong className="block text-[11px] uppercase tracking-wider mb-1">
+                <div className="p-3 rounded-lg bg-surface border border-border text-ink">
+                  <strong className="block text-[11px] uppercase tracking-wider mb-1 font-mono text-accent">
                     What You Should Check:
                   </strong>
                   {currentStep.whatToCheck}
@@ -161,14 +161,14 @@ export function PaymentEscalationSimulator() {
               <button
                 type="button"
                 onClick={handlePayStep}
-                className="flex-1 py-3 px-4 rounded-xl font-bold text-xs bg-rose-900/60 border border-rose-700 text-rose-200 hover:bg-rose-800 transition-all cursor-pointer"
+                className="flex-1 py-3 px-4 rounded-xl font-bold text-xs bg-risk-high-bg border border-risk-high-border text-risk-high-ink hover:bg-risk-high-border/20 transition-all cursor-pointer"
               >
                 Simulate Paying ₹{currentStep.demandAmount.toLocaleString('en-IN')} (See Escalation) →
               </button>
               <button
                 type="button"
                 onClick={handleStop}
-                className="flex-1 py-3 px-4 rounded-xl font-bold text-xs bg-emerald-600 text-white hover:bg-emerald-500 transition-all shadow-lg cursor-pointer"
+                className="flex-1 py-3 px-4 rounded-xl font-bold text-xs bg-accent text-accent-ink hover:opacity-90 transition-all shadow-soft cursor-pointer"
               >
                 🛑 Stop Here & Refuse Payment (Best Action)
               </button>
@@ -181,8 +181,8 @@ export function PaymentEscalationSimulator() {
           <div
             className={`p-6 rounded-xl border space-y-4 ${
               simState.isStopped
-                ? 'bg-emerald-950/40 border-emerald-800 text-emerald-100'
-                : 'bg-rose-950/40 border-rose-800 text-rose-100'
+                ? 'bg-emerald-50 border-emerald-300 text-emerald-900'
+                : 'bg-risk-high-bg border-risk-high-border text-risk-high-ink'
             }`}
           >
             <h3 className="text-base font-bold flex items-center gap-2">
@@ -200,7 +200,7 @@ export function PaymentEscalationSimulator() {
               <button
                 type="button"
                 onClick={handleReset}
-                className="px-4 py-2 rounded-lg text-xs font-semibold bg-zinc-800 text-white hover:bg-zinc-700 transition-all cursor-pointer"
+                className="px-4 py-2 rounded-lg text-xs font-semibold bg-surface border border-border text-ink hover:bg-surface-sunken transition-all cursor-pointer"
               >
                 ↺ Restart Scenario
               </button>
@@ -210,20 +210,20 @@ export function PaymentEscalationSimulator() {
 
         {/* Transaction History Log */}
         {simState.history.length > 0 && (
-          <div className="space-y-2 pt-4 border-t border-zinc-800">
-            <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
+          <div className="space-y-2 pt-4 border-t border-border">
+            <h4 className="text-xs font-bold text-ink-muted uppercase tracking-wider font-mono">
               Simulated Escalation Trail ({simState.history.length} steps)
             </h4>
             <div className="space-y-1.5 font-mono text-xs">
               {simState.history.map((h, idx) => (
                 <div
                   key={idx}
-                  className="p-2.5 bg-zinc-950 rounded-lg border border-zinc-800 flex justify-between items-center text-zinc-300"
+                  className="p-2.5 bg-surface-sunken rounded-lg border border-border flex justify-between items-center text-ink"
                 >
                   <span>
                     Step {h.stepNumber}: {h.title}
                   </span>
-                  <span className="text-rose-400 font-bold">
+                  <span className="text-risk-high-ink font-bold">
                     +₹{h.amountPaid.toLocaleString('en-IN')}
                   </span>
                 </div>

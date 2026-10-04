@@ -28,8 +28,8 @@ export function isTamilCompatible(voice: VoiceLike): boolean {
   const normLang = normalizeLangTag(voice.lang);
   const normName = voice.name.toLowerCase();
 
-  // Language tag matches ta-in, ta-lk, ta-sg, or ta
-  if (normLang === 'ta-in' || normLang.startsWith('ta-') || normLang === 'ta') {
+  // Language tag matches ta-in, ta-lk, ta-sg, ta-my, or ta
+  if (normLang === 'ta-in' || normLang.startsWith('ta-') || normLang === 'ta' || normLang === 'tam') {
     return true;
   }
 
@@ -40,9 +40,12 @@ export function isTamilCompatible(voice: VoiceLike): boolean {
     normName.includes('valluvar') ||
     normName.includes('pallavi') ||
     normName.includes('latha') ||
-    normName.includes('kani')
+    normName.includes('kani') ||
+    normName.includes('ananya') ||
+    normName.includes('saranya') ||
+    normName.includes('kumar')
   ) {
-    if (!normLang.startsWith('en') && !normLang.startsWith('hi') && !normLang.startsWith('zh')) {
+    if (!normLang.startsWith('en') && !normLang.startsWith('hi') && !normLang.startsWith('zh') && !normLang.startsWith('es')) {
       return true;
     }
   }

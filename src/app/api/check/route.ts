@@ -1,22 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { maskPII } from '@/lib/mask';
-import { extractClaims } from '@/lib/extract';
-import { extractAllSignals } from '@/lib/signals';
-import { evaluateRegisteredRules } from '@/lib/rules';
-import { defaultDecisionEngine } from '@/lib/decision';
-import { fuseDecisionAndRules } from '@/lib/fuse';
-import { DecisionInput, Lang } from '@/lib/types';
 import { generateRequestId, logAppEvent } from '@/lib/observability';
-import enMessages from '../../../../locales/en.json';
-import hiMessages from '../../../../locales/hi.json';
-import taMessages from '../../../../locales/ta.json';
-
-const messagesMap: Record<Lang, typeof enMessages> = {
-  en: enMessages,
-  hi: hiMessages as unknown as typeof enMessages,
-  ta: taMessages as unknown as typeof enMessages,
-};
+import { analyzeScam } from '@/lib/scam/analyze';
+import { CanonicalInput } from '@/lib/scam/types';
 
 const checkRequestSchema = z
   .object({
@@ -110,99 +96,15 @@ export async function POST(req: NextRequest) {
 
     const { maskedText, lang } = parseResult.data;
 
-    // Server-side re-masking as defense in depth
-    const serverMaskResult = maskPII(maskedText);
-    const sanitizedText = serverMaskResult.masked;
-
-    // 1. Deterministic Extraction & Signals Pipeline
-    const claims = extractClaims(sanitizedText, lang);
-    const extractedSignalSet = await extractAllSignals(sanitizedText, { enableRdap: false });
-
-    const decisionInput: DecisionInput = {
-      maskedText: sanitizedText,
-      claims,
-      signals: extractedSignalSet.signals,
-      lang,
+    // Delegate to canonical engine
+    const canonicalInput: CanonicalInput = {
+      source: 'WEB_TEXT',
+      language: lang,
+      text: maskedText,
+      privacyStatus: 'MASKED',
     };
 
-    // 2. Rules Evaluation
-    const flags = evaluateRegisteredRules(decisionInput);
-
-    // 3. Decision Engine Execution (Chain: Jev -> Fallback -> RulesOnly)
-    let decision;
-    try {
-      decision = await defaultDecisionEngine.decide(decisionInput);
-      logAppEvent({
-        name: decision.engine === 'rules-only' ? 'deterministic_decision' : 'llm_invocation',
-        requestId,
-        route: '/api/check',
-        subsystem: 'check',
-        status: 'success',
-        language: lang,
-      });
-    } catch {
-      // Graceful fallback to rules-only
-      const { RulesOnlyDecisionEngine } = await import('@/lib/decision/rulesOnly');
-      const rulesOnlyEngine = new RulesOnlyDecisionEngine();
-      decision = await rulesOnlyEngine.decide(decisionInput);
-      logAppEvent({
-        name: 'fallback_decision',
-        requestId,
-        route: '/api/check',
-        subsystem: 'check',
-        status: 'success',
-        language: lang,
-      });
-    }
-
-    // 4. Fusion Resolution
-    const fusion = fuseDecisionAndRules(flags, decision);
-
-    // 5. Assemble Explanation and Unverified list
-    const localeStrings = messagesMap[lang] || enMessages;
-    const ruleExplanations = flags
-      .map((f) => {
-        const ruleKey = f.ruleId as keyof typeof localeStrings.rules;
-        return localeStrings.rules[ruleKey] || '';
-      })
-      .filter(Boolean);
-
-    const fixedNote = localeStrings.results.explanationNote;
-    const explanation =
-      ruleExplanations.length > 0
-        ? `${ruleExplanations.join(' ')}\n\n${fixedNote}`
-        : fixedNote;
-
-    const unverified = [
-      localeStrings.results.unverified_sender,
-      localeStrings.results.unverified_reg,
-      localeStrings.results.unverified_domain,
-      localeStrings.results.unverified_exists,
-    ];
-
-    // 6. Deep-link next steps
-    let calcUrl = `/${lang}/calculator`;
-    if (claims.promisedReturns.length > 0) {
-      const pr = claims.promisedReturns[0];
-      const multiple = pr.multiple || 2;
-      const days = pr.durationDays || 30;
-      const invested = 10000;
-      const payout = invested * multiple;
-      calcUrl += `?invested=${invested}&payout=${payout}&days=${days}`;
-    }
-
-    const nextSteps = [
-      {
-        id: 'calculator',
-        label: localeStrings.results.actionCalculator,
-        url: calcUrl,
-      },
-      {
-        id: 'report',
-        label: localeStrings.results.actionReport,
-        url: `/${lang}/report`,
-      },
-    ];
+    const analysis = await analyzeScam(canonicalInput);
 
     const durationMs = Date.now() - startTime;
     logAppEvent({
@@ -218,22 +120,22 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(
       {
         requestId,
-        band: fusion.finalBand,
-        archetype: fusion.topArchetype,
-        confidence: fusion.confidence,
-        flags,
-        signals: extractedSignalSet.signals,
-        domainSignals: extractedSignalSet.domainSignals,
-        alertMatches: extractedSignalSet.alertMatches,
-        unverified,
-        explanation,
-        citations: [],
-        nextSteps,
-        engine: decision.engine,
+        band: analysis.decision.band,
+        archetype: analysis.decision.archetype,
+        confidence: analysis.decision.confidence,
+        flags: analysis.flags,
+        signals: analysis.signals,
+        domainSignals: [],
+        alertMatches: [],
+        unverified: analysis.explanation.whatCouldNotBeVerified,
+        explanation: analysis.explanation.summary,
+        citations: analysis.explanation.citations,
+        nextSteps: analysis.explanation.nextSteps,
+        engine: analysis.decision.engine,
       },
       { status: 200 }
     );
-  } catch (error) {
+  } catch {
     const durationMs = Date.now() - startTime;
     logAppEvent({
       name: 'request_failed',

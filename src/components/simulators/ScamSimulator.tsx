@@ -66,75 +66,75 @@ export function ScamSimulator() {
   }, [initialDeposit, dailyRatePct, days, newVictimCount]);
 
   return (
-    <div className="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-6 shadow-xl space-y-6">
+    <div className="bg-surface border border-border rounded-2xl p-6 shadow-soft space-y-6">
       {/* Controls */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="space-y-1">
-          <label className="text-xs font-semibold text-zinc-400">
+          <label className="text-xs font-semibold text-ink-muted">
             {t('initialDeposit')} (₹)
           </label>
           <input
             type="number"
             value={initialDeposit}
             onChange={(e) => setInitialDeposit(Math.max(1000, Number(e.target.value)))}
-            className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3 py-2 text-sm text-white focus:ring-2 focus:ring-rose-500 focus:outline-none"
+            className="w-full bg-surface-sunken border border-border rounded-xl px-3 py-2 text-sm text-ink focus:ring-2 focus:ring-accent focus:outline-none"
           />
         </div>
 
         <div className="space-y-1">
-          <label className="text-xs font-semibold text-zinc-400">
+          <label className="text-xs font-semibold text-ink-muted">
             {t('promisedDaily')} (%)
           </label>
           <input
             type="number"
             value={dailyRatePct}
             onChange={(e) => setDailyRatePct(Math.max(1, Math.min(50, Number(e.target.value))))}
-            className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3 py-2 text-sm text-white focus:ring-2 focus:ring-rose-500 focus:outline-none"
+            className="w-full bg-surface-sunken border border-border rounded-xl px-3 py-2 text-sm text-ink focus:ring-2 focus:ring-accent focus:outline-none"
           />
         </div>
 
         <div className="space-y-1">
-          <label className="text-xs font-semibold text-zinc-400">
+          <label className="text-xs font-semibold text-ink-muted">
             {t('simDays')} (10-60)
           </label>
           <input
             type="number"
             value={days}
             onChange={(e) => setDays(Math.max(10, Math.min(60, Number(e.target.value))))}
-            className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3 py-2 text-sm text-white focus:ring-2 focus:ring-rose-500 focus:outline-none"
+            className="w-full bg-surface-sunken border border-border rounded-xl px-3 py-2 text-sm text-ink focus:ring-2 focus:ring-accent focus:outline-none"
           />
         </div>
       </div>
 
       {/* Collapse Alert Banner */}
       {simulationResults.collapseDay ? (
-        <div className="p-4 rounded-xl bg-rose-950/80 border border-rose-800 text-rose-200 text-sm flex items-center justify-between gap-4">
+        <div className="p-4 rounded-xl bg-risk-high-bg border border-risk-high-border text-risk-high-ink text-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1">
-            <span className="font-bold text-rose-100 flex items-center gap-2">
+            <span className="font-bold flex items-center gap-2">
               🚨 {t('collapsed')} — Day {simulationResults.collapseDay}
             </span>
-            <p className="text-xs text-rose-300">
+            <p className="text-xs leading-relaxed opacity-90">
               On Day {simulationResults.collapseDay}, withdrawal requests exceed total available deposits. The scammer blocks accounts and deletes communication groups.
             </p>
           </div>
-          <span className="px-3 py-1 bg-rose-900 border border-rose-700 text-white rounded-lg text-xs font-bold whitespace-nowrap">
+          <span className="px-3 py-1 bg-risk-high-border/20 border border-risk-high-border text-risk-high-ink rounded-lg text-xs font-bold whitespace-nowrap self-start sm:self-auto font-mono">
             Pool Deficit
           </span>
         </div>
       ) : (
-        <div className="p-4 rounded-xl bg-amber-950/50 border border-amber-800 text-amber-200 text-sm">
+        <div className="p-4 rounded-xl bg-risk-medium-bg border border-risk-medium-border text-risk-medium-ink text-sm">
           <span className="font-bold">⚠️ {t('solvent')}</span>: System is currently paying early users exclusively using new members&apos; deposits.
         </div>
       )}
 
       {/* Visual Timeline Bar */}
       <div className="space-y-2">
-        <div className="flex justify-between text-xs text-zinc-400">
+        <div className="flex justify-between text-xs text-ink-muted font-mono">
           <span>Day 1 (Initial Lure)</span>
           <span>Day {Math.floor(days / 2)} (Peak Inflow)</span>
           <span>Day {days} (Inevitable Deficit)</span>
         </div>
-        <div className="h-6 w-full bg-zinc-950 rounded-lg overflow-hidden flex border border-zinc-800">
+        <div className="h-6 w-full bg-surface-sunken rounded-lg overflow-hidden flex border border-border">
           {simulationResults.timeline.map((item) => (
             <div
               key={item.day}
@@ -152,10 +152,10 @@ export function ScamSimulator() {
       </div>
 
       {/* Explanatory Box */}
-      <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-400 leading-relaxed space-y-2">
-        <h4 className="font-bold text-zinc-200">💡 Mathematical Reality of Doubling Schemes:</h4>
+      <div className="p-4 rounded-xl bg-surface-sunken border border-border text-xs text-ink-muted leading-relaxed space-y-2">
+        <h4 className="font-bold text-ink">💡 Mathematical Reality of Doubling Schemes:</h4>
         <p>{t('reserveExplanation')}</p>
-        <p className="text-zinc-500 italic">
+        <p className="text-ink-muted/80 italic font-mono">
           No trading algorithm, crypto mining bot, or VIP strategy can sustainably generate compounding returns of {dailyRatePct}% per day.
         </p>
       </div>

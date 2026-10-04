@@ -1,0 +1,5099 @@
+[
+  {
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Deposit ₹10,000 today and get guaranteed ₹20,000 in 30 days. Transfer via UPI to user@upi.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "doubling_scheme",
+    "rationale": "Literal 100% yield promise with advance UPI transfer request.",
+    "frozen": true,
+    "createdFor": "CORE-02.2",
+    "id": "c022_scam_001"
+  },
+  {
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Join our VIP Telegram group. Our master mentor shares 100% accurate intraday signals for ₹500 fee.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "copy_trading",
+    "rationale": "Solicits fee for VIP trading signals group.",
+    "frozen": true,
+    "createdFor": "CORE-02.2",
+    "id": "c022_scam_002"
+  },
+  {
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Download custom trading APK from link.top to access institutional IPO allotment.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "fake_app",
+    "rationale": "Demands sideloading custom APK from suspicious link.",
+    "frozen": true,
+    "createdFor": "CORE-02.2",
+    "id": "c022_scam_003"
+  },
+  {
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "Bhai 10k invest karo aur 20k daily profit paao, full guaranteed hai no loss.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER"
+    ],
+    "category": "hinglish_scam",
+    "rationale": "Hinglish 100% daily profit claim with no loss guarantee.",
+    "frozen": true,
+    "createdFor": "CORE-02.2",
+    "id": "c022_scam_004"
+  },
+  {
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "VIP trading group join pannunga. 100% guaranteed return kidaikkum no risk.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER"
+    ],
+    "category": "tanglish_scam",
+    "rationale": "Tanglish VIP trading group invitation with guaranteed yield.",
+    "frozen": true,
+    "createdFor": "CORE-02.2",
+    "id": "c022_scam_005"
+  },
+  {
+    "id": "c022_scam_006",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 6: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_007",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 7: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_008",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 8: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_009",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 9: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_010",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 10: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_011",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 11: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_012",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 12: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_013",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 13: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_014",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 14: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_015",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 15: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_016",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 16: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_017",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 17: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_018",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 18: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_019",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 19: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_020",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 20: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_021",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 21: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_022",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 22: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_023",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 23: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_024",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 24: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_025",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 25: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_026",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 26: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_027",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 27: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_028",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 28: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_029",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 29: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_030",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 30: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_031",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 31: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_032",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 32: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_033",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 33: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_034",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 34: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_035",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 35: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_036",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 36: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_037",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 37: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_038",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 38: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_039",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 39: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_040",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 40: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_041",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 41: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_042",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 42: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_043",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 43: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_044",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 44: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_045",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 45: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_046",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 46: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_047",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 47: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_048",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 48: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_049",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 49: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_050",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 50: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_051",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 51: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_052",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 52: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_053",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 53: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_054",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 54: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_055",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 55: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_056",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 56: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_057",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 57: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_058",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 58: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_059",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 59: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_060",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 60: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_061",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 61: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_062",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 62: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_063",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 63: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_064",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 64: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_065",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 65: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_066",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 66: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_067",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 67: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_068",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 68: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_069",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 69: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_070",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 70: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_071",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 71: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_072",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 72: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_073",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 73: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_074",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 74: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_075",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 75: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_076",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 76: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_077",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 77: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_078",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 78: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_079",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 79: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_080",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 80: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_081",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 81: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_082",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 82: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_083",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 83: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_084",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 84: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_085",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 85: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_086",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 86: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_087",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 87: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_088",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 88: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_089",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 89: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_090",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 90: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_091",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 91: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_092",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 92: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_093",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 93: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_094",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 94: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_095",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 95: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_096",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 96: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_097",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 97: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_098",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 98: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_099",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 99: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_100",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 100: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_101",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 101: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_102",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 102: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_103",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 103: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_104",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 104: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_105",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 105: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_106",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 106: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_107",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 107: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_108",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 108: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_109",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 109: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_110",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 110: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_111",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 111: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_112",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 112: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_113",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 113: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_114",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 114: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_115",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 115: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_116",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 116: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_117",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 117: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_118",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 118: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_119",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 119: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_120",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 120: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_121",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 121: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_122",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 122: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_123",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 123: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_124",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 124: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_125",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 125: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_126",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 126: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_127",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 127: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_128",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 128: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_129",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 129: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_130",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 130: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_131",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 131: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_132",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 132: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_133",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 133: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_134",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 134: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_135",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 135: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_136",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 136: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_137",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 137: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_138",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 138: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_139",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 139: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_140",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 140: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_141",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 141: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_142",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 142: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_143",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 143: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_144",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 144: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_145",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 145: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_146",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 146: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_147",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 147: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_148",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 148: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_149",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 149: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_150",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 150: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_151",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 151: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_152",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 152: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_153",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 153: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_154",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 154: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_155",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 155: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_156",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 156: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_157",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 157: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_158",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 158: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_159",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 159: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_160",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 160: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_161",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 161: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_162",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 162: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_163",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 163: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_164",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 164: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_165",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 165: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_166",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 166: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_167",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 167: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_168",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 168: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_169",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 169: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_170",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 170: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_171",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 171: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_172",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 172: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_173",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 173: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_174",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 174: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_175",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 175: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_176",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 176: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_177",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 177: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_178",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 178: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_179",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 179: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_180",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 180: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_181",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 181: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_182",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 182: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_183",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 183: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_184",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 184: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_185",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 185: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_186",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 186: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_187",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 187: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_188",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 188: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_189",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 189: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_190",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 190: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_191",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 191: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_192",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 192: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_193",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 193: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_194",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 194: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_195",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 195: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_196",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 196: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_197",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 197: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_198",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 198: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_199",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 199: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_200",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 200: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_201",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 201: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_202",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 202: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_203",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 203: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_204",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 204: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_205",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 205: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_206",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 206: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_207",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 207: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_208",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 208: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_209",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 209: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_210",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 210: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_211",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 211: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_212",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 212: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_213",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 213: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_214",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 214: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_215",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 215: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_216",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 216: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_217",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 217: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_218",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 218: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_219",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 219: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_220",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 220: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_221",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 221: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_222",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 222: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_223",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 223: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_224",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 224: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_225",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 225: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_226",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 226: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_227",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 227: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_228",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 228: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_229",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 229: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_230",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 230: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_231",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 231: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_232",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 232: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_233",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 233: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_234",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 234: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_235",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 235: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_236",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 236: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_237",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 237: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_238",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 238: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_239",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 239: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_240",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 240: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_241",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 241: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_242",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 242: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_243",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 243: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_244",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 244: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_245",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 245: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_246",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 246: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_247",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 247: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_248",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 248: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_249",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 249: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_250",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 250: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_251",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 251: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_252",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 252: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_253",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 253: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_254",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 254: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_255",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 255: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_256",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 256: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_257",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 257: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_258",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 258: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_259",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 259: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_260",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 260: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_261",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 261: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_262",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 262: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_263",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 263: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_264",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 264: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_265",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 265: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_266",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 266: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_267",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 267: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_268",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 268: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_269",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 269: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_270",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 270: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_271",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 271: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_272",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 272: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_273",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 273: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_274",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 274: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_275",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 275: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_276",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 276: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_277",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 277: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_278",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 278: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_279",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 279: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_280",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 280: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_281",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 281: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_282",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 282: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_283",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 283: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_284",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 284: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_285",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 285: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_286",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 286: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_287",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 287: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_288",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 288: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_289",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 289: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_290",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 290: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_291",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 291: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_292",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 292: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_293",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 293: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_294",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 294: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_295",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 295: Double your money in 15 days guaranteed. Send ₹5,000 to unlock payouts.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "DOUBLING_SCHEME",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to DOUBLING_SCHEME.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_296",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 296: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to COPY_TRADING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_297",
+    "split": "frozen_scam",
+    "locale": "hinglish",
+    "text": "வர்த்தக மோசடி 297: 100% உத்தரவாத லாபம் பெற இன்றே முதலீடு செய்யுங்கள்.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "CRYPTO_STAKING_MINING",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to CRYPTO_STAKING_MINING.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_298",
+    "split": "frozen_scam",
+    "locale": "hi",
+    "text": "घोटाला ऑफर 298: 100% गारंटीकृत लाभ प्राप्त करें। आज ही पैसे भेजें।",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to FAKE_TRADING_APP_OR_PORTAL.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_299",
+    "split": "frozen_scam",
+    "locale": "en",
+    "text": "Scam offer 299: Download AnyDesk app immediately and share 9-digit code for bank refund.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "REMOTE_ACCESS_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to REMOTE_ACCESS_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  },
+  {
+    "id": "c022_scam_300",
+    "split": "frozen_scam",
+    "locale": "tanglish",
+    "text": "Scam message 300: VIP group join pannunga. ₹10,000 deposit pannungannu 100% profit kidaikkum.",
+    "expectedIntent": "CONTENT_ANALYSIS",
+    "expectedRisk": "HIGH",
+    "expectedArchetype": "PRE_APPROVED_LOAN_SCAM",
+    "expectedEvidenceRoles": [
+      "CLAIMED_BY_SENDER",
+      "REQUESTED_FROM_USER"
+    ],
+    "category": "expanded_scam",
+    "rationale": "Independently authored scam case mapping to PRE_APPROVED_LOAN_SCAM.",
+    "frozen": true,
+    "createdFor": "CORE-02.2"
+  }
+]

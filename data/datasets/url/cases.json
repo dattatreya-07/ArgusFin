@@ -1,0 +1,93 @@
+[
+  {
+    "id": "url-en-001",
+    "language": "en",
+    "source": "URL",
+    "input": "Check SEBI advisory portal at https://www.sebi.gov.in for registered advisers.",
+    "category": "url_phishing",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "expectedOutcome": "DECISION_AVAILABLE",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": ["url", "benign", "sebi"]
+  },
+  {
+    "id": "url-en-002",
+    "language": "en",
+    "source": "URL",
+    "input": "Login to your Demat portal at http://192.0.2.1/login to update your KYC.",
+    "category": "url_phishing",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedRiskBand": "HIGH",
+    "expectedOutcome": "DECISION_AVAILABLE",
+    "provenance": "SYNTHETIC",
+    "difficulty": "EASY",
+    "tags": ["url", "ip_host", "kyc"]
+  },
+  {
+    "id": "url-en-003",
+    "language": "en",
+    "source": "URL",
+    "input": "Access your trading account at http://xn--exmple-dua.com/trade for guaranteed IPO allotment.",
+    "category": "url_phishing",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedRiskBand": "HIGH",
+    "expectedOutcome": "DECISION_AVAILABLE",
+    "provenance": "SYNTHETIC",
+    "difficulty": "HARD",
+    "tags": ["url", "punycode", "idn"]
+  },
+  {
+    "id": "url-en-004",
+    "language": "en",
+    "source": "URL",
+    "input": "Join our Telegram signals channel at http://bit.ly/3xYz123 for 500% monthly profit.",
+    "category": "url_phishing",
+    "expectedArchetype": "COPY_TRADING",
+    "expectedRiskBand": "HIGH",
+    "expectedOutcome": "DECISION_AVAILABLE",
+    "provenance": "SYNTHETIC",
+    "difficulty": "MEDIUM",
+    "tags": ["url", "shortener", "copy_trading"]
+  },
+  {
+    "id": "url-en-005",
+    "language": "en",
+    "source": "URL",
+    "input": "SSRF test link: http://127.0.0.1:8080/admin or http://169.254.169.254/latest/meta-data",
+    "category": "url_phishing",
+    "expectedArchetype": "OTHER_OR_NONE",
+    "expectedRiskBand": "LOW_SIGNALS",
+    "expectedOutcome": "DECISION_DEGRADED",
+    "provenance": "ADVERSARIAL_SYNTHETIC",
+    "difficulty": "ADVERSARIAL",
+    "tags": ["url", "ssrf", "security"]
+  },
+  {
+    "id": "url-en-006",
+    "language": "en",
+    "source": "URL",
+    "input": "Login with credentials: https://admin:password123@example.com/login",
+    "category": "url_phishing",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedRiskBand": "HIGH",
+    "expectedOutcome": "DECISION_AVAILABLE",
+    "provenance": "SYNTHETIC",
+    "difficulty": "MEDIUM",
+    "tags": ["url", "userinfo", "credentials"]
+  },
+  {
+    "id": "url-en-007",
+    "language": "en",
+    "source": "URL",
+    "input": "Deeply nested subdomain: http://secure.login.bank.verify.account.evil.test/auth",
+    "category": "url_phishing",
+    "expectedArchetype": "FAKE_TRADING_APP_OR_PORTAL",
+    "expectedRiskBand": "HIGH",
+    "expectedOutcome": "DECISION_AVAILABLE",
+    "provenance": "SYNTHETIC",
+    "difficulty": "MEDIUM",
+    "tags": ["url", "nested_subdomain"]
+  }
+]
