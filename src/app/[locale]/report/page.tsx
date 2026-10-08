@@ -24,6 +24,8 @@ import {
   Stepper,
   Banner,
 } from '@/components/ui';
+import { evidenceAnchorService, walletService, hashEvidence, AnchorResult } from '@/lib/financeX/prove';
+
 
 export default function ReportPage() {
   const t = useTranslations('report');
@@ -51,6 +53,39 @@ export default function ReportPage() {
 
   const [issues, setIssues] = useState<ConsistencyIssue[]>([]);
   const [packet, setPacket] = useState<CanonicalReportPacket | null>(null);
+
+  // Web3 Evidence Anchoring State
+  const [anchorState, setAnchorState] = useState<'idle' | 'connecting' | 'anchoring' | 'anchored' | 'error'>('idle');
+  const [anchorError, setAnchorError] = useState<string | null>(null);
+  const [anchoredRecord, setAnchoredRecord] = useState<AnchorResult | null>(null);
+  const [walletAddress, setWalletAddress] = useState<string | null>(null);
+
+  useEffect(() => {
+    walletService.getAccount().then((acc) => setWalletAddress(acc));
+  }, []);
+
+  const handleAnchorEvidence = async () => {
+    if (!packet) return;
+    setAnchorError(null);
+    try {
+      let addr = walletAddress;
+      if (!addr) {
+        setAnchorState('connecting');
+        const conn = await walletService.connectWallet();
+        addr = conn.address;
+        setWalletAddress(addr);
+      }
+      setAnchorState('anchoring');
+      const hash = hashEvidence(packet as any);
+      const record = await evidenceAnchorService.anchorEvidence(hash);
+      setAnchoredRecord(record);
+      setAnchorState('anchored');
+    } catch (err: any) {
+      setAnchorState('error');
+      setAnchorError(err.message || 'Failed to anchor evidence on Polygon Amoy');
+    }
+  };
+
 
   // Re-generate canonical report packet whenever inputs change
   useEffect(() => {
@@ -612,6 +647,78 @@ export default function ReportPage() {
               {/* Integrity Verification Hash */}
               <div className="p-3 bg-surface-sunken rounded border border-border text-[11px] font-mono text-ink-muted">
                 Integrity Hash: {packet.exportIntegrityHash}
+              </div>
+
+              {/* Web3 Trust Layer: Polygon Amoy Evidence Anchoring */}
+              <div className="pt-4 border-t border-border space-y-3 print:hidden">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-sm font-bold text-ink flex items-center gap-2">
+                      <span>🔗 Web3 Trust Layer (Polygon Amoy)</span>
+                      <span className="text-[10px] bg-accent/10 text-accent font-semibold px-2 py-0.5 rounded border border-accent/20">
+                        OPTIONAL PROOF
+                      </span>
+                    </h3>
+                    <p className="text-xs text-ink-muted mt-0.5">
+                      Anchor a cryptographic fingerprint of this report on Polygon Amoy. The report itself remains private off-chain.
+                    </p>
+                  </div>
+                </div>
+
+                {anchorState === 'anchored' && anchoredRecord ? (
+                  <div className="p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-md space-y-2 text-xs">
+                    <div className="flex items-center justify-between font-bold text-emerald-400">
+                      <span>✓ Evidence Fingerprint Anchored on Polygon Amoy</span>
+                      <span className="font-mono text-[10px]">
+                        {anchoredRecord.timestamp ? new Date(anchoredRecord.timestamp).toLocaleString() : 'Just now'}
+                      </span>
+                    </div>
+                    <p className="font-mono text-[11px] text-ink-muted break-all">
+                      Evidence Hash: {anchoredRecord.evidenceHash}
+                    </p>
+                    {anchoredRecord.explorerUrl && (
+                      <a
+                        href={anchoredRecord.explorerUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block text-accent underline font-semibold pt-1"
+                      >
+                        View Polygon Amoy Explorer Transaction →
+                      </a>
+                    )}
+                  </div>
+                ) : (
+                  <div className="p-4 bg-surface-sunken border border-border rounded-md space-y-3">
+                    {anchorError && (
+                      <div className="p-2.5 bg-red-500/10 border border-red-500/30 rounded text-xs text-red-400">
+                        {anchorError}
+                      </div>
+                    )}
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                      <div className="text-xs text-ink-muted space-y-1">
+                        <p><strong>Wallet:</strong> {walletAddress ? walletAddress : 'Not connected'}</p>
+                        <p><strong>Network:</strong> Polygon Amoy Testnet (Chain ID 80002)</p>
+                      </div>
+                      <Button
+                        variant="primary"
+                        size="md"
+                        onClick={handleAnchorEvidence}
+                        disabled={anchorState === 'connecting' || anchorState === 'anchoring'}
+                      >
+                        {anchorState === 'connecting'
+                          ? 'Connecting Wallet...'
+                          : anchorState === 'anchoring'
+                          ? 'Anchoring on Polygon...'
+                          : walletAddress
+                          ? 'Anchor Evidence Fingerprint'
+                          : 'Connect Wallet & Anchor Evidence'}
+                      </Button>
+                    </div>
+                    <p className="text-[11px] text-ink-muted italic">
+                      Notice: Blockchain proves this evidence fingerprint was anchored at this time. It does not store or expose any personal details or report text.
+                    </p>
+                  </div>
+                )}
               </div>
             </CardContent>
 

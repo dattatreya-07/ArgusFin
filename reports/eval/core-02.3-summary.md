@@ -1,6 +1,6 @@
 # CORE-02.3 Open-World Evaluation Summary
 
-- **Timestamp**: 2026-10-04T16:58:45.263Z
+- **Timestamp**: 2026-10-08T12:27:00.505Z
 - **Total Cases**: 1000
 - **Overall Accuracy**: 97.3%
 - **Unseen Scam Recall**: 100% (Target: >= 90%)

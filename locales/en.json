@@ -1,7 +1,7 @@
 {
   "common": {
-    "title": "ArgusFin Scam Defense",
-    "tagline": "We don't predict markets. We show, with simple maths and cited sources, why unrealistic returns cannot be real.",
+    "title": "FinanceX | Learn. Protect. Prove.",
+    "tagline": "AI-guided investor education, ArgusFin Shield fraud detection, and Web3 verifiable trust layer.",
     "disclaimer": "Educational tool. Not investment advice. Not a legal document.",
     "privacyNotice": "Privacy by design: No personal identifiers, phone numbers, or account details are ever stored or logged. Data is masked directly on your device before any external processing.",
     "language": "Language",
@@ -10,13 +10,15 @@
     "tamil": "தமிழ்"
   },
   "nav": {
-    "home": "Home",
-    "check": "Scam Detect",
+    "home": "Dashboard",
+    "learn": "Learn",
+    "protect": "Protect (Shield)",
+    "prove": "Prove (Web3)",
+    "check": "Scam Check",
     "calculator": "Calculator",
-    "authorities": "Authority",
+    "authorities": "Authority Router",
     "report": "Victim Record",
     "ask": "Assistant",
-    "learn": "Education",
     "intelligence": "Intelligence"
   },
   "home": {

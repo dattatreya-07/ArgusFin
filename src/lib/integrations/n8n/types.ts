@@ -30,15 +30,26 @@ export interface N8nIntegrationRequest {
 
 export type IntegrationErrorCode =
   | 'UNAUTHORIZED'
+  | 'N8N_AUTH_FAILED'
   | 'INVALID_REQUEST'
+  | 'N8N_BAD_REQUEST'
   | 'UNSUPPORTED_CHANNEL'
   | 'OVERSIZED_INPUT'
   | 'UNSUPPORTED_MEDIA'
   | 'RATE_LIMITED'
   | 'ANALYSIS_FAILURE'
+  | 'SANGYAN_UNAVAILABLE'
+  | 'SANGYAN_TIMEOUT'
+  | 'SANGYAN_INTERNAL_ERROR'
+  | 'CONFIGURATION_ERROR'
+  | 'TELEGRAM_SEND_FAILED'
+  | 'INVALID_RESPONSE'
   | 'INTERNAL_ERROR';
 
 export interface IntegrationErrorResponse {
+  status: 'ERROR';
+  errorCode: IntegrationErrorCode;
+  message: string;
   error: {
     code: IntegrationErrorCode;
     message: string;
@@ -58,11 +69,16 @@ export interface N8nIntegrationResponse {
   };
   summary: string;
   signals: string[];
-  unverified: string[];
-  nextSteps: Array<{ id: string; label: string; url: string }>;
-  citations: Array<{ title: string; sourceUrl: string; publisher?: string }>;
+  unverified?: string[];
+  nextSteps?: any[];
+  citations?: any[];
+  locale?: Lang;
   formattedMessage: string;
-  locale: Lang;
   requestId: string;
-  timestamp: string;
+  timestamp?: string;
+  provenance?: {
+    channel: IntegrationChannel;
+    messageId: string;
+    timestamp: string;
+  };
 }

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/routing';
+import { Link, useRouter } from '@/i18n/routing';
 import {
   Button,
   Chip,
@@ -11,12 +11,10 @@ import {
 } from '@/components/ui';
 import {
   IconPaste,
-  IconCalculator,
   IconGlobe,
   IconPhone,
   IconShield,
   IconLock,
-  IconCheck,
 } from '@/components/icons';
 import { RealityLadderHero } from '@/components/RealityLadderHero';
 import { CyberFraudMap } from '@/components/CyberFraudMap';
@@ -30,36 +28,49 @@ interface HomePageProps {
 
 const FAQ_ITEMS = [
   {
-    q: 'How does ArgusFin detect financial scam claims and fraud promises?',
-    a: 'ArgusFin combines deterministic pattern matching (detecting double-money promises, task fraud, fake IPO allocations, and suspicious short links) with mathematical compound interest reality checks calibrated against official SEBI and RBI benchmark ceilings.',
+    q: 'How does ArgusFin Shield detect suspicious financial claims?',
+    a: 'ArgusFin Shield combines deterministic pattern matching (detecting double-money promises, task fraud, fake IPO allocations, and suspicious short links) with mathematical compound interest reality checks calibrated against official SEBI and RBI benchmark ceilings.',
   },
   {
-    q: 'Is my personal data, phone number, or message stored on any server?',
-    a: 'No. ArgusFin follows strict Privacy by Design. All phone numbers, account numbers, UPI IDs, and personal names are masked directly in your browser using client-side regular expressions before any processing. Zero user data is logged or stored.',
+    q: 'Is my personal data or message stored on any server?',
+    a: 'No. FinanceX follows strict Privacy by Design. All phone numbers, account numbers, UPI IDs, and personal names are masked directly in your browser using client-side regular expressions before any processing. Zero user data is logged or stored.',
   },
   {
-    q: 'How does client-side screenshot verification work?',
-    a: 'Uploaded images are processed directly on your device using local WebAssembly OCR (Tesseract.js). The extracted text is screened for financial claims and red flags locally without sending unmasked raw screenshots to cloud databases.',
+    q: 'How does Web3 evidence anchoring work without breaking privacy?',
+    a: 'Only a cryptographic SHA-256 fingerprint of your serialized incident report is recorded on Polygon Amoy testnet. Your original report and private details remain 100% off-chain.',
   },
   {
     q: 'What should I do immediately if I have already sent money to a fraudster?',
     a: 'Call the National Cyber Crime Helpline at 1930 immediately (Golden Hour) to request an emergency transaction freeze with your bank, and use our Victim Incident Record tool to prepare a structured report for cybercrime.gov.in.',
   },
   {
-    q: 'Are the benchmark rates official and regularly updated?',
+    q: 'Are the benchmark interest rates official?',
     a: 'Yes. All comparison rates (PPF, 10-Year Government Securities, RBI Repo Rate, EPF, and Nifty 50 historical rolling returns) come directly from official government gazettes and regulatory portals with verified source citations.',
   },
 ];
 
 export default function HomePage({ params: { locale } }: HomePageProps) {
   const tHome = useTranslations('home');
+  const router = useRouter();
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
+  // Quick Home -> Shield Input State
+  const [quickText, setQuickText] = useState('');
+
+  const handleQuickCheck = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (quickText.trim()) {
+      router.push(`/check?q=${encodeURIComponent(quickText.trim())}`);
+    } else {
+      router.push('/check');
+    }
+  };
+
   return (
-    <div className="space-y-24 sm:space-y-32">
-      {/* 1. BITNOMIAL-STYLE HERO SECTION */}
+    <div className="space-y-20 sm:space-y-28">
+      {/* 1. HERO SECTION */}
       <section className="relative pt-6 sm:pt-14 pb-8 background-lines">
-        {/* Subtle Ambient Radial Glow */}
+        {/* Ambient Radial Glow */}
         <div
           aria-hidden="true"
           className="absolute -top-24 left-1/2 -translate-x-1/2 w-full max-w-5xl h-96 bg-gradient-to-b from-accent/12 via-accent/5 to-transparent rounded-full blur-3xl pointer-events-none"
@@ -71,67 +82,94 @@ export default function HomePage({ params: { locale } }: HomePageProps) {
             {/* Tag Badge */}
             <div className="reveal flex flex-wrap items-center gap-3" data-reveal-delay="100">
               <span className="tag-bracket">
-                SEBI · RBI BENCHMARK GROUNDED
+                FINANCEX · LEARN + PROTECT + PROVE
               </span>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-sunken border border-border text-[11px] font-mono text-emerald-400">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>100% CLIENT-SIDE MASKING</span>
+                <span>UNIFIED TRUST PLATFORM</span>
               </div>
             </div>
 
             {/* Inktrap H1 Headline */}
             <h1
-              className="reveal text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08] text-ink font-inktrap"
+              className="reveal text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] text-ink font-inktrap"
               data-reveal-delay="200"
             >
-              Scam Detection. <br className="hidden sm:inline" />
-              Mathematical Truth.{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-highlight block sm:inline">
-                Instant Redressal.
+              FinanceX. <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-highlight to-emerald-400 block">
+                Learn. Protect. Prove.
               </span>
             </h1>
 
-            {/* Subtitle */}
+            {/* Supporting Statement */}
             <p
-              className="reveal text-base sm:text-lg text-ink-muted leading-relaxed max-w-[56ch]"
+              className="reveal text-base sm:text-xl text-ink-muted leading-relaxed max-w-[56ch]"
               data-reveal-delay="400"
             >
-              {tHome('heroSubtitle')}
+              Build financial confidence, check suspicious financial content, and create verifiable proof of learning and evidence integrity.
             </p>
 
-            {/* Action Buttons */}
+            {/* Primary CTAs */}
             <div
               className="reveal flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2"
               data-reveal-delay="600"
             >
-              <Link href="/check" className="w-full sm:w-auto">
+              <Link href="/learn" className="w-full sm:w-auto">
                 <Button
                   variant="primary"
                   size="lg"
-                  icon={<IconPaste />}
                   className="w-full justify-center text-accent-ink shadow-soft font-extrabold"
                 >
-                  {tHome('primaryCta')}
+                  Start Learning
                 </Button>
               </Link>
-              <Link href="/calculator" className="w-full sm:w-auto">
+              <Link href="/check" className="w-full sm:w-auto">
                 <Button
                   variant="secondary"
                   size="lg"
-                  icon={<IconCalculator />}
+                  icon={<IconPaste />}
                   className="w-full justify-center font-bold"
                 >
-                  <ScrambleText text={tHome('secondaryCta')} />
+                  Check Something
+                </Button>
+              </Link>
+              <Link href="/prove" className="w-full sm:w-auto">
+                <Button
+                  variant="quiet"
+                  size="lg"
+                  className="w-full justify-center font-bold"
+                >
+                  Explore Credentials
                 </Button>
               </Link>
             </div>
 
-            {/* Legal / Disclosures Text */}
+            {/* Quick Home -> Shield Input Box */}
+            <form
+              onSubmit={handleQuickCheck}
+              className="reveal pt-2 max-w-xl"
+              data-reveal-delay="700"
+            >
+              <div className="flex flex-col sm:flex-row gap-2 p-1.5 bg-surface-sunken border border-border rounded-xl focus-within:ring-2 focus-within:ring-accent">
+                <input
+                  type="text"
+                  value={quickText}
+                  onChange={(e) => setQuickText(e.target.value)}
+                  placeholder="Paste a suspicious offer message, link, or UPI ID..."
+                  className="flex-1 bg-transparent px-3 py-2 text-xs sm:text-sm text-ink placeholder-ink-muted focus:outline-none"
+                />
+                <Button type="submit" variant="primary" size="md" className="shrink-0">
+                  Quick Check →
+                </Button>
+              </div>
+            </form>
+
+            {/* Legal Disclosures */}
             <div
               className="reveal text-[11px] text-ink-muted leading-relaxed font-mono border-t border-border pt-3"
               data-reveal-delay="800"
             >
-              Signing up or paying unregistered entities carries substantial capital loss risks. ArgusFin provides educational mathematical verification against sovereign benchmarks and does not provide investment advice or market predictions.
+              FinanceX is an independent investor education and fraud resilience platform. It does not provide stock tips, price predictions, or investment advice. Data is masked directly on your device.
             </div>
 
             {/* Neutral Info Chips */}
@@ -152,206 +190,146 @@ export default function HomePage({ params: { locale } }: HomePageProps) {
         </div>
       </section>
 
-      {/* 2. DUAL DIRECTION INFINITE MARQUEE TICKERS */}
+      {/* 2. THREE-PILLAR PRODUCT CARDS */}
+      <section className="space-y-6">
+        <div className="reveal space-y-2 text-center max-w-2xl mx-auto" data-reveal-delay="100">
+          <span className="tag-bracket">THE THREE PILLARS</span>
+          <h2 className="text-3xl sm:text-4xl font-black text-ink font-inktrap tracking-tight">
+            Learn. Protect. Prove.
+          </h2>
+          <p className="text-sm sm:text-base text-ink-muted">
+            Three interconnected capabilities working as one unified system.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Card 1: LEARN */}
+          <Card className="bg-surface hover:border-accent/40 transition-all flex flex-col justify-between">
+            <div className="p-6 space-y-4">
+              <div className="w-10 h-10 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent font-bold font-mono">
+                01
+              </div>
+              <div className="space-y-1">
+                <span className="text-xs font-mono font-bold text-accent uppercase tracking-wider block">
+                  LEARN
+                </span>
+                <h3 className="text-xl font-bold text-ink font-inktrap">FinanceX Academy</h3>
+              </div>
+              <p className="text-xs sm:text-sm text-ink-muted leading-relaxed">
+                Learn financial concepts, investing basics, and scam resilience through 26 interactive lessons, simulators, and AI Tutor.
+              </p>
+            </div>
+            <div className="p-6 pt-0">
+              <Link href="/learn" className="w-full">
+                <Button variant="primary" size="md" className="w-full">
+                  Start Learning →
+                </Button>
+              </Link>
+            </div>
+          </Card>
+
+          {/* Card 2: PROTECT */}
+          <Card className="bg-surface hover:border-accent/40 transition-all flex flex-col justify-between">
+            <div className="p-6 space-y-4">
+              <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold font-mono">
+                02
+              </div>
+              <div className="space-y-1">
+                <span className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider block">
+                  PROTECT
+                </span>
+                <h3 className="text-xl font-bold text-ink font-inktrap">ArgusFin Shield</h3>
+              </div>
+              <p className="text-xs sm:text-sm text-ink-muted leading-relaxed">
+                Analyze suspicious messages, links, and financial claims using explainable safety intelligence and OCR screenshot scanning.
+              </p>
+            </div>
+            <div className="p-6 pt-0">
+              <Link href="/check" className="w-full">
+                <Button variant="secondary" size="md" className="w-full">
+                  Check Something →
+                </Button>
+              </Link>
+            </div>
+          </Card>
+
+          {/* Card 3: PROVE */}
+          <Card className="bg-surface hover:border-accent/40 transition-all flex flex-col justify-between">
+            <div className="p-6 space-y-4">
+              <div className="w-10 h-10 rounded-lg bg-highlight/10 border border-highlight/20 flex items-center justify-center text-highlight font-bold font-mono">
+                03
+              </div>
+              <div className="space-y-1">
+                <span className="text-xs font-mono font-bold text-highlight uppercase tracking-wider block">
+                  PROVE
+                </span>
+                <h3 className="text-xl font-bold text-ink font-inktrap">FinanceX Trust Layer</h3>
+              </div>
+              <p className="text-xs sm:text-sm text-ink-muted leading-relaxed">
+                Create verifiable learning credentials and tamper-evident cryptographic evidence fingerprints on Polygon Amoy testnet.
+              </p>
+            </div>
+            <div className="p-6 pt-0">
+              <Link href="/prove" className="w-full">
+                <Button variant="quiet" size="md" className="w-full">
+                  View Proof →
+                </Button>
+              </Link>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* 3. "WHY FINANCEX?" COMPARISON SECTION */}
+      <section className="space-y-8 bg-surface-sunken p-6 sm:p-10 rounded-2xl border border-border">
+        <div className="space-y-2 text-center max-w-2xl mx-auto">
+          <span className="tag-bracket">WHY FINANCEX?</span>
+          <h2 className="text-3xl sm:text-4xl font-black text-ink font-inktrap tracking-tight">
+            The Difference is Integration
+          </h2>
+          <p className="text-sm sm:text-base text-ink-muted">
+            Traditional tools isolate learning from protection. FinanceX connects them into a complete trust cycle.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs sm:text-sm">
+          <div className="p-5 bg-surface rounded-xl border border-border space-y-2">
+            <span className="font-bold text-ink-muted block text-xs uppercase font-mono">TRADITIONAL FINANCIAL ED</span>
+            <h4 className="font-bold text-ink text-base">Learn Concepts Alone</h4>
+            <p className="text-ink-muted">Teaches theory in isolation without context when you encounter real-world suspicious offers.</p>
+          </div>
+
+          <div className="p-5 bg-surface rounded-xl border border-border space-y-2">
+            <span className="font-bold text-ink-muted block text-xs uppercase font-mono">TRADITIONAL SCAM DETECT</span>
+            <h4 className="font-bold text-ink text-base">Detect Messages Alone</h4>
+            <p className="text-ink-muted">Flags messages without explaining the underlying financial math or enabling user understanding.</p>
+          </div>
+
+          <div className="p-5 bg-surface rounded-xl border border-accent/40 bg-accent/5 space-y-2">
+            <span className="font-bold text-accent block text-xs uppercase font-mono">THE FINANCEX APPROACH</span>
+            <h4 className="font-bold text-ink text-base">Learn + Protect + Prove</h4>
+            <p className="text-ink-muted">Protection checks trigger relevant learning. Learning unlocks verifiable Web3 credentials. Reports generate anchored evidence proofs.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. MARQUEE TICKER */}
       <section className="relative border-y border-border bg-surface -mx-4 sm:-mx-6 px-4 sm:px-6">
         <TickerMarquee />
       </section>
 
-      {/* 3. INDIA CYBER FRAUD AWARENESS SECTION (Replaces old hero matrix) */}
+      {/* 5. INDIA CYBER FRAUD AWARENESS SECTION */}
       <section className="space-y-4">
         <CyberFraudMap locale={locale} />
       </section>
 
-      {/* 4. CHANNELS FORWARDING SUITE (WhatsApp / Telegram / PWA Share Target) */}
+      {/* 6. CHANNELS FORWARDING SHOWCASE */}
       <section className="space-y-4">
         <ChannelsShowcase locale={locale as any} />
       </section>
 
-      {/* 5. BITNOMIAL PRODUCTS SECTION (Full-width Alternating Rows) */}
-      <section className="space-y-4 background-lines">
-        <div className="reveal flex items-center justify-between pb-4" data-reveal-delay="100">
-          <span className="tag-bracket">CORE RESILIENCE SUITE</span>
-          <span className="font-mono text-xs text-ink-muted">[ VERIFIED ENGINE ]</span>
-        </div>
-
-        {/* Product Row 1: Scam Claim Verification */}
-        <div className="product-row underlined group" data-animation-delay="100">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-            <div className="md:col-span-4 space-y-1">
-              <span className="text-[11px] font-mono text-accent uppercase tracking-wider font-bold">
-                01 / CLAIM ANALYSIS
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-ink font-inktrap group-hover:text-accent transition-colors">
-                Scam Detect & OCR
-              </h2>
-            </div>
-            <div className="md:col-span-5 text-sm sm:text-base text-ink-muted leading-relaxed">
-              Scan WhatsApp messages, SMS, or screenshots with client-side Tesseract.js. Instantly breaks down promised returns, short links, and red flag patterns.
-            </div>
-            <div className="md:col-span-3 flex justify-start md:justify-end">
-              <Link href="/check">
-                <Button variant="primary" size="md">
-                  <ScrambleText text="LAUNCH SCANNER →" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Product Row 2: Promise-to-Reality Calculator */}
-        <div className="product-row underlined group" data-animation-delay="200">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-            <div className="md:col-span-4 space-y-1">
-              <span className="text-[11px] font-mono text-accent uppercase tracking-wider font-bold">
-                02 / MATHEMATICAL PROOF
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-ink font-inktrap group-hover:text-accent transition-colors">
-                Yield Reality Calculator
-              </h2>
-            </div>
-            <div className="md:col-span-5 text-sm sm:text-base text-ink-muted leading-relaxed">
-              Converts daily and monthly promises into annualised percentage rates and plots them against sovereign PPF, G-Sec, and Nifty 50 benchmarks.
-            </div>
-            <div className="md:col-span-3 flex justify-start md:justify-end">
-              <Link href="/calculator">
-                <Button variant="secondary" size="md">
-                  <ScrambleText text="OPEN CALCULATOR →" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Product Row 3: Doubling Simulator */}
-        <div className="product-row underlined group" data-animation-delay="300">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-            <div className="md:col-span-4 space-y-1">
-              <span className="text-[11px] font-mono text-accent uppercase tracking-wider font-bold">
-                03 / PONZI DYNAMICS
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-ink font-inktrap group-hover:text-accent transition-colors">
-                Doubling Simulator
-              </h2>
-            </div>
-            <div className="md:col-span-5 text-sm sm:text-base text-ink-muted leading-relaxed">
-              Simulates cashflows in doubling schemes to prove why small initial payouts are bait before withdrawal freeze and total collapse.
-            </div>
-            <div className="md:col-span-3 flex justify-start md:justify-end">
-              <Link href="/simulate">
-                <Button variant="secondary" size="md">
-                  <ScrambleText text="RUN SIMULATOR →" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Product Row 4: Authority Router & Victim Record */}
-        <div className="product-row underlined group" data-animation-delay="400">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-            <div className="md:col-span-4 space-y-1">
-              <span className="text-[11px] font-mono text-accent uppercase tracking-wider font-bold">
-                04 / EMERGENCY HELP
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-ink font-inktrap group-hover:text-accent transition-colors">
-                Authority Router
-              </h2>
-            </div>
-            <div className="md:col-span-5 text-sm sm:text-base text-ink-muted leading-relaxed">
-              Routes victims directly to official portals (1930 Cyber Helpline, SEBI SCORES, RBI Sachet) and drafts an organized incident record.
-            </div>
-            <div className="md:col-span-3 flex justify-start md:justify-end">
-              <Link href="/authorities">
-                <Button variant="secondary" size="md">
-                  <ScrambleText text="FIND AUTHORITIES →" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. BITNOMIAL NUMBERED FEATURES SECTION (01 - 05) */}
-      <section className="space-y-10">
-        <div className="reveal space-y-2" data-reveal-delay="100">
-          <span className="tag-bracket">ARCHITECTURE</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-ink font-inktrap tracking-tight">
-            One Architecture. Defensible Truth.
-          </h2>
-          <p className="text-base sm:text-lg text-ink-muted max-w-[65ch]">
-            Engineered for high-stress situations with zero-storage privacy and verified citations.
-          </p>
-        </div>
-
-        <div className="divide-y divide-border/60 border-y border-border/60">
-          {/* Item 01 */}
-          <div className="py-7 sm:py-9 grid grid-cols-1 md:grid-cols-12 gap-4 items-start underlined group" data-animation-delay="100">
-            <div className="md:col-span-2 font-mono text-3xl sm:text-4xl font-extrabold text-accent/80 group-hover:text-accent transition-colors">
-              01
-            </div>
-            <div className="md:col-span-4">
-              <h3 className="text-lg sm:text-xl font-bold text-ink font-inktrap uppercase tracking-tight">
-                REGULATED BENCHMARKS
-              </h3>
-              <p className="text-xs font-mono text-accent/80 mt-1">SEBI · RBI · EPF · PPF CEILINGS</p>
-            </div>
-            <div className="md:col-span-6 text-sm sm:text-base text-ink-muted leading-relaxed">
-              Every rate, return multiplier, and statistic comes directly from official gazettes and portals with verifiable timestamped source URLs. Never generated from language model memory.
-            </div>
-          </div>
-
-          {/* Item 02 */}
-          <div className="py-7 sm:py-9 grid grid-cols-1 md:grid-cols-12 gap-4 items-start underlined group" data-animation-delay="200">
-            <div className="md:col-span-2 font-mono text-3xl sm:text-4xl font-extrabold text-accent/80 group-hover:text-accent transition-colors">
-              02
-            </div>
-            <div className="md:col-span-4">
-              <h3 className="text-lg sm:text-xl font-bold text-ink font-inktrap uppercase tracking-tight">
-                DETERMINISTIC RULES
-              </h3>
-              <p className="text-xs font-mono text-accent/80 mt-1">CALIBRATED PATTERN MATCHER</p>
-            </div>
-            <div className="md:col-span-6 text-sm sm:text-base text-ink-muted leading-relaxed">
-              Instantly flags high-risk promises like &quot;double in 30 days&quot;, daily compounding traps, advance-fee clearance charges, suspicious shortened domains (bit.ly/t.co), and pre-approved loan bait.
-            </div>
-          </div>
-
-          {/* Item 03 */}
-          <div className="py-7 sm:py-9 grid grid-cols-1 md:grid-cols-12 gap-4 items-start underlined group" data-animation-delay="300">
-            <div className="md:col-span-2 font-mono text-3xl sm:text-4xl font-extrabold text-accent/80 group-hover:text-accent transition-colors">
-              03
-            </div>
-            <div className="md:col-span-4">
-              <h3 className="text-lg sm:text-xl font-bold text-ink font-inktrap uppercase tracking-tight">
-                IN-BROWSER EVIDENCE OCR
-              </h3>
-              <p className="text-xs font-mono text-accent/80 mt-1">TESSERACT.JS ZERO-UPLOAD SCAN</p>
-            </div>
-            <div className="md:col-span-6 text-sm sm:text-base text-ink-muted leading-relaxed">
-              Screenshots from WhatsApp, SMS, or Telegram are extracted directly on your device via client-side WebAssembly OCR. No raw user images are stored or transmitted.
-            </div>
-          </div>
-
-          {/* Item 04 */}
-          <div className="py-7 sm:py-9 grid grid-cols-1 md:grid-cols-12 gap-4 items-start underlined group" data-animation-delay="400">
-            <div className="md:col-span-2 font-mono text-3xl sm:text-4xl font-extrabold text-accent/80 group-hover:text-accent transition-colors">
-              04
-            </div>
-            <div className="md:col-span-4">
-              <h3 className="text-lg sm:text-xl font-bold text-ink font-inktrap uppercase tracking-tight">
-                ZERO-STORAGE PRIVACY
-              </h3>
-              <p className="text-xs font-mono text-accent/80 mt-1">CLIENT-SIDE REGEX MASKING</p>
-            </div>
-            <div className="md:col-span-6 text-sm sm:text-base text-ink-muted leading-relaxed">
-              Strict privacy by design: Never reads SMS or OTPs. All phone numbers, account numbers, and UPI IDs are masked into anonymous placeholders before any remote network call.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. QUESTIONS / BITNOMIAL FAQ SECTION */}
-      <section className="relative background-lines pt-8 pb-4">
+      {/* 7. FAQ SECTION */}
+      <section className="relative background-lines pt-4 pb-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           <div className="reveal lg:col-span-5 space-y-4" data-reveal-delay="100">
             <span className="tag-bracket">FREQUENTLY ASKED</span>
@@ -360,12 +338,12 @@ export default function HomePage({ params: { locale } }: HomePageProps) {
               We&apos;re Here to Help.
             </h2>
             <p className="text-sm sm:text-base text-ink-muted leading-relaxed">
-              Can&apos;t find what you&apos;re looking for? Explore our cited Q&A assistant or check official grievance channels.
+              Explore our Trust Center for detailed privacy, AI safety, and architectural guarantees.
             </p>
             <div className="pt-2">
-              <Link href="/ask">
+              <Link href="/trust">
                 <Button variant="secondary" size="md">
-                  <ScrambleText text="CITED ASSISTANT →" />
+                  <ScrambleText text="TRUST CENTER →" />
                 </Button>
               </Link>
             </div>
@@ -400,7 +378,7 @@ export default function HomePage({ params: { locale } }: HomePageProps) {
         </div>
       </section>
 
-      {/* 6. GET STARTED / EMERGENCY ACTION CALLOUT */}
+      {/* 8. EMERGENCY ACTION CALLOUT */}
       <section className="reveal" data-reveal-delay="200">
         <Card className="bg-gradient-to-r from-surface-sunken via-surface to-surface-sunken border-border relative overflow-hidden">
           <div className="absolute top-0 right-0 w-72 h-72 bg-rose-500/8 rounded-full blur-3xl pointer-events-none" />

@@ -1,7 +1,7 @@
 # CORE-04B Grounded AI & Corpus Evaluation Summary Report
 
 ## Evaluation Run Details
-- **Timestamp**: 2026-10-04T16:59:01.606Z
+- **Timestamp**: 2026-10-08T12:27:06.313Z
 - **Dataset Size**: 150 novel educational cases across 10 financial domains
 - **Source Corpus**: 12 verified Tier-1 regulatory & educational source documents
 

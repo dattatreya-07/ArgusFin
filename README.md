@@ -1,41 +1,45 @@
-# ArgusFin: Investor Resilience
+# FinanceX (Powered by ArgusFin Shield)
 
-Educational investor-protection infrastructure for Bharat (Hindi, Tamil, English).
-Deployed WEBSITE URL: https://argus-fin-orcin.vercel.app/en
+**Hackathon:** HackSpark '26  
+**Team:** Team Caishen  
+**Domain:** FinTech + Web3  
 
-## Overview
-We don't predict markets or give investment advice. We show, with simple mathematics and cited sources, why unrealistic return promises cannot be real, and help people act fast when targeted.
+Learn. Protect. Prove.
 
-Comprehensive documentation is available in [`docs/`](./docs/):
-- [`docs/00-README.md`](./docs/00-README.md) - Project index, hard rules, decisions
-- [`docs/01-PRD.md`](./docs/01-PRD.md) - Product requirements document
-- [`docs/02-FSD.md`](./docs/02-FSD.md) - Functional specifications
-- [`docs/03-TDD.md`](./docs/03-TDD.md) - Technical design document
+FinanceX is an AI-guided financial education, scam resilience, and Web3 verifiable trust platform for retail investors in India (English, Tamil, Hindi).
 
-## Getting Started
+---
 
-### Prerequisites
-- Node.js >= 20.x
-- npm >= 10.x
+## 1. Product Subsystems
 
-### Setup & Run
-1. Clone the repository and install dependencies:
-   ```bash
-   npm install
-   ```
-2. Copy environment variables:
-   ```bash
-   cp .env.example .env.local
-   ```
-3. Run the development server:
-   ```bash
-   npm run dev
-   ```
-   Open [http://localhost:3000](http://localhost:3000) with your browser.
+- **Learn (FinanceX Academy):** AI-guided financial education, micro-lessons, CAGR calculators, and doubling scheme simulators.
+- **Protect (ArgusFin Shield):** Grounded financial scam detection engine combining multi-stage rule heuristics, semantic AI, deterministic safety invariants, and regulatory RAG.
+- **Prove (Web3 Trust Layer):** Verifiable Soulbound learning credentials and evidence hash anchoring onto decentralized registries.
 
-### Quality & Verification Commands
-- `npm run typecheck` - Strict TypeScript type check
-- `npm run lint` - Next.js ESLint verification
-- `npm test` - Vitest unit tests for core algorithms (`calc`, `mask`)
-- `npm run guardrails` - Static analysis guardrail verification
-- `npm run build` - Next.js production build
+---
+
+## 2. Documentation
+
+- [`docs/financeX/architecture.md`](./docs/financeX/architecture.md) - FinanceX target architecture
+- [`docs/financeX/migration.md`](./docs/financeX/migration.md) - Phase 0 migration guide
+- [`docs/financeX/development.md`](./docs/financeX/development.md) - Development instructions
+- [`reports/financEx-phase0-baseline.md`](./reports/financEx-phase0-baseline.md) - Phase 0 baseline report
+- [`reports/financEx-data-model-roadmap.md`](./reports/financEx-data-model-roadmap.md) - Off-chain & on-chain data roadmap
+
+---
+
+## 3. Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Run quality checks
+npm run typecheck
+npm test
+npm run lint
+npm run guardrails
+```

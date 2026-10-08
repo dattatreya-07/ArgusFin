@@ -8,11 +8,14 @@ import { RuleResult } from '@/lib/rules';
 import { Link } from '@/i18n/routing';
 import { VoiceInput } from '@/components/VoiceInput';
 import { SpeakButton } from '@/components/SpeakButton';
+import { SpeechControl } from '@/components/SpeechControl';
 import { WhatsAppConnectModal } from '@/components/WhatsAppConnectModal';
 import { RiskGauge } from '@/components/RiskGauge';
 import { validateEvidenceFile } from '@/lib/evidence/validate';
 import { defaultOcrProvider } from '@/lib/evidence/ocr';
 import { ClaimSource } from '@/lib/evidence/types';
+import { getLessonForArchetype } from '@/lib/financeX/academy/shieldLessonMap';
+import { RiskAnalysisExplanation } from '@/lib/scam/explanation';
 import {
   Button,
   Card,
@@ -40,6 +43,7 @@ interface CheckApiResponse {
   signals: Array<{ id: string; label: string; value: string }>;
   unverified: string[];
   explanation: string;
+  structuredExplanation?: RiskAnalysisExplanation;
   citations: Array<{ title: string; url: string }>;
   nextSteps: Array<{ id: string; label: string; url: string }>;
   engine: 'jev' | 'llm-fallback' | 'rules-only';
@@ -431,7 +435,7 @@ export default function CheckPage() {
           )}
 
           {/* Main Decision Card */}
-          <Card className="border-border">
+          <Card className="border-border shadow-md">
             <CardHeader className="space-y-4 pb-4">
               <div className="flex items-center justify-between flex-wrap gap-4 border-b border-border pb-4">
                 <div className="flex items-center gap-3">
@@ -439,13 +443,21 @@ export default function CheckPage() {
                   <span className="text-xs text-ink-muted bg-surface-sunken px-2.5 py-1 rounded-pill border border-border font-mono">
                     Engine: {result.engine}
                   </span>
+                  {result.structuredExplanation && (
+                    <span className="text-xs font-bold font-mono px-2.5 py-1 rounded-pill bg-surface-elevated text-ink border border-border">
+                      Score: {result.structuredExplanation.score}/100
+                    </span>
+                  )}
                 </div>
 
-                {/* Circular Score Gauge */}
+                {/* Circular Score Gauge & Speech Control */}
                 <div className="flex items-center gap-3">
-                  <SpeakButton
-                    text={`${result.explanation} ${result.flags.map((f) => f.ruleId).join('. ')}`}
-                    lang={locale as Lang}
+                  <SpeechControl
+                    text={`${result.structuredExplanation?.summary || result.explanation}. ${
+                      result.structuredExplanation?.detectedSignals?.map((s) => `${s.label}: ${s.explanation}`).join('. ') || ''
+                    }`}
+                    locale={locale as any}
+                    className="p-1.5"
                   />
                   <RiskGauge band={result.band} confidence={result.confidence} size={68} />
                 </div>
@@ -456,21 +468,52 @@ export default function CheckPage() {
                 <div className="flex items-center gap-2">
                   <span className="text-base">🎯</span>
                   <h2 className="text-xs font-bold uppercase tracking-wider text-ink font-mono">
-                    Risk Analysis Summary
+                    Why We Flagged This
                   </h2>
                 </div>
                 <p className="text-base sm:text-lg text-ink font-medium leading-relaxed">
-                  {result.explanation}
+                  {result.structuredExplanation?.summary || result.explanation}
                 </p>
               </div>
             </CardHeader>
 
             <CardContent className="space-y-6 border-t border-border pt-6">
-              {/* Red Flag Explanations */}
-              {result.flags.length > 0 && (
+              {/* Detected Warning Signs (Itemized with points) */}
+              {result.structuredExplanation && result.structuredExplanation.detectedSignals.length > 0 ? (
                 <div className="space-y-3">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-ink font-mono flex items-center gap-1.5">
-                    <span>🚩</span> Identified Red Flags ({result.flags.length})
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-ink font-mono flex items-center justify-between border-b border-border pb-1">
+                    <span>Detected Warning Signs</span>
+                    <span className="text-[11px] text-ink-muted font-normal">Deterministic Signals</span>
+                  </h3>
+                  <div className="space-y-2.5">
+                    {result.structuredExplanation.detectedSignals.map((sig, idx) => (
+                      <div
+                        key={idx}
+                        className="p-3.5 rounded-xl bg-risk-high-bg/60 border border-risk-high-border/30 text-xs text-ink space-y-1.5"
+                      >
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="font-bold text-sm text-risk-high-text flex items-center gap-1.5">
+                            <span>🔴</span>
+                            <span>{sig.label}</span>
+                          </span>
+                          <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-pill bg-risk-high-text/10 text-risk-high-text border border-risk-high-border/40">
+                            +{sig.contribution}
+                          </span>
+                        </div>
+                        {sig.evidence && (
+                          <div className="text-xs text-ink-muted font-mono bg-surface/50 p-2 rounded-lg border border-border/40">
+                            &ldquo;{sig.evidence}&rdquo;
+                          </div>
+                        )}
+                        <p className="text-xs leading-relaxed text-ink/90">{sig.explanation}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : result.flags.length > 0 ? (
+                <div className="space-y-3">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-ink font-mono flex items-center gap-1.5 border-b border-border pb-1">
+                    <span>Potential Risk Signals</span>
                   </h3>
                   <div className="space-y-2">
                     {result.flags.map((flag, idx) => (
@@ -478,27 +521,56 @@ export default function CheckPage() {
                         key={idx}
                         className="p-3.5 rounded-xl bg-risk-high-bg border border-risk-high-border/30 text-xs text-risk-high-text space-y-1"
                       >
-                        <p className="font-bold text-sm">{flag.ruleId}</p>
+                        <p className="font-bold text-sm">Potential Risk Signal: {flag.ruleId}</p>
                         <p className="leading-relaxed">{tRules(flag.ruleId as any)}</p>
                       </div>
                     ))}
                   </div>
                 </div>
+              ) : null}
+
+              {/* How The Score Works (Score Calculation Breakdown) */}
+              {result.structuredExplanation && (
+                <div className="p-4 bg-surface-sunken border border-border rounded-xl space-y-2.5">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-ink font-mono flex items-center gap-1.5">
+                    <span>How The Score Was Calculated</span>
+                  </h3>
+                  <div className="grid grid-cols-3 gap-3 text-center">
+                    <div className="p-2.5 bg-surface rounded-lg border border-border">
+                      <span className="text-[10px] uppercase font-mono text-ink-muted block">Base Risk</span>
+                      <span className="text-sm font-bold font-mono text-ink">
+                        {result.structuredExplanation.calculation.baseScore}
+                      </span>
+                    </div>
+                    <div className="p-2.5 bg-surface rounded-lg border border-border">
+                      <span className="text-[10px] uppercase font-mono text-ink-muted block">Signals</span>
+                      <span className="text-sm font-bold font-mono text-amber-600 dark:text-amber-400">
+                        +{result.structuredExplanation.calculation.contributions.reduce((a, b) => a + b, 0)}
+                      </span>
+                    </div>
+                    <div className="p-2.5 bg-surface rounded-lg border border-border">
+                      <span className="text-[10px] uppercase font-mono text-ink-muted block">Final Score</span>
+                      <span className="text-sm font-bold font-mono text-risk-high-text">
+                        {result.structuredExplanation.score} / 100
+                      </span>
+                    </div>
+                  </div>
+                </div>
               )}
 
-              {/* Signals */}
+              {/* What We Observed */}
               {result.signals && result.signals.length > 0 && (
-                <div className="space-y-3">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-ink font-mono flex items-center gap-1.5">
-                    <span>🔍</span> Observable Evidence Signals
+                <div className="space-y-2">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-ink font-mono flex items-center gap-1.5 border-b border-border pb-1">
+                    <span>Observed Claims</span>
                   </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
                     {result.signals.map((sig, idx) => (
                       <div
                         key={idx}
                         className="p-3 bg-surface-sunken rounded-xl border border-border text-xs space-y-1"
                       >
-                        <span className="font-bold text-ink block">{sig.label}</span>
+                        <span className="font-bold text-ink block">Observed: {sig.label}</span>
                         <span className="text-ink-muted font-mono text-[11px] block break-all">{sig.value}</span>
                       </div>
                     ))}
@@ -506,19 +578,74 @@ export default function CheckPage() {
                 </div>
               )}
 
-              {/* Recommended Next Steps List */}
-              <div className="space-y-2 pt-2 border-t border-border">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-ink font-mono flex items-center gap-1.5">
-                  <span>💡</span> Recommended Action Steps
+              {/* What We Cannot Verify */}
+              <div className="space-y-2">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-ink font-mono flex items-center gap-1.5 border-b border-border pb-1">
+                  <span>What We Cannot Verify</span>
+                </h3>
+                <div className="p-3 bg-surface-sunken rounded-xl border border-border text-xs text-ink-muted leading-relaxed">
+                  {result.unverified && result.unverified.length > 0 ? (
+                    <ul className="list-disc pl-5 space-y-1 text-xs text-ink">
+                      {result.unverified.map((unv, i) => (
+                        <li key={i}>{unv}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p>
+                      Cannot verify registration status on SEBI/RBI portals from raw text alone. Additional entity check recommended.
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              {/* What You Can Do Now */}
+              <div className="space-y-2">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-ink font-mono flex items-center gap-1.5 border-b border-border pb-1">
+                  <span>What To Do Now</span>
                 </h3>
                 <ul className="space-y-2 text-xs sm:text-sm text-ink leading-relaxed list-disc list-inside">
-                  <li>Do not click on any unverified links or download external APK files.</li>
-                  <li>Never transfer money to personal bank accounts, UPI IDs, or unknown wallets.</li>
-                  <li>Block the sender and report the message to official authorities.</li>
-                  {result.unverified && result.unverified.length > 0 && (
-                    <li>Verify official registration on SEBI SCORES or RBI Sachet portal.</li>
-                  )}
+                  <li>Do not send money, OTPs, or passwords to unverified contacts.</li>
+                  <li>Do not click unverified link extensions or install external APK screen-sharing tools.</li>
+                  <li>Verify any investment entity directly on official SEBI SCORES or RBI Sachet portals.</li>
+                  <li>Block the sender and prepare an official incident report for 1930 / cybercrime.gov.in.</li>
                 </ul>
+              </div>
+
+              {/* 5. Learn More (Shield → Learn Loop) */}
+              <div className="p-4 bg-accent/10 border border-accent/30 rounded-xl space-y-2">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-accent font-mono">
+                  5. Learn More (FinanceX Academy Integration)
+                </h3>
+                <p className="text-xs text-ink">
+                  Understand the financial mathematics and pattern structure behind this claim:
+                </p>
+                <Link
+                  href={`/learn/${
+                    getLessonForArchetype(result.archetype.top)?.trackId === 'track_resilience'
+                      ? 'investor-resilience'
+                      : 'investing-basics'
+                  }/${getLessonForArchetype(result.archetype.top)?.slug || 'guaranteed-return-claims'}`}
+                  className="inline-block"
+                >
+                  <Button variant="primary" size="sm" icon={<IconBook />}>
+                    Learn why this is suspicious →
+                  </Button>
+                </Link>
+              </div>
+
+              {/* 6. Prepare Report (Report → Prove Loop) */}
+              <div className="p-4 bg-surface-sunken border border-border rounded-xl space-y-2">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-ink font-mono">
+                  6. Prepare Official Report &amp; Web3 Evidence Proof
+                </h3>
+                <p className="text-xs text-ink-muted">
+                  Draft a structured incident record for cybercrime.gov.in / 1930 and optionally anchor its evidence fingerprint on Polygon Amoy.
+                </p>
+                <Link href="/report" className="inline-block">
+                  <Button variant="secondary" size="sm" icon={<IconPhone />}>
+                    Prepare Report &amp; Anchor Evidence →
+                  </Button>
+                </Link>
               </div>
             </CardContent>
 
@@ -526,6 +653,19 @@ export default function CheckPage() {
             <CardFooter className="bg-surface-sunken flex-col items-start gap-4 border-t border-border pt-4 rounded-b-xl">
               <div className="flex flex-wrap items-center justify-between gap-3 w-full">
                 <div className="flex flex-wrap gap-2 w-full sm:w-auto">
+                  {result && (
+                    <Link
+                      href={`/learn/${
+                        getLessonForArchetype(result.archetype.top)?.trackId === 'track_resilience'
+                          ? 'investor-resilience'
+                          : 'investing-basics'
+                      }/${getLessonForArchetype(result.archetype.top)?.slug || 'guaranteed-return-claims'}`}
+                    >
+                      <Button variant="secondary" size="md" icon={<IconBook />}>
+                        Learn why this is suspicious →
+                      </Button>
+                    </Link>
+                  )}
                   <Link href="/calculator">
                     <Button variant="secondary" size="md" icon={<IconCalculator />}>
                       {tResults('actionCalculator')}

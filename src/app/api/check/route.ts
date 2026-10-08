@@ -129,6 +129,7 @@ export async function POST(req: NextRequest) {
         alertMatches: [],
         unverified: analysis.explanation.whatCouldNotBeVerified,
         explanation: analysis.explanation.summary,
+        structuredExplanation: analysis.structuredExplanation,
         citations: analysis.explanation.citations,
         nextSteps: analysis.explanation.nextSteps,
         engine: analysis.decision.engine,

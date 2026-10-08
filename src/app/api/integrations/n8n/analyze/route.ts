@@ -42,11 +42,14 @@ export async function POST(req: NextRequest) {
       route: '/api/integrations/n8n/analyze',
       subsystem: 'n8n_integration',
       status: 'failure',
-      errorCode: 'UNAUTHORIZED',
+      errorCode: 'N8N_AUTH_FAILED',
     });
 
     return NextResponse.json(
       {
+        status: 'ERROR',
+        errorCode: 'N8N_AUTH_FAILED',
+        message: 'Integration authentication failed. Invalid or missing x-n8n-secret token.',
         error: {
           code: 'UNAUTHORIZED',
           message: 'Invalid or missing n8n integration secret token.',
@@ -62,6 +65,9 @@ export async function POST(req: NextRequest) {
   if (isRateLimited(clientKey)) {
     return NextResponse.json(
       {
+        status: 'ERROR',
+        errorCode: 'RATE_LIMITED',
+        message: 'Too many analysis requests. Please rate-limit n8n workflow execution.',
         error: {
           code: 'RATE_LIMITED',
           message: 'Too many analysis requests. Please rate-limit n8n workflow execution.',
@@ -79,6 +85,9 @@ export async function POST(req: NextRequest) {
   } catch {
     return NextResponse.json(
       {
+        status: 'ERROR',
+        errorCode: 'N8N_BAD_REQUEST',
+        message: 'Malformed JSON payload.',
         error: {
           code: 'INVALID_REQUEST',
           message: 'Malformed JSON payload.',
@@ -92,8 +101,15 @@ export async function POST(req: NextRequest) {
   try {
     const validRequest = validateN8nRequest(body);
 
-    // 4. Process Canonical Analysis
-    const responseDTO = await processN8nAnalysis(validRequest, requestId);
+    // 4. Process Canonical Analysis with timeout guard
+    const timeoutPromise = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('SANGYAN_TIMEOUT')), 10000)
+    );
+
+    const responseDTO = (await Promise.race([
+      processN8nAnalysis(validRequest, requestId),
+      timeoutPromise,
+    ])) as any;
 
     const durationMs = Date.now() - startTime;
     logAppEvent({
@@ -109,6 +125,32 @@ export async function POST(req: NextRequest) {
   } catch (err: any) {
     const durationMs = Date.now() - startTime;
 
+    if (err.message === 'SANGYAN_TIMEOUT') {
+      logAppEvent({
+        name: 'request_failed',
+        requestId,
+        route: '/api/integrations/n8n/analyze',
+        subsystem: 'n8n_integration',
+        status: 'failure',
+        errorCode: 'SANGYAN_TIMEOUT',
+        durationMs,
+      });
+
+      return NextResponse.json(
+        {
+          status: 'ERROR',
+          errorCode: 'SANGYAN_TIMEOUT',
+          message: 'SANGYAN analysis timed out before completion.',
+          error: {
+            code: 'SANGYAN_TIMEOUT',
+            message: 'Analysis timed out. Please try again shortly.',
+            requestId,
+          },
+        },
+        { status: 504 }
+      );
+    }
+
     if (err instanceof IntegrationValidationError) {
       logAppEvent({
         name: 'request_failed',
@@ -122,6 +164,9 @@ export async function POST(req: NextRequest) {
 
       return NextResponse.json(
         {
+          status: 'ERROR',
+          errorCode: err.code === 'INVALID_REQUEST' ? 'N8N_BAD_REQUEST' : err.code,
+          message: err.message,
           error: {
             code: err.code,
             message: err.message,
@@ -138,12 +183,15 @@ export async function POST(req: NextRequest) {
       route: '/api/integrations/n8n/analyze',
       subsystem: 'n8n_integration',
       status: 'failure',
-      errorCode: 'INTERNAL_ERROR',
+      errorCode: 'SANGYAN_INTERNAL_ERROR',
       durationMs,
     });
 
     return NextResponse.json(
       {
+        status: 'ERROR',
+        errorCode: 'SANGYAN_INTERNAL_ERROR',
+        message: 'An internal error occurred while processing canonical scam analysis.',
         error: {
           code: 'INTERNAL_ERROR',
           message: 'An internal error occurred while processing canonical scam analysis.',

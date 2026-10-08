@@ -10,6 +10,7 @@ import { analyzeUrlsInText } from './url';
 import { analyzeOpenWorldBehavior, OpenWorldAnalysis } from '@/lib/detector/openWorld';
 import { getSemanticProvider } from '@/lib/semantic';
 import { SemanticEvidence } from '@/lib/semantic/types';
+import { buildStructuredExplanation } from './explanation';
 import enMessages from '../../../locales/en.json';
 import hiMessages from '../../../locales/hi.json';
 import taMessages from '../../../locales/ta.json';
@@ -150,7 +151,7 @@ export async function analyzeScam(input: CanonicalInput): Promise<AnalysisResult
     const hasActiveMaliciousSolicitation =
       /\b(pay fee|transfer money|deposit first|recharge|send money|share otp|enter pin|download|install|anydesk|teamviewer|rustdesk|remote access|disconnected tonight|in 2 hours|digital arrest|cbi officer|court warrant)\b/i.test(
         cleanNormText
-      ) || Boolean(semanticEvidence?.requests.some((r) => ['SHARE_OTP', 'REMOTE_ACCESS', 'INSTALL_APK', 'SEND_MONEY'].includes(r.type)));
+      ) || Boolean(semanticEvidence?.requests.some((r: any) => ['SHARE_OTP', 'REMOTE_ACCESS', 'INSTALL_APK', 'SEND_MONEY'].includes(r.type)));
 
     if ((isEducationalQuery || isPassiveAlert) && !hasActiveMaliciousSolicitation) {
       detectorRes.fusion.finalBand = 'LOW_SIGNALS';
@@ -289,18 +290,18 @@ export async function analyzeScam(input: CanonicalInput): Promise<AnalysisResult
 
   if (semanticEvidence) {
     if (semanticEvidence.claims.length > 0) {
-      semanticEvidence.claims.forEach((c) => {
+      semanticEvidence.claims.forEach((c: any) => {
         whatWeDetected.push(`${expLabels.claimsLabel} (${c.type.toLowerCase().replace(/_/g, ' ')}): "${c.text}".`);
       });
     }
     if (semanticEvidence.socialEngineering.length > 0) {
-      whatWeDetected.push(`${expLabels.socialLabel}: ${semanticEvidence.socialEngineering.map((t) => t.tactic.toLowerCase().replace(/_/g, ' ')).join(', ')}.`);
+      whatWeDetected.push(`${expLabels.socialLabel}: ${semanticEvidence.socialEngineering.map((t: any) => t.tactic.toLowerCase().replace(/_/g, ' ')).join(', ')}.`);
     }
     if (semanticEvidence.requests.length > 0) {
-      whatWeDetected.push(`${expLabels.requestsLabel}: ${semanticEvidence.requests.map((r) => r.type.toLowerCase().replace(/_/g, ' ')).join(', ')}.`);
+      whatWeDetected.push(`${expLabels.requestsLabel}: ${semanticEvidence.requests.map((r: any) => r.type.toLowerCase().replace(/_/g, ' ')).join(', ')}.`);
     }
     if (semanticEvidence.behavioralMechanisms.length > 0) {
-      whatWeDetected.push(`${expLabels.mechanismsLabel}: ${semanticEvidence.behavioralMechanisms.map((m) => m.type.toLowerCase().replace(/_/g, ' ')).join(', ')}.`);
+      whatWeDetected.push(`${expLabels.mechanismsLabel}: ${semanticEvidence.behavioralMechanisms.map((m: any) => m.type.toLowerCase().replace(/_/g, ' ')).join(', ')}.`);
     }
   }
 
@@ -401,6 +402,16 @@ export async function analyzeScam(input: CanonicalInput): Promise<AnalysisResult
     limitations.push('One or more internal/private IP targets were blocked for security reasons.');
   }
 
+  const structuredExplanation = buildStructuredExplanation({
+    band: detectorRes.fusion.finalBand,
+    confidence: detectorRes.fusion.confidence,
+    archetype: detectorRes.fusion.topArchetype.top,
+    flags: detectorRes.flags,
+    signals: detectorRes.signals,
+    claims: detectorRes.claims,
+    rawText: sanitizedText,
+  });
+
   return {
     decision: {
       band: detectorRes.fusion.finalBand,
@@ -413,6 +424,7 @@ export async function analyzeScam(input: CanonicalInput): Promise<AnalysisResult
     flags: detectorRes.flags,
     semanticEvidence,
     explanation: groundedExplanation,
+    structuredExplanation,
     statuses: {
       decision: decisionStatus,
       rag: ragStatus,

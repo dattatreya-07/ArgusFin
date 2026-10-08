@@ -36,3 +36,7 @@ next-env.d.ts
 # scratch
 scratch/
 
+# tesseract cache
+*.traineddata
+*.traineddata.gz
+

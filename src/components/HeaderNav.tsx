@@ -22,13 +22,12 @@ export function HeaderNav() {
 
   const navLinks = [
     { href: '/', label: tNav('home'), exact: true },
-    { href: '/check', label: tNav('check'), badge: true },
-    { href: '/calculator', label: tNav('calculator') },
     { href: '/learn', label: tNav('learn') },
-    { href: '/intelligence', label: tNav('intelligence') },
-    { href: '/authorities', label: tNav('authorities') },
+    { href: '/check', label: tNav('protect'), badge: true },
+    { href: '/prove', label: tNav('prove') },
+    { href: '/dashboard', label: 'Dashboard' },
+    { href: '/trust', label: 'Trust Center' },
     { href: '/report', label: tNav('report') },
-    { href: '/ask', label: tNav('ask') },
   ];
 
   const isActiveRoute = (href: string, exact: boolean = false) => {
@@ -53,11 +52,11 @@ export function HeaderNav() {
             href="/"
             className="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg p-1"
           >
-            {/* Official Branded Mark from Assets */}
+            {/* Branded Logo Mark */}
             <div className="relative flex items-center justify-center">
               <img
                 src="/assets/logo.png"
-                alt="Argus Fin Logo"
+                alt="FinanceX Logo"
                 className="w-8 h-8 object-contain rounded-md shadow-soft group-hover:scale-105 transition-transform"
               />
               <span className="absolute -top-1 -right-1 flex h-2 w-2">
@@ -66,16 +65,16 @@ export function HeaderNav() {
               </span>
             </div>
 
-            {/* ARGUS in Ink and FIN in Golden Light Orange */}
+            {/* FinanceX Branding & ArgusFin Shield Sub-tag */}
             <div className="flex items-center">
               <span className="text-xl font-black tracking-tight text-ink font-inktrap">
-                Argus
+                Finance
               </span>
-              <span className="text-xl font-black tracking-tight text-highlight font-inktrap ml-0.5">
-                Fin
+              <span className="text-xl font-black tracking-tight text-accent font-inktrap ml-0.5">
+                X
               </span>
               <span className="hidden sm:inline-block ml-2 text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 bg-surface-sunken text-accent border border-border rounded">
-                Scam Defense
+                ArgusFin Shield
               </span>
             </div>
           </Link>

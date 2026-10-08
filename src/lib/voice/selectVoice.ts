@@ -1,5 +1,7 @@
 import { Lang } from '../types';
 
+export type VoiceLocale = Lang | 'en' | 'hi' | 'ta' | 'ml' | 'en-IN' | 'hi-IN' | 'ta-IN' | 'ml-IN';
+
 export interface VoiceLike {
   name: string;
   lang: string;
@@ -7,10 +9,15 @@ export interface VoiceLike {
   localService?: boolean;
 }
 
-export const LOCALE_MAP: Record<Lang, string> = {
+export const LOCALE_MAP: Record<string, string> = {
   en: 'en-IN',
   hi: 'hi-IN',
   ta: 'ta-IN',
+  ml: 'ml-IN',
+  'en-IN': 'en-IN',
+  'hi-IN': 'hi-IN',
+  'ta-IN': 'ta-IN',
+  'ml-IN': 'ml-IN',
 };
 
 /**
@@ -28,7 +35,7 @@ export function isTamilCompatible(voice: VoiceLike): boolean {
   const normLang = normalizeLangTag(voice.lang);
   const normName = voice.name.toLowerCase();
 
-  // Language tag matches ta-in, ta-lk, ta-sg, ta-my, or ta
+  // Language tag matches ta-in, ta-lk, ta-sg, ta-my, ta, or tam
   if (normLang === 'ta-in' || normLang.startsWith('ta-') || normLang === 'ta' || normLang === 'tam') {
     return true;
   }
@@ -45,7 +52,13 @@ export function isTamilCompatible(voice: VoiceLike): boolean {
     normName.includes('saranya') ||
     normName.includes('kumar')
   ) {
-    if (!normLang.startsWith('en') && !normLang.startsWith('hi') && !normLang.startsWith('zh') && !normLang.startsWith('es')) {
+    if (
+      !normLang.startsWith('en') &&
+      !normLang.startsWith('hi') &&
+      !normLang.startsWith('zh') &&
+      !normLang.startsWith('es') &&
+      !normLang.startsWith('ml')
+    ) {
       return true;
     }
   }
@@ -60,7 +73,7 @@ export function isHindiCompatible(voice: VoiceLike): boolean {
   const normLang = normalizeLangTag(voice.lang);
   const normName = voice.name.toLowerCase();
 
-  if (normLang === 'hi-in' || normLang.startsWith('hi-') || normLang === 'hi') {
+  if (normLang === 'hi-in' || normLang.startsWith('hi-') || normLang === 'hi' || normLang === 'hin') {
     return true;
   }
 
@@ -69,9 +82,37 @@ export function isHindiCompatible(voice: VoiceLike): boolean {
     normName.includes('हिन्दी') ||
     normName.includes('kalpana') ||
     normName.includes('hemant') ||
-    normName.includes('madhav')
+    normName.includes('madhav') ||
+    normName.includes('swara')
   ) {
-    if (!normLang.startsWith('en') && !normLang.startsWith('ta') && !normLang.startsWith('zh')) {
+    if (!normLang.startsWith('en') && !normLang.startsWith('ta') && !normLang.startsWith('zh') && !normLang.startsWith('ml')) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+/**
+ * Checks if a voice is strictly compatible with Malayalam.
+ */
+export function isMalayalamCompatible(voice: VoiceLike): boolean {
+  const normLang = normalizeLangTag(voice.lang);
+  const normName = voice.name.toLowerCase();
+
+  if (normLang === 'ml-in' || normLang.startsWith('ml-') || normLang === 'ml' || normLang === 'mal') {
+    return true;
+  }
+
+  if (
+    normName.includes('malayalam') ||
+    normName.includes('മലയാളം') ||
+    normName.includes('midhun') ||
+    normName.includes('manju') ||
+    normName.includes('dhwani') ||
+    normName.includes('anjali')
+  ) {
+    if (!normLang.startsWith('en') && !normLang.startsWith('hi') && !normLang.startsWith('ta')) {
       return true;
     }
   }
@@ -84,29 +125,30 @@ export function isHindiCompatible(voice: VoiceLike): boolean {
  */
 export function isEnglishCompatible(voice: VoiceLike): boolean {
   const normLang = normalizeLangTag(voice.lang);
-  return normLang.startsWith('en') || normLang === 'en';
+  return normLang.startsWith('en') || normLang === 'en' || normLang === 'eng';
 }
 
 /**
  * Robustly selects a voice matching the target language.
- * Strict Invariant: NEVER fall back to English or Hindi when Tamil is requested.
+ * Strict Invariant: NEVER fall back to an incompatible language when Tamil/Malayalam/Hindi is requested.
  * Returns null if no genuine compatible voice is found.
  */
 export function selectVoice<T extends VoiceLike>(options: {
-  language: Lang | string;
+  language: VoiceLocale | string;
   voices: T[];
 }): T | null {
   const { language, voices } = options;
   if (!voices || voices.length === 0) return null;
 
-  const targetLang: string = language || 'en';
+  const targetLang: string = normalizeLangTag(language || 'en');
 
-  if (targetLang === 'ta' || targetLang === 'ta-IN' || targetLang.startsWith('ta')) {
+  // Tamil Selection
+  if (targetLang === 'ta' || targetLang === 'ta-in' || targetLang.startsWith('ta')) {
     const tamilCandidates = voices.filter((v) => isTamilCompatible(v));
     if (tamilCandidates.length === 0) return null;
 
-    // 1. Prefer Google Neural / Network high-fidelity Tamil voices on Android
-    const neuralNetworkTa = tamilCandidates.find(
+    // 1. Prefer Google Neural / Natural high-fidelity Tamil voices
+    const neuralTa = tamilCandidates.find(
       (v) =>
         (normalizeLangTag(v.lang) === 'ta-in' || normalizeLangTag(v.lang) === 'ta') &&
         (v.name.toLowerCase().includes('network') ||
@@ -114,7 +156,7 @@ export function selectVoice<T extends VoiceLike>(options: {
           v.name.includes('தமிழ்') ||
           v.name.toLowerCase().includes('google'))
     );
-    if (neuralNetworkTa) return neuralNetworkTa;
+    if (neuralTa) return neuralTa;
 
     // 2. Exact ta-IN match
     const exactTaIn = tamilCandidates.find((v) => normalizeLangTag(v.lang) === 'ta-in');
@@ -124,42 +166,76 @@ export function selectVoice<T extends VoiceLike>(options: {
     const regionalTa = tamilCandidates.find((v) => normalizeLangTag(v.lang).startsWith('ta-'));
     if (regionalTa) return regionalTa;
 
-    // 4. Generic ta match
-    const genericTa = tamilCandidates.find((v) => normalizeLangTag(v.lang) === 'ta');
-    if (genericTa) return genericTa;
-
-    // 5. Any compatible Tamil candidate
+    // 4. Any compatible Tamil candidate
     return tamilCandidates[0];
   }
 
-  if (targetLang === 'hi' || targetLang === 'hi-IN' || targetLang.startsWith('hi')) {
-    // 1. Exact hi-IN match
-    const exactHiIn = voices.find((v) => normalizeLangTag(v.lang) === 'hi-in');
-    if (exactHiIn) return exactHiIn;
+  // Malayalam Selection
+  if (targetLang === 'ml' || targetLang === 'ml-in' || targetLang.startsWith('ml')) {
+    const malayalamCandidates = voices.filter((v) => isMalayalamCompatible(v));
+    if (malayalamCandidates.length === 0) return null;
 
-    // 2. Regional hi-* match
-    const regionalHi = voices.find((v) => normalizeLangTag(v.lang).startsWith('hi-'));
-    if (regionalHi) return regionalHi;
+    // 1. Prefer Google Neural / Natural Malayalam voices
+    const neuralMl = malayalamCandidates.find(
+      (v) =>
+        (normalizeLangTag(v.lang) === 'ml-in' || normalizeLangTag(v.lang) === 'ml') &&
+        (v.name.toLowerCase().includes('natural') ||
+          v.name.toLowerCase().includes('network') ||
+          v.name.includes('മലയാളം') ||
+          v.name.toLowerCase().includes('google'))
+    );
+    if (neuralMl) return neuralMl;
 
-    // 3. Generic hi match
-    const genericHi = voices.find((v) => normalizeLangTag(v.lang) === 'hi');
-    if (genericHi) return genericHi;
+    // 2. Exact ml-IN match
+    const exactMlIn = malayalamCandidates.find((v) => normalizeLangTag(v.lang) === 'ml-in');
+    if (exactMlIn) return exactMlIn;
 
-    // 4. Hindi name match
-    const nameHi = voices.find((v) => isHindiCompatible(v));
-    if (nameHi) return nameHi;
+    // 3. Generic/regional ml-* match
+    const regionalMl = malayalamCandidates.find((v) => normalizeLangTag(v.lang).startsWith('ml'));
+    if (regionalMl) return regionalMl;
 
-    return null;
+    return malayalamCandidates[0];
   }
 
-  // English fallback:
+  // Hindi Selection
+  if (targetLang === 'hi' || targetLang === 'hi-in' || targetLang.startsWith('hi')) {
+    const hindiCandidates = voices.filter((v) => isHindiCompatible(v));
+    if (hindiCandidates.length === 0) return null;
+
+    // 1. Exact hi-IN match
+    const exactHiIn = hindiCandidates.find((v) => normalizeLangTag(v.lang) === 'hi-in');
+    if (exactHiIn) return exactHiIn;
+
+    // 2. Regional / Generic hi match
+    const regionalHi = hindiCandidates.find((v) => normalizeLangTag(v.lang).startsWith('hi'));
+    if (regionalHi) return regionalHi;
+
+    return hindiCandidates[0];
+  }
+
+  // English Selection:
   // 1. Prefer en-IN for Indian context
   const exactEnIn = voices.find((v) => normalizeLangTag(v.lang) === 'en-in');
   if (exactEnIn) return exactEnIn;
 
-  // 2. Any English voice
+  // 2. Prefer en-GB / en-US
+  const standardEn = voices.find((v) => {
+    const tag = normalizeLangTag(v.lang);
+    return tag === 'en-gb' || tag === 'en-us' || tag === 'en';
+  });
+  if (standardEn) return standardEn;
+
+  // 3. Any English voice
   const anyEn = voices.find((v) => isEnglishCompatible(v));
   if (anyEn) return anyEn;
 
   return null;
 }
+
+export function selectBestVoice<T extends VoiceLike>(
+  voices: T[],
+  language: VoiceLocale | string
+): T | null {
+  return selectVoice({ language, voices });
+}
+

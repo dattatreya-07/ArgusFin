@@ -79,4 +79,6 @@ export interface AnalysisResult {
   urlAnalysis?: any;
   openWorldAnalysis?: any;
   semanticEvidence?: SemanticEvidence;
+  structuredExplanation?: import('./explanation').RiskAnalysisExplanation;
 }
+

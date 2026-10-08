@@ -31,9 +31,12 @@
     "audit:core-02.3": "tsx scripts/audit-core-02.3-dataset.ts",
     "audit:core-04-dataset": "tsx scripts/audit-core-04-dataset.ts",
     "audit:core-04a": "tsx scripts/audit-core-04a.ts",
+    "eval:phase3": "tsx scripts/eval-phase3.ts",
     "smoke": "tsx scripts/smoke.ts"
   },
   "dependencies": {
+    "@openzeppelin/contracts": "^5.6.1",
+    "ethers": "^6.17.0",
     "next": "^14.2.35",
     "next-intl": "^3.26.3",
     "react": "^18.3.1",
