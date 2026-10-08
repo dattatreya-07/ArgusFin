@@ -5,6 +5,7 @@ export interface WalletState {
   chainId: number | null;
   isConnected: boolean;
   isWrongNetwork: boolean;
+  isDemoWallet?: boolean;
   error: string | null;
 }
 
@@ -14,21 +15,74 @@ export class WalletService {
     chainId: null,
     isConnected: false,
     isWrongNetwork: false,
+    isDemoWallet: false,
     error: null,
   };
 
   private listeners: Array<(state: WalletState) => void> = [];
 
   constructor() {
-    if (typeof window !== 'undefined' && (window as any).ethereum) {
-      const ethereum = (window as any).ethereum;
-      ethereum.on('accountsChanged', (accounts: string[]) => {
-        this.handleAccountsChanged(accounts);
-      });
-      ethereum.on('chainChanged', (chainIdHex: string) => {
-        this.handleChainChanged(chainIdHex);
-      });
+    if (typeof window !== 'undefined') {
+      try {
+        const isDemo = localStorage.getItem('financex_demo_wallet') === 'true';
+        if (isDemo) {
+          this.state = {
+            address: '0x71C665C34C41E922338A4991207eE699A31443F9',
+            chainId: 80002,
+            isConnected: true,
+            isWrongNetwork: false,
+            isDemoWallet: true,
+            error: null,
+          };
+        }
+      } catch (_) {}
+
+      if ((window as any).ethereum) {
+        const ethereum = (window as any).ethereum;
+        ethereum.on('accountsChanged', (accounts: string[]) => {
+          this.handleAccountsChanged(accounts);
+        });
+        ethereum.on('chainChanged', (chainIdHex: string) => {
+          this.handleChainChanged(chainIdHex);
+        });
+      }
     }
+  }
+
+  public connectDemoJurorWallet(): WalletState {
+    this.state = {
+      address: '0x71C665C34C41E922338A4991207eE699A31443F9',
+      chainId: 80002,
+      isConnected: true,
+      isWrongNetwork: false,
+      isDemoWallet: true,
+      error: null,
+    };
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem('financex_demo_wallet', 'true');
+      } catch (_) {}
+    }
+    this.notify();
+    return this.state;
+  }
+
+  public disconnect(): WalletState {
+    this.state = {
+      address: null,
+      chainId: null,
+      isConnected: false,
+      isWrongNetwork: false,
+      isDemoWallet: false,
+      error: null,
+    };
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.removeItem('financex_demo_wallet');
+      } catch (_) {}
+    }
+    this.notify();
+    return this.state;
   }
 
   public listen(listener: (state: WalletState) => void): () => void {

@@ -10,7 +10,8 @@
     "tamil": "தமிழ்"
   },
   "nav": {
-    "home": "डैशबोर्ड",
+    "home": "होम",
+    "dashboard": "डैशबोर्ड",
     "learn": "शिक्षा (Learn)",
     "protect": "सुरक्षा (Shield)",
     "prove": "प्रमाण (Web3)",
@@ -139,7 +140,25 @@
     "nextSteps": "अनुशंसित अगले कदम",
     "actionCalculator": "कैलकुलेटर में जांचें",
     "actionReport": "आपातकालीन रिपोर्ट तैयार करें",
-    "limitedModeBanner": "सीमित मोड: स्थानीय नियमों द्वारा मूल्यांकन।"
+    "limitedModeBanner": "सीमित मोड: स्थानीय नियमों द्वारा मूल्यांकन।",
+    "whyFlagged": "हमने इसे संदिग्ध क्यों माना",
+    "detectedWarningSigns": "पहचाने गए चेतावनी संकेत",
+    "deterministicSignals": "नियम-आधारित संकेत",
+    "potentialRiskSignals": "संभावित जोखिम संकेत",
+    "howScoreCalculated": "स्कोर की गणना कैसे की गई",
+    "baseRisk": "मूल जोखिम",
+    "signalsScore": "संकेत",
+    "finalScore": "अंतिम स्कोर",
+    "observedClaims": "देखे गए दावे",
+    "whatCannotVerify": "हम क्या सत्यापित नहीं कर सकते",
+    "defaultCannotVerify": "केवल संदेश पाठ से सेबी/आरबीआई पोर्टलों पर आधिकारिक पंजीकरण स्थिति सत्यापित नहीं की जा सकती।",
+    "whatToDoNow": "अब क्या करें",
+    "learnMoreAcademy": "अधिक जानें (FinanceX अकादमी)",
+    "learnMoreDesc": "इस दावे के पीछे के वित्तीय गणित और पैटर्न संरचना को समझें:",
+    "learnWhySuspicious": "जानें कि यह संदिग्ध क्यों है →",
+    "prepareReportAnchor": "आधिकारिक रिपोर्ट और वेब3 साक्ष्य प्रमाण तैयार करें",
+    "prepareReportDesc": "cybercrime.gov.in / 1930 के लिए एक संरचित घटना रिकॉर्ड तैयार करें और पॉलीगॉन अमोय पर इसका साक्ष्य फिंगरप्रिंट दर्ज करें।",
+    "prepareReportBtn": "रिपोर्ट तैयार करें और साक्ष्य दर्ज करें →"
   },
   "ask": {
     "title": "सत्यापित विनियामक प्रश्नोत्तर सहायक",

@@ -410,6 +410,7 @@ export async function analyzeScam(input: CanonicalInput): Promise<AnalysisResult
     signals: detectorRes.signals,
     claims: detectorRes.claims,
     rawText: sanitizedText,
+    lang,
   });
 
   return {

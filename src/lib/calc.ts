@@ -458,3 +458,105 @@ export function computeResearchCagrModeB(input: ResearchCagrModeBInput): Researc
     labelDisclaimer: 'Based only on the values you entered. This is an educational calculation, not an investment recommendation or historical research study.',
   };
 }
+
+export interface InflationMilestone {
+  years: number;
+  futureMonthlyExpense: number;
+  purchasingPowerRemainingPct: number;
+  realValueOfLakh: number;
+}
+
+export interface InflationErosionResult {
+  currentMonthlyExpense: number;
+  annualInflationPct: number;
+  horizonYears: number;
+  futureMonthlyExpense: number;
+  purchasingPowerLossPct: number;
+  milestones: InflationMilestone[];
+}
+
+export function computeInflationErosion(
+  currentMonthlyExpense: number,
+  annualInflationPct: number,
+  horizonYears: number
+): InflationErosionResult {
+  const r = annualInflationPct / 100;
+  const futureMonthlyExpense = currentMonthlyExpense * Math.pow(1 + r, horizonYears);
+  const purchasingPowerLossPct = (1 - 1 / Math.pow(1 + r, horizonYears)) * 100;
+
+  const milestoneYears = [5, 10, 15, 20, 25, 30].filter((y) => y <= Math.max(horizonYears, 30));
+  const milestones: InflationMilestone[] = milestoneYears.map((y) => {
+    const fCost = currentMonthlyExpense * Math.pow(1 + r, y);
+    const pRem = (1 / Math.pow(1 + r, y)) * 100;
+    const realLakh = 100000 / Math.pow(1 + r, y);
+    return {
+      years: y,
+      futureMonthlyExpense: Math.round(fCost),
+      purchasingPowerRemainingPct: Math.round(pRem * 10) / 10,
+      realValueOfLakh: Math.round(realLakh),
+    };
+  });
+
+  return {
+    currentMonthlyExpense,
+    annualInflationPct,
+    horizonYears,
+    futureMonthlyExpense: Math.round(futureMonthlyExpense),
+    purchasingPowerLossPct: Math.round(purchasingPowerLossPct * 10) / 10,
+    milestones,
+  };
+}
+
+export interface RuleOf72Result {
+  promisedDurationText: string;
+  durationYears: number;
+  impliedAnnualRatePct: number;
+  isImpossiblePromise: boolean;
+  fdDoublingYears: number;
+  indexDoublingYears: number;
+}
+
+export function computeRuleOf72(durationValue: number, unit: 'days' | 'months' | 'years'): RuleOf72Result {
+  let durationYears = durationValue;
+  if (unit === 'days') {
+    durationYears = durationValue / 365.25;
+  } else if (unit === 'months') {
+    durationYears = durationValue / 12;
+  }
+
+  // Exact CAGR required to double: (2^(1/years) - 1) * 100
+  const impliedAnnualRatePct = durationYears > 0 ? (Math.pow(2, 1 / durationYears) - 1) * 100 : 0;
+  const isImpossiblePromise = durationYears < 3; // Any guarantee under 3 years (>26% p.a. guaranteed) is impossible
+
+  return {
+    promisedDurationText: `${durationValue} ${unit}`,
+    durationYears,
+    impliedAnnualRatePct: Math.round(impliedAnnualRatePct * 10) / 10,
+    isImpossiblePromise,
+    fdDoublingYears: Math.round((72 / 7.1) * 10) / 10, // ~10.1 years at 7.1% RBI/SBI FD rate
+    indexDoublingYears: Math.round((72 / 12.0) * 10) / 10, // ~6.0 years at 12% Nifty long term
+  };
+}
+
+export interface EmergencyFundResult {
+  monthlyEssential: number;
+  threeMonths: number;
+  sixMonths: number;
+  twelveMonths: number;
+}
+
+export function computeEmergencyFund(
+  rentEmi: number,
+  groceries: number,
+  utilities: number,
+  healthInsurance: number
+): EmergencyFundResult {
+  const monthlyEssential = Math.max(0, rentEmi) + Math.max(0, groceries) + Math.max(0, utilities) + Math.max(0, healthInsurance);
+  return {
+    monthlyEssential,
+    threeMonths: monthlyEssential * 3,
+    sixMonths: monthlyEssential * 6,
+    twelveMonths: monthlyEssential * 12,
+  };
+}
+

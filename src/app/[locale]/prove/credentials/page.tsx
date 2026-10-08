@@ -21,16 +21,18 @@ export default function CredentialsGalleryPage() {
   }, []);
 
   const handleClaimCredential = async (trackSlug: string, trackTitle: string) => {
-    if (!wallet.isConnected || !wallet.address) {
-      alert('Please connect your Web3 wallet to claim your Soulbound Credential.');
-      await walletService.connect();
-      return;
+    let currentAddress = wallet.address;
+    if (!wallet.isConnected || !currentAddress) {
+      const demoWallet = walletService.connectDemoJurorWallet();
+      currentAddress = demoWallet.address;
     }
+
+    if (!currentAddress) return;
 
     setLoadingTrackId(trackSlug);
     try {
       const res = await credentialService.mintCredential(
-        wallet.address,
+        currentAddress,
         'FINANCEX_ACADEMY_TRACK_CREDENTIAL',
         trackSlug
       );

@@ -24,9 +24,9 @@ export function HeaderNav() {
     { href: '/', label: tNav('home'), exact: true },
     { href: '/learn', label: tNav('learn') },
     { href: '/check', label: tNav('protect'), badge: true },
+    { href: '/calculator', label: tNav('calculator') },
     { href: '/prove', label: tNav('prove') },
-    { href: '/dashboard', label: 'Dashboard' },
-    { href: '/trust', label: 'Trust Center' },
+    { href: '/dashboard', label: tNav('dashboard') },
     { href: '/report', label: tNav('report') },
   ];
 

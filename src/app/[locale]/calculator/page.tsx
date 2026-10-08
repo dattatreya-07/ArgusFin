@@ -9,6 +9,9 @@ import {
   computeSip,
   computeResearchAnalystBreakdown,
   computeResearchCagrModeB,
+  computeInflationErosion,
+  computeRuleOf72,
+  computeEmergencyFund,
   ResearchCagrModeBResult,
 } from '@/lib/calc';
 import {
@@ -32,7 +35,14 @@ import {
 import { Link } from '@/i18n/routing';
 
 type DurationUnit = 'days' | 'weeks' | 'months' | 'years';
-type CalculatorMode = 'PROMISE_CHECK' | 'LUMP_SUM' | 'SIP_MONTHLY' | 'CAGR';
+type CalculatorMode =
+  | 'PROMISE_CHECK'
+  | 'INFLATION'
+  | 'RULE_OF_72'
+  | 'EMERGENCY_FUND'
+  | 'LUMP_SUM'
+  | 'SIP_MONTHLY'
+  | 'CAGR';
 
 const SOCRATIC_RETURN_QUESTIONS = [
   '1. What underlying economic activity supposedly creates this return?',
@@ -64,6 +74,21 @@ function CalculatorContent() {
   const [payout, setPayout] = useState<string>(paramPayout);
   const [durationValue, setDurationValue] = useState<string>(paramDays);
   const [durationUnit, setDurationUnit] = useState<DurationUnit>('days');
+
+  // Practical Simulation: Inflation State
+  const [infMonthlyExpense, setInfMonthlyExpense] = useState<string>('35000');
+  const [infRate, setInfRate] = useState<string>('6.0');
+  const [infYears, setInfYears] = useState<string>('15');
+
+  // Practical Simulation: Rule of 72 State
+  const [r72Duration, setR72Duration] = useState<string>('15');
+  const [r72Unit, setR72Unit] = useState<'days' | 'months' | 'years'>('days');
+
+  // Practical Simulation: Emergency Fund State
+  const [efRent, setEfRent] = useState<string>('15000');
+  const [efFood, setEfFood] = useState<string>('10000');
+  const [efUtilities, setEfUtilities] = useState<string>('4000');
+  const [efInsurance, setEfInsurance] = useState<string>('3000');
 
   // Mode A State: Lump Sum
   const [lumpPrincipal, setLumpPrincipal] = useState<string>('50000');
@@ -161,6 +186,29 @@ function CalculatorContent() {
     });
   }, [modeBStartAmount, modeBEndAmount, modeBStartDate, modeBEndDate]);
 
+  // Practical Simulation: Inflation Calculation
+  const inflationResult = useMemo(() => {
+    const exp = parseFloat(infMonthlyExpense) || 0;
+    const r = parseFloat(infRate) || 0;
+    const y = parseFloat(infYears) || 0;
+    return computeInflationErosion(exp, r, y);
+  }, [infMonthlyExpense, infRate, infYears]);
+
+  // Practical Simulation: Rule of 72 Calculation
+  const ruleOf72Result = useMemo(() => {
+    const d = parseFloat(r72Duration) || 0;
+    return computeRuleOf72(d, r72Unit);
+  }, [r72Duration, r72Unit]);
+
+  // Practical Simulation: Emergency Fund Calculation
+  const emergencyFundResult = useMemo(() => {
+    const rent = parseFloat(efRent) || 0;
+    const food = parseFloat(efFood) || 0;
+    const util = parseFloat(efUtilities) || 0;
+    const ins = parseFloat(efInsurance) || 0;
+    return computeEmergencyFund(rent, food, util, ins);
+  }, [efRent, efFood, efUtilities, efInsurance]);
+
   return (
     <div className="max-w-5xl mx-auto space-y-8">
       {/* Header */}
@@ -169,16 +217,16 @@ function CalculatorContent() {
           {t('title')}
         </h1>
         <p className="text-base text-ink-muted">
-          Deterministic investment calculators, CAGR compound math &amp; SEBI benchmark reality check.
+          Deterministic investment calculators, inflation purchasing erosion, Rule of 72 scam verification &amp; emergency buffers.
         </p>
       </div>
 
       {/* MODE SELECTOR TABS */}
-      <div className="p-1.5 bg-surface-sunken rounded-xl border border-border grid grid-cols-2 md:grid-cols-4 gap-2">
+      <div className="p-1.5 bg-surface-sunken rounded-xl border border-border flex flex-wrap gap-1.5">
         <button
           type="button"
           onClick={() => setActiveMode('PROMISE_CHECK')}
-          className={`py-2.5 px-3 rounded-lg text-xs font-bold transition font-mono flex items-center justify-center gap-1.5 cursor-pointer ${
+          className={`py-2 px-3 rounded-lg text-xs font-bold transition font-mono flex items-center justify-center gap-1.5 cursor-pointer flex-1 min-w-[130px] ${
             activeMode === 'PROMISE_CHECK'
               ? 'bg-accent text-accent-ink shadow-sm'
               : 'text-ink-muted hover:text-ink hover:bg-surface/50'
@@ -189,8 +237,44 @@ function CalculatorContent() {
 
         <button
           type="button"
+          onClick={() => setActiveMode('INFLATION')}
+          className={`py-2 px-3 rounded-lg text-xs font-bold transition font-mono flex items-center justify-center gap-1.5 cursor-pointer flex-1 min-w-[130px] ${
+            activeMode === 'INFLATION'
+              ? 'bg-accent text-accent-ink shadow-sm'
+              : 'text-ink-muted hover:text-ink hover:bg-surface/50'
+          }`}
+        >
+          <span>📉 INFLATION</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setActiveMode('RULE_OF_72')}
+          className={`py-2 px-3 rounded-lg text-xs font-bold transition font-mono flex items-center justify-center gap-1.5 cursor-pointer flex-1 min-w-[130px] ${
+            activeMode === 'RULE_OF_72'
+              ? 'bg-accent text-accent-ink shadow-sm'
+              : 'text-ink-muted hover:text-ink hover:bg-surface/50'
+          }`}
+        >
+          <span>⚡ RULE OF 72</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setActiveMode('EMERGENCY_FUND')}
+          className={`py-2 px-3 rounded-lg text-xs font-bold transition font-mono flex items-center justify-center gap-1.5 cursor-pointer flex-1 min-w-[130px] ${
+            activeMode === 'EMERGENCY_FUND'
+              ? 'bg-accent text-accent-ink shadow-sm'
+              : 'text-ink-muted hover:text-ink hover:bg-surface/50'
+          }`}
+        >
+          <span>🛡️ EMERGENCY FUND</span>
+        </button>
+
+        <button
+          type="button"
           onClick={() => setActiveMode('LUMP_SUM')}
-          className={`py-2.5 px-3 rounded-lg text-xs font-bold transition font-mono flex items-center justify-center gap-1.5 cursor-pointer ${
+          className={`py-2 px-3 rounded-lg text-xs font-bold transition font-mono flex items-center justify-center gap-1.5 cursor-pointer flex-1 min-w-[110px] ${
             activeMode === 'LUMP_SUM'
               ? 'bg-accent text-accent-ink shadow-sm'
               : 'text-ink-muted hover:text-ink hover:bg-surface/50'
@@ -202,25 +286,25 @@ function CalculatorContent() {
         <button
           type="button"
           onClick={() => setActiveMode('SIP_MONTHLY')}
-          className={`py-2.5 px-3 rounded-lg text-xs font-bold transition font-mono flex items-center justify-center gap-1.5 cursor-pointer ${
+          className={`py-2 px-3 rounded-lg text-xs font-bold transition font-mono flex items-center justify-center gap-1.5 cursor-pointer flex-1 min-w-[110px] ${
             activeMode === 'SIP_MONTHLY'
               ? 'bg-accent text-accent-ink shadow-sm'
               : 'text-ink-muted hover:text-ink hover:bg-surface/50'
           }`}
         >
-          <span>📈 SIP MONTHLY</span>
+          <span>📈 SIP</span>
         </button>
 
         <button
           type="button"
           onClick={() => setActiveMode('CAGR')}
-          className={`py-2.5 px-3 rounded-lg text-xs font-bold transition font-mono flex items-center justify-center gap-1.5 cursor-pointer ${
+          className={`py-2 px-3 rounded-lg text-xs font-bold transition font-mono flex items-center justify-center gap-1.5 cursor-pointer flex-1 min-w-[110px] ${
             activeMode === 'CAGR'
               ? 'bg-accent text-accent-ink shadow-sm'
               : 'text-ink-muted hover:text-ink hover:bg-surface/50'
           }`}
         >
-          <span>📊 CAGR MATH</span>
+          <span>📊 CAGR</span>
         </button>
       </div>
 
@@ -415,7 +499,153 @@ function CalculatorContent() {
             </Card>
           )}
 
-          {/* OUTPUT RESULTS CARD */}
+          {/* PRACTICAL SIMULATION: INFLATION & PURCHASING POWER */}
+          {activeMode === 'INFLATION' && (
+            <Card>
+              <CardHeader>
+                <CardTitle>Inflation &amp; Purchasing Power Erosion</CardTitle>
+                <CardDescription className="text-accent font-semibold">
+                  Calculates how consumer price inflation erodes real household purchasing power over time
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <Field
+                  label="Current Monthly Household Expenses (₹)"
+                  type="number"
+                  min="1000"
+                  value={infMonthlyExpense}
+                  onChange={(e) => setInfMonthlyExpense(e.target.value)}
+                  placeholder="e.g. 35000"
+                  hint="Essential living expenses today"
+                />
+                <Field
+                  label="Estimated Annual Inflation Rate (% CPI)"
+                  type="number"
+                  step="0.1"
+                  min="1"
+                  max="25"
+                  value={infRate}
+                  onChange={(e) => setInfRate(e.target.value)}
+                  placeholder="e.g. 6.0"
+                  hint="India long-term average CPI is approx. 5.5% - 7.0%"
+                />
+                <Field
+                  label="Planning Time Horizon (Years)"
+                  type="number"
+                  min="1"
+                  max="40"
+                  value={infYears}
+                  onChange={(e) => setInfYears(e.target.value)}
+                  placeholder="e.g. 15"
+                  hint="Number of years into the future"
+                />
+              </CardContent>
+            </Card>
+          )}
+
+          {/* PRACTICAL SIMULATION: RULE OF 72 & SCAM DOUBLING VERIFIER */}
+          {activeMode === 'RULE_OF_72' && (
+            <Card>
+              <CardHeader>
+                <CardTitle>Rule of 72 &amp; Scam Doubling Verifier</CardTitle>
+                <CardDescription className="text-accent font-semibold">
+                  Mathematical reality check: Years to Double ≈ 72 / Annual Rate
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-ink">Promised Money Doubling Duration</label>
+                  <div className="flex gap-2">
+                    <input
+                      type="number"
+                      min="1"
+                      step="any"
+                      value={r72Duration}
+                      onChange={(e) => setR72Duration(e.target.value)}
+                      className="w-2/3 px-3.5 py-2.5 border border-border bg-surface rounded-md text-base text-ink"
+                    />
+                    <select
+                      value={r72Unit}
+                      onChange={(e) => setR72Unit(e.target.value as any)}
+                      className="w-1/3 px-3 py-2.5 border border-border bg-surface rounded-md text-sm text-ink"
+                    >
+                      <option value="days">Days</option>
+                      <option value="months">Months</option>
+                      <option value="years">Years</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-2 pt-1">
+                  <span className="text-[11px] font-bold text-ink-muted">Quick Presets:</span>
+                  {[
+                    { label: '10 Days (Scam)', val: '10', unit: 'days' },
+                    { label: '30 Days (VIP Bot)', val: '30', unit: 'days' },
+                    { label: '1 Year (Ponzi)', val: '1', unit: 'years' },
+                    { label: '6 Years (Nifty 12%)', val: '6', unit: 'years' },
+                    { label: '10 Years (Bank FD)', val: '10', unit: 'years' },
+                  ].map((p, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => {
+                        setR72Duration(p.val);
+                        setR72Unit(p.unit as any);
+                      }}
+                      className="px-2.5 py-1 text-[11px] rounded bg-surface-sunken hover:bg-surface-elevated border border-border text-ink cursor-pointer"
+                    >
+                      {p.label}
+                    </button>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* PRACTICAL SIMULATION: EMERGENCY FUND SAFETY BUFFER */}
+          {activeMode === 'EMERGENCY_FUND' && (
+            <Card>
+              <CardHeader>
+                <CardTitle>Essential Emergency Buffer Simulator</CardTitle>
+                <CardDescription className="text-accent font-semibold">
+                  Determines the untouchable liquid safety cushion needed before taking any market risk
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <Field
+                  label="Monthly Rent / Home Loan EMI (₹)"
+                  type="number"
+                  min="0"
+                  value={efRent}
+                  onChange={(e) => setEfRent(e.target.value)}
+                  hint="Fixed unavoidable housing cost"
+                />
+                <Field
+                  label="Groceries &amp; Basic Food (₹)"
+                  type="number"
+                  min="0"
+                  value={efFood}
+                  onChange={(e) => setEfFood(e.target.value)}
+                  hint="Essential household food expenditure"
+                />
+                <Field
+                  label="Utilities, Electricity, Internet (₹)"
+                  type="number"
+                  min="0"
+                  value={efUtilities}
+                  onChange={(e) => setEfUtilities(e.target.value)}
+                  hint="Power, water, cooking gas, connectivity"
+                />
+                <Field
+                  label="Insurance &amp; Essential Medications (₹)"
+                  type="number"
+                  min="0"
+                  value={efInsurance}
+                  onChange={(e) => setEfInsurance(e.target.value)}
+                  hint="Health insurance premiums and essential medicines"
+                />
+              </CardContent>
+            </Card>
+          )}
 
           {/* Mode D Promise Output */}
           {activeMode === 'PROMISE_CHECK' && promiseResult && promiseResult.success && (
@@ -528,6 +758,206 @@ function CalculatorContent() {
             </Card>
           )}
 
+          {/* Practical Simulation: Inflation Output */}
+          {activeMode === 'INFLATION' && inflationResult && (
+            <Card className="border-border">
+              <CardHeader className="border-b border-border pb-4">
+                <div className="flex items-center justify-between">
+                  <CardTitle>Inflation Erosion Analysis</CardTitle>
+                  <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                    -{inflationResult.purchasingPowerLossPct}% Purchasing Power
+                  </span>
+                </div>
+              </CardHeader>
+              <CardContent className="pt-4 space-y-4">
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="p-3 bg-surface-sunken rounded-md border border-border">
+                    <span className="block text-xs text-ink-muted">Monthly Expense Today</span>
+                    <span className="text-lg font-bold text-ink">₹{formatIndianNumber(inflationResult.currentMonthlyExpense, 0)}</span>
+                  </div>
+                  <div className="p-3 bg-surface-sunken rounded-md border border-border">
+                    <span className="block text-xs text-ink-muted">Future Monthly Cost (Year {inflationResult.horizonYears})</span>
+                    <span className="text-lg font-bold text-amber-600 dark:text-amber-400">
+                      ₹{formatIndianNumber(inflationResult.futureMonthlyExpense, 0)}
+                    </span>
+                  </div>
+                  <div className="p-3 bg-rose-500/10 rounded-md border border-rose-500/20 col-span-2">
+                    <span className="block text-xs text-rose-600 dark:text-rose-400 font-bold font-mono">
+                      Real Value of ₹1,00,000 Cash in Year {inflationResult.horizonYears}
+                    </span>
+                    <span className="text-2xl font-extrabold text-ink">
+                      ₹{formatIndianNumber(
+                        Math.round(100000 / Math.pow(1 + inflationResult.annualInflationPct / 100, inflationResult.horizonYears)),
+                        0
+                      )}
+                    </span>
+                    <p className="text-[11px] text-ink-muted mt-1">
+                      Due to {inflationResult.annualInflationPct}% inflation, ₹1 Lakh sitting in an uninvested zero-interest locker will only buy ₹
+                      {formatIndianNumber(
+                        Math.round(100000 / Math.pow(1 + inflationResult.annualInflationPct / 100, inflationResult.horizonYears)),
+                        0
+                      )}{' '}
+                      worth of real goods.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Milestone Table */}
+                <div className="space-y-2 pt-2 border-t border-border">
+                  <span className="text-xs font-bold text-ink font-mono uppercase">Erosion Milestones Over Time</span>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-xs text-left">
+                      <thead className="bg-surface-sunken text-ink-muted font-mono uppercase text-[10px]">
+                        <tr>
+                          <th className="p-2">Years</th>
+                          <th className="p-2">Monthly Need</th>
+                          <th className="p-2">Purchasing Power %</th>
+                          <th className="p-2">Real Value of ₹1L</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-border">
+                        {inflationResult.milestones.map((m, idx) => (
+                          <tr key={idx} className="hover:bg-surface-sunken/40">
+                            <td className="p-2 font-mono font-bold text-ink">{m.years} yrs</td>
+                            <td className="p-2 font-bold text-ink">₹{formatIndianNumber(m.futureMonthlyExpense, 0)}</td>
+                            <td className="p-2 text-ink-muted font-mono">{m.purchasingPowerRemainingPct}%</td>
+                            <td className="p-2 text-rose-600 dark:text-rose-400 font-mono font-semibold">
+                              ₹{formatIndianNumber(m.realValueOfLakh, 0)}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* Practical Simulation: Rule of 72 Output */}
+          {activeMode === 'RULE_OF_72' && ruleOf72Result && (
+            <Card className="border-border">
+              <CardHeader className="border-b border-border pb-4">
+                <div className="flex items-center justify-between">
+                  <CardTitle>Rule of 72 Math Proof</CardTitle>
+                  <BandBadge band={ruleOf72Result.isImpossiblePromise ? 'HIGH' : 'LOW_SIGNALS'} />
+                </div>
+              </CardHeader>
+              <CardContent className="pt-4 space-y-4">
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="p-3 bg-surface-sunken rounded-md border border-border">
+                    <span className="block text-xs text-ink-muted">Claimed Doubling Duration</span>
+                    <span className="text-lg font-bold text-ink">{ruleOf72Result.promisedDurationText}</span>
+                  </div>
+                  <div className="p-3 bg-surface-sunken rounded-md border border-border">
+                    <span className="block text-xs text-ink-muted">Required Annual Return</span>
+                    <span
+                      className={`text-lg font-bold ${
+                        ruleOf72Result.isImpossiblePromise
+                          ? 'text-rose-600 dark:text-rose-400'
+                          : 'text-emerald-600 dark:text-emerald-400'
+                      }`}
+                    >
+                      {formatIndianNumber(ruleOf72Result.impliedAnnualRatePct, 1)}% p.a.
+                    </span>
+                  </div>
+                  <div
+                    className={`p-3.5 rounded-md col-span-2 border ${
+                      ruleOf72Result.isImpossiblePromise
+                        ? 'bg-rose-500/10 border-rose-500/30 text-rose-700 dark:text-rose-300'
+                        : 'bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-300'
+                    }`}
+                  >
+                    <span className="block text-xs font-bold font-mono uppercase">
+                      {ruleOf72Result.isImpossiblePromise ? '⚠️ Mathematical Scam Trap' : '✅ Realistic Economic Timeline'}
+                    </span>
+                    <p className="text-xs mt-1 leading-relaxed">
+                      {ruleOf72Result.isImpossiblePromise
+                        ? `Promising to double money in ${ruleOf72Result.promisedDurationText} requires a staggering ${formatIndianNumber(
+                            ruleOf72Result.impliedAnnualRatePct,
+                            0
+                          )}% annual return. In regulated Indian financial markets, no authorized institution (bank, AMC, or PMS) guarantees such returns. This is a definitive mathematical hallmark of a Ponzi scheme.`
+                        : `A ${ruleOf72Result.promisedDurationText} doubling timeline corresponds to ~${formatIndianNumber(
+                            ruleOf72Result.impliedAnnualRatePct,
+                            1
+                          )}% annual growth, which is consistent with normal long-term economic compounding.`}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-3 bg-surface-sunken rounded-lg border border-border space-y-2 text-xs">
+                  <span className="font-bold text-ink font-mono uppercase block">SEBI &amp; RBI Benchmark Doubling Times:</span>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="p-2 bg-surface rounded border border-border">
+                      <span className="text-ink-muted block text-[11px]">Bank / Post Office FD (7.1%)</span>
+                      <span className="font-bold text-ink font-mono">~10.1 Years to double</span>
+                    </div>
+                    <div className="p-2 bg-surface rounded border border-border">
+                      <span className="text-ink-muted block text-[11px]">Nifty Index CAGR (~12%)</span>
+                      <span className="font-bold text-ink font-mono">~6.0 Years to double</span>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* Practical Simulation: Emergency Fund Output */}
+          {activeMode === 'EMERGENCY_FUND' && emergencyFundResult && (
+            <Card className="border-border">
+              <CardHeader className="border-b border-border pb-4">
+                <div className="flex items-center justify-between">
+                  <CardTitle>Liquid Emergency Buffer</CardTitle>
+                  <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                    Untouchable Capital
+                  </span>
+                </div>
+              </CardHeader>
+              <CardContent className="pt-4 space-y-4">
+                <div className="p-3.5 bg-surface-sunken rounded-lg border border-border">
+                  <span className="block text-xs text-ink-muted">Monthly Survival Baseline</span>
+                  <span className="text-2xl font-black text-ink font-mono">
+                    ₹{formatIndianNumber(emergencyFundResult.monthlyEssential, 0)} / mo
+                  </span>
+                  <p className="text-[11px] text-ink-muted mt-0.5">
+                    Covers non-negotiable living obligations: Rent/EMI + Food + Utilities + Healthcare
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-3 gap-2.5 text-center">
+                  <div className="p-3 bg-surface rounded-lg border border-border">
+                    <span className="text-[10px] uppercase font-mono text-ink-muted block">3 Months (Salaried)</span>
+                    <span className="text-sm sm:text-base font-bold font-mono text-ink">
+                      ₹{formatIndianNumber(emergencyFundResult.threeMonths, 0)}
+                    </span>
+                  </div>
+                  <div className="p-3 bg-accent-soft rounded-lg border border-accent/40">
+                    <span className="text-[10px] uppercase font-mono text-accent font-bold block">6 Months (Standard)</span>
+                    <span className="text-sm sm:text-base font-extrabold font-mono text-ink">
+                      ₹{formatIndianNumber(emergencyFundResult.sixMonths, 0)}
+                    </span>
+                  </div>
+                  <div className="p-3 bg-surface rounded-lg border border-border">
+                    <span className="text-[10px] uppercase font-mono text-ink-muted block">12 Months (Freelance)</span>
+                    <span className="text-sm sm:text-base font-bold font-mono text-ink">
+                      ₹{formatIndianNumber(emergencyFundResult.twelveMonths, 0)}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="p-3.5 bg-emerald-500/10 border border-emerald-500/30 rounded-lg text-xs space-y-1.5 text-ink">
+                  <p className="font-bold text-emerald-700 dark:text-emerald-300">
+                    🛡️ Emergency Buffer Cardinal Rule:
+                  </p>
+                  <p className="text-ink-muted leading-relaxed">
+                    Keep 50% in a high-yield bank savings account with instant UPI access, and 50% in an overnight/liquid mutual fund or bank sweep-in FD.
+                    Never lock emergency funds into crypto, chit funds, or unverified trading schemes.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
         </div>
 
         {/* Right Column: Reality Ladder & Socratic Questioning */}
@@ -537,6 +967,8 @@ function CalculatorContent() {
             promiseAnnualisedPct={
               activeMode === 'PROMISE_CHECK' && promiseResult && promiseResult.success
                 ? promiseResult.annualisedReturnPct
+                : activeMode === 'RULE_OF_72'
+                ? ruleOf72Result.impliedAnnualRatePct
                 : activeMode === 'CAGR' && cagrResult && cagrResult.success
                 ? cagrResult.cagrPct
                 : activeMode === 'LUMP_SUM'
