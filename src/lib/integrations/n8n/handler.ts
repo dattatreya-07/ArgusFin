@@ -109,11 +109,26 @@ export function validateN8nRequest(payload: any): N8nIntegrationRequest {
   };
 }
 
+export function getDefaultBaseUrl(): string {
+  const envUrl = process.env.NEXT_PUBLIC_APP_URL;
+  if (envUrl && !envUrl.includes('sangyan.in')) {
+    return envUrl.replace(/\/$/, '');
+  }
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL.replace(/\/$/, '')}`;
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL.replace(/\/$/, '')}`;
+  }
+  return 'https://argusfin.vercel.app';
+}
+
 export async function processN8nAnalysis(
   req: N8nIntegrationRequest,
   requestId: string = generateRequestId(),
-  baseUrl: string = process.env.NEXT_PUBLIC_APP_URL || 'https://sangyan.in'
+  baseUrl?: string
 ): Promise<N8nIntegrationResponse> {
+  const effectiveBaseUrl = baseUrl && !baseUrl.includes('sangyan.in') ? baseUrl.replace(/\/$/, '') : getDefaultBaseUrl();
   // Idempotency check
   const idempotencyKey = buildIdempotencyKey(req.channel, req.message.id);
   const cached = getCachedResponse(idempotencyKey);
@@ -204,7 +219,7 @@ export async function processN8nAnalysis(
 
   // Format channel-ready markdown presentation response
   const channelCheckResult = await checkChannelContent(normalizedMsg);
-  const formattedChannelResp = formatChannelResponse(channelCheckResult, baseUrl);
+  const formattedChannelResp = formatChannelResponse(channelCheckResult, effectiveBaseUrl);
 
   const responseDTO: N8nIntegrationResponse = {
     status: 'SUCCESS',
@@ -219,7 +234,7 @@ export async function processN8nAnalysis(
     nextSteps: analysisResult.explanation.nextSteps.map((s) => ({
       id: s.id,
       label: s.label,
-      url: s.url.startsWith('http') ? s.url : `${baseUrl}${s.url}`,
+      url: s.url.startsWith('http') ? s.url : `${effectiveBaseUrl}${s.url}`,
     })),
     citations: analysisResult.explanation.citations,
     formattedMessage: formattedChannelResp.formattedMarkdown,

@@ -69,8 +69,18 @@ import { RULE_DEFINITIONS } from '../rules';
  */
 export function formatChannelResponse(
   result: ChannelCheckResult,
-  baseUrl = 'https://sangyan.in'
+  baseUrl?: string
 ): ChannelResponse {
+  const resolvedBase = baseUrl && !baseUrl.includes('sangyan.in')
+    ? baseUrl.replace(/\/$/, '')
+    : process.env.NEXT_PUBLIC_APP_URL && !process.env.NEXT_PUBLIC_APP_URL.includes('sangyan.in')
+    ? process.env.NEXT_PUBLIC_APP_URL.replace(/\/$/, '')
+    : process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL.replace(/\/$/, '')}`
+    : process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL.replace(/\/$/, '')}`
+    : 'https://argusfin.vercel.app';
+
   const lang = result.language;
   const labels = LOCALIZED_LABELS[lang] || LOCALIZED_LABELS.en;
   const riskTitle = (LOCALIZED_RISK_TITLES[lang] || LOCALIZED_RISK_TITLES.en)[result.band];
@@ -87,18 +97,18 @@ export function formatChannelResponse(
     result.band === 'HIGH' || result.band === 'MEDIUM'
       ? {
           label: labels.reportAction,
-          url: `${baseUrl}/${lang}/report`,
+          url: `${resolvedBase}/${lang}/report`,
         }
       : {
           label: labels.nextStep,
-          url: `${baseUrl}/${lang}/check`,
+          url: `${resolvedBase}/${lang}/check`,
         };
 
   // Calculator action if applicable
   const calculatorAction: ChannelResponseAction | undefined = result.calcUrl
     ? {
         label: labels.calcAction,
-        url: `${baseUrl}${result.calcUrl}`,
+        url: `${resolvedBase}${result.calcUrl}`,
       }
     : undefined;
 

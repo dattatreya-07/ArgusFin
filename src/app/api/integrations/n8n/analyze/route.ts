@@ -26,6 +26,39 @@ function isRateLimited(key: string): boolean {
   return false;
 }
 
+function resolveBaseUrl(req: NextRequest): string {
+  // 1. Explicit NEXT_PUBLIC_APP_URL environment variable if set and not placeholder
+  const envUrl = process.env.NEXT_PUBLIC_APP_URL;
+  if (envUrl && !envUrl.includes('sangyan.in')) {
+    return envUrl.replace(/\/$/, '');
+  }
+
+  // 2. Vercel System Production URL (e.g. argus-fin.vercel.app)
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL.replace(/\/$/, '')}`;
+  }
+
+  // 3. Vercel System Deployment URL (e.g. argus-fin-xxx.vercel.app)
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL.replace(/\/$/, '')}`;
+  }
+
+  // 4. Dynamic incoming request headers from the n8n webhook caller
+  const forwardedHost = req.headers.get('x-forwarded-host');
+  const host = forwardedHost || req.headers.get('host');
+  const proto = req.headers.get('x-forwarded-proto') || 'https';
+
+  if (host && !host.includes('localhost') && !host.includes('127.0.0.1')) {
+    return `${proto}://${host.replace(/\/$/, '')}`;
+  }
+
+  if (host) {
+    return `${proto}://${host.replace(/\/$/, '')}`;
+  }
+
+  return 'https://argusfin.vercel.app';
+}
+
 export async function POST(req: NextRequest) {
   const startTime = Date.now();
   const requestId = generateRequestId();
@@ -101,13 +134,15 @@ export async function POST(req: NextRequest) {
   try {
     const validRequest = validateN8nRequest(body);
 
-    // 4. Process Canonical Analysis with timeout guard
+    // 4. Process Canonical Analysis with dynamic deployed baseUrl
+    const baseUrl = resolveBaseUrl(req);
+
     const timeoutPromise = new Promise((_, reject) =>
       setTimeout(() => reject(new Error('SANGYAN_TIMEOUT')), 10000)
     );
 
     const responseDTO = (await Promise.race([
-      processN8nAnalysis(validRequest, requestId),
+      processN8nAnalysis(validRequest, requestId, baseUrl),
       timeoutPromise,
     ])) as any;
 
