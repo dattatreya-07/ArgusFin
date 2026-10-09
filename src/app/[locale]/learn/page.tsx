@@ -6,7 +6,6 @@ import { Link } from '@/i18n/routing';
 import { TRACKS, LESSONS, curriculumService } from '@/lib/financeX/academy/curriculum';
 import { aiTutor } from '@/lib/financeX/academy/tutor';
 import { progressService } from '@/lib/financeX/academy/progress';
-import { MOCK_COURSES } from '@/lib/financeX/fx1/mockData';
 import { Card, CardHeader, CardContent, Button, Chip, SectionHeading } from '@/components/ui';
 
 export default function FinanceXAcademyHub({ params: { locale } }: { params: { locale: string } }) {
@@ -203,61 +202,25 @@ export default function FinanceXAcademyHub({ params: { locale } }: { params: { l
         </div>
       </div>
 
-      {/* 4. FX1 EXTENDED MASTERCLASSES & TOUR */}
-      <div className="space-y-6 pt-4 border-t border-border">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-          <div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/30 text-accent font-mono text-xs font-bold mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-              FX1 Curriculum Integration
+      {/* Decoupled Bridge Link to FinanceX Platform */}
+      <div className="pt-4 border-t border-border">
+        <div className="p-4 sm:p-5 rounded-2xl border border-accent/30 bg-surface-sunken flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="space-y-1">
+            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-accent font-mono text-[10px] font-bold">
+              <span>⚡ External Bridge</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black font-inktrap text-ink tracking-tight">
-              FX1 Specialized Financial Masterclasses
-            </h2>
-            <p className="text-xs sm:text-sm text-ink-muted mt-1">
-              Deep-dive interactive courses covering stock market basics, technical analysis, and derivatives.
+            <h3 className="font-bold text-ink text-sm sm:text-base font-inktrap">
+              FinanceX FX1 Advanced Platform Hub
+            </h3>
+            <p className="text-xs text-ink-muted leading-relaxed">
+              Looking for advanced NISM equity derivatives, fixed income curves, boot video tour, and paper portfolio labs?
             </p>
           </div>
-          <Link href="/financex">
-            <Button variant="primary" size="sm" className="font-extrabold text-accent-ink shadow-soft">
-              Watch Boot Tour & Open Arena →
+          <Link href="/financex" className="shrink-0">
+            <Button variant="secondary" size="sm" className="font-bold">
+              Launch FinanceX Hub →
             </Button>
           </Link>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {MOCK_COURSES.map((course) => (
-            <div
-              key={course.course_id}
-              className="p-5 rounded-2xl border border-border bg-surface-sunken hover:border-accent/60 transition-all flex flex-col justify-between"
-            >
-              <div className="space-y-2">
-                <div className="flex items-center justify-between text-[11px] font-mono">
-                  <span className="px-2 py-0.5 rounded bg-surface border border-border text-accent font-bold uppercase">
-                    {course.level || 'INTERMEDIATE'}
-                  </span>
-                  <span className="text-ink-muted">★ {(course.rating ?? 4.8).toFixed(1)}</span>
-                </div>
-                <h3 className="font-bold text-ink text-base font-inktrap mt-1">
-                  {course.course_title}
-                </h3>
-                <p className="text-xs text-ink-muted line-clamp-2">
-                  {course.description}
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-border/60 mt-3 flex items-center justify-between">
-                <span className="text-xs font-mono text-ink-muted">
-                  {course.total_lessons || 10} Lessons · {course.estimated_hours || 8}h
-                </span>
-                <Link href="/financex">
-                  <span className="text-xs font-bold text-accent hover:underline">
-                    Explore →
-                  </span>
-                </Link>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </div>
