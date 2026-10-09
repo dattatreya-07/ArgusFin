@@ -46,7 +46,10 @@ interface CheckApiResponse {
   structuredExplanation?: RiskAnalysisExplanation;
   citations: Array<{ title: string; url: string }>;
   nextSteps: Array<{ id: string; label: string; url: string }>;
-  engine: 'jev' | 'llm-fallback' | 'rules-only';
+  engine: string;
+  hybridReasoning?: any;
+  hybridStatus?: string;
+  advancedIntelligence?: import('@/lib/scam/advancedIntelligence').StructuredClassification;
 }
 
 const PRESET_EXAMPLES = [
@@ -474,10 +477,46 @@ export default function CheckPage() {
                 <p className="text-base sm:text-lg text-ink font-medium leading-relaxed">
                   {result.structuredExplanation?.summary || result.explanation}
                 </p>
+
+                {/* Threat Category Badge & Sub-Category */}
+                {result.advancedIntelligence && (
+                  <div className="flex flex-wrap items-center gap-2 pt-1.5">
+                    <span className="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-primary/10 text-primary border border-primary/20">
+                      🛡️ {result.advancedIntelligence.primaryCategory.replace(/_/g, ' ')}
+                    </span>
+                    <span className="text-xs text-ink-muted font-medium">
+                      {result.advancedIntelligence.subCategory}
+                    </span>
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-surface border border-border text-ink-muted">
+                      Uncertainty: {result.advancedIntelligence.uncertaintyLevel}
+                    </span>
+                  </div>
+                )}
               </div>
             </CardHeader>
 
             <CardContent className="space-y-6 border-t border-border pt-6">
+              {/* Conflicting Signals Alert (Phase 4.2) */}
+              {result.advancedIntelligence?.conflictingSignals && result.advancedIntelligence.conflictingSignals.length > 0 && (
+                <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 space-y-2">
+                  <div className="flex items-center gap-2 text-amber-700 dark:text-amber-400 font-bold text-xs uppercase font-mono">
+                    <span>⚠️</span>
+                    <span>Conflicting / Contradictory Signals Detected</span>
+                  </div>
+                  <div className="space-y-2 pt-1">
+                    {result.advancedIntelligence.conflictingSignals.map((conf, cIdx) => (
+                      <div key={cIdx} className="text-xs bg-surface/70 p-2.5 rounded-lg border border-border space-y-1">
+                        <div className="flex flex-wrap items-center gap-2 font-mono text-[11px] text-ink">
+                          <span className="text-red-500 font-bold">Signal A:</span> {conf.signalA}
+                          <span className="text-ink-muted">vs</span>
+                          <span className="text-red-500 font-bold">Signal B:</span> {conf.signalB}
+                        </div>
+                        <p className="text-xs text-ink-muted leading-relaxed">{conf.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
               {/* Detected Warning Signs (Itemized with points) */}
               {result.structuredExplanation && result.structuredExplanation.detectedSignals.length > 0 ? (
                 <div className="space-y-3">
@@ -555,6 +594,33 @@ export default function CheckPage() {
                       </span>
                     </div>
                   </div>
+                </div>
+              )}
+
+              {/* Contextual AI Observation (Dual-Compartment Partition: Non-Authoritative Interpretation) */}
+              {result.structuredExplanation?.contextualObservations && (
+                <div className="p-4 rounded-xl bg-primary-subtle/50 border border-primary/20 space-y-2">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-xs font-bold uppercase tracking-wider text-primary font-mono flex items-center gap-1.5">
+                      <span>🤖</span>
+                      <span>AI Pattern Interpretation (Non-Authoritative)</span>
+                    </span>
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-pill bg-primary/10 text-primary border border-primary/20">
+                      Bounded Reasoning
+                    </span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-ink leading-relaxed">
+                    {result.structuredExplanation.contextualObservations}
+                  </p>
+                  {result.structuredExplanation.candidateIndicators && result.structuredExplanation.candidateIndicators.length > 0 && (
+                    <div className="pt-2 border-t border-primary/10 flex flex-wrap gap-1.5">
+                      {result.structuredExplanation.candidateIndicators.map((cand, cIdx) => (
+                        <span key={cIdx} className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-surface border border-border text-ink-muted">
+                          🔍 {cand.indicator} ({cand.confidence.toLowerCase()})
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               )}
 

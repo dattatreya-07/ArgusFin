@@ -2,9 +2,9 @@ import { ReactNode } from 'react';
 import './globals.css';
 
 export const metadata = {
-  title: 'Argus Fin — SANGYAN Investor Resilience',
+  title: 'FinanceX — AI-Guided Investor Intelligence & Fraud Defense (ArgusFin Shield)',
   description:
-    'Evidence-based investor protection, real-time scam claim verification, and yield reality checks grounded in official SEBI/RBI benchmarks.',
+    'FinanceX unified platform: Learn market essentials, verify claims with ArgusFin Shield AI, and anchor tamper-proof credentials on Web3.',
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',

@@ -21,6 +21,7 @@ import { CyberFraudMap } from '@/components/CyberFraudMap';
 import { TickerMarquee } from '@/components/TickerMarquee';
 import { ChannelsShowcase } from '@/components/channels/ChannelsShowcase';
 import { ScrambleText } from '@/components/ScrambleText';
+import { FinanceXHomeShowcase } from '@/components/FinanceXHomeShowcase';
 
 interface HomePageProps {
   params: { locale: string };
@@ -190,7 +191,10 @@ export default function HomePage({ params: { locale } }: HomePageProps) {
         </div>
       </section>
 
-      {/* 2. THREE-PILLAR PRODUCT CARDS */}
+      {/* 2. FINANCEX INTEGRATED PLATFORM SPOTLIGHT & BOOT TOUR */}
+      <FinanceXHomeShowcase />
+
+      {/* 3. THREE-PILLAR PRODUCT CARDS */}
       <section className="space-y-6">
         <div className="reveal space-y-2 text-center max-w-2xl mx-auto" data-reveal-delay="100">
           <span className="tag-bracket">THE THREE PILLARS</span>

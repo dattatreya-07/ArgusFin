@@ -133,6 +133,9 @@ export async function POST(req: NextRequest) {
         citations: analysis.explanation.citations,
         nextSteps: analysis.explanation.nextSteps,
         engine: analysis.decision.engine,
+        hybridReasoning: analysis.hybridReasoning,
+        hybridStatus: analysis.statuses.hybrid,
+        advancedIntelligence: analysis.advancedIntelligence,
       },
       { status: 200 }
     );

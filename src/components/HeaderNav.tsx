@@ -22,6 +22,7 @@ export function HeaderNav() {
 
   const navLinks = [
     { href: '/', label: tNav('home'), exact: true },
+    { href: '/financex', label: 'FinanceX Hub', highlight: true },
     { href: '/learn', label: tNav('learn') },
     { href: '/check', label: tNav('protect'), badge: true },
     { href: '/calculator', label: tNav('calculator') },
@@ -73,8 +74,9 @@ export function HeaderNav() {
               <span className="text-xl font-black tracking-tight text-accent font-inktrap ml-0.5">
                 X
               </span>
-              <span className="hidden sm:inline-block ml-2 text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 bg-surface-sunken text-accent border border-border rounded">
-                ArgusFin Shield
+              <span className="hidden sm:inline-flex items-center gap-1.5 ml-2 text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 bg-accent/10 text-accent border border-accent/30 rounded-full">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                AI Platform
               </span>
             </div>
           </Link>
@@ -85,13 +87,29 @@ export function HeaderNav() {
           </div>
         </div>
 
-        {/* Matrix-Style Navigation Bar (No Scrollbar, 6 Clean Links) */}
+        {/* Matrix-Style Navigation Bar */}
         <nav
           aria-label="Main navigation"
-          className="grid grid-cols-3 sm:flex sm:flex-wrap items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-ink-muted"
+          className="grid grid-cols-4 sm:flex sm:flex-wrap items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-ink-muted"
         >
           {navLinks.map((link) => {
             const active = isActiveRoute(link.href, link.exact);
+            if (link.highlight) {
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`text-center px-3 py-1 rounded-full text-xs font-extrabold transition-all border flex items-center justify-center gap-1.5 ${
+                    active
+                      ? 'bg-gradient-to-r from-accent to-highlight text-accent-ink border-transparent shadow-glow scale-105'
+                      : 'bg-accent/15 text-accent border-accent/40 hover:bg-accent/25 hover:border-accent hover:shadow-soft'
+                  }`}
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                  <span>{link.label}</span>
+                </Link>
+              );
+            }
             return (
               <Link
                 key={link.href}

@@ -28,23 +28,23 @@ function Footer() {
             <div className="flex items-center gap-2.5">
               <img
                 src="/assets/logo.png"
-                alt="Argus Fin"
+                alt="FinanceX Logo"
                 className="w-7 h-7 object-contain rounded"
               />
               <div className="flex items-center">
                 <span className="text-lg font-black tracking-tight text-ink font-inktrap">
-                  Argus
+                  Finance
                 </span>
-                <span className="text-lg font-black tracking-tight text-[#F5A524] font-inktrap ml-0.5">
-                  Fin
+                <span className="text-lg font-black tracking-tight text-accent font-inktrap ml-0.5">
+                  X
                 </span>
               </div>
               <span className="tag-bracket text-[10px]">
-                Scam Defense
+                Learn · Protect · Prove
               </span>
             </div>
             <p className="text-ink-muted text-xs leading-relaxed max-w-[40ch]">
-              Evidence-based scam claim verification, mathematical reality checks, and verified authority routing grounded in official Indian regulatory standards.
+              FinanceX connects interactive financial learning, ArgusFin Shield fraud detection, and tamper-evident Web3 credentials into a unified trust ecosystem.
             </p>
             <div className="flex items-center gap-2 pt-1 font-mono text-[11px]">
               <span className="px-2.5 py-1 rounded bg-surface border border-border text-emerald-500 dark:text-emerald-400">

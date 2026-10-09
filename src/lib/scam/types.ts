@@ -53,6 +53,7 @@ export interface AnalysisStatuses {
   decision: AnalysisStatusType;
   rag: RagStatus;
   llm: LlmStatus;
+  hybrid?: 'SUCCESS' | 'FALLBACK_DETERMINISTIC' | 'REJECTED_CONTRADICTION' | 'TIMEOUT';
 }
 
 export interface AnalysisResult {
@@ -80,5 +81,7 @@ export interface AnalysisResult {
   openWorldAnalysis?: any;
   semanticEvidence?: SemanticEvidence;
   structuredExplanation?: import('./explanation').RiskAnalysisExplanation;
+  hybridReasoning?: import('@/lib/ai/hybridReasoning').ValidatedHybridReasoningResult;
+  advancedIntelligence?: import('./advancedIntelligence').StructuredClassification;
 }
 

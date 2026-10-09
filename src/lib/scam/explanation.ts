@@ -24,6 +24,9 @@ export interface RiskAnalysisExplanation {
   confidence: number;
   limitations: string[];
   actionSteps: string[];
+  contextualObservations?: string;
+  candidateIndicators?: Array<{ indicator: string; rationale: string; confidence: 'LOW' | 'MEDIUM' | 'HIGH' }>;
+  hybridStatus?: string;
 }
 
 interface SignalLocaleStrings {
@@ -174,8 +177,23 @@ export function buildStructuredExplanation(options: {
   claims: ExtractedClaims;
   rawText?: string;
   lang?: Lang;
+  contextualObservations?: string;
+  candidateIndicators?: Array<{ indicator: string; rationale: string; confidence: 'LOW' | 'MEDIUM' | 'HIGH' }>;
+  hybridStatus?: string;
 }): RiskAnalysisExplanation {
-  const { band, confidence, archetype, flags, signals, claims, rawText = '', lang = 'en' } = options;
+  const {
+    band,
+    confidence,
+    archetype,
+    flags,
+    signals,
+    claims,
+    rawText = '',
+    lang = 'en',
+    contextualObservations,
+    candidateIndicators,
+    hybridStatus,
+  } = options;
   const currentLang: Lang = (['en', 'hi', 'ta'].includes(lang) ? lang : 'en') as Lang;
   const lowerText = rawText.toLowerCase();
 
@@ -473,5 +491,8 @@ export function buildStructuredExplanation(options: {
     confidence,
     limitations,
     actionSteps,
+    contextualObservations,
+    candidateIndicators,
+    hybridStatus,
   };
 }

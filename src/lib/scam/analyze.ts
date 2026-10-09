@@ -11,6 +11,8 @@ import { analyzeOpenWorldBehavior, OpenWorldAnalysis } from '@/lib/detector/open
 import { getSemanticProvider } from '@/lib/semantic';
 import { SemanticEvidence } from '@/lib/semantic/types';
 import { buildStructuredExplanation } from './explanation';
+import { executeHybridReasoning, ValidatedHybridReasoningResult } from '@/lib/ai/hybridReasoning';
+import { classifyAdvancedScamIntelligence } from './advancedIntelligence';
 import enMessages from '../../../locales/en.json';
 import hiMessages from '../../../locales/hi.json';
 import taMessages from '../../../locales/ta.json';
@@ -195,6 +197,26 @@ export async function analyzeScam(input: CanonicalInput): Promise<AnalysisResult
     } catch {
       ragStatus = 'RAG_UNAVAILABLE';
     }
+  }
+
+  // 7b. Hybrid AI Reasoning Layer (Open-World Pattern Interpretation with Strict Boundary Controls)
+  let hybridResult: ValidatedHybridReasoningResult | undefined;
+  try {
+    hybridResult = await executeHybridReasoning({
+      sanitizedText: normalization.normalizedText,
+      lang,
+      authoritativeBand: detectorRes.fusion.finalBand,
+      authoritativeScore: detectorRes.fusion.finalBand === 'HIGH' ? 85 : detectorRes.fusion.finalBand === 'MEDIUM' ? 55 : 15,
+      detectedSignals: detectorRes.signals,
+      retrievedCitations: (ragResponse?.citations || []).map((c) => ({
+        title: c.title,
+        sourceUrl: c.sourceUrl,
+        publisher: c.publisher,
+      })),
+      urlSignals: urlAnalysis.aggregateSignals,
+    });
+  } catch (err) {
+    console.warn('[analyzeScam] Hybrid reasoning error:', err);
   }
 
   // 8. Build 5-Part Message-Specific Grounded Explanation
@@ -401,6 +423,9 @@ export async function analyzeScam(input: CanonicalInput): Promise<AnalysisResult
   if (urlAnalysis.ssrfBlockedCount > 0) {
     limitations.push('One or more internal/private IP targets were blocked for security reasons.');
   }
+  if (hybridResult?.limitations) {
+    limitations.push(...hybridResult.limitations);
+  }
 
   const structuredExplanation = buildStructuredExplanation({
     band: detectorRes.fusion.finalBand,
@@ -410,6 +435,20 @@ export async function analyzeScam(input: CanonicalInput): Promise<AnalysisResult
     signals: detectorRes.signals,
     claims: detectorRes.claims,
     rawText: sanitizedText,
+    lang,
+    contextualObservations: hybridResult?.contextualObservation,
+    candidateIndicators: hybridResult?.candidateIndicators,
+    hybridStatus: hybridResult?.status,
+  });
+
+  const advancedIntelligence = classifyAdvancedScamIntelligence({
+    rawText: sanitizedText,
+    band: detectorRes.fusion.finalBand,
+    archetype: detectorRes.fusion.topArchetype.top,
+    claims: detectorRes.claims,
+    signals: detectorRes.signals,
+    openWorld: openWorldEval,
+    urlAnalysis,
     lang,
   });
 
@@ -430,6 +469,7 @@ export async function analyzeScam(input: CanonicalInput): Promise<AnalysisResult
       decision: decisionStatus,
       rag: ragStatus,
       llm: 'LLM_EXPLANATION_AVAILABLE',
+      hybrid: hybridResult?.status || 'FALLBACK_DETERMINISTIC',
     },
     provenance: {
       source: input.source,
@@ -439,5 +479,7 @@ export async function analyzeScam(input: CanonicalInput): Promise<AnalysisResult
     limitations,
     urlAnalysis,
     openWorldAnalysis: openWorldEval,
+    hybridReasoning: hybridResult,
+    advancedIntelligence,
   };
 }

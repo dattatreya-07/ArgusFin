@@ -238,15 +238,31 @@ export function analyzeOpenWorldBehavior(
     claimedSituation = 'Account suspension or block threat demanding immediate verification';
   }
 
-  // 4. Pressure Signals (Urgency, Threat, Fear, Secrecy, Authority, Scarcity)
-  if (/\b(tonight|within 2 hours|immediately|today only|expires in|urgent|last chance|जल्दी|உடனடியாக)\b/i.test(lower)) {
+  // 4. Pressure Signals (Urgency, Threat, Fear, Secrecy, Authority, Scarcity, Reward)
+  if (
+    /\b(tonight|within 2 hours|immediately|today only|expires in|urgent|last chance)\b/i.test(lower) ||
+    /(?:जल्दी|உடனடியாக|உடனே|விரைவில்)/i.test(lower)
+  ) {
     pressureSignals.push({
       type: 'URGENCY',
       evidence: 'Imposes short deadline or immediate time pressure',
     });
   }
 
-  if (/\b(disconnected|arrest|court warrant|jail|legal action|fine|penalty|deleting account|suspended|deactivated|deactivation|sim block|sim card|blocked|சிறை|जेल)\b/i.test(lower)) {
+  if (
+    /\b(won|winner|lucky draw|lottery|prize|selected for|congratulations)\b/i.test(lower) ||
+    /(?:பரிசு|வெற்றி)/i.test(lower)
+  ) {
+    pressureSignals.push({
+      type: 'REWARD',
+      evidence: 'Uses lottery, prize, or reward hook to solicit engagement',
+    });
+  }
+
+  if (
+    /\b(disconnected|arrest|court warrant|jail|legal action|fine|penalty|deleting account|suspended|deactivated|deactivation|sim block|sim card|blocked)\b/i.test(lower) ||
+    /(?:சிறை|ஜேல்|जेल)/i.test(lower)
+  ) {
     pressureSignals.push({
       type: 'THREAT',
       evidence: 'Threatens severe negative consequences (disconnection, arrest, SIM deactivation, fine, suspension)',
@@ -257,7 +273,10 @@ export function analyzeOpenWorldBehavior(
     });
   }
 
-  if (/\b(do not disconnect|do not tell|keep private|secret|do not share with bank|secret method|secret group|private circle|ரகசியம்|गुप्त)\b/i.test(lower)) {
+  if (
+    /\b(do not disconnect|do not tell|keep private|secret|do not share with bank|secret method|secret group|private circle)\b/i.test(lower) ||
+    /(?:ரகசியம்|गुप्त)/i.test(lower)
+  ) {
     pressureSignals.push({
       type: 'SECRECY',
       evidence: 'Instructs recipient to keep transaction private or asserts secret methods',
@@ -278,9 +297,11 @@ export function analyzeOpenWorldBehavior(
     });
   }
 
-  // 5. Financial Signals (Payment, Fee, Unrealistic Returns, Guarantee, Withdrawal Block)
+  // 5. Financial Signals (Payment, Fee, Unrealistic Returns, Guarantee, Withdrawal Block, Recovery)
   const containsAmount = /₹\s*\d+|\b\d+\s*(?:rs|rupees|inr)\b/i.test(lower);
-  const paymentWords = /\b(pay|transfer|deposit|clearance tax|processing fee|booking amount|registration fee|fine|token|कैटम|शुल्क|கட்டணம்)\b/i.test(lower);
+  const paymentWords =
+    /\b(pay|transfer|deposit|clearance tax|processing fee|booking amount|registration fee|fine|token)\b/i.test(lower) ||
+    /(?:கட்டணம்|அனுப்பவும்|भेजें|पे करें)/i.test(lower);
 
   if (paymentWords || containsAmount || claims?.requests.includes('PAYMENT')) {
     financialSignals.push({
@@ -289,14 +310,35 @@ export function analyzeOpenWorldBehavior(
     });
   }
 
-  if (/\b(registration fee|processing fee|upfront|activation fee|documentation fee|clearance tax|advance|मुன்பணம்|अग्रिम)\b/i.test(lower)) {
+  if (
+    /\b(registration fee|processing fee|upfront|activation fee|documentation fee|clearance tax|advance)\b/i.test(lower) ||
+    /(?:முன்பணம்|अग्रिम)/i.test(lower) ||
+    (/\b(won|winner|lucky draw|lottery|prize|winnings|jackpot)\b/i.test(lower) && /\b(processing fee|advance|transfer|deposit|tax clearance|release funds|upfront)\b/i.test(lower))
+  ) {
     financialSignals.push({
       type: 'ADVANCE_FEE',
       evidence: 'Demands advance fee or upfront payment before releasing service/funds',
     });
   }
 
-  if (/\b(guaranteed|fixed profit|100% win|no loss|sure return|गारंटी|உத்தரவாதம்)\b/i.test(lower)) {
+  if (/\b(recover.*(?:money|fund|usdt|crypto|loss)|cyber recovery|frozen.*(?:wallet|scammer)|recovery.*fee|release fee)\b/i.test(lower)) {
+    financialSignals.push({
+      type: 'RECOVERY_PAYMENT',
+      evidence: 'Secondary fund recovery scam demanding upfront fee to unlock frozen stolen assets',
+    });
+  }
+
+  if (/\b(part-time.*job|like.*youtube.*video|daily.*task|video liking|prepaid task|task.*deposit|security deposit to upgrade)\b/i.test(lower)) {
+    financialSignals.push({
+      type: 'UNREALISTIC_RETURN',
+      evidence: 'Prepaid task/job investment scam promising high daily pay for simple tasks upon deposit',
+    });
+  }
+
+  if (
+    /\b(guaranteed|fixed profit|100% win|no loss|sure return)\b/i.test(lower) ||
+    /(?:गारंटी|உத்தரவாதம்|உத்தரவாத)/i.test(lower)
+  ) {
     financialSignals.push({
       type: 'GUARANTEED_RETURN',
       evidence: 'Claims 100% guaranteed or risk-free financial return',
@@ -360,7 +402,10 @@ export function analyzeOpenWorldBehavior(
     });
   }
 
-  if (/\b(add chat group|join.*group|telegram group|whatsapp group|trading circle|private group)\b/i.test(lower)) {
+  if (
+    /(?:விஐபி|குழு|சேரவும்|இணையுங்கள்|டெலிகிராம்|வாட்ஸ்அப்)/i.test(lower) ||
+    /\b(add chat group|join.*group|telegram group|whatsapp group|trading circle|private group)\b/i.test(lower)
+  ) {
     requestedActions.push({
       action: 'JOIN_GROUP',
       evidence: 'Solicits joining an external chat group, private trading circle, or channel',
@@ -427,6 +472,27 @@ export function analyzeOpenWorldBehavior(
   // Signal combinations elevate score compositionally
   if (financialSignals.some((f) => f.type === 'PAYMENT_REQUEST' || f.type === 'ADVANCE_FEE')) {
     riskScorePoints += 2.0;
+  }
+  if (financialSignals.some((f) => f.type === 'UNREALISTIC_RETURN' || f.type === 'GUARANTEED_RETURN')) {
+    riskScorePoints += 2.0;
+  }
+  if (
+    financialSignals.some((f) => f.type === 'UNREALISTIC_RETURN' || f.type === 'GUARANTEED_RETURN') &&
+    financialSignals.some((f) => f.type === 'PAYMENT_REQUEST' || f.type === 'ADVANCE_FEE')
+  ) {
+    riskScorePoints += 2.0;
+  }
+  if (
+    requestedActions.some((a) => a.action === 'JOIN_GROUP') &&
+    financialSignals.some((f) => f.type === 'GUARANTEED_RETURN' || f.type === 'UNREALISTIC_RETURN')
+  ) {
+    riskScorePoints += 2.0;
+  }
+  if (financialSignals.some((f) => f.type === 'RECOVERY_PAYMENT')) {
+    riskScorePoints += 3.5;
+  }
+  if (pressureSignals.some((p) => p.type === 'REWARD') && financialSignals.some((f) => f.type === 'ADVANCE_FEE' || f.type === 'PAYMENT_REQUEST')) {
+    riskScorePoints += 3.0;
   }
   if (pressureSignals.some((p) => p.type === 'URGENCY')) {
     riskScorePoints += 1.5;
